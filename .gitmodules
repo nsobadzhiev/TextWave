@@ -1,0 +1,9 @@
+[submodule "libs/ttr"]
+	path = libs/ttr
+	url = https://github.com/nsobadzhiev/TTR.git
+[submodule "libs/kissXML"]
+	path = libs/kissXML
+	url = https://github.com/robbiehanson/KissXML.git
+[submodule "libs/zipzap"]
+	path = libs/zipzap
+	url = https://github.com/pixelglow/zipzap.git

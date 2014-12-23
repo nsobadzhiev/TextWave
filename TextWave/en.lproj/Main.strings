@@ -1,0 +1,60 @@
+
+/* Class = "IBUINavigationItem"; title = "Book"; ObjectID = "0oa-r8-TvQ"; */
+"0oa-r8-TvQ.title" = "Book";
+
+/* Class = "IBUILabel"; text = "EPUB"; ObjectID = "50n-sG-Uqb"; */
+"50n-sG-Uqb.text" = "EPUB";
+
+/* Class = "IBUINavigationItem"; title = "Sources"; ObjectID = "56G-gn-orj"; */
+"56G-gn-orj.title" = "Sources";
+
+/* Class = "IBUIButton"; normalTitle = "Skip"; ObjectID = "5cn-5b-gJi"; */
+"5cn-5b-gJi.normalTitle" = "Skip";
+
+/* Class = "IBUIButton"; normalTitle = "Previous"; ObjectID = "654-wX-sTV"; */
+"654-wX-sTV.normalTitle" = "Previous";
+
+/* Class = "IBUIBarButtonItem"; title = "Now Playing"; ObjectID = "6QD-bu-IoE"; */
+"6QD-bu-IoE.title" = "Now Playing";
+
+/* Class = "IBUIButton"; normalTitle = "Next"; ObjectID = "B2g-Aj-xcb"; */
+"B2g-Aj-xcb.normalTitle" = "Next";
+
+/* Class = "IBUIButton"; normalTitle = "Play"; ObjectID = "CVF-dS-lpY"; */
+"CVF-dS-lpY.normalTitle" = "Play";
+
+/* Class = "IBUIButton"; normalTitle = "Skip"; ObjectID = "DDc-yX-fk3"; */
+"DDc-yX-fk3.normalTitle" = "Skip";
+
+/* Class = "IBUILabel"; text = "Rate"; ObjectID = "ETt-Pc-apR"; */
+"ETt-Pc-apR.text" = "Rate";
+
+/* Class = "IBUIButton"; normalTitle = "Listen"; ObjectID = "K4Q-Gx-qnr"; */
+"K4Q-Gx-qnr.normalTitle" = "Listen";
+
+/* Class = "IBUINavigationItem"; title = "Select Url"; ObjectID = "QH1-cf-iwd"; */
+"QH1-cf-iwd.title" = "Select Url";
+
+/* Class = "IBUILabel"; text = "Text"; ObjectID = "ca5-PG-bpl"; */
+"ca5-PG-bpl.text" = "Text";
+
+/* Class = "IBUILabel"; text = "Pitch"; ObjectID = "fmC-Xk-BVx"; */
+"fmC-Xk-BVx.text" = "Pitch";
+
+/* Class = "IBUINavigationItem"; title = "Add book"; ObjectID = "fyK-7m-Bvk"; */
+"fyK-7m-Bvk.title" = "Add book";
+
+/* Class = "IBUILabel"; text = "Web page"; ObjectID = "ge6-Zc-S2W"; */
+"ge6-Zc-S2W.text" = "Web page";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "n2X-Xo-edU"; */
+"n2X-Xo-edU.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Voice options"; ObjectID = "pOL-o4-oXG"; */
+"pOL-o4-oXG.text" = "Voice options";
+
+/* Class = "IBUINavigationItem"; title = "Now PLaying"; ObjectID = "tP5-hr-6iq"; */
+"tP5-hr-6iq.title" = "Now PLaying";
+
+/* Class = "IBUIBarButtonItem"; title = "More"; ObjectID = "xey-Cg-u67"; */
+"xey-Cg-u67.title" = "More";

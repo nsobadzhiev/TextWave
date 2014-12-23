@@ -1,0 +1,1315 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23111C271944E8A400FBB466 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312891915625B006F1979 /* libxml2.dylib */; };
+		23111C281944E8AF00FBB466 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312A519156BD8006F1979 /* libz.dylib */; };
+		23111C291944E8B700FBB466 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312A319156B98006F1979 /* libstdc++.dylib */; };
+		23111C2A1944E8C300FBB466 /* libc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312A119156B89006F1979 /* libc.dylib */; };
+		232729D11A460D560093E189 /* defaultCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 232729CF1A460D560093E189 /* defaultCover@2x.png */; };
+		232729D41A46144C0093E189 /* defaultBookBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 232729D31A46144C0093E189 /* defaultBookBackground@2x.png */; };
+		232729D91A461C440093E189 /* defaultBookBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 232729D71A461C440093E189 /* defaultBookBackground.png */; };
+		232729DA1A461C440093E189 /* defaultCover.png in Resources */ = {isa = PBXBuildFile; fileRef = 232729D81A461C440093E189 /* defaultCover.png */; };
+		232729DC1A4846C20093E189 /* TWSourcesCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232729DB1A4846C20093E189 /* TWSourcesCollectionLayout.swift */; };
+		235F964F19CDADA2003BA87D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235F95F719CDADA1003BA87D /* Main.storyboard */; };
+		235F965019CDADA2003BA87D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235F95F719CDADA1003BA87D /* Main.storyboard */; };
+		235F965119CDADA2003BA87D /* DDXMLNode+ChildForName.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F95FB19CDADA1003BA87D /* DDXMLNode+ChildForName.m */; };
+		235F965219CDADA2003BA87D /* DDXMLNode+ChildForName.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F95FB19CDADA1003BA87D /* DDXMLNode+ChildForName.m */; };
+		235F965319CDADA2003BA87D /* NSError+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F95FD19CDADA1003BA87D /* NSError+Description.m */; };
+		235F965419CDADA2003BA87D /* NSError+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F95FD19CDADA1003BA87D /* NSError+Description.m */; };
+		235F965519CDADA2003BA87D /* TWDocumentsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F960019CDADA1003BA87D /* TWDocumentsFileManager.m */; };
+		235F965619CDADA2003BA87D /* TWDocumentsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F960019CDADA1003BA87D /* TWDocumentsFileManager.m */; };
+		235F965919CDADA2003BA87D /* TWAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F960419CDADA1003BA87D /* TWAppDelegate.swift */; };
+		235F965A19CDADA2003BA87D /* TWAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F960419CDADA1003BA87D /* TWAppDelegate.swift */; };
+		235F965B19CDADA2003BA87D /* TWFileSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F960519CDADA1003BA87D /* TWFileSystemManager.swift */; };
+		235F965C19CDADA2003BA87D /* TWFileSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F960519CDADA1003BA87D /* TWFileSystemManager.swift */; };
+		235F965F19CDADA2003BA87D /* TWResourceDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F960819CDADA1003BA87D /* TWResourceDownloader.swift */; };
+		235F966019CDADA2003BA87D /* TWResourceDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F960819CDADA1003BA87D /* TWResourceDownloader.swift */; };
+		235F966119CDADA2003BA87D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 235F960919CDADA1003BA87D /* InfoPlist.strings */; };
+		235F966319CDADA2003BA87D /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 235F960B19CDADA1003BA87D /* Main.strings */; };
+		235F966419CDADA2003BA87D /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 235F960B19CDADA1003BA87D /* Main.strings */; };
+		235F966519CDADA2003BA87D /* DMBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F960F19CDADA1003BA87D /* DMBookmark.m */; };
+		235F966619CDADA2003BA87D /* DMBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F960F19CDADA1003BA87D /* DMBookmark.m */; };
+		235F966719CDADA2003BA87D /* DMBookmarkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961119CDADA1003BA87D /* DMBookmarkManager.m */; };
+		235F966819CDADA2003BA87D /* DMBookmarkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961119CDADA1003BA87D /* DMBookmarkManager.m */; };
+		235F966919CDADA2003BA87D /* DMContainerFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961319CDADA1003BA87D /* DMContainerFileParser.m */; };
+		235F966A19CDADA2003BA87D /* DMContainerFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961319CDADA1003BA87D /* DMContainerFileParser.m */; };
+		235F966B19CDADA2003BA87D /* DMContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961519CDADA1003BA87D /* DMContainerItem.m */; };
+		235F966C19CDADA2003BA87D /* DMContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961519CDADA1003BA87D /* DMContainerItem.m */; };
+		235F966D19CDADA2003BA87D /* DMePubFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961719CDADA1003BA87D /* DMePubFileManager.m */; };
+		235F966E19CDADA2003BA87D /* DMePubFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961719CDADA1003BA87D /* DMePubFileManager.m */; };
+		235F966F19CDADA2003BA87D /* DMePubItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961919CDADA1003BA87D /* DMePubItem.m */; };
+		235F967019CDADA2003BA87D /* DMePubItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961919CDADA1003BA87D /* DMePubItem.m */; };
+		235F967119CDADA2003BA87D /* DMePubItemIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961B19CDADA1003BA87D /* DMePubItemIterator.m */; };
+		235F967219CDADA2003BA87D /* DMePubItemIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961B19CDADA1003BA87D /* DMePubItemIterator.m */; };
+		235F967319CDADA2003BA87D /* DMePubManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961D19CDADA1003BA87D /* DMePubManager.m */; };
+		235F967419CDADA2003BA87D /* DMePubManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961D19CDADA1003BA87D /* DMePubManager.m */; };
+		235F967519CDADA2003BA87D /* DMePubURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961F19CDADA1003BA87D /* DMePubURLProtocol.m */; };
+		235F967619CDADA2003BA87D /* DMePubURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F961F19CDADA1003BA87D /* DMePubURLProtocol.m */; };
+		235F967719CDADA2003BA87D /* DMRootFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F962119CDADA1003BA87D /* DMRootFileParser.m */; };
+		235F967819CDADA2003BA87D /* DMRootFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F962119CDADA1003BA87D /* DMRootFileParser.m */; };
+		235F967919CDADA2003BA87D /* DMSpineItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F962319CDADA1003BA87D /* DMSpineItem.m */; };
+		235F967A19CDADA2003BA87D /* DMSpineItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F962319CDADA1003BA87D /* DMSpineItem.m */; };
+		235F967B19CDADA2003BA87D /* DMTableOfContents.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F962519CDADA1003BA87D /* DMTableOfContents.m */; };
+		235F967C19CDADA2003BA87D /* DMTableOfContents.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F962519CDADA1003BA87D /* DMTableOfContents.m */; };
+		235F967D19CDADA2003BA87D /* DMTableOfContentsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F962719CDADA1003BA87D /* DMTableOfContentsItem.m */; };
+		235F967E19CDADA2003BA87D /* DMTableOfContentsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F962719CDADA1003BA87D /* DMTableOfContentsItem.m */; };
+		235F967F19CDADA2003BA87D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235F962819CDADA1003BA87D /* Images.xcassets */; };
+		235F968019CDADA2003BA87D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235F962819CDADA1003BA87D /* Images.xcassets */; };
+		235F968319CDADA2003BA87D /* NSFileManager+TWFileSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F962A19CDADA1003BA87D /* NSFileManager+TWFileSystemManager.swift */; };
+		235F968419CDADA2003BA87D /* NSFileManager+TWFileSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F962A19CDADA1003BA87D /* NSFileManager+TWFileSystemManager.swift */; };
+		235F968719CDADA2003BA87D /* TWHtmlPlaybackSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F962E19CDADA2003BA87D /* TWHtmlPlaybackSource.swift */; };
+		235F968819CDADA2003BA87D /* TWHtmlPlaybackSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F962E19CDADA2003BA87D /* TWHtmlPlaybackSource.swift */; };
+		235F968B19CDADA2003BA87D /* TWNowPlayingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F963119CDADA2003BA87D /* TWNowPlayingManager.swift */; };
+		235F968C19CDADA2003BA87D /* TWNowPlayingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F963119CDADA2003BA87D /* TWNowPlayingManager.swift */; };
+		235F968F19CDADA2003BA87D /* TWPlaybackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F963419CDADA2003BA87D /* TWPlaybackManager.swift */; };
+		235F969019CDADA2003BA87D /* TWPlaybackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F963419CDADA2003BA87D /* TWPlaybackManager.swift */; };
+		235F969319CDADA2003BA87D /* TWPlaybackSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F963719CDADA2003BA87D /* TWPlaybackSource.swift */; };
+		235F969419CDADA2003BA87D /* TWPlaybackSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F963719CDADA2003BA87D /* TWPlaybackSource.swift */; };
+		235F969719CDADA2003BA87D /* TWTextPlaybackSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F963A19CDADA2003BA87D /* TWTextPlaybackSource.swift */; };
+		235F969819CDADA2003BA87D /* TWTextPlaybackSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F963A19CDADA2003BA87D /* TWTextPlaybackSource.swift */; };
+		235F969A19CDADA2003BA87D /* TextWave-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 235F963C19CDADA2003BA87D /* TextWave-Info.plist */; };
+		235F969D19CDADA2003BA87D /* TWBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F964219CDADA2003BA87D /* TWBookViewController.swift */; };
+		235F969E19CDADA2003BA87D /* TWBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F964219CDADA2003BA87D /* TWBookViewController.swift */; };
+		235F96A119CDADA2003BA87D /* TWNowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F964519CDADA2003BA87D /* TWNowPlayingViewController.swift */; };
+		235F96A219CDADA2003BA87D /* TWNowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F964519CDADA2003BA87D /* TWNowPlayingViewController.swift */; };
+		235F96A519CDADA2003BA87D /* TWSourcesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F964819CDADA2003BA87D /* TWSourcesCollectionViewCell.swift */; };
+		235F96A619CDADA2003BA87D /* TWSourcesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F964819CDADA2003BA87D /* TWSourcesCollectionViewCell.swift */; };
+		235F96A919CDADA2003BA87D /* TWSourcesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F964B19CDADA2003BA87D /* TWSourcesCollectionViewController.swift */; };
+		235F96AA19CDADA2003BA87D /* TWSourcesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F964B19CDADA2003BA87D /* TWSourcesCollectionViewController.swift */; };
+		235F96AD19CDADA2003BA87D /* UrlDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F964E19CDADA2003BA87D /* UrlDownloader.swift */; };
+		235F96AE19CDADA2003BA87D /* UrlDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F964E19CDADA2003BA87D /* UrlDownloader.swift */; };
+		235F973319CDB06D003BA87D /* DMDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F972719CDB06D003BA87D /* DMDocumentsViewController.m */; };
+		235F973419CDB06D003BA87D /* DMDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F972719CDB06D003BA87D /* DMDocumentsViewController.m */; };
+		235F973519CDB06D003BA87D /* DMePubItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F972919CDB06D003BA87D /* DMePubItemViewController.m */; };
+		235F973619CDB06D003BA87D /* DMePubItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F972919CDB06D003BA87D /* DMePubItemViewController.m */; };
+		235F973719CDB06D003BA87D /* DMePubPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F972B19CDB06D003BA87D /* DMePubPageViewController.m */; };
+		235F973819CDB06D003BA87D /* DMePubPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F972B19CDB06D003BA87D /* DMePubPageViewController.m */; };
+		235F973919CDB06D003BA87D /* DMHtmlPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F972D19CDB06D003BA87D /* DMHtmlPageViewController.m */; };
+		235F973A19CDB06D003BA87D /* DMHtmlPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F972D19CDB06D003BA87D /* DMHtmlPageViewController.m */; };
+		235F973B19CDB06D003BA87D /* DMHtmlPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 235F972E19CDB06D003BA87D /* DMHtmlPageViewController.xib */; };
+		235F973C19CDB06D003BA87D /* DMHtmlPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 235F972E19CDB06D003BA87D /* DMHtmlPageViewController.xib */; };
+		235F973D19CDB06D003BA87D /* DMTableOfContentsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F973019CDB06D003BA87D /* DMTableOfContentsDataSource.m */; };
+		235F973E19CDB06D003BA87D /* DMTableOfContentsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F973019CDB06D003BA87D /* DMTableOfContentsDataSource.m */; };
+		235F973F19CDB06D003BA87D /* DMTableOfContentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F973219CDB06D003BA87D /* DMTableOfContentsTableViewController.m */; };
+		235F974019CDB06D003BA87D /* DMTableOfContentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F973219CDB06D003BA87D /* DMTableOfContentsTableViewController.m */; };
+		235F976D19CDB0F0003BA87D /* TWAppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F974319CDB0F0003BA87D /* TWAppDelegateTests.swift */; };
+		235F976F19CDB0F0003BA87D /* TWBookViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F974519CDB0F0003BA87D /* TWBookViewControllerTests.swift */; };
+		235F977119CDB0F0003BA87D /* TWHtmlPlaybackSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F974719CDB0F0003BA87D /* TWHtmlPlaybackSourceTests.swift */; };
+		235F977319CDB0F0003BA87D /* TWNowPlayingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F974919CDB0F0003BA87D /* TWNowPlayingManagerTests.swift */; };
+		235F977519CDB0F0003BA87D /* TWNowPlayingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F974B19CDB0F0003BA87D /* TWNowPlayingViewControllerTests.swift */; };
+		235F977719CDB0F0003BA87D /* TWPlaybackManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F974D19CDB0F0003BA87D /* TWPlaybackManagerTests.swift */; };
+		235F977919CDB0F0003BA87D /* TWPlaybackSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F974F19CDB0F0003BA87D /* TWPlaybackSourceTests.swift */; };
+		235F977B19CDB0F0003BA87D /* TWResourceDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F975119CDB0F0003BA87D /* TWResourceDownloaderTests.swift */; };
+		235F977D19CDB0F0003BA87D /* TWSourcesTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F975319CDB0F0003BA87D /* TWSourcesTableViewCellTests.swift */; };
+		235F977F19CDB0F0003BA87D /* TWSourcesTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F975519CDB0F0003BA87D /* TWSourcesTableViewControllerTests.swift */; };
+		235F978119CDB0F0003BA87D /* TWTextPlaybackSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F975719CDB0F0003BA87D /* TWTextPlaybackSourceTests.swift */; };
+		235F978219CDB0F0003BA87D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 235F975819CDB0F0003BA87D /* InfoPlist.strings */; };
+		235F978419CDB0F0003BA87D /* TWMockPlaybackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F975D19CDB0F0003BA87D /* TWMockPlaybackManager.swift */; };
+		235F978619CDB0F0003BA87D /* TWMockPlaybackSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F976019CDB0F0003BA87D /* TWMockPlaybackSource.swift */; };
+		235F978819CDB0F0003BA87D /* TWMockResourceDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F976319CDB0F0003BA87D /* TWMockResourceDownloader.swift */; };
+		235F978A19CDB0F0003BA87D /* TWMockSpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F976619CDB0F0003BA87D /* TWMockSpeechSynthesizer.swift */; };
+		235F978B19CDB0F0003BA87D /* TWTestableFileSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F976719CDB0F0003BA87D /* TWTestableFileSystemManager.swift */; };
+		235F978C19CDB0F0003BA87D /* MockUrlDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F976919CDB0F0003BA87D /* MockUrlDownloader.m */; };
+		235F978D19CDB0F0003BA87D /* MockUrlDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F976A19CDB0F0003BA87D /* MockUrlDownloader.swift */; };
+		235F97C419CDBDA9003BA87D /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F97B719CDBDA9003BA87D /* DDXMLElementAdditions.m */; };
+		235F97C519CDBDA9003BA87D /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F97B719CDBDA9003BA87D /* DDXMLElementAdditions.m */; };
+		235F97C619CDBDA9003BA87D /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F97BA19CDBDA9003BA87D /* NSString+DDXML.m */; };
+		235F97C719CDBDA9003BA87D /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F97BA19CDBDA9003BA87D /* NSString+DDXML.m */; };
+		235F97C819CDBDA9003BA87D /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F97BD19CDBDA9003BA87D /* DDXMLDocument.m */; };
+		235F97C919CDBDA9003BA87D /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F97BD19CDBDA9003BA87D /* DDXMLDocument.m */; };
+		235F97CA19CDBDA9003BA87D /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F97BF19CDBDA9003BA87D /* DDXMLElement.m */; };
+		235F97CB19CDBDA9003BA87D /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F97BF19CDBDA9003BA87D /* DDXMLElement.m */; };
+		235F97CC19CDBDA9003BA87D /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F97C119CDBDA9003BA87D /* DDXMLNode.m */; };
+		235F97CD19CDBDA9003BA87D /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F97C119CDBDA9003BA87D /* DDXMLNode.m */; };
+		2363128A1915625B006F1979 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312891915625B006F1979 /* libxml2.dylib */; };
+		2363129F19156998006F1979 /* libzipzap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2363129E19156998006F1979 /* libzipzap.a */; };
+		236312A019156B37006F1979 /* libzipzap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2363129E19156998006F1979 /* libzipzap.a */; };
+		236312A219156B89006F1979 /* libc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312A119156B89006F1979 /* libc.dylib */; };
+		236312A419156B98006F1979 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312A319156B98006F1979 /* libstdc++.dylib */; };
+		236312A619156BD8006F1979 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312A519156BD8006F1979 /* libz.dylib */; };
+		2363AE431913A95F003EFA4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2363AE421913A95F003EFA4A /* Foundation.framework */; };
+		2363AE451913A95F003EFA4A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2363AE441913A95F003EFA4A /* CoreGraphics.framework */; };
+		2363AE471913A95F003EFA4A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2363AE461913A95F003EFA4A /* UIKit.framework */; };
+		2363AE621913A95F003EFA4A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2363AE611913A95F003EFA4A /* XCTest.framework */; };
+		2363AE631913A95F003EFA4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2363AE421913A95F003EFA4A /* Foundation.framework */; };
+		2363AE641913A95F003EFA4A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2363AE461913A95F003EFA4A /* UIKit.framework */; };
+		236BD88E1A23BF0100EA4EA4 /* DMTableOfContentsV2.m in Sources */ = {isa = PBXBuildFile; fileRef = 236BD88D1A23BF0100EA4EA4 /* DMTableOfContentsV2.m */; };
+		236BD8941A23BF1900EA4EA4 /* DMTableOfContentsV3.m in Sources */ = {isa = PBXBuildFile; fileRef = 236BD8931A23BF1900EA4EA4 /* DMTableOfContentsV3.m */; };
+		237C0F8F19D9DFDD003F575A /* TWEpubPlaybackSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C0F8E19D9DFDD003F575A /* TWEpubPlaybackSource.swift */; };
+		237C0F9019D9DFDD003F575A /* TWEpubPlaybackSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C0F8E19D9DFDD003F575A /* TWEpubPlaybackSource.swift */; };
+		237C0FC119DC8619003F575A /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FB219DC8619003F575A /* GTMNSString+HTML.m */; };
+		237C0FC219DC8619003F575A /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FB219DC8619003F575A /* GTMNSString+HTML.m */; };
+		237C0FC319DC8619003F575A /* RegexFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FB419DC8619003F575A /* RegexFactory.m */; };
+		237C0FC419DC8619003F575A /* RegexFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FB419DC8619003F575A /* RegexFactory.m */; };
+		237C0FC519DC8619003F575A /* TagsStripper.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FB619DC8619003F575A /* TagsStripper.m */; };
+		237C0FC619DC8619003F575A /* TagsStripper.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FB619DC8619003F575A /* TagsStripper.m */; };
+		237C0FC719DC8619003F575A /* TextToTagRatioCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FB819DC8619003F575A /* TextToTagRatioCalculator.m */; };
+		237C0FC819DC8619003F575A /* TextToTagRatioCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FB819DC8619003F575A /* TextToTagRatioCalculator.m */; };
+		237C0FC919DC8619003F575A /* TextToTagRatioSmoother.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FBA19DC8619003F575A /* TextToTagRatioSmoother.m */; };
+		237C0FCA19DC8619003F575A /* TextToTagRatioSmoother.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FBA19DC8619003F575A /* TextToTagRatioSmoother.m */; };
+		237C0FCB19DC8619003F575A /* TTR.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FBC19DC8619003F575A /* TTR.m */; };
+		237C0FCC19DC8619003F575A /* TTR.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FBC19DC8619003F575A /* TTR.m */; };
+		237C0FCD19DC8619003F575A /* TTRArticleExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FBE19DC8619003F575A /* TTRArticleExtractor.m */; };
+		237C0FCE19DC8619003F575A /* TTRArticleExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FBE19DC8619003F575A /* TTRArticleExtractor.m */; };
+		237C0FCF19DC8619003F575A /* UnwantedTagStripper.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FC019DC8619003F575A /* UnwantedTagStripper.m */; };
+		237C0FD019DC8619003F575A /* UnwantedTagStripper.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FC019DC8619003F575A /* UnwantedTagStripper.m */; };
+		237C0FD619DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FD519DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift */; };
+		237C0FD719DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FD519DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift */; };
+		23D126DA1A017CDF0036DDAB /* TWWebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D126D91A017CDF0036DDAB /* TWWebPageViewController.swift */; };
+		23D126DD1A02D0890036DDAB /* TWFileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D126DC1A02D0890036DDAB /* TWFileType.swift */; };
+		23EC99BE1A49A687001C8447 /* TWFileMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC99BD1A49A687001C8447 /* TWFileMetadata.swift */; };
+		23EC99C01A49A828001C8447 /* TWEpubMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC99BF1A49A828001C8447 /* TWEpubMetadata.swift */; };
+		23EC99C21A49DC98001C8447 /* TWWebPageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC99C11A49DC98001C8447 /* TWWebPageMetadata.swift */; };
+		23EC99C81A4A07D2001C8447 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EC99C71A4A07D2001C8447 /* AppIcon.png */; };
+		23F3C91119F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3C91019F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift */; };
+		23F3C91219F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3C91019F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift */; };
+		FDAE9AFA1A1EB77200E542F0 /* download_page@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */; };
+		FDAE9AFB1A1EB77200E542F0 /* download_page@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDAE9AF91A1EB77200E542F0 /* download_page@3x.png */; };
+		FDAE9B051A1EBD5F00E542F0 /* TWBrowseItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE9B041A1EBD5F00E542F0 /* TWBrowseItemViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		235F97AE19CDBD55003BA87D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 235F97A819CDBD55003BA87D /* zipzap.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D899CF82162C5EC100112F49;
+			remoteInfo = "zipzap (OS X)";
+		};
+		235F97B019CDBD55003BA87D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 235F97A819CDBD55003BA87D /* zipzap.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D899CFB0162C5EEB00112F49;
+			remoteInfo = "zipzap (iOS)";
+		};
+		235F97B219CDBD55003BA87D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 235F97A819CDBD55003BA87D /* zipzap.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D899CF96162C5EC100112F49;
+			remoteInfo = zipzapTests;
+		};
+		2363AE651913A95F003EFA4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2363AE371913A95F003EFA4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2363AE3E1913A95F003EFA4A;
+			remoteInfo = TextWave;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		232729CF1A460D560093E189 /* defaultCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultCover@2x.png"; sourceTree = "<group>"; };
+		232729D31A46144C0093E189 /* defaultBookBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultBookBackground@2x.png"; sourceTree = "<group>"; };
+		232729D71A461C440093E189 /* defaultBookBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultBookBackground.png; path = x1/defaultBookBackground.png; sourceTree = "<group>"; };
+		232729D81A461C440093E189 /* defaultCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultCover.png; path = x1/defaultCover.png; sourceTree = "<group>"; };
+		232729DB1A4846C20093E189 /* TWSourcesCollectionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSourcesCollectionLayout.swift; sourceTree = "<group>"; };
+		235F95F819CDADA1003BA87D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		235F95FA19CDADA1003BA87D /* DDXMLNode+ChildForName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDXMLNode+ChildForName.h"; sourceTree = "<group>"; };
+		235F95FB19CDADA1003BA87D /* DDXMLNode+ChildForName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDXMLNode+ChildForName.m"; sourceTree = "<group>"; };
+		235F95FC19CDADA1003BA87D /* NSError+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Description.h"; sourceTree = "<group>"; };
+		235F95FD19CDADA1003BA87D /* NSError+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Description.m"; sourceTree = "<group>"; };
+		235F95FF19CDADA1003BA87D /* TWDocumentsFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWDocumentsFileManager.h; sourceTree = "<group>"; };
+		235F960019CDADA1003BA87D /* TWDocumentsFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWDocumentsFileManager.m; sourceTree = "<group>"; };
+		235F960119CDADA1003BA87D /* TWFileSystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWFileSystemManager.h; sourceTree = "<group>"; };
+		235F960419CDADA1003BA87D /* TWAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWAppDelegate.swift; sourceTree = "<group>"; };
+		235F960519CDADA1003BA87D /* TWFileSystemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWFileSystemManager.swift; sourceTree = "<group>"; };
+		235F960819CDADA1003BA87D /* TWResourceDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWResourceDownloader.swift; sourceTree = "<group>"; };
+		235F960A19CDADA1003BA87D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		235F960C19CDADA1003BA87D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		235F960E19CDADA1003BA87D /* DMBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMBookmark.h; sourceTree = "<group>"; };
+		235F960F19CDADA1003BA87D /* DMBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMBookmark.m; sourceTree = "<group>"; };
+		235F961019CDADA1003BA87D /* DMBookmarkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMBookmarkManager.h; sourceTree = "<group>"; };
+		235F961119CDADA1003BA87D /* DMBookmarkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMBookmarkManager.m; sourceTree = "<group>"; };
+		235F961219CDADA1003BA87D /* DMContainerFileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMContainerFileParser.h; sourceTree = "<group>"; };
+		235F961319CDADA1003BA87D /* DMContainerFileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMContainerFileParser.m; sourceTree = "<group>"; };
+		235F961419CDADA1003BA87D /* DMContainerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMContainerItem.h; sourceTree = "<group>"; };
+		235F961519CDADA1003BA87D /* DMContainerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMContainerItem.m; sourceTree = "<group>"; };
+		235F961619CDADA1003BA87D /* DMePubFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMePubFileManager.h; sourceTree = "<group>"; };
+		235F961719CDADA1003BA87D /* DMePubFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMePubFileManager.m; sourceTree = "<group>"; };
+		235F961819CDADA1003BA87D /* DMePubItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMePubItem.h; sourceTree = "<group>"; };
+		235F961919CDADA1003BA87D /* DMePubItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMePubItem.m; sourceTree = "<group>"; };
+		235F961A19CDADA1003BA87D /* DMePubItemIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMePubItemIterator.h; sourceTree = "<group>"; };
+		235F961B19CDADA1003BA87D /* DMePubItemIterator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMePubItemIterator.m; sourceTree = "<group>"; };
+		235F961C19CDADA1003BA87D /* DMePubManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMePubManager.h; sourceTree = "<group>"; };
+		235F961D19CDADA1003BA87D /* DMePubManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMePubManager.m; sourceTree = "<group>"; };
+		235F961E19CDADA1003BA87D /* DMePubURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMePubURLProtocol.h; sourceTree = "<group>"; };
+		235F961F19CDADA1003BA87D /* DMePubURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMePubURLProtocol.m; sourceTree = "<group>"; };
+		235F962019CDADA1003BA87D /* DMRootFileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMRootFileParser.h; sourceTree = "<group>"; };
+		235F962119CDADA1003BA87D /* DMRootFileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMRootFileParser.m; sourceTree = "<group>"; };
+		235F962219CDADA1003BA87D /* DMSpineItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSpineItem.h; sourceTree = "<group>"; };
+		235F962319CDADA1003BA87D /* DMSpineItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSpineItem.m; sourceTree = "<group>"; };
+		235F962419CDADA1003BA87D /* DMTableOfContents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTableOfContents.h; sourceTree = "<group>"; };
+		235F962519CDADA1003BA87D /* DMTableOfContents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTableOfContents.m; sourceTree = "<group>"; };
+		235F962619CDADA1003BA87D /* DMTableOfContentsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTableOfContentsItem.h; sourceTree = "<group>"; };
+		235F962719CDADA1003BA87D /* DMTableOfContentsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTableOfContentsItem.m; sourceTree = "<group>"; };
+		235F962819CDADA1003BA87D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		235F962A19CDADA1003BA87D /* NSFileManager+TWFileSystemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSFileManager+TWFileSystemManager.swift"; sourceTree = "<group>"; };
+		235F962E19CDADA2003BA87D /* TWHtmlPlaybackSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWHtmlPlaybackSource.swift; sourceTree = "<group>"; };
+		235F963119CDADA2003BA87D /* TWNowPlayingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWNowPlayingManager.swift; sourceTree = "<group>"; };
+		235F963419CDADA2003BA87D /* TWPlaybackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPlaybackManager.swift; sourceTree = "<group>"; };
+		235F963719CDADA2003BA87D /* TWPlaybackSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPlaybackSource.swift; sourceTree = "<group>"; };
+		235F963A19CDADA2003BA87D /* TWTextPlaybackSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWTextPlaybackSource.swift; sourceTree = "<group>"; };
+		235F963B19CDADA2003BA87D /* TextWave-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TextWave-Bridging-Header.h"; sourceTree = "<group>"; };
+		235F963C19CDADA2003BA87D /* TextWave-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TextWave-Info.plist"; sourceTree = "<group>"; };
+		235F963D19CDADA2003BA87D /* TextWave-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TextWave-Prefix.pch"; sourceTree = "<group>"; };
+		235F963E19CDADA2003BA87D /* TextWaveTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TextWaveTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		235F964219CDADA2003BA87D /* TWBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBookViewController.swift; sourceTree = "<group>"; };
+		235F964519CDADA2003BA87D /* TWNowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWNowPlayingViewController.swift; sourceTree = "<group>"; };
+		235F964819CDADA2003BA87D /* TWSourcesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSourcesCollectionViewCell.swift; sourceTree = "<group>"; };
+		235F964B19CDADA2003BA87D /* TWSourcesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSourcesCollectionViewController.swift; sourceTree = "<group>"; };
+		235F964E19CDADA2003BA87D /* UrlDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlDownloader.swift; sourceTree = "<group>"; };
+		235F972619CDB06D003BA87D /* DMDocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMDocumentsViewController.h; sourceTree = "<group>"; };
+		235F972719CDB06D003BA87D /* DMDocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMDocumentsViewController.m; sourceTree = "<group>"; };
+		235F972819CDB06D003BA87D /* DMePubItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMePubItemViewController.h; sourceTree = "<group>"; };
+		235F972919CDB06D003BA87D /* DMePubItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMePubItemViewController.m; sourceTree = "<group>"; };
+		235F972A19CDB06D003BA87D /* DMePubPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMePubPageViewController.h; sourceTree = "<group>"; };
+		235F972B19CDB06D003BA87D /* DMePubPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMePubPageViewController.m; sourceTree = "<group>"; };
+		235F972C19CDB06D003BA87D /* DMHtmlPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMHtmlPageViewController.h; sourceTree = "<group>"; };
+		235F972D19CDB06D003BA87D /* DMHtmlPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMHtmlPageViewController.m; sourceTree = "<group>"; };
+		235F972E19CDB06D003BA87D /* DMHtmlPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMHtmlPageViewController.xib; sourceTree = "<group>"; };
+		235F972F19CDB06D003BA87D /* DMTableOfContentsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTableOfContentsDataSource.h; sourceTree = "<group>"; };
+		235F973019CDB06D003BA87D /* DMTableOfContentsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTableOfContentsDataSource.m; sourceTree = "<group>"; };
+		235F973119CDB06D003BA87D /* DMTableOfContentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTableOfContentsTableViewController.h; sourceTree = "<group>"; };
+		235F973219CDB06D003BA87D /* DMTableOfContentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTableOfContentsTableViewController.m; sourceTree = "<group>"; };
+		235F974319CDB0F0003BA87D /* TWAppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWAppDelegateTests.swift; sourceTree = "<group>"; };
+		235F974519CDB0F0003BA87D /* TWBookViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBookViewControllerTests.swift; sourceTree = "<group>"; };
+		235F974719CDB0F0003BA87D /* TWHtmlPlaybackSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWHtmlPlaybackSourceTests.swift; sourceTree = "<group>"; };
+		235F974919CDB0F0003BA87D /* TWNowPlayingManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWNowPlayingManagerTests.swift; sourceTree = "<group>"; };
+		235F974B19CDB0F0003BA87D /* TWNowPlayingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWNowPlayingViewControllerTests.swift; sourceTree = "<group>"; };
+		235F974D19CDB0F0003BA87D /* TWPlaybackManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPlaybackManagerTests.swift; sourceTree = "<group>"; };
+		235F974F19CDB0F0003BA87D /* TWPlaybackSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPlaybackSourceTests.swift; sourceTree = "<group>"; };
+		235F975119CDB0F0003BA87D /* TWResourceDownloaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWResourceDownloaderTests.swift; sourceTree = "<group>"; };
+		235F975319CDB0F0003BA87D /* TWSourcesTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSourcesTableViewCellTests.swift; sourceTree = "<group>"; };
+		235F975519CDB0F0003BA87D /* TWSourcesTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSourcesTableViewControllerTests.swift; sourceTree = "<group>"; };
+		235F975719CDB0F0003BA87D /* TWTextPlaybackSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWTextPlaybackSourceTests.swift; sourceTree = "<group>"; };
+		235F975919CDB0F0003BA87D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		235F975D19CDB0F0003BA87D /* TWMockPlaybackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWMockPlaybackManager.swift; sourceTree = "<group>"; };
+		235F976019CDB0F0003BA87D /* TWMockPlaybackSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWMockPlaybackSource.swift; sourceTree = "<group>"; };
+		235F976319CDB0F0003BA87D /* TWMockResourceDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWMockResourceDownloader.swift; sourceTree = "<group>"; };
+		235F976619CDB0F0003BA87D /* TWMockSpeechSynthesizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWMockSpeechSynthesizer.swift; sourceTree = "<group>"; };
+		235F976719CDB0F0003BA87D /* TWTestableFileSystemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWTestableFileSystemManager.swift; sourceTree = "<group>"; };
+		235F976819CDB0F0003BA87D /* MockUrlDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockUrlDownloader.h; sourceTree = "<group>"; };
+		235F976919CDB0F0003BA87D /* MockUrlDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockUrlDownloader.m; sourceTree = "<group>"; };
+		235F976A19CDB0F0003BA87D /* MockUrlDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUrlDownloader.swift; sourceTree = "<group>"; };
+		235F976B19CDB0F0003BA87D /* TextWaveTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TextWaveTests-Info.plist"; sourceTree = "<group>"; };
+		235F97A819CDBD55003BA87D /* zipzap.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = zipzap.xcodeproj; path = libs/zipzap/zipzap.xcodeproj; sourceTree = "<group>"; };
+		235F97B619CDBDA9003BA87D /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
+		235F97B719CDBDA9003BA87D /* DDXMLElementAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElementAdditions.m; sourceTree = "<group>"; };
+		235F97B919CDBDA9003BA87D /* NSString+DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDXML.h"; sourceTree = "<group>"; };
+		235F97BA19CDBDA9003BA87D /* NSString+DDXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DDXML.m"; sourceTree = "<group>"; };
+		235F97BB19CDBDA9003BA87D /* DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXML.h; sourceTree = "<group>"; };
+		235F97BC19CDBDA9003BA87D /* DDXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLDocument.h; sourceTree = "<group>"; };
+		235F97BD19CDBDA9003BA87D /* DDXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLDocument.m; sourceTree = "<group>"; };
+		235F97BE19CDBDA9003BA87D /* DDXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElement.h; sourceTree = "<group>"; };
+		235F97BF19CDBDA9003BA87D /* DDXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElement.m; sourceTree = "<group>"; };
+		235F97C019CDBDA9003BA87D /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
+		235F97C119CDBDA9003BA87D /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
+		235F97C319CDBDA9003BA87D /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		236312891915625B006F1979 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		2363129C1915697E006F1979 /* libzipzap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzipzap.a; path = "../SimpleEpubReader/zipzap/build/Debug-iphoneos/libzipzap.a"; sourceTree = "<group>"; };
+		2363129E19156998006F1979 /* libzipzap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzipzap.a; path = "../../Library/Developer/Xcode/DerivedData/TextWave-axyykujfqwdywjgxczezhbuyxvvl/Build/Products/Debug/libzipzap.a"; sourceTree = "<group>"; };
+		236312A119156B89006F1979 /* libc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libc.dylib; path = usr/lib/libc.dylib; sourceTree = SDKROOT; };
+		236312A319156B98006F1979 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		236312A519156BD8006F1979 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2363AE3F1913A95F003EFA4A /* TextWave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextWave.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2363AE421913A95F003EFA4A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2363AE441913A95F003EFA4A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2363AE461913A95F003EFA4A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2363AE601913A95F003EFA4A /* TextWaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextWaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2363AE611913A95F003EFA4A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		236BD88C1A23BF0100EA4EA4 /* DMTableOfContentsV2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTableOfContentsV2.h; sourceTree = "<group>"; };
+		236BD88D1A23BF0100EA4EA4 /* DMTableOfContentsV2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTableOfContentsV2.m; sourceTree = "<group>"; };
+		236BD8921A23BF1900EA4EA4 /* DMTableOfContentsV3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTableOfContentsV3.h; sourceTree = "<group>"; };
+		236BD8931A23BF1900EA4EA4 /* DMTableOfContentsV3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTableOfContentsV3.m; sourceTree = "<group>"; };
+		237C0F8E19D9DFDD003F575A /* TWEpubPlaybackSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWEpubPlaybackSource.swift; sourceTree = "<group>"; };
+		237C0FB119DC8619003F575A /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "libs/ttr/TTR/TTR/GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		237C0FB219DC8619003F575A /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "libs/ttr/TTR/TTR/GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		237C0FB319DC8619003F575A /* RegexFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegexFactory.h; path = libs/ttr/TTR/TTR/RegexFactory.h; sourceTree = "<group>"; };
+		237C0FB419DC8619003F575A /* RegexFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegexFactory.m; path = libs/ttr/TTR/TTR/RegexFactory.m; sourceTree = "<group>"; };
+		237C0FB519DC8619003F575A /* TagsStripper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagsStripper.h; path = libs/ttr/TTR/TTR/TagsStripper.h; sourceTree = "<group>"; };
+		237C0FB619DC8619003F575A /* TagsStripper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagsStripper.m; path = libs/ttr/TTR/TTR/TagsStripper.m; sourceTree = "<group>"; };
+		237C0FB719DC8619003F575A /* TextToTagRatioCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextToTagRatioCalculator.h; path = libs/ttr/TTR/TTR/TextToTagRatioCalculator.h; sourceTree = "<group>"; };
+		237C0FB819DC8619003F575A /* TextToTagRatioCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextToTagRatioCalculator.m; path = libs/ttr/TTR/TTR/TextToTagRatioCalculator.m; sourceTree = "<group>"; };
+		237C0FB919DC8619003F575A /* TextToTagRatioSmoother.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextToTagRatioSmoother.h; path = libs/ttr/TTR/TTR/TextToTagRatioSmoother.h; sourceTree = "<group>"; };
+		237C0FBA19DC8619003F575A /* TextToTagRatioSmoother.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextToTagRatioSmoother.m; path = libs/ttr/TTR/TTR/TextToTagRatioSmoother.m; sourceTree = "<group>"; };
+		237C0FBB19DC8619003F575A /* TTR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTR.h; path = libs/ttr/TTR/TTR/TTR.h; sourceTree = "<group>"; };
+		237C0FBC19DC8619003F575A /* TTR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTR.m; path = libs/ttr/TTR/TTR/TTR.m; sourceTree = "<group>"; };
+		237C0FBD19DC8619003F575A /* TTRArticleExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTRArticleExtractor.h; path = libs/ttr/TTR/TTR/TTRArticleExtractor.h; sourceTree = "<group>"; };
+		237C0FBE19DC8619003F575A /* TTRArticleExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTRArticleExtractor.m; path = libs/ttr/TTR/TTR/TTRArticleExtractor.m; sourceTree = "<group>"; };
+		237C0FBF19DC8619003F575A /* UnwantedTagStripper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnwantedTagStripper.h; path = libs/ttr/TTR/TTR/UnwantedTagStripper.h; sourceTree = "<group>"; };
+		237C0FC019DC8619003F575A /* UnwantedTagStripper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnwantedTagStripper.m; path = libs/ttr/TTR/TTR/UnwantedTagStripper.m; sourceTree = "<group>"; };
+		237C0FD519DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPublicationPreviewViewControllerProtocol.swift; sourceTree = "<group>"; };
+		23D126D91A017CDF0036DDAB /* TWWebPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageViewController.swift; sourceTree = "<group>"; };
+		23D126DC1A02D0890036DDAB /* TWFileType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWFileType.swift; sourceTree = "<group>"; };
+		23EC99BD1A49A687001C8447 /* TWFileMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWFileMetadata.swift; sourceTree = "<group>"; };
+		23EC99BF1A49A828001C8447 /* TWEpubMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWEpubMetadata.swift; sourceTree = "<group>"; };
+		23EC99C11A49DC98001C8447 /* TWWebPageMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageMetadata.swift; sourceTree = "<group>"; };
+		23EC99C71A4A07D2001C8447 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		23F3C91019F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPublicationPreviewViewControllerFactory.swift; sourceTree = "<group>"; };
+		FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download_page@2x.png"; sourceTree = "<group>"; };
+		FDAE9AF91A1EB77200E542F0 /* download_page@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download_page@3x.png"; sourceTree = "<group>"; };
+		FDAE9B041A1EBD5F00E542F0 /* TWBrowseItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBrowseItemViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2363AE3C1913A95F003EFA4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				236312A619156BD8006F1979 /* libz.dylib in Frameworks */,
+				236312A419156B98006F1979 /* libstdc++.dylib in Frameworks */,
+				236312A219156B89006F1979 /* libc.dylib in Frameworks */,
+				2363128A1915625B006F1979 /* libxml2.dylib in Frameworks */,
+				236312A019156B37006F1979 /* libzipzap.a in Frameworks */,
+				2363AE451913A95F003EFA4A /* CoreGraphics.framework in Frameworks */,
+				2363AE471913A95F003EFA4A /* UIKit.framework in Frameworks */,
+				2363AE431913A95F003EFA4A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2363AE5D1913A95F003EFA4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23111C2A1944E8C300FBB466 /* libc.dylib in Frameworks */,
+				23111C291944E8B700FBB466 /* libstdc++.dylib in Frameworks */,
+				23111C281944E8AF00FBB466 /* libz.dylib in Frameworks */,
+				23111C271944E8A400FBB466 /* libxml2.dylib in Frameworks */,
+				2363129F19156998006F1979 /* libzipzap.a in Frameworks */,
+				2363AE621913A95F003EFA4A /* XCTest.framework in Frameworks */,
+				2363AE641913A95F003EFA4A /* UIKit.framework in Frameworks */,
+				2363AE631913A95F003EFA4A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		232729D21A4614280093E189 /* x1 */ = {
+			isa = PBXGroup;
+			children = (
+				232729D71A461C440093E189 /* defaultBookBackground.png */,
+				232729D81A461C440093E189 /* defaultCover.png */,
+			);
+			name = x1;
+			sourceTree = "<group>";
+		};
+		235F95F619CDADA1003BA87D /* TextWave */ = {
+			isa = PBXGroup;
+			children = (
+				235F95F719CDADA1003BA87D /* Main.storyboard */,
+				235F95F919CDADA1003BA87D /* Categories */,
+				235F95FE19CDADA1003BA87D /* Core */,
+				235F960419CDADA1003BA87D /* TWAppDelegate.swift */,
+				235F960519CDADA1003BA87D /* TWFileSystemManager.swift */,
+				235F960819CDADA1003BA87D /* TWResourceDownloader.swift */,
+				235F960919CDADA1003BA87D /* InfoPlist.strings */,
+				235F960B19CDADA1003BA87D /* Main.strings */,
+				235F960D19CDADA1003BA87D /* ePub */,
+				235F962819CDADA1003BA87D /* Images.xcassets */,
+				235F962A19CDADA1003BA87D /* NSFileManager+TWFileSystemManager.swift */,
+				235F962B19CDADA1003BA87D /* Playback */,
+				235F963B19CDADA2003BA87D /* TextWave-Bridging-Header.h */,
+				235F963C19CDADA2003BA87D /* TextWave-Info.plist */,
+				235F963D19CDADA2003BA87D /* TextWave-Prefix.pch */,
+				235F963E19CDADA2003BA87D /* TextWaveTests-Bridging-Header.h */,
+				235F963F19CDADA2003BA87D /* UI */,
+				235F964E19CDADA2003BA87D /* UrlDownloader.swift */,
+				FDAE9AF41A1EB77200E542F0 /* Resouces */,
+			);
+			path = TextWave;
+			sourceTree = "<group>";
+		};
+		235F95F919CDADA1003BA87D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				235F95FA19CDADA1003BA87D /* DDXMLNode+ChildForName.h */,
+				235F95FB19CDADA1003BA87D /* DDXMLNode+ChildForName.m */,
+				235F95FC19CDADA1003BA87D /* NSError+Description.h */,
+				235F95FD19CDADA1003BA87D /* NSError+Description.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		235F95FE19CDADA1003BA87D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				235F95FF19CDADA1003BA87D /* TWDocumentsFileManager.h */,
+				235F960019CDADA1003BA87D /* TWDocumentsFileManager.m */,
+				235F960119CDADA1003BA87D /* TWFileSystemManager.h */,
+				23D126DC1A02D0890036DDAB /* TWFileType.swift */,
+				23EC99BD1A49A687001C8447 /* TWFileMetadata.swift */,
+				23EC99BF1A49A828001C8447 /* TWEpubMetadata.swift */,
+				23EC99C11A49DC98001C8447 /* TWWebPageMetadata.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		235F960D19CDADA1003BA87D /* ePub */ = {
+			isa = PBXGroup;
+			children = (
+				235F972519CDB06D003BA87D /* UI */,
+				235F960E19CDADA1003BA87D /* DMBookmark.h */,
+				235F960F19CDADA1003BA87D /* DMBookmark.m */,
+				235F961019CDADA1003BA87D /* DMBookmarkManager.h */,
+				235F961119CDADA1003BA87D /* DMBookmarkManager.m */,
+				235F961219CDADA1003BA87D /* DMContainerFileParser.h */,
+				235F961319CDADA1003BA87D /* DMContainerFileParser.m */,
+				235F961419CDADA1003BA87D /* DMContainerItem.h */,
+				235F961519CDADA1003BA87D /* DMContainerItem.m */,
+				235F961619CDADA1003BA87D /* DMePubFileManager.h */,
+				235F961719CDADA1003BA87D /* DMePubFileManager.m */,
+				235F961819CDADA1003BA87D /* DMePubItem.h */,
+				235F961919CDADA1003BA87D /* DMePubItem.m */,
+				235F961A19CDADA1003BA87D /* DMePubItemIterator.h */,
+				235F961B19CDADA1003BA87D /* DMePubItemIterator.m */,
+				235F961C19CDADA1003BA87D /* DMePubManager.h */,
+				235F961D19CDADA1003BA87D /* DMePubManager.m */,
+				235F961E19CDADA1003BA87D /* DMePubURLProtocol.h */,
+				235F961F19CDADA1003BA87D /* DMePubURLProtocol.m */,
+				235F962019CDADA1003BA87D /* DMRootFileParser.h */,
+				235F962119CDADA1003BA87D /* DMRootFileParser.m */,
+				235F962219CDADA1003BA87D /* DMSpineItem.h */,
+				235F962319CDADA1003BA87D /* DMSpineItem.m */,
+				235F962419CDADA1003BA87D /* DMTableOfContents.h */,
+				235F962519CDADA1003BA87D /* DMTableOfContents.m */,
+				236BD88C1A23BF0100EA4EA4 /* DMTableOfContentsV2.h */,
+				236BD88D1A23BF0100EA4EA4 /* DMTableOfContentsV2.m */,
+				236BD8921A23BF1900EA4EA4 /* DMTableOfContentsV3.h */,
+				236BD8931A23BF1900EA4EA4 /* DMTableOfContentsV3.m */,
+				235F962619CDADA1003BA87D /* DMTableOfContentsItem.h */,
+				235F962719CDADA1003BA87D /* DMTableOfContentsItem.m */,
+			);
+			path = ePub;
+			sourceTree = "<group>";
+		};
+		235F962B19CDADA1003BA87D /* Playback */ = {
+			isa = PBXGroup;
+			children = (
+				235F962E19CDADA2003BA87D /* TWHtmlPlaybackSource.swift */,
+				235F963119CDADA2003BA87D /* TWNowPlayingManager.swift */,
+				235F963419CDADA2003BA87D /* TWPlaybackManager.swift */,
+				235F963719CDADA2003BA87D /* TWPlaybackSource.swift */,
+				235F963A19CDADA2003BA87D /* TWTextPlaybackSource.swift */,
+				237C0F8E19D9DFDD003F575A /* TWEpubPlaybackSource.swift */,
+			);
+			path = Playback;
+			sourceTree = "<group>";
+		};
+		235F963F19CDADA2003BA87D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				235F964219CDADA2003BA87D /* TWBookViewController.swift */,
+				235F964519CDADA2003BA87D /* TWNowPlayingViewController.swift */,
+				235F964819CDADA2003BA87D /* TWSourcesCollectionViewCell.swift */,
+				235F964B19CDADA2003BA87D /* TWSourcesCollectionViewController.swift */,
+				237C0FD519DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift */,
+				23F3C91019F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift */,
+				23D126D91A017CDF0036DDAB /* TWWebPageViewController.swift */,
+				FDAE9B041A1EBD5F00E542F0 /* TWBrowseItemViewController.swift */,
+				232729DB1A4846C20093E189 /* TWSourcesCollectionLayout.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		235F972519CDB06D003BA87D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				235F972619CDB06D003BA87D /* DMDocumentsViewController.h */,
+				235F972719CDB06D003BA87D /* DMDocumentsViewController.m */,
+				235F972819CDB06D003BA87D /* DMePubItemViewController.h */,
+				235F972919CDB06D003BA87D /* DMePubItemViewController.m */,
+				235F972A19CDB06D003BA87D /* DMePubPageViewController.h */,
+				235F972B19CDB06D003BA87D /* DMePubPageViewController.m */,
+				235F972C19CDB06D003BA87D /* DMHtmlPageViewController.h */,
+				235F972D19CDB06D003BA87D /* DMHtmlPageViewController.m */,
+				235F972E19CDB06D003BA87D /* DMHtmlPageViewController.xib */,
+				235F972F19CDB06D003BA87D /* DMTableOfContentsDataSource.h */,
+				235F973019CDB06D003BA87D /* DMTableOfContentsDataSource.m */,
+				235F973119CDB06D003BA87D /* DMTableOfContentsTableViewController.h */,
+				235F973219CDB06D003BA87D /* DMTableOfContentsTableViewController.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		235F974119CDB0F0003BA87D /* TextWaveTests */ = {
+			isa = PBXGroup;
+			children = (
+				235F974319CDB0F0003BA87D /* TWAppDelegateTests.swift */,
+				235F974519CDB0F0003BA87D /* TWBookViewControllerTests.swift */,
+				235F974719CDB0F0003BA87D /* TWHtmlPlaybackSourceTests.swift */,
+				235F974919CDB0F0003BA87D /* TWNowPlayingManagerTests.swift */,
+				235F974B19CDB0F0003BA87D /* TWNowPlayingViewControllerTests.swift */,
+				235F974D19CDB0F0003BA87D /* TWPlaybackManagerTests.swift */,
+				235F974F19CDB0F0003BA87D /* TWPlaybackSourceTests.swift */,
+				235F975119CDB0F0003BA87D /* TWResourceDownloaderTests.swift */,
+				235F975319CDB0F0003BA87D /* TWSourcesTableViewCellTests.swift */,
+				235F975519CDB0F0003BA87D /* TWSourcesTableViewControllerTests.swift */,
+				235F975719CDB0F0003BA87D /* TWTextPlaybackSourceTests.swift */,
+				235F975819CDB0F0003BA87D /* InfoPlist.strings */,
+				235F975A19CDB0F0003BA87D /* MockObjects */,
+				235F976B19CDB0F0003BA87D /* TextWaveTests-Info.plist */,
+			);
+			path = TextWaveTests;
+			sourceTree = "<group>";
+		};
+		235F975A19CDB0F0003BA87D /* MockObjects */ = {
+			isa = PBXGroup;
+			children = (
+				235F975D19CDB0F0003BA87D /* TWMockPlaybackManager.swift */,
+				235F976019CDB0F0003BA87D /* TWMockPlaybackSource.swift */,
+				235F976319CDB0F0003BA87D /* TWMockResourceDownloader.swift */,
+				235F976619CDB0F0003BA87D /* TWMockSpeechSynthesizer.swift */,
+				235F976719CDB0F0003BA87D /* TWTestableFileSystemManager.swift */,
+				235F976819CDB0F0003BA87D /* MockUrlDownloader.h */,
+				235F976919CDB0F0003BA87D /* MockUrlDownloader.m */,
+				235F976A19CDB0F0003BA87D /* MockUrlDownloader.swift */,
+			);
+			path = MockObjects;
+			sourceTree = "<group>";
+		};
+		235F979B19CDBCF6003BA87D /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				237C0FD419DC8621003F575A /* TTR */,
+				235F97B419CDBDA9003BA87D /* KissXML */,
+				235F97A819CDBD55003BA87D /* zipzap.xcodeproj */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		235F97A919CDBD55003BA87D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				235F97AF19CDBD55003BA87D /* libzipzap.a */,
+				235F97B119CDBD55003BA87D /* libzipzap.a */,
+				235F97B319CDBD55003BA87D /* zipzapTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		235F97B419CDBDA9003BA87D /* KissXML */ = {
+			isa = PBXGroup;
+			children = (
+				235F97B519CDBDA9003BA87D /* Additions */,
+				235F97B819CDBDA9003BA87D /* Categories */,
+				235F97BB19CDBDA9003BA87D /* DDXML.h */,
+				235F97BC19CDBDA9003BA87D /* DDXMLDocument.h */,
+				235F97BD19CDBDA9003BA87D /* DDXMLDocument.m */,
+				235F97BE19CDBDA9003BA87D /* DDXMLElement.h */,
+				235F97BF19CDBDA9003BA87D /* DDXMLElement.m */,
+				235F97C019CDBDA9003BA87D /* DDXMLNode.h */,
+				235F97C119CDBDA9003BA87D /* DDXMLNode.m */,
+				235F97C219CDBDA9003BA87D /* Private */,
+			);
+			name = KissXML;
+			path = libs/kissXML/KissXML;
+			sourceTree = "<group>";
+		};
+		235F97B519CDBDA9003BA87D /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				235F97B619CDBDA9003BA87D /* DDXMLElementAdditions.h */,
+				235F97B719CDBDA9003BA87D /* DDXMLElementAdditions.m */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		235F97B819CDBDA9003BA87D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				235F97B919CDBDA9003BA87D /* NSString+DDXML.h */,
+				235F97BA19CDBDA9003BA87D /* NSString+DDXML.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		235F97C219CDBDA9003BA87D /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				235F97C319CDBDA9003BA87D /* DDXMLPrivate.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		2363AE361913A95F003EFA4A = {
+			isa = PBXGroup;
+			children = (
+				235F95F619CDADA1003BA87D /* TextWave */,
+				235F974119CDB0F0003BA87D /* TextWaveTests */,
+				2363AE411913A95F003EFA4A /* Frameworks */,
+				2363AE401913A95F003EFA4A /* Products */,
+				235F979B19CDBCF6003BA87D /* libs */,
+			);
+			sourceTree = "<group>";
+		};
+		2363AE401913A95F003EFA4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2363AE3F1913A95F003EFA4A /* TextWave.app */,
+				2363AE601913A95F003EFA4A /* TextWaveTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2363AE411913A95F003EFA4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				236312A519156BD8006F1979 /* libz.dylib */,
+				236312A319156B98006F1979 /* libstdc++.dylib */,
+				236312A119156B89006F1979 /* libc.dylib */,
+				2363129E19156998006F1979 /* libzipzap.a */,
+				2363129C1915697E006F1979 /* libzipzap.a */,
+				236312891915625B006F1979 /* libxml2.dylib */,
+				2363AE421913A95F003EFA4A /* Foundation.framework */,
+				2363AE441913A95F003EFA4A /* CoreGraphics.framework */,
+				2363AE461913A95F003EFA4A /* UIKit.framework */,
+				2363AE611913A95F003EFA4A /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		237C0FD419DC8621003F575A /* TTR */ = {
+			isa = PBXGroup;
+			children = (
+				237C0FB119DC8619003F575A /* GTMNSString+HTML.h */,
+				237C0FB219DC8619003F575A /* GTMNSString+HTML.m */,
+				237C0FB319DC8619003F575A /* RegexFactory.h */,
+				237C0FB419DC8619003F575A /* RegexFactory.m */,
+				237C0FB519DC8619003F575A /* TagsStripper.h */,
+				237C0FB619DC8619003F575A /* TagsStripper.m */,
+				237C0FB719DC8619003F575A /* TextToTagRatioCalculator.h */,
+				237C0FB819DC8619003F575A /* TextToTagRatioCalculator.m */,
+				237C0FB919DC8619003F575A /* TextToTagRatioSmoother.h */,
+				237C0FBA19DC8619003F575A /* TextToTagRatioSmoother.m */,
+				237C0FBB19DC8619003F575A /* TTR.h */,
+				237C0FBC19DC8619003F575A /* TTR.m */,
+				237C0FBD19DC8619003F575A /* TTRArticleExtractor.h */,
+				237C0FBE19DC8619003F575A /* TTRArticleExtractor.m */,
+				237C0FBF19DC8619003F575A /* UnwantedTagStripper.h */,
+				237C0FC019DC8619003F575A /* UnwantedTagStripper.m */,
+			);
+			name = TTR;
+			sourceTree = "<group>";
+		};
+		FDAE9AF41A1EB77200E542F0 /* Resouces */ = {
+			isa = PBXGroup;
+			children = (
+				FDAE9AF51A1EB77200E542F0 /* Images */,
+			);
+			path = Resouces;
+			sourceTree = "<group>";
+		};
+		FDAE9AF51A1EB77200E542F0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				23EC99C71A4A07D2001C8447 /* AppIcon.png */,
+				232729D21A4614280093E189 /* x1 */,
+				FDAE9AF61A1EB77200E542F0 /* x2 */,
+				FDAE9AF81A1EB77200E542F0 /* x3 */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		FDAE9AF61A1EB77200E542F0 /* x2 */ = {
+			isa = PBXGroup;
+			children = (
+				232729D31A46144C0093E189 /* defaultBookBackground@2x.png */,
+				232729CF1A460D560093E189 /* defaultCover@2x.png */,
+				FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */,
+			);
+			path = x2;
+			sourceTree = "<group>";
+		};
+		FDAE9AF81A1EB77200E542F0 /* x3 */ = {
+			isa = PBXGroup;
+			children = (
+				FDAE9AF91A1EB77200E542F0 /* download_page@3x.png */,
+			);
+			path = x3;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2363AE3E1913A95F003EFA4A /* TextWave */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2363AE711913A95F003EFA4A /* Build configuration list for PBXNativeTarget "TextWave" */;
+			buildPhases = (
+				2363AE3B1913A95F003EFA4A /* Sources */,
+				2363AE3C1913A95F003EFA4A /* Frameworks */,
+				2363AE3D1913A95F003EFA4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TextWave;
+			productName = TextWave;
+			productReference = 2363AE3F1913A95F003EFA4A /* TextWave.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2363AE5F1913A95F003EFA4A /* TextWaveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2363AE741913A95F003EFA4A /* Build configuration list for PBXNativeTarget "TextWaveTests" */;
+			buildPhases = (
+				2363AE5C1913A95F003EFA4A /* Sources */,
+				2363AE5D1913A95F003EFA4A /* Frameworks */,
+				2363AE5E1913A95F003EFA4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2363AE661913A95F003EFA4A /* PBXTargetDependency */,
+			);
+			name = TextWaveTests;
+			productName = TextWaveTests;
+			productReference = 2363AE601913A95F003EFA4A /* TextWaveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2363AE371913A95F003EFA4A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DM;
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Nikola Sobadjiev";
+				TargetAttributes = {
+					2363AE3E1913A95F003EFA4A = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					2363AE5F1913A95F003EFA4A = {
+						TestTargetID = 2363AE3E1913A95F003EFA4A;
+					};
+				};
+			};
+			buildConfigurationList = 2363AE3A1913A95F003EFA4A /* Build configuration list for PBXProject "TextWave" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2363AE361913A95F003EFA4A;
+			productRefGroup = 2363AE401913A95F003EFA4A /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 235F97A919CDBD55003BA87D /* Products */;
+					ProjectRef = 235F97A819CDBD55003BA87D /* zipzap.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				2363AE3E1913A95F003EFA4A /* TextWave */,
+				2363AE5F1913A95F003EFA4A /* TextWaveTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		235F97AF19CDBD55003BA87D /* libzipzap.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libzipzap.a;
+			remoteRef = 235F97AE19CDBD55003BA87D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		235F97B119CDBD55003BA87D /* libzipzap.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libzipzap.a;
+			remoteRef = 235F97B019CDBD55003BA87D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		235F97B319CDBD55003BA87D /* zipzapTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = zipzapTests.xctest;
+			remoteRef = 235F97B219CDBD55003BA87D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2363AE3D1913A95F003EFA4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232729D41A46144C0093E189 /* defaultBookBackground@2x.png in Resources */,
+				232729D11A460D560093E189 /* defaultCover@2x.png in Resources */,
+				232729D91A461C440093E189 /* defaultBookBackground.png in Resources */,
+				232729DA1A461C440093E189 /* defaultCover.png in Resources */,
+				235F967F19CDADA2003BA87D /* Images.xcassets in Resources */,
+				235F966319CDADA2003BA87D /* Main.strings in Resources */,
+				235F966119CDADA2003BA87D /* InfoPlist.strings in Resources */,
+				FDAE9AFA1A1EB77200E542F0 /* download_page@2x.png in Resources */,
+				23EC99C81A4A07D2001C8447 /* AppIcon.png in Resources */,
+				235F964F19CDADA2003BA87D /* Main.storyboard in Resources */,
+				FDAE9AFB1A1EB77200E542F0 /* download_page@3x.png in Resources */,
+				235F973B19CDB06D003BA87D /* DMHtmlPageViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2363AE5E1913A95F003EFA4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				235F968019CDADA2003BA87D /* Images.xcassets in Resources */,
+				235F978219CDB0F0003BA87D /* InfoPlist.strings in Resources */,
+				235F966419CDADA2003BA87D /* Main.strings in Resources */,
+				235F965019CDADA2003BA87D /* Main.storyboard in Resources */,
+				235F969A19CDADA2003BA87D /* TextWave-Info.plist in Resources */,
+				235F973C19CDB06D003BA87D /* DMHtmlPageViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2363AE3B1913A95F003EFA4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				235F96AD19CDADA2003BA87D /* UrlDownloader.swift in Sources */,
+				235F967319CDADA2003BA87D /* DMePubManager.m in Sources */,
+				235F973919CDB06D003BA87D /* DMHtmlPageViewController.m in Sources */,
+				23D126DA1A017CDF0036DDAB /* TWWebPageViewController.swift in Sources */,
+				23D126DD1A02D0890036DDAB /* TWFileType.swift in Sources */,
+				235F973719CDB06D003BA87D /* DMePubPageViewController.m in Sources */,
+				235F973D19CDB06D003BA87D /* DMTableOfContentsDataSource.m in Sources */,
+				235F967B19CDADA2003BA87D /* DMTableOfContents.m in Sources */,
+				235F967719CDADA2003BA87D /* DMRootFileParser.m in Sources */,
+				237C0FC919DC8619003F575A /* TextToTagRatioSmoother.m in Sources */,
+				23EC99C21A49DC98001C8447 /* TWWebPageMetadata.swift in Sources */,
+				235F973519CDB06D003BA87D /* DMePubItemViewController.m in Sources */,
+				235F969319CDADA2003BA87D /* TWPlaybackSource.swift in Sources */,
+				237C0FCD19DC8619003F575A /* TTRArticleExtractor.m in Sources */,
+				235F967519CDADA2003BA87D /* DMePubURLProtocol.m in Sources */,
+				237C0FC719DC8619003F575A /* TextToTagRatioCalculator.m in Sources */,
+				235F967119CDADA2003BA87D /* DMePubItemIterator.m in Sources */,
+				235F97C819CDBDA9003BA87D /* DDXMLDocument.m in Sources */,
+				235F97C419CDBDA9003BA87D /* DDXMLElementAdditions.m in Sources */,
+				235F966719CDADA2003BA87D /* DMBookmarkManager.m in Sources */,
+				23EC99C01A49A828001C8447 /* TWEpubMetadata.swift in Sources */,
+				237C0F8F19D9DFDD003F575A /* TWEpubPlaybackSource.swift in Sources */,
+				237C0FCF19DC8619003F575A /* UnwantedTagStripper.m in Sources */,
+				235F966F19CDADA2003BA87D /* DMePubItem.m in Sources */,
+				235F966519CDADA2003BA87D /* DMBookmark.m in Sources */,
+				235F966919CDADA2003BA87D /* DMContainerFileParser.m in Sources */,
+				235F967D19CDADA2003BA87D /* DMTableOfContentsItem.m in Sources */,
+				236BD8941A23BF1900EA4EA4 /* DMTableOfContentsV3.m in Sources */,
+				235F97CA19CDBDA9003BA87D /* DDXMLElement.m in Sources */,
+				235F966D19CDADA2003BA87D /* DMePubFileManager.m in Sources */,
+				235F965519CDADA2003BA87D /* TWDocumentsFileManager.m in Sources */,
+				235F965119CDADA2003BA87D /* DDXMLNode+ChildForName.m in Sources */,
+				235F969719CDADA2003BA87D /* TWTextPlaybackSource.swift in Sources */,
+				235F97CC19CDBDA9003BA87D /* DDXMLNode.m in Sources */,
+				232729DC1A4846C20093E189 /* TWSourcesCollectionLayout.swift in Sources */,
+				235F965319CDADA2003BA87D /* NSError+Description.m in Sources */,
+				23EC99BE1A49A687001C8447 /* TWFileMetadata.swift in Sources */,
+				235F973F19CDB06D003BA87D /* DMTableOfContentsTableViewController.m in Sources */,
+				235F968F19CDADA2003BA87D /* TWPlaybackManager.swift in Sources */,
+				235F966B19CDADA2003BA87D /* DMContainerItem.m in Sources */,
+				237C0FC319DC8619003F575A /* RegexFactory.m in Sources */,
+				235F968B19CDADA2003BA87D /* TWNowPlayingManager.swift in Sources */,
+				237C0FC519DC8619003F575A /* TagsStripper.m in Sources */,
+				235F965919CDADA2003BA87D /* TWAppDelegate.swift in Sources */,
+				235F96A119CDADA2003BA87D /* TWNowPlayingViewController.swift in Sources */,
+				235F968319CDADA2003BA87D /* NSFileManager+TWFileSystemManager.swift in Sources */,
+				235F969D19CDADA2003BA87D /* TWBookViewController.swift in Sources */,
+				235F97C619CDBDA9003BA87D /* NSString+DDXML.m in Sources */,
+				FDAE9B051A1EBD5F00E542F0 /* TWBrowseItemViewController.swift in Sources */,
+				237C0FCB19DC8619003F575A /* TTR.m in Sources */,
+				237C0FD619DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift in Sources */,
+				235F968719CDADA2003BA87D /* TWHtmlPlaybackSource.swift in Sources */,
+				236BD88E1A23BF0100EA4EA4 /* DMTableOfContentsV2.m in Sources */,
+				237C0FC119DC8619003F575A /* GTMNSString+HTML.m in Sources */,
+				235F967919CDADA2003BA87D /* DMSpineItem.m in Sources */,
+				235F965F19CDADA2003BA87D /* TWResourceDownloader.swift in Sources */,
+				235F96A519CDADA2003BA87D /* TWSourcesCollectionViewCell.swift in Sources */,
+				235F973319CDB06D003BA87D /* DMDocumentsViewController.m in Sources */,
+				235F96A919CDADA2003BA87D /* TWSourcesCollectionViewController.swift in Sources */,
+				23F3C91119F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift in Sources */,
+				235F965B19CDADA2003BA87D /* TWFileSystemManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2363AE5C1913A95F003EFA4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				235F96AA19CDADA2003BA87D /* TWSourcesCollectionViewController.swift in Sources */,
+				235F967C19CDADA2003BA87D /* DMTableOfContents.m in Sources */,
+				235F97C519CDBDA9003BA87D /* DDXMLElementAdditions.m in Sources */,
+				235F977319CDB0F0003BA87D /* TWNowPlayingManagerTests.swift in Sources */,
+				235F967E19CDADA2003BA87D /* DMTableOfContentsItem.m in Sources */,
+				235F968C19CDADA2003BA87D /* TWNowPlayingManager.swift in Sources */,
+				235F973A19CDB06D003BA87D /* DMHtmlPageViewController.m in Sources */,
+				235F973819CDB06D003BA87D /* DMePubPageViewController.m in Sources */,
+				235F973E19CDB06D003BA87D /* DMTableOfContentsDataSource.m in Sources */,
+				235F965419CDADA2003BA87D /* NSError+Description.m in Sources */,
+				235F977919CDB0F0003BA87D /* TWPlaybackSourceTests.swift in Sources */,
+				235F965619CDADA2003BA87D /* TWDocumentsFileManager.m in Sources */,
+				235F978619CDB0F0003BA87D /* TWMockPlaybackSource.swift in Sources */,
+				235F973619CDB06D003BA87D /* DMePubItemViewController.m in Sources */,
+				235F97CD19CDBDA9003BA87D /* DDXMLNode.m in Sources */,
+				235F969019CDADA2003BA87D /* TWPlaybackManager.swift in Sources */,
+				23F3C91219F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift in Sources */,
+				235F97C919CDBDA9003BA87D /* DDXMLDocument.m in Sources */,
+				237C0FC619DC8619003F575A /* TagsStripper.m in Sources */,
+				235F977719CDB0F0003BA87D /* TWPlaybackManagerTests.swift in Sources */,
+				235F978D19CDB0F0003BA87D /* MockUrlDownloader.swift in Sources */,
+				237C0FC219DC8619003F575A /* GTMNSString+HTML.m in Sources */,
+				237C0FC419DC8619003F575A /* RegexFactory.m in Sources */,
+				235F967819CDADA2003BA87D /* DMRootFileParser.m in Sources */,
+				235F97C719CDBDA9003BA87D /* NSString+DDXML.m in Sources */,
+				235F967219CDADA2003BA87D /* DMePubItemIterator.m in Sources */,
+				235F966A19CDADA2003BA87D /* DMContainerFileParser.m in Sources */,
+				235F966E19CDADA2003BA87D /* DMePubFileManager.m in Sources */,
+				235F977D19CDB0F0003BA87D /* TWSourcesTableViewCellTests.swift in Sources */,
+				237C0FC819DC8619003F575A /* TextToTagRatioCalculator.m in Sources */,
+				237C0FD719DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift in Sources */,
+				235F966019CDADA2003BA87D /* TWResourceDownloader.swift in Sources */,
+				235F967019CDADA2003BA87D /* DMePubItem.m in Sources */,
+				235F967A19CDADA2003BA87D /* DMSpineItem.m in Sources */,
+				235F978A19CDB0F0003BA87D /* TWMockSpeechSynthesizer.swift in Sources */,
+				235F966619CDADA2003BA87D /* DMBookmark.m in Sources */,
+				235F967619CDADA2003BA87D /* DMePubURLProtocol.m in Sources */,
+				237C0F9019D9DFDD003F575A /* TWEpubPlaybackSource.swift in Sources */,
+				235F966C19CDADA2003BA87D /* DMContainerItem.m in Sources */,
+				235F967419CDADA2003BA87D /* DMePubManager.m in Sources */,
+				235F978B19CDB0F0003BA87D /* TWTestableFileSystemManager.swift in Sources */,
+				235F974019CDB06D003BA87D /* DMTableOfContentsTableViewController.m in Sources */,
+				235F976D19CDB0F0003BA87D /* TWAppDelegateTests.swift in Sources */,
+				235F97CB19CDBDA9003BA87D /* DDXMLElement.m in Sources */,
+				235F968819CDADA2003BA87D /* TWHtmlPlaybackSource.swift in Sources */,
+				237C0FCC19DC8619003F575A /* TTR.m in Sources */,
+				235F978819CDB0F0003BA87D /* TWMockResourceDownloader.swift in Sources */,
+				237C0FCE19DC8619003F575A /* TTRArticleExtractor.m in Sources */,
+				235F966819CDADA2003BA87D /* DMBookmarkManager.m in Sources */,
+				235F977119CDB0F0003BA87D /* TWHtmlPlaybackSourceTests.swift in Sources */,
+				235F977B19CDB0F0003BA87D /* TWResourceDownloaderTests.swift in Sources */,
+				235F977F19CDB0F0003BA87D /* TWSourcesTableViewControllerTests.swift in Sources */,
+				235F969819CDADA2003BA87D /* TWTextPlaybackSource.swift in Sources */,
+				235F96A219CDADA2003BA87D /* TWNowPlayingViewController.swift in Sources */,
+				235F965219CDADA2003BA87D /* DDXMLNode+ChildForName.m in Sources */,
+				235F978419CDB0F0003BA87D /* TWMockPlaybackManager.swift in Sources */,
+				235F969419CDADA2003BA87D /* TWPlaybackSource.swift in Sources */,
+				235F965C19CDADA2003BA87D /* TWFileSystemManager.swift in Sources */,
+				235F96AE19CDADA2003BA87D /* UrlDownloader.swift in Sources */,
+				235F978C19CDB0F0003BA87D /* MockUrlDownloader.m in Sources */,
+				235F976F19CDB0F0003BA87D /* TWBookViewControllerTests.swift in Sources */,
+				235F965A19CDADA2003BA87D /* TWAppDelegate.swift in Sources */,
+				235F96A619CDADA2003BA87D /* TWSourcesCollectionViewCell.swift in Sources */,
+				235F973419CDB06D003BA87D /* DMDocumentsViewController.m in Sources */,
+				237C0FD019DC8619003F575A /* UnwantedTagStripper.m in Sources */,
+				237C0FCA19DC8619003F575A /* TextToTagRatioSmoother.m in Sources */,
+				235F978119CDB0F0003BA87D /* TWTextPlaybackSourceTests.swift in Sources */,
+				235F969E19CDADA2003BA87D /* TWBookViewController.swift in Sources */,
+				235F968419CDADA2003BA87D /* NSFileManager+TWFileSystemManager.swift in Sources */,
+				235F977519CDB0F0003BA87D /* TWNowPlayingViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2363AE661913A95F003EFA4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2363AE3E1913A95F003EFA4A /* TextWave */;
+			targetProxy = 2363AE651913A95F003EFA4A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		235F95F719CDADA1003BA87D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				235F95F819CDADA1003BA87D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		235F960919CDADA1003BA87D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				235F960A19CDADA1003BA87D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		235F960B19CDADA1003BA87D /* Main.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				235F960C19CDADA1003BA87D /* en */,
+			);
+			name = Main.strings;
+			sourceTree = "<group>";
+		};
+		235F975819CDB0F0003BA87D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				235F975919CDB0F0003BA87D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2363AE6F1913A95F003EFA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2363AE701913A95F003EFA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2363AE721913A95F003EFA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/**",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TextWave/TextWave-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"libs/**",
+					/usr/local/include,
+					/usr/include/libxml2,
+				);
+				INFOPLIST_FILE = "TextWave/TextWave-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWave-gbeugfbgpleqticudhesnyyfkflx/Build/Products/Debug/";
+				PRODUCT_NAME = TextWave;
+				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "armv7 armv7s arm64";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2363AE731913A95F003EFA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/**",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TextWave/TextWave-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"libs/**",
+					/usr/local/include,
+					/usr/include/libxml2,
+				);
+				INFOPLIST_FILE = "TextWave/TextWave-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWave-gbeugfbgpleqticudhesnyyfkflx/Build/Products/Debug/";
+				PRODUCT_NAME = TextWave;
+				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
+				VALID_ARCHS = "armv7 armv7s arm64";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2363AE751913A95F003EFA4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TextWave.app/TextWave";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TextWave/TextWave-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"../../Projects/SimpleEpubReader/SimpleEpubReader/**",
+					/usr/include/libxml2,
+					../../SimpleEpubReader/zipzap,
+				);
+				INFOPLIST_FILE = "TextWaveTests/TextWaveTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/nikolasobadjiev/Projects/SimpleEpubReader/zipzap/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWave-axyykujfqwdywjgxczezhbuyxvvl/Build/Products/Debug",
+				);
+				PRODUCT_NAME = TextWaveTests;
+				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWaveTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2363AE761913A95F003EFA4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TextWave.app/TextWave";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TextWave/TextWave-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"../../Projects/SimpleEpubReader/SimpleEpubReader/**",
+					/usr/include/libxml2,
+					../../SimpleEpubReader/zipzap,
+				);
+				INFOPLIST_FILE = "TextWaveTests/TextWaveTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/nikolasobadjiev/Projects/SimpleEpubReader/zipzap/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWave-axyykujfqwdywjgxczezhbuyxvvl/Build/Products/Debug",
+				);
+				PRODUCT_NAME = TextWaveTests;
+				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWaveTests-Bridging-Header.h";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2363AE3A1913A95F003EFA4A /* Build configuration list for PBXProject "TextWave" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2363AE6F1913A95F003EFA4A /* Debug */,
+				2363AE701913A95F003EFA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2363AE711913A95F003EFA4A /* Build configuration list for PBXNativeTarget "TextWave" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2363AE721913A95F003EFA4A /* Debug */,
+				2363AE731913A95F003EFA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2363AE741913A95F003EFA4A /* Build configuration list for PBXNativeTarget "TextWaveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2363AE751913A95F003EFA4A /* Debug */,
+				2363AE761913A95F003EFA4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2363AE371913A95F003EFA4A /* Project object */;
+}
