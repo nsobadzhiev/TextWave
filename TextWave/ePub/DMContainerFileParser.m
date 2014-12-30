@@ -29,6 +29,7 @@ static NSString* const k_hrefAttrName = @"href";
 static NSString* const k_propertiesAttrName = @"properties";
 static NSString* const k_propertiesAttrNavValue = @"nav";
 static NSString* const k_propertiesAttrNcxValue = @"application/x-dtbncx+xml";
+static NSString* const k_propertiesAttrImagePrefix = @"image/";
 
 // Spine item attributes
 static NSString* const k_itemIdRefAttrName = @"idref";
@@ -99,8 +100,14 @@ static NSString* const k_itemIdRefAttrName = @"idref";
     {
         DDXMLNode* idNode = [item attributeForName:k_itemIdAttrName];
         NSString* idValue = [idNode stringValue];
-        if ([idValue isEqualToString:k_coverTagName] ||
-            [idValue isEqualToString:k_coverImageTagName])
+        DDXMLNode* mimeTypeNode = [item attributeForName:k_manifestItemAttrName];
+        // Check for both k_coverTagName and k_coverImageTagName - 
+        // they can both reference the cover image. However, make sure to
+        // check the mime type - only return images, not web pages
+        NSString* mimeTypeValue = [mimeTypeNode stringValue];
+        if (([idValue isEqualToString:k_coverTagName] ||
+            [idValue isEqualToString:k_coverImageTagName]) &&
+            [mimeTypeValue hasPrefix:k_propertiesAttrImagePrefix])
         {
             DDXMLNode* hrefNode = [item attributeForName:k_hrefAttrName];
             NSString* hrefValue = [hrefNode stringValue];
