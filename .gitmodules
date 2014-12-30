@@ -7,3 +7,6 @@
 [submodule "libs/zipzap"]
 	path = libs/zipzap
 	url = https://github.com/pixelglow/zipzap.git
+[submodule "libs/hpple"]
+	path = libs/hpple
+	url = https://github.com/topfunky/hpple.git

@@ -11,16 +11,35 @@ import Foundation
 class TWWebPageMetadata : TWFileMetadata {
     
     let epubManager: DMePubManager? = nil
+    let thumbnailManager = TWWebPageThumbnailManager()
     
     override init(url: NSURL?) {
         super.init(url: url)
         epubManager = DMePubManager(epubPath: url?.absoluteString)
     }
+    
     override func thumbnailForFile() -> UIImage? {
-        return epubManager?.coverWithError(nil)
+        return nil
+    }
+    
+    override func thumbnailForFileWithBlock(completionBlock:((thumbnailView:UIView?) -> Void)) {
+        thumbnailManager.thumbnailForWebPage(self.fileUrl, successBlock: {(thumbnailView:UIView) in
+            completionBlock(thumbnailView: thumbnailView)
+            }, failBlock: {(error:NSError?) in
+                completionBlock(thumbnailView: nil)
+        })
     }
     
     override func titleForFile() -> String? {
-        return epubManager?.titleWithError(nil)
+        if let url = self.fileUrl {
+            let htmlData = NSData(contentsOfURL: url)
+            let htmlParser = TFHpple(HTMLData: htmlData)
+            let titleElement = htmlParser.peekAtSearchWithXPathQuery("/html/head/title")
+            let titleString = titleElement.text()
+            return titleString
+        }
+        else {
+            return nil
+        }
     }
 }

@@ -20,6 +20,12 @@ class TWEpubMetadata : TWFileMetadata {
         return epubManager?.coverWithError(nil)
     }
     
+    override func thumbnailForFileWithBlock(completionBlock:((thumbnailView:UIView?) -> Void)) {
+        let thumbnail = epubManager?.coverWithError(nil)
+        let thumbnailView = UIImageView(image: thumbnail)
+        completionBlock(thumbnailView: thumbnailView)
+    }
+    
     override func titleForFile() -> String? {
         return epubManager?.titleWithError(nil)
     }

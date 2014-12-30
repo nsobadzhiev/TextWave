@@ -346,17 +346,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="151" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="defaultBookBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dw8-8J-fsZ">
-                                            <rect key="frame" x="8" y="8" width="139" height="185"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBookBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dw8-8J-fsZ">
+                                            <rect key="frame" x="8" y="8" width="135" height="183"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="defaultCover.png" translatesAutoresizingMaskIntoConstraints="NO" id="3B7-om-L8a">
-                                            <rect key="frame" x="12" y="12" width="132" height="148"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="148" id="b1L-Kv-tJO"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" Title " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73R-QD-vW9">
-                                            <rect key="frame" x="8" y="164" width="132" height="20.5"/>
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3B7-om-L8a">
+                                            <rect key="frame" x="12" y="12" width="127" height="148"/>
+                                            <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Title " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73R-QD-vW9">
+                                            <rect key="frame" x="8" y="164" width="127" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -365,23 +363,25 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="73R-QD-vW9" firstAttribute="leading" secondItem="3B7-om-L8a" secondAttribute="leading" constant="-4" id="6Jy-mF-Sjm"/>
+                                    <constraint firstItem="3B7-om-L8a" firstAttribute="width" secondItem="73R-QD-vW9" secondAttribute="width" id="083-1A-7i9"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="3B7-om-L8a" secondAttribute="trailing" constant="4" id="3Ev-jQ-t8h"/>
                                     <constraint firstItem="Dw8-8J-fsZ" firstAttribute="top" secondItem="qT3-k8-z2b" secondAttribute="topMargin" id="7Pl-1X-dIP"/>
                                     <constraint firstItem="Dw8-8J-fsZ" firstAttribute="leading" secondItem="qT3-k8-z2b" secondAttribute="leadingMargin" id="A5v-a2-pSj"/>
+                                    <constraint firstItem="3B7-om-L8a" firstAttribute="leading" secondItem="qT3-k8-z2b" secondAttribute="leadingMargin" constant="4" id="AyL-ht-2Jo"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="Dw8-8J-fsZ" secondAttribute="bottom" id="D8R-RG-MT5"/>
-                                    <constraint firstItem="73R-QD-vW9" firstAttribute="width" secondItem="3B7-om-L8a" secondAttribute="width" id="DEY-nP-Ne5"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="3B7-om-L8a" secondAttribute="trailing" constant="3" id="PDM-9U-wa6"/>
+                                    <constraint firstItem="3B7-om-L8a" firstAttribute="centerX" secondItem="Dw8-8J-fsZ" secondAttribute="centerX" constant="0.5" id="HIc-i4-C4q"/>
                                     <constraint firstItem="Dw8-8J-fsZ" firstAttribute="leading" secondItem="qT3-k8-z2b" secondAttribute="leadingMargin" id="QPJ-mt-4iW"/>
-                                    <constraint firstItem="73R-QD-vW9" firstAttribute="top" secondItem="3B7-om-L8a" secondAttribute="bottom" constant="4" id="ac5-57-raW"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="Dw8-8J-fsZ" secondAttribute="bottom" id="bQl-xt-0O7"/>
-                                    <constraint firstItem="3B7-om-L8a" firstAttribute="top" secondItem="qT3-k8-z2b" secondAttribute="topMargin" constant="4" id="m9R-73-X40"/>
+                                    <constraint firstItem="73R-QD-vW9" firstAttribute="leading" secondItem="qT3-k8-z2b" secondAttribute="leadingMargin" id="m9B-vr-t0P"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="73R-QD-vW9" secondAttribute="bottom" constant="6.5" id="mEs-AN-F0e"/>
                                     <constraint firstItem="Dw8-8J-fsZ" firstAttribute="top" secondItem="qT3-k8-z2b" secondAttribute="topMargin" id="mUW-ng-NIE"/>
+                                    <constraint firstItem="3B7-om-L8a" firstAttribute="top" secondItem="qT3-k8-z2b" secondAttribute="topMargin" constant="4" id="qDy-rg-zeM"/>
+                                    <constraint firstItem="73R-QD-vW9" firstAttribute="top" secondItem="3B7-om-L8a" secondAttribute="bottom" constant="4" id="umM-zf-ubS"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="Dw8-8J-fsZ" secondAttribute="trailing" id="vSc-NI-5jl"/>
-                                    <constraint firstItem="3B7-om-L8a" firstAttribute="leading" secondItem="qT3-k8-z2b" secondAttribute="leadingMargin" constant="4" id="zy1-Ee-kMO"/>
                                 </constraints>
                                 <size key="customSize" width="151" height="199"/>
                                 <connections>
-                                    <outlet property="imageView" destination="3B7-om-L8a" id="v3n-PD-7On"/>
+                                    <outlet property="thumbnailView" destination="3B7-om-L8a" id="HiH-TR-IHJ"/>
                                     <outlet property="titleLabel" destination="73R-QD-vW9" id="Qi8-j3-Fgc"/>
                                     <segue destination="JbN-LK-jAK" kind="push" identifier="BookSelectionSegue" id="r5Y-De-kdk"/>
                                 </connections>
@@ -565,7 +565,6 @@
     </scenes>
     <resources>
         <image name="defaultBookBackground.png" width="153" height="209"/>
-        <image name="defaultCover.png" width="146" height="148"/>
         <image name="download_page.png" width="22" height="22"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

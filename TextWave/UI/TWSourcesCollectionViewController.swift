@@ -11,7 +11,8 @@ import UIKit
 class TWSourcesCollectionViewController : UICollectionViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TWSourcesCollectionLayoutDataSource {
     
     @IBOutlet var collectionLayout: TWSourcesCollectionLayout!
-    let fileManager = TWDocumentsFileManager();
+    let fileManager = TWDocumentsFileManager()
+    let defaultThumbnailImageName = "defaultCover"
     
     init(documentsFileManager: TWDocumentsFileManager) {
         super.init(nibName: nil, bundle: nil)
@@ -50,12 +51,13 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         var firstSourceFileName = fileManager.allDocumentPaths()[indexPath.row] as? String
         
         if let firstSource = firstSourceFileName {
-            let firstEpubManager = DMePubManager(epubPath: firstSource)
-            cell.title = firstEpubManager.titleWithError(nil)
-            let bookImage = firstEpubManager.coverWithError(nil)
-            if bookImage != nil {
-                cell.image = bookImage
-            }
+            let fileUrl = NSURL(string: firstSource)
+            let fileMetadata = TWFileMetadataFactory.metadataForFile(fileUrl)
+            cell.title = fileMetadata?.titleForFile()
+            cell.imageView = UIImageView(image: UIImage(named: self.defaultThumbnailImageName))
+            fileMetadata?.thumbnailForFileWithBlock({(thumbnailView:UIView?) in
+                cell.imageView = thumbnailView
+            })
         }
         
         return cell;

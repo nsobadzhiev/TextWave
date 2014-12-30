@@ -19,6 +19,10 @@ class TWFileMetadata {
         return nil
     }
     
+    func thumbnailForFileWithBlock(completionBlock:((thumbnailView:UIView?) -> Void)) {
+        completionBlock(thumbnailView: nil)
+    }
+    
     func titleForFile() -> String? {
         return self.fileUrl?.lastPathComponent
     }

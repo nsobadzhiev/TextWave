@@ -11,7 +11,7 @@ import UIKit
 class TWSourcesCollectionViewCell : UICollectionViewCell {
     
     @IBOutlet var titleLabel: UILabel? = nil
-    @IBOutlet var imageView: UIImageView? = nil
+    @IBOutlet var thumbnailView: UIView! = nil
     
     var title: String? {
     get {
@@ -24,14 +24,13 @@ class TWSourcesCollectionViewCell : UICollectionViewCell {
     }
     }
 
-    var image: UIImage? {
-    get {
-        return imageView?.image
-    }
-    set {
-        if let image = newValue {
-            self.imageView?.image = image
+    var imageView: UIView? {
+        didSet {
+            for subview in self.thumbnailView?.subviews as [UIView] {
+                subview.removeFromSuperview()
+            }
+            self.imageView?.frame = self.thumbnailView.bounds
+            self.thumbnailView?.addSubview(self.imageView!)
         }
-    }
     }
 }

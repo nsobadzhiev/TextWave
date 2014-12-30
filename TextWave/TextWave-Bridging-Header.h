@@ -7,3 +7,4 @@
 #import "TWDocumentsFileManager.h"
 #import "DMePubURLProtocol.h"
 #import "TTRArticleExtractor.h"
+#import "TFHpple.h"
