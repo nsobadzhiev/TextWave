@@ -57,9 +57,9 @@ class TWSourcesCollectionLayout : UICollectionViewLayout {
                     rightColumnHeight += itemHeight
                 }
                 
-                self.totalHeight += itemHeight
                 self.layoutItems.append(itemAttributes)
             }
+            self.totalHeight = max(leftColumnHeight, rightColumnHeight)
         }
     }
     
