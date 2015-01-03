@@ -284,6 +284,9 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ex-25-Bhm">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="BwL-lk-fhh" appends="YES" id="1bN-MU-cv2"/>
+                                </connections>
                             </containerView>
                             <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lm1-gK-PkW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
@@ -416,9 +419,6 @@
                             <constraint firstItem="CWo-6a-Kai" firstAttribute="width" secondItem="Ssw-ow-1E6" secondAttribute="width" id="kss-VE-k9m"/>
                             <constraint firstItem="D4I-5v-TmQ" firstAttribute="top" secondItem="CWo-6a-Kai" secondAttribute="bottom" id="mYz-pA-NLm"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="BwL-lk-fhh" appends="YES" id="Wld-5N-CFO"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="YOp-Vd-qkm" id="94e-JW-Tt8"/>
