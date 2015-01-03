@@ -66,12 +66,26 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+            // TODO: remove hardcoded values
             if (indexPath.row % 2 == 0) {
-                return CGSizeMake(150, 100);
+                return CGSizeMake(150, 100)
             }
             else {
-                return CGSizeMake(150, 200);
+                return CGSizeMake(150, 200)
             }
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        var filePath = fileManager.allDocumentPaths()[indexPath.row] as? String
+        filePath = filePath?.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        if let filePath = filePath {
+            let fileUrl = NSURL(string: filePath)
+            TWNowPlayingManager.instance.startPlaybackWithUrl(fileUrl, selectedItem: nil)
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nowPlayingController = mainStoryboard.instantiateViewControllerWithIdentifier("NowPlayingViewController") as TWNowPlayingViewController
+            nowPlayingController.nowPlayingManager = TWNowPlayingManager.instance
+            self.navigationController?.pushViewController(nowPlayingController, animated: true)
+        }
     }
     
     // MARK: layout data source
@@ -92,22 +106,6 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         let fileName = fileManager.allDocumentPaths()[indexPath.row] as? String
         let epubManager = DMePubManager(epubPath: fileName)
         return epubManager.titleWithError(nil)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "BookSelectionSegue" {
-            let selectedCell = sender as TWSourcesCollectionViewCell
-            let selectedBookIndex = self.collectionView?.indexPathForCell(selectedCell)
-            if let selectedBookIndex = selectedBookIndex {
-                var filePath = fileManager.allDocumentPaths()[selectedBookIndex.row] as? String
-                filePath = filePath?.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-                if let filePath = filePath {
-                    let fileUrl = NSURL(string: filePath)
-                    let bookController = segue.destinationViewController as TWBookViewController
-                    bookController.bookUrl = fileUrl
-                }
-            }
-        }
     }
 
 }

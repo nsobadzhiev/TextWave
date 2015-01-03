@@ -9,16 +9,23 @@
 import Foundation
 import UIKit
 
-class TWNowPlayingViewController : UIViewController {
+class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var playbackTitleLabel: UILabel! = nil
+    @IBOutlet var playbackSubtitleLabel: UILabel! = nil
     @IBOutlet var previousButton: UIButton! = nil
     @IBOutlet var skipBackwardsButton: UIButton! = nil
     @IBOutlet var playButton: UIButton! = nil
     @IBOutlet var skipForwardButton: UIButton! = nil
     @IBOutlet var nextButton: UIButton! = nil
-    @IBOutlet var playbackProgressSlider: UISlider! = nil
-    @IBOutlet var moreButton: UIBarButtonItem! = nil
+    @IBOutlet var playbackProgressSlider: UIProgressView! = nil
+    @IBOutlet var contentsButton: UIButton! = nil
+    @IBOutlet var bookmarksButton: UIButton! = nil
+    @IBOutlet var backButton: UIButton! = nil
     @IBOutlet var previewView: UIView! = nil
+    @IBOutlet var controlsView: UIView! = nil
+    @IBOutlet var titleView: UIView! = nil
+    @IBOutlet var pagesView: UIView! = nil
+    @IBOutlet var tapRecognizer: UITapGestureRecognizer! = nil
     
     var playbackTitle: String = "" {
     didSet{
@@ -55,8 +62,7 @@ class TWNowPlayingViewController : UIViewController {
             previewController.view.frame = CGRectMake(0.0, 0.0, self.previewView.frame.size.width, self.previewView.frame.size.height)
             self.previewView.addSubview(previewController.view)
             previewController.didMoveToParentViewController(self)
-            self.previewView.layer.borderColor = UIColor.blackColor().CGColor
-            self.previewView.layer.borderWidth = 3.0
+            self.navigationController?.navigationBarHidden = true
         }
     }
     
@@ -89,5 +95,19 @@ class TWNowPlayingViewController : UIViewController {
         let slider = sender as UISlider
         let sliderValue = slider.value
         self.playbackManager?.setPlaybackProgress(sliderValue)
+    }
+    
+    @IBAction func onBackgroundTap(sender: AnyObject) {
+        self.controlsView.hidden = !self.controlsView.hidden
+        self.titleView.hidden = !self.titleView.hidden
+        self.pagesView.hidden = !self.pagesView.hidden
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        return true
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
