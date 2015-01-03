@@ -27,6 +27,9 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     @IBOutlet var pagesView: UIView! = nil
     @IBOutlet var tapRecognizer: UITapGestureRecognizer! = nil
     
+    var controlsFadeAnimationLength = 0.6
+    var controlViewsXibAlpha:CGFloat = 0.0
+    
     var playbackTitle: String = "" {
     didSet{
         if playbackTitleLabel != nil {
@@ -63,6 +66,7 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
             self.previewView.addSubview(previewController.view)
             previewController.didMoveToParentViewController(self)
             self.navigationController?.navigationBarHidden = true
+            controlViewsXibAlpha = self.controlsView.alpha
         }
     }
     
@@ -98,9 +102,11 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     }
     
     @IBAction func onBackgroundTap(sender: AnyObject) {
-        self.controlsView.hidden = !self.controlsView.hidden
-        self.titleView.hidden = !self.titleView.hidden
-        self.pagesView.hidden = !self.pagesView.hidden
+        UIView.animateWithDuration(self.controlsFadeAnimationLength, animations: {() in 
+            self.controlsView.alpha = self.controlViewsXibAlpha - self.controlsView.alpha
+            self.titleView.alpha = self.controlViewsXibAlpha - self.titleView.alpha
+            self.pagesView.alpha = self.controlViewsXibAlpha - self.pagesView.alpha
+        })
     }
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
