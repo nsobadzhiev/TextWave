@@ -302,6 +302,9 @@
                                         <state key="normal" title="Back">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onBackTap:" destination="CHK-cY-yPw" eventType="touchUpInside" id="wPJ-rn-WoO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1l-Ff-bKL">
                                         <rect key="frame" x="54" y="31" width="46" height="30"/>
@@ -309,6 +312,9 @@
                                         <state key="normal" title="Contents">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onContentsTap:" destination="CHK-cY-yPw" eventType="touchUpInside" id="fEr-wW-bOZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QT9-IN-tk0">
                                         <rect key="frame" x="266" y="31" width="46" height="30"/>
@@ -316,6 +322,9 @@
                                         <state key="normal" title="Bookmarks">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onBookmarksTap:" destination="CHK-cY-yPw" eventType="touchUpInside" id="hhz-92-4wT"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIM-Pd-eA6">
                                         <rect key="frame" x="105" y="21" width="111" height="21"/>

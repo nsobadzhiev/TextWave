@@ -69,6 +69,8 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
         }
     }
     
+    // MARK: Controls view actions
+    
     @IBAction func onPreviousTap(sender: AnyObject) {
         self.playbackManager?.previous()
     }
@@ -108,9 +110,21 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
         })
     }
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-        return true
+    // MARK: Title view actions
+    
+    @IBAction func onBackTap(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    @IBAction func onContentsTap(sender: AnyObject) {
+        // TODO: show table of contents
+    }
+    
+    @IBAction func onBookmarksTap(sender: AnyObject) {
+        // TODO: show bookmarks
+    }
+    
+    // MARK: UIGestureRecognizerDelegate
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
