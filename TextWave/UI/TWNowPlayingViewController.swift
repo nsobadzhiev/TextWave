@@ -25,7 +25,6 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     @IBOutlet var controlsView: UIView! = nil
     @IBOutlet var titleView: UIView! = nil
     @IBOutlet var pagesView: UIView! = nil
-    @IBOutlet var tapRecognizer: UITapGestureRecognizer! = nil
     
     var controlsFadeAnimationLength = 0.6
     var controlViewsXibAlpha:CGFloat = 0.0
