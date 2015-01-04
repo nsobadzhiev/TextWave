@@ -32,6 +32,10 @@ class TWSourcesCollectionLayout : UICollectionViewLayout {
         var rightColumnHeight:Float = 0
         self.totalHeight = 0
         
+        if itemsCount == 0 {
+            return
+        }
+        
         if let itemsCount = itemsCount {
             for itemIndex in 0...(itemsCount - 1) {
                 let indexPath = NSIndexPath(forItem: itemIndex, inSection: 0)
