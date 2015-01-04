@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230155F21A598BC100FE2BBC /* TWTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230155F11A598BC100FE2BBC /* TWTabViewController.swift */; };
+		230155F71A59954400FE2BBC /* TWTabBarSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230155F61A59954400FE2BBC /* TWTabBarSegue.swift */; };
 		23111C271944E8A400FBB466 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312891915625B006F1979 /* libxml2.dylib */; };
 		23111C281944E8AF00FBB466 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312A519156BD8006F1979 /* libz.dylib */; };
 		23111C291944E8B700FBB466 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312A319156B98006F1979 /* libstdc++.dylib */; };
@@ -212,6 +214,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		230155F11A598BC100FE2BBC /* TWTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWTabViewController.swift; sourceTree = "<group>"; };
+		230155F61A59954400FE2BBC /* TWTabBarSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWTabBarSegue.swift; sourceTree = "<group>"; };
 		232729CF1A460D560093E189 /* defaultCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultCover@2x.png"; sourceTree = "<group>"; };
 		232729D31A46144C0093E189 /* defaultBookBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultBookBackground@2x.png"; sourceTree = "<group>"; };
 		232729D71A461C440093E189 /* defaultBookBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultBookBackground.png; path = x1/defaultBookBackground.png; sourceTree = "<group>"; };
@@ -547,6 +551,8 @@
 				23D126D91A017CDF0036DDAB /* TWWebPageViewController.swift */,
 				FDAE9B041A1EBD5F00E542F0 /* TWBrowseItemViewController.swift */,
 				232729DB1A4846C20093E189 /* TWSourcesCollectionLayout.swift */,
+				230155F11A598BC100FE2BBC /* TWTabViewController.swift */,
+				230155F61A59954400FE2BBC /* TWTabBarSegue.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -933,8 +939,10 @@
 				235F969319CDADA2003BA87D /* TWPlaybackSource.swift in Sources */,
 				237C0FCD19DC8619003F575A /* TTRArticleExtractor.m in Sources */,
 				235F967519CDADA2003BA87D /* DMePubURLProtocol.m in Sources */,
+				230155F71A59954400FE2BBC /* TWTabBarSegue.swift in Sources */,
 				2330E24A1A4A172900963427 /* TFHppleElement.m in Sources */,
 				237C0FC719DC8619003F575A /* TextToTagRatioCalculator.m in Sources */,
+				230155F21A598BC100FE2BBC /* TWTabViewController.swift in Sources */,
 				235F967119CDADA2003BA87D /* DMePubItemIterator.m in Sources */,
 				235F97C819CDBDA9003BA87D /* DDXMLDocument.m in Sources */,
 				235F97C419CDBDA9003BA87D /* DDXMLElementAdditions.m in Sources */,
