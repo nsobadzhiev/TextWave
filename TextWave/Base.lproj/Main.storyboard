@@ -325,19 +325,15 @@
                                 <constraints>
                                     <constraint firstItem="3B7-om-L8a" firstAttribute="width" secondItem="73R-QD-vW9" secondAttribute="width" id="083-1A-7i9"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="3B7-om-L8a" secondAttribute="trailing" constant="4" id="3Ev-jQ-t8h"/>
-                                    <constraint firstItem="Dw8-8J-fsZ" firstAttribute="top" secondItem="qT3-k8-z2b" secondAttribute="topMargin" id="7Pl-1X-dIP"/>
-                                    <constraint firstItem="Dw8-8J-fsZ" firstAttribute="leading" secondItem="qT3-k8-z2b" secondAttribute="leadingMargin" id="A5v-a2-pSj"/>
                                     <constraint firstItem="3B7-om-L8a" firstAttribute="leading" secondItem="qT3-k8-z2b" secondAttribute="leadingMargin" constant="4" id="AyL-ht-2Jo"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="Dw8-8J-fsZ" secondAttribute="bottom" id="D8R-RG-MT5"/>
-                                    <constraint firstItem="3B7-om-L8a" firstAttribute="centerX" secondItem="Dw8-8J-fsZ" secondAttribute="centerX" constant="0.5" id="HIc-i4-C4q"/>
-                                    <constraint firstItem="Dw8-8J-fsZ" firstAttribute="leading" secondItem="qT3-k8-z2b" secondAttribute="leadingMargin" id="QPJ-mt-4iW"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="Dw8-8J-fsZ" secondAttribute="bottom" id="bQl-xt-0O7"/>
+                                    <constraint firstItem="Dw8-8J-fsZ" firstAttribute="bottom" secondItem="qT3-k8-z2b" secondAttribute="bottomMargin" id="CkF-p1-b3J"/>
+                                    <constraint firstItem="Dw8-8J-fsZ" firstAttribute="leading" secondItem="qT3-k8-z2b" secondAttribute="leadingMargin" id="FAw-Dg-joU"/>
+                                    <constraint firstItem="Dw8-8J-fsZ" firstAttribute="trailing" secondItem="qT3-k8-z2b" secondAttribute="trailingMargin" id="RVO-tR-YLv"/>
+                                    <constraint firstItem="Dw8-8J-fsZ" firstAttribute="top" secondItem="qT3-k8-z2b" secondAttribute="topMargin" id="WDD-aV-UWP"/>
                                     <constraint firstItem="73R-QD-vW9" firstAttribute="leading" secondItem="qT3-k8-z2b" secondAttribute="leadingMargin" id="m9B-vr-t0P"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="73R-QD-vW9" secondAttribute="bottom" constant="6.5" id="mEs-AN-F0e"/>
-                                    <constraint firstItem="Dw8-8J-fsZ" firstAttribute="top" secondItem="qT3-k8-z2b" secondAttribute="topMargin" id="mUW-ng-NIE"/>
                                     <constraint firstItem="3B7-om-L8a" firstAttribute="top" secondItem="qT3-k8-z2b" secondAttribute="topMargin" constant="4" id="qDy-rg-zeM"/>
                                     <constraint firstItem="73R-QD-vW9" firstAttribute="top" secondItem="3B7-om-L8a" secondAttribute="bottom" constant="4" id="umM-zf-ubS"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="Dw8-8J-fsZ" secondAttribute="trailing" id="vSc-NI-5jl"/>
                                 </constraints>
                                 <size key="customSize" width="151" height="199"/>
                                 <connections>
