@@ -57,6 +57,16 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
         self.setupPreview()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     func setupPreview() {
         let previewController = TWPublicationPreviewViewControllerFactory.previewViewControllerForUrl(self.playbackManager?.playbackSource?.sourceURL, selectedItem: self.nowPlayingManager?.selectedItem)
         if let previewController = previewController {
@@ -64,7 +74,6 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
             previewController.view.frame = CGRectMake(0.0, 0.0, self.previewView.frame.size.width, self.previewView.frame.size.height)
             self.previewView.addSubview(previewController.view)
             previewController.didMoveToParentViewController(self)
-            self.navigationController?.navigationBarHidden = true
             controlViewsXibAlpha = self.controlsView.alpha
         }
     }
