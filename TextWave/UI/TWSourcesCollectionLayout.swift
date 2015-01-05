@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TWSourcesCollectionLayoutDataSource {
-    func sourcesCollectionLayout(collectionLayout: TWSourcesCollectionLayout, imageForItemAtIndexPath indexPath: NSIndexPath) -> UIImage?
+    func sourcesCollectionLayout(collectionLayout: TWSourcesCollectionLayout, imageSizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     func sourcesCollectionLayout(collectionLayout: TWSourcesCollectionLayout, titleForItemAtIndexPath indexPath: NSIndexPath) -> NSString?
 }
 
@@ -39,12 +39,12 @@ class TWSourcesCollectionLayout : UICollectionViewLayout {
         if let itemsCount = itemsCount {
             for itemIndex in 0...(itemsCount - 1) {
                 let indexPath = NSIndexPath(forItem: itemIndex, inSection: 0)
-                let itemImage = self.delegate?.sourcesCollectionLayout(self, imageForItemAtIndexPath: indexPath)
+                let itemImageSize = self.delegate?.sourcesCollectionLayout(self, imageSizeForItemAtIndexPath: indexPath)
                 let itemTitle = self.delegate?.sourcesCollectionLayout(self, titleForItemAtIndexPath: indexPath)
                 let titleHeight = self.heightForTitle(itemTitle)
                 var imageRatio = 0.5
-                if let originalImageHeight = itemImage?.size.height {
-                    if let originalImageWidth = itemImage?.size.width {
+                if let originalImageHeight = itemImageSize?.height {
+                    if let originalImageWidth = itemImageSize?.width {
                         imageRatio = Double(originalImageHeight / originalImageWidth)
                     }
                 }

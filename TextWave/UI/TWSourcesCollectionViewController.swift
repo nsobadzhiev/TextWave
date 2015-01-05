@@ -28,6 +28,18 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         self.collectionLayout.delegate = self
     }
     
+    func metadataForItem(#indexPath:NSIndexPath) -> TWFileMetadata? {
+        var firstSourceFileName = fileManager.allDocumentPaths()[indexPath.row] as? String
+        
+        if let firstSource = firstSourceFileName {
+            let fileUrl = NSURL(string: firstSource)
+            return TWFileMetadataFactory.metadataForFile(fileUrl)
+        }
+        else {
+            return nil
+        }
+    }
+    
 // MARK: - Button Actions
     
     @IBAction func unwindToSegue(segue: UIStoryboardSegue) {
@@ -90,22 +102,20 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
     
     // MARK: layout data source
     
-    func sourcesCollectionLayout(collectionLayout: TWSourcesCollectionLayout, imageForItemAtIndexPath indexPath: NSIndexPath) -> UIImage? {
-        let fileName = fileManager.allDocumentPaths()[indexPath.row] as? String
-        let epubManager = DMePubManager(epubPath: fileName)
-        let cover = epubManager.coverWithError(nil)
-        if cover != nil {
-            return cover
+    func sourcesCollectionLayout(collectionLayout: TWSourcesCollectionLayout, imageSizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let metadata = self.metadataForItem(indexPath: indexPath)
+        let size = metadata?.thumbnailSize()
+        if let size = size {
+            return size
         }
         else {
-            return UIImage(named: "defaultCover");
+            return CGSizeZero
         }
     }
     
     func sourcesCollectionLayout(collectionLayout: TWSourcesCollectionLayout, titleForItemAtIndexPath indexPath: NSIndexPath) -> NSString? {
-        let fileName = fileManager.allDocumentPaths()[indexPath.row] as? String
-        let epubManager = DMePubManager(epubPath: fileName)
-        return epubManager.titleWithError(nil)
+        let metadata = self.metadataForItem(indexPath: indexPath)
+        return metadata?.titleForFile()
     }
 
 }

@@ -11,7 +11,6 @@ import Foundation
 class TWWebPageViewController: TWPublicationPreviewViewControllerProtocol, UIWebViewDelegate {
     
     @IBOutlet var webView: UIWebView! = nil
-    @IBOutlet var listenButton: UIButton! = nil
     
     var pageUrl: NSURL? = nil {
         didSet {
@@ -28,8 +27,7 @@ class TWWebPageViewController: TWPublicationPreviewViewControllerProtocol, UIWeb
         if let requestUrl = requestUrl {
             if let webContainer = self.webView {
                 let request = NSURLRequest(URL: requestUrl, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
-                self.webView.loadRequest(request);
-                listenButton.enabled = false;
+                self.webView.loadRequest(request)
             }
         }
     }
@@ -45,6 +43,6 @@ class TWWebPageViewController: TWPublicationPreviewViewControllerProtocol, UIWeb
     // MARK: UIWebViewDelegate
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        listenButton.enabled = true;
+        
     }
 }

@@ -26,6 +26,16 @@ class TWEpubMetadata : TWFileMetadata {
         completionBlock(thumbnailView: thumbnailView)
     }
     
+    override func thumbnailSize() -> CGSize {
+        let cover = self.thumbnailForFile()
+        if let cover = cover {
+            return CGSizeMake(cover.size.width, cover.size.height)
+        }
+        else {
+            return CGSizeZero
+        }
+    }
+    
     override func titleForFile() -> String? {
         return epubManager?.titleWithError(nil)
     }

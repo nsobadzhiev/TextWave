@@ -30,6 +30,7 @@ class TWSourcesCollectionViewCell : UICollectionViewCell {
                 subview.removeFromSuperview()
             }
             self.imageView?.frame = self.thumbnailView.bounds
+            self.imageView?.autoresizingMask = UIViewAutoresizing.FlexibleWidth|UIViewAutoresizing.FlexibleHeight
             self.thumbnailView?.addSubview(self.imageView!)
         }
     }

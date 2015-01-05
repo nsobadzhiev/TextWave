@@ -23,6 +23,10 @@ class TWFileMetadata {
         completionBlock(thumbnailView: nil)
     }
     
+    func thumbnailSize() -> CGSize {
+        return CGSizeZero
+    }
+    
     func titleForFile() -> String? {
         return self.fileUrl?.lastPathComponent
     }

@@ -30,6 +30,11 @@ class TWWebPageMetadata : TWFileMetadata {
         })
     }
     
+    override func thumbnailSize() -> CGSize {
+        // TODO: remove diplicate in ThumbnailsManager
+        return CGSizeMake(140.0, 160.0)
+    }
+    
     override func titleForFile() -> String? {
         if let url = self.fileUrl {
             let htmlData = NSData(contentsOfURL: url)

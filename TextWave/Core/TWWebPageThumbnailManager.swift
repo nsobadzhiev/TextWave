@@ -10,7 +10,7 @@ import Foundation
 
 class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
     
-    var thumbnailSize:CGSize = CGSizeMake(140.0, 60.0)
+    var thumbnailSize:CGSize = CGSizeMake(140.0, 160.0)
     let thumbnailsFileManager = TWThumbnailFileManager()
     var successBlock: ((thumbnailView:UIView) -> Void)! = nil
     var failureBlock: ((error:NSError) -> Void)! = nil
