@@ -10,13 +10,7 @@ import Foundation
 
 class TWWebPageMetadata : TWFileMetadata {
     
-    let epubManager: DMePubManager? = nil
     let thumbnailManager = TWWebPageThumbnailManager()
-    
-    override init(url: NSURL?) {
-        super.init(url: url)
-        epubManager = DMePubManager(epubPath: url?.absoluteString)
-    }
     
     override func thumbnailForFile() -> UIImage? {
         return nil
