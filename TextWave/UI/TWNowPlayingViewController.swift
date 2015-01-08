@@ -122,7 +122,12 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     // MARK: Title view actions
     
     @IBAction func onBackTap(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+        if self.navigationController != nil {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        else if self.presentingViewController != nil {
+            self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     @IBAction func onContentsTap(sender: AnyObject) {

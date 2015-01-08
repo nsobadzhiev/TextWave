@@ -96,7 +96,7 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nowPlayingController = mainStoryboard.instantiateViewControllerWithIdentifier("NowPlayingViewController") as TWNowPlayingViewController
             nowPlayingController.nowPlayingManager = TWNowPlayingManager.instance
-            self.navigationController?.pushViewController(nowPlayingController, animated: true)
+            self.presentViewController(nowPlayingController, animated: true, completion: nil)
         }
     }
     
