@@ -42,7 +42,10 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     }
     
     func resume() {
-        textToSpeech.continueSpeaking()
+        let speakingContinued = textToSpeech.continueSpeaking()
+        if speakingContinued == false {
+            self.next()
+        }
     }
     
     func previous() {
