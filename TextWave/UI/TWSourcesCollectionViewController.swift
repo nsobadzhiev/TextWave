@@ -89,7 +89,6 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         var filePath = fileManager.allDocumentPaths()[indexPath.row] as? String
-        filePath = filePath?.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
         if let filePath = filePath {
             let fileUrl = NSURL(string: filePath)
             TWNowPlayingManager.instance.startPlaybackWithUrl(fileUrl, selectedItem: nil)
