@@ -266,6 +266,10 @@
                     </view>
                     <connections>
                         <outlet property="contentAreaView" destination="6tF-Ps-7Tc" id="UrY-pw-b0l"/>
+                        <outlet property="libraryButton" destination="prh-pk-XJH" id="VaF-Cj-FDM"/>
+                        <outlet property="nowPlayingButton" destination="xKw-YC-z2V" id="eeu-Hp-xNL"/>
+                        <outlet property="searchButton" destination="qzb-nN-hNX" id="F84-GF-1gJ"/>
+                        <outlet property="settingsButton" destination="mAN-oD-qyK" id="P0F-Jv-igf"/>
                         <outlet property="view" destination="czI-ub-2cK" id="xM1-XW-W8U"/>
                     </connections>
                 </viewController>
