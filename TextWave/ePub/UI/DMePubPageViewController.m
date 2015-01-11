@@ -90,8 +90,6 @@
         [self saveBookmark:nextItem];
         UIViewController* firstPage = [[DMePubItemViewController alloc] initWithEpubItem:nextItem
                                                                           andEpubManager:self.epubManager];
-        tableOfContentsController = [[DMTableOfContentsTableViewController alloc] initWithEpubPath:self.epubManager.epubPath];
-        tableOfContentsController.delegate = self;
         [self.pageViewController setViewControllers:@[firstPage]
                                           direction:UIPageViewControllerNavigationDirectionForward 
                                            animated:YES 
@@ -134,13 +132,7 @@
     }
     DMePubItem* previousItem = [itemIterator previousItem];
     UIViewController* previousController = nil;
-    if (previousItem == nil)
-    {
-        // if the begining of the book has been reached, open the table of
-        // contents
-        previousController = tableOfContentsController;
-    }
-    else
+    if (previousItem != nil)
     {
         [self saveBookmark:previousItem];
         previousController = [[DMePubItemViewController alloc] initWithEpubItem:previousItem
@@ -175,14 +167,6 @@
     {
         return nil;
     }
-}
-
-#pragma mark - DMTableOfContentsTableViewControllerDelegate
-
-- (void)tableOfContentsController:(DMTableOfContentsTableViewController*)tocController
-            didSelectItemWithPath:(NSString*)path
-{
-    [self openItemAtPath:path];
 }
 
 #pragma mark - PrivateMethods

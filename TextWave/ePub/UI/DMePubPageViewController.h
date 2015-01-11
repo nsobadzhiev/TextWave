@@ -9,13 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "DMePubManager.h"
 #import "DMePubItemIterator.h"
-#import "DMTableOfContentsTableViewController.h"
 #import "DMBookmarkManager.h"
 
-@interface DMePubPageViewController : UIViewController <UIPageViewControllerDataSource, DMTableOfContentsTableViewControllerDelegate>
+@interface DMePubPageViewController : UIViewController <UIPageViewControllerDataSource>
 {
     DMePubItemIterator* itemIterator;
-    DMTableOfContentsTableViewController* tableOfContentsController;
     DMBookmarkManager* bookmarkManager;
     NSString* _selectedItem;
 }
