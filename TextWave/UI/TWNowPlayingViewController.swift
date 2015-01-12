@@ -55,6 +55,7 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
         self.playbackManager = self.nowPlayingManager?.playbackManager
         playbackTitleLabel.text = self.playbackTitle
         self.setupPreview()
+        self.setupControls()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -76,6 +77,10 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
             previewController.didMoveToParentViewController(self)
             controlViewsXibAlpha = self.controlsView.alpha
         }
+    }
+    
+    func setupControls() {
+        self.contentsButton.hidden = (TWPublicationPreviewViewControllerFactory.supportsTableOfContents(self.playbackManager?.playbackSource?.sourceURL) == false)
     }
     
     // MARK: Controls view actions
@@ -131,7 +136,10 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     }
     
     @IBAction func onContentsTap(sender: AnyObject) {
-        // TODO: show table of contents
+        let contentsController = TWPublicationPreviewViewControllerFactory.tableOfContentsControllerForUrl(self.playbackManager?.playbackSource?.sourceURL)
+        if let contentsController = contentsController {
+            self.presentViewController(contentsController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func onBookmarksTap(sender: AnyObject) {

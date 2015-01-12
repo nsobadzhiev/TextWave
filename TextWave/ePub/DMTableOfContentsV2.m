@@ -138,7 +138,7 @@ static NSString* const k_playOrderTag = @"playOrder";
             }
         }
     }
-    return [NSArray arrayWithArray:topLevelItems];
+    return [NSArray arrayWithArray:items];
 }
 
 @end

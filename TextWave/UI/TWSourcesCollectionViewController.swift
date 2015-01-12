@@ -28,6 +28,11 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         self.collectionLayout.delegate = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.collectionView?.reloadData()
+    }
+    
     func metadataForItem(#indexPath:NSIndexPath) -> TWFileMetadata? {
         var firstSourceFileName = fileManager.allDocumentPaths()[indexPath.row] as? String
         

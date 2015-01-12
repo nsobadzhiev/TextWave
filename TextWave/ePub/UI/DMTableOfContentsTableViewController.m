@@ -14,35 +14,19 @@
 
 @implementation DMTableOfContentsTableViewController
 
-- (id)initWithEpubPath:(NSString*)_epubPath
+- (id)initWithPublicationPath:(NSString*)pubPath
 {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self)
     {
-        epubPath = _epubPath;
+        publicationPath = pubPath;
     }
     return self;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
-    return [self initWithEpubPath:nil];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    tocDataSource = [[DMTableOfContentsDataSource alloc] initWithEpubPath:epubPath];
-    tocDataSource.delegate = self;
-    self.tableView.dataSource = tocDataSource;
-    self.tableView.delegate = tocDataSource;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return [self initWithPublicationPath:nil];
 }
 
 - (void)tableOfContentsDataSource:(DMTableOfContentsDataSource*)source

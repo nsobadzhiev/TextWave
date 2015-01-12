@@ -10,6 +10,8 @@ import Foundation
 
 class TWPublicationPreviewViewControllerFactory {
     
+    // MARK: Publication preview
+    
     class func previewViewControllerForUrl(url: NSURL?, selectedItem: String?) -> TWPublicationPreviewViewControllerProtocol? {
         if TWFileTypeManager.fileType(fileUrl: url) == TWFileType.EPUB {
             return self.createEpubViewController(epubUrl: url, selectedItem: selectedItem)
@@ -36,6 +38,21 @@ class TWPublicationPreviewViewControllerFactory {
         let previewController = self.instantiateViewControllerFromStoryboard("WebPageViewController") as TWWebPageViewController
         previewController.pageUrl = url
         return previewController
+    }
+    
+    // MARK: Table of contents
+    
+    class func supportsTableOfContents(url:NSURL?) -> Bool {
+        return (TWFileTypeManager.fileType(fileUrl: url) == TWFileType.EPUB)
+    }
+    
+    class func tableOfContentsControllerForUrl(url:NSURL?) -> DMTableOfContentsTableViewController? {
+        if TWFileTypeManager.fileType(fileUrl: url) == TWFileType.EPUB {
+            if let url = url {
+                return DMePubTableOfContentsTableViewController(publicationPath: url.absoluteString)
+            }
+        }
+        return nil
     }
     
 }

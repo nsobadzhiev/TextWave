@@ -48,6 +48,7 @@
     NSArray* tocItems = [epubManager allNavigationItems];
     DMTableOfContentsItem* tocItem = [tocItems objectAtIndex:indexPath.row];
     cell.textLabel.text = tocItem.name;
+    cell.indentationLevel = tocItem.level;
     return cell;
 }
 

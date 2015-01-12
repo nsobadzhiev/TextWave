@@ -20,12 +20,11 @@
 
 @interface DMTableOfContentsTableViewController : UITableViewController <DMTableOfContentsDelegate>
 {
-    NSString* epubPath;
-    DMTableOfContentsDataSource* tocDataSource;
+    NSString* publicationPath;
 }
 
 @property (nonatomic, weak) id<DMTableOfContentsTableViewControllerDelegate> delegate;
 
-- (id)initWithEpubPath:(NSString*)epubPath;
+- (id)initWithPublicationPath:(NSString*)pubPath;
 
 @end

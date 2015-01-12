@@ -5,6 +5,7 @@
 #import "DMePubPageViewController.h"
 #import "DMePubManager.h"
 #import "TWDocumentsFileManager.h"
+#import "DMePubTableOfContentsTableViewController.h"
 #import "DMePubURLProtocol.h"
 #import "TTRArticleExtractor.h"
 #import "TFHpple.h"
