@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate {
+class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate, DMTableOfContentsTableViewControllerDelegate {
     @IBOutlet var playbackTitleLabel: UILabel! = nil
     @IBOutlet var playbackSubtitleLabel: UILabel! = nil
     @IBOutlet var previousButton: UIButton! = nil
@@ -28,6 +28,7 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     
     var controlsFadeAnimationLength = 0.6
     var controlViewsXibAlpha:CGFloat = 0.0
+    var previewController:TWPublicationPreviewViewControllerProtocol? = nil
     
     var playbackTitle: String = "" {
     didSet{
@@ -76,6 +77,7 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
             self.previewView.addSubview(previewController.view)
             previewController.didMoveToParentViewController(self)
             controlViewsXibAlpha = self.controlsView.alpha
+            self.previewController = previewController
         }
     }
     
@@ -138,6 +140,7 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     @IBAction func onContentsTap(sender: AnyObject) {
         let contentsController = TWPublicationPreviewViewControllerFactory.tableOfContentsControllerForUrl(self.playbackManager?.playbackSource?.sourceURL)
         if let contentsController = contentsController {
+            contentsController.delegate = self
             self.presentViewController(contentsController, animated: true, completion: nil)
         }
     }
@@ -150,5 +153,12 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
+    }
+    
+    // MARK: DMTableOfContentsTableViewControllerDelegate
+    
+    func tableOfContentsController(tocController: DMTableOfContentsTableViewController!, didSelectItemWithPath path: String!) {
+        self.previewController?.goToSection(sectionName: path)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

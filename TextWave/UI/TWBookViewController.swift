@@ -70,6 +70,12 @@ class TWBookViewController : TWPublicationPreviewViewControllerProtocol {
         
     }
     
+    override func goToSection(#sectionName: String) {
+        if let epubController = self.epubPageController {
+            epubController.selectedItem = sectionName
+        }
+    }
+    
     func setBookAndPosition(bookUrl: NSURL?, selectedItem: String?) {
         self.bookUrl = bookUrl
         if (selectedItem != nil) {

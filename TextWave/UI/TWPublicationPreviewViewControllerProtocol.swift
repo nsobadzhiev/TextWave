@@ -39,6 +39,10 @@ class TWPublicationPreviewViewControllerProtocol: UIViewController {
     func goToSection(index: Int) {
         
     }
+    
+    func goToSection(#sectionName: String) {
+        
+    }
 
     var previewDelegate: TWPublicationPreviewViewControllerDelegate?
 }
