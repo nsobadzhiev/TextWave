@@ -64,6 +64,10 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("hideControls"), userInfo: nil, repeats: false)
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -119,10 +123,22 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     }
     
     @IBAction func onBackgroundTap(sender: AnyObject) {
+        self.toggleControls()
+    }
+    
+    func toggleControls() {
         UIView.animateWithDuration(self.controlsFadeAnimationLength, animations: {() in 
             self.controlsView.alpha = self.controlViewsXibAlpha - self.controlsView.alpha
             self.titleView.alpha = self.controlViewsXibAlpha - self.titleView.alpha
             self.pagesView.alpha = self.controlViewsXibAlpha - self.pagesView.alpha
+        })
+    }
+    
+    func hideControls() {
+        UIView.animateWithDuration(self.controlsFadeAnimationLength, animations: {() in 
+            self.controlsView.alpha = 0
+            self.titleView.alpha = 0
+            self.pagesView.alpha = 0
         })
     }
     
