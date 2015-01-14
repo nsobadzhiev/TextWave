@@ -142,6 +142,10 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
         })
     }
     
+    func dismissTableOfContents() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // MARK: Title view actions
     
     @IBAction func onBackTap(sender: AnyObject) {
@@ -157,7 +161,9 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
         let contentsController = TWPublicationPreviewViewControllerFactory.tableOfContentsControllerForUrl(self.playbackManager?.playbackSource?.sourceURL)
         if let contentsController = contentsController {
             contentsController.delegate = self
-            self.presentViewController(contentsController, animated: true, completion: nil)
+            contentsController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "dismissTableOfContents")
+            let contentNavigationController = UINavigationController(rootViewController: contentsController)
+            self.presentViewController(contentNavigationController, animated: true, completion: nil)
         }
     }
     
@@ -175,6 +181,6 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     
     func tableOfContentsController(tocController: DMTableOfContentsTableViewController!, didSelectItemWithPath path: String!) {
         self.previewController?.goToSection(sectionName: path)
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissTableOfContents()
     }
 }
