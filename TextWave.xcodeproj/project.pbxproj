@@ -170,6 +170,13 @@
 		237C0FD019DC8619003F575A /* UnwantedTagStripper.m in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FC019DC8619003F575A /* UnwantedTagStripper.m */; };
 		237C0FD619DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FD519DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift */; };
 		237C0FD719DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C0FD519DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift */; };
+		23B159531A864DFD001B463D /* TWTextExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B159521A864DFD001B463D /* TWTextExtractor.swift */; };
+		23B1595F1A865263001B463D /* libjusText_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B1595A1A865263001B463D /* libjusText_ios.a */; };
+		23B159601A865263001B463D /* libpcre_universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B1595C1A865263001B463D /* libpcre_universal.a */; };
+		23B159611A865263001B463D /* libpcrecpp_universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B1595D1A865263001B463D /* libpcrecpp_universal.a */; };
+		23B159621A865263001B463D /* libpcreposix_universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B1595E1A865263001B463D /* libpcreposix_universal.a */; };
+		23B159661A865306001B463D /* English.txt in Resources */ = {isa = PBXBuildFile; fileRef = 23B159641A865306001B463D /* English.txt */; };
+		23B159671A865306001B463D /* Hungarian.txt in Resources */ = {isa = PBXBuildFile; fileRef = 23B159651A865306001B463D /* Hungarian.txt */; };
 		23D126DA1A017CDF0036DDAB /* TWWebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D126D91A017CDF0036DDAB /* TWWebPageViewController.swift */; };
 		23D126DD1A02D0890036DDAB /* TWFileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D126DC1A02D0890036DDAB /* TWFileType.swift */; };
 		23EC99BE1A49A687001C8447 /* TWFileMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC99BD1A49A687001C8447 /* TWFileMetadata.swift */; };
@@ -369,6 +376,14 @@
 		237C0FBF19DC8619003F575A /* UnwantedTagStripper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnwantedTagStripper.h; path = libs/ttr/TTR/TTR/UnwantedTagStripper.h; sourceTree = "<group>"; };
 		237C0FC019DC8619003F575A /* UnwantedTagStripper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnwantedTagStripper.m; path = libs/ttr/TTR/TTR/UnwantedTagStripper.m; sourceTree = "<group>"; };
 		237C0FD519DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPublicationPreviewViewControllerProtocol.swift; sourceTree = "<group>"; };
+		23B159521A864DFD001B463D /* TWTextExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWTextExtractor.swift; sourceTree = "<group>"; };
+		23B159591A865263001B463D /* TextExractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextExractor.h; sourceTree = "<group>"; };
+		23B1595A1A865263001B463D /* libjusText_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjusText_ios.a; sourceTree = "<group>"; };
+		23B1595C1A865263001B463D /* libpcre_universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpcre_universal.a; sourceTree = "<group>"; };
+		23B1595D1A865263001B463D /* libpcrecpp_universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpcrecpp_universal.a; sourceTree = "<group>"; };
+		23B1595E1A865263001B463D /* libpcreposix_universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpcreposix_universal.a; sourceTree = "<group>"; };
+		23B159641A865306001B463D /* English.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = English.txt; sourceTree = "<group>"; };
+		23B159651A865306001B463D /* Hungarian.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Hungarian.txt; sourceTree = "<group>"; };
 		23D126D91A017CDF0036DDAB /* TWWebPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageViewController.swift; sourceTree = "<group>"; };
 		23D126DC1A02D0890036DDAB /* TWFileType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWFileType.swift; sourceTree = "<group>"; };
 		23EC99BD1A49A687001C8447 /* TWFileMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWFileMetadata.swift; sourceTree = "<group>"; };
@@ -389,11 +404,15 @@
 				236312A619156BD8006F1979 /* libz.dylib in Frameworks */,
 				236312A419156B98006F1979 /* libstdc++.dylib in Frameworks */,
 				236312A219156B89006F1979 /* libc.dylib in Frameworks */,
+				23B1595F1A865263001B463D /* libjusText_ios.a in Frameworks */,
 				2363128A1915625B006F1979 /* libxml2.dylib in Frameworks */,
+				23B159601A865263001B463D /* libpcre_universal.a in Frameworks */,
 				236312A019156B37006F1979 /* libzipzap.a in Frameworks */,
 				2363AE451913A95F003EFA4A /* CoreGraphics.framework in Frameworks */,
 				2363AE471913A95F003EFA4A /* UIKit.framework in Frameworks */,
+				23B159611A865263001B463D /* libpcrecpp_universal.a in Frameworks */,
 				2363AE431913A95F003EFA4A /* Foundation.framework in Frameworks */,
+				23B159621A865263001B463D /* libpcreposix_universal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +557,7 @@
 				235F963719CDADA2003BA87D /* TWPlaybackSource.swift */,
 				235F963A19CDADA2003BA87D /* TWTextPlaybackSource.swift */,
 				237C0F8E19D9DFDD003F575A /* TWEpubPlaybackSource.swift */,
+				23B159521A864DFD001B463D /* TWTextExtractor.swift */,
 			);
 			path = Playback;
 			sourceTree = "<group>";
@@ -621,6 +641,8 @@
 		235F979B19CDBCF6003BA87D /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				23B159571A865263001B463D /* JusText */,
+				23B1595B1A865263001B463D /* pcre */,
 				2330E24F1A4A173900963427 /* hpple */,
 				237C0FD419DC8621003F575A /* TTR */,
 				235F97B419CDBDA9003BA87D /* KissXML */,
@@ -741,6 +763,45 @@
 				237C0FC019DC8619003F575A /* UnwantedTagStripper.m */,
 			);
 			name = TTR;
+			sourceTree = "<group>";
+		};
+		23B159571A865263001B463D /* JusText */ = {
+			isa = PBXGroup;
+			children = (
+				23B159631A865306001B463D /* stoplists */,
+				23B159581A865263001B463D /* Headers */,
+				23B1595A1A865263001B463D /* libjusText_ios.a */,
+			);
+			name = JusText;
+			path = libs/JusText;
+			sourceTree = "<group>";
+		};
+		23B159581A865263001B463D /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				23B159591A865263001B463D /* TextExractor.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		23B1595B1A865263001B463D /* pcre */ = {
+			isa = PBXGroup;
+			children = (
+				23B1595C1A865263001B463D /* libpcre_universal.a */,
+				23B1595D1A865263001B463D /* libpcrecpp_universal.a */,
+				23B1595E1A865263001B463D /* libpcreposix_universal.a */,
+			);
+			name = pcre;
+			path = libs/pcre;
+			sourceTree = "<group>";
+		};
+		23B159631A865306001B463D /* stoplists */ = {
+			isa = PBXGroup;
+			children = (
+				23B159641A865306001B463D /* English.txt */,
+				23B159651A865306001B463D /* Hungarian.txt */,
+			);
+			path = stoplists;
 			sourceTree = "<group>";
 		};
 		FDAE9AF41A1EB77200E542F0 /* Resouces */ = {
@@ -902,9 +963,11 @@
 				235F966319CDADA2003BA87D /* Main.strings in Resources */,
 				235F966119CDADA2003BA87D /* InfoPlist.strings in Resources */,
 				FDAE9AFA1A1EB77200E542F0 /* download_page@2x.png in Resources */,
+				23B159661A865306001B463D /* English.txt in Resources */,
 				23EC99C81A4A07D2001C8447 /* AppIcon.png in Resources */,
 				235F964F19CDADA2003BA87D /* Main.storyboard in Resources */,
 				FDAE9AFB1A1EB77200E542F0 /* download_page@3x.png in Resources */,
+				23B159671A865306001B463D /* Hungarian.txt in Resources */,
 				235F973B19CDB06D003BA87D /* DMHtmlPageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -964,6 +1027,7 @@
 				235F966919CDADA2003BA87D /* DMContainerFileParser.m in Sources */,
 				235F967D19CDADA2003BA87D /* DMTableOfContentsItem.m in Sources */,
 				236BD8941A23BF1900EA4EA4 /* DMTableOfContentsV3.m in Sources */,
+				23B159531A864DFD001B463D /* TWTextExtractor.swift in Sources */,
 				235F97CA19CDBDA9003BA87D /* DDXMLElement.m in Sources */,
 				235F966D19CDADA2003BA87D /* DMePubFileManager.m in Sources */,
 				235F965519CDADA2003BA87D /* TWDocumentsFileManager.m in Sources */,
@@ -1218,7 +1282,11 @@
 				INFOPLIST_FILE = "TextWave/TextWave-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWave-gbeugfbgpleqticudhesnyyfkflx/Build/Products/Debug/";
+				LIBRARY_SEARCH_PATHS = (
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWave-gbeugfbgpleqticudhesnyyfkflx/Build/Products/Debug/",
+					"$(PROJECT_DIR)/libs/JusText",
+					"$(PROJECT_DIR)/libs/pcre",
+				);
 				PRODUCT_NAME = TextWave;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1250,7 +1318,11 @@
 				INFOPLIST_FILE = "TextWave/TextWave-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWave-gbeugfbgpleqticudhesnyyfkflx/Build/Products/Debug/";
+				LIBRARY_SEARCH_PATHS = (
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWave-gbeugfbgpleqticudhesnyyfkflx/Build/Products/Debug/",
+					"$(PROJECT_DIR)/libs/JusText",
+					"$(PROJECT_DIR)/libs/pcre",
+				);
 				PRODUCT_NAME = TextWave;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
 				VALID_ARCHS = "armv7 armv7s arm64";

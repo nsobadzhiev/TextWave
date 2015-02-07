@@ -8,4 +8,5 @@
 #import "DMePubTableOfContentsTableViewController.h"
 #import "DMePubURLProtocol.h"
 #import "TTRArticleExtractor.h"
+#import "TextExractor.h"
 #import "TFHpple.h"
