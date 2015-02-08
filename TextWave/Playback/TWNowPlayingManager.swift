@@ -31,6 +31,7 @@ class TWNowPlayingManager {
     func startPlaybackWithUrl(url: NSURL?, selectedItem: NSString?) {
         let source = self.playbackSourceForUrl(url)
         if let source = source {
+            self.playbackManager?.finish()
             self.playbackManager = TWPlaybackManager(dataSource: source)
             self.selectedItem = selectedItem
         }

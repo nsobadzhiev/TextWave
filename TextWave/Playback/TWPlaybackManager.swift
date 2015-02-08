@@ -37,6 +37,10 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         textToSpeech.delegate = self
     }
     
+    deinit {
+        self.finish()
+    }
+    
     func pause() {
         textToSpeech.pauseSpeakingAtBoundary(AVSpeechBoundary.Word)
     }
@@ -46,6 +50,20 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         if speakingContinued == false {
             self.next()
         }
+    }
+    
+    func stop() {
+        textToSpeech.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
+    }
+    
+    func start() {
+        textToSpeech.delegate = self
+        self.next()
+    }
+    
+    func finish() {
+        textToSpeech.delegate = nil
+        textToSpeech.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
     }
     
     func previous() {
