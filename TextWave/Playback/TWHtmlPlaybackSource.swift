@@ -29,7 +29,7 @@ class TWHtmlPlaybackSource: TWTextPlaybackSource, TWResourceDownloaderDelegate {
         if self.isLocalResource {
             if let fileUrl = self.sourceURL {
                 let rawText = NSString(contentsOfURL: fileUrl, encoding: NSUTF8StringEncoding, error: nil)
-                self.currentText = self.extractText(htmlString: self.currentText)
+                self.currentText = self.extractText(htmlString: rawText)
             }
         }
         else {

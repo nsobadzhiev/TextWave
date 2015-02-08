@@ -29,7 +29,9 @@ class TWTextExtractor {
         if let htmlString = htmlString {
             let stopWordsPath = self.jusTextStopWordsFilePath()
             let jusTextExtractor = TextExractor(html: htmlString, stopWordsFile: stopWordsPath)
-            return jusTextExtractor.extractedText
+            let extractedText = jusTextExtractor.extractedText
+            let nonEscapedText = extractedText.gtm_stringByUnescapingFromHTML()
+            return nonEscapedText
         }
         else {
             return ""
