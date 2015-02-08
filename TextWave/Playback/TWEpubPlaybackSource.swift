@@ -60,7 +60,8 @@ class TWEpubPlaybackSource: TWPlaybackSource {
         if let itemData = itemData {
             let formattedText = NSString(data:itemData, encoding:NSUTF8StringEncoding)
             // extract readable text from the HTML
-            self.currentText = TTRArticleExtractor.articleText(formattedText)
+            let textExtractor = TWTextExtractor()
+            self.currentText = textExtractor.extractArticle(htmlString: formattedText)
         }
     }
 }

@@ -38,7 +38,8 @@ class TWHtmlPlaybackSource: TWTextPlaybackSource, TWResourceDownloaderDelegate {
     }
     
     func extractText(#htmlString:String?) -> String {
-        return TTRArticleExtractor.articleText(htmlString)
+        let textExtractor = TWTextExtractor()
+        return textExtractor.extractArticle(htmlString: htmlString)
     }
     
     override func prepareResources() {
