@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate, DMTableOfContentsTableViewControllerDelegate {
+class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate, DMTableOfContentsTableViewControllerDelegate, TWPlaybackManagerDelegate {
     @IBOutlet var playbackTitleLabel: UILabel! = nil
     @IBOutlet var playbackSubtitleLabel: UILabel! = nil
     @IBOutlet var previousButton: UIButton! = nil
@@ -40,6 +40,7 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     
     var playbackManager: TWPlaybackManager? = nil {
         didSet{
+            self.playbackManager?.delegate = self
             if let title = self.playbackManager?.playbackSource?.title {
                 self.playbackTitle = title
             }
@@ -182,5 +183,24 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     func tableOfContentsController(tocController: DMTableOfContentsTableViewController!, didSelectItemWithPath path: String!) {
         self.previewController?.goToSection(sectionName: path)
         self.dismissTableOfContents()
+    }
+    
+    // MARK: TWPlaybackManager
+    
+    func playbackManager(playback: TWPlaybackManager, didBeginItemAtIndex index: Int) {
+        self.playbackProgressSlider.progress = 0.0
+    }
+    
+    func playbackManager(playback: TWPlaybackManager, didFinishItemAtIndex index: Int) {
+        self.playbackProgressSlider.progress = 1.0
+    }
+    
+    func playbackManager(playback: TWPlaybackManager, didMoveToPosition index: Int) {
+        let wholeText = self.playbackManager?.currentText
+        if let wholeText = wholeText {
+            let wholeTextLength:Float = Float(wholeText.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+            let progress = Float(playback.letterIndex) / wholeTextLength
+            self.playbackProgressSlider.setProgress(progress, animated: true)
+        }
     }
 }

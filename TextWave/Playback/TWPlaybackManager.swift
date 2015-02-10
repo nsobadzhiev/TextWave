@@ -30,6 +30,12 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
             return textToSpeech.speaking && !textToSpeech.paused
         }
     }
+    
+    var currentText: String? {
+        get {
+            return self.playbackSource?.currentText
+        }
+    }
 
     init(dataSource: TWPlaybackSource) {
         super.init()
@@ -187,7 +193,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     
     func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance!) {
         self.wordIndex += 1
-        self.letterIndex += characterRange.length
+        self.letterIndex = characterRange.location + characterRange.length
         if let existingDelegate = self.delegate? {
             self.delegate!.playbackManager(self, didMoveToPosition: self.wordIndex)
         }

@@ -10,6 +10,13 @@ import Foundation
 
 let sharedInstance = TWNowPlayingManager()
 
+// MARK: Notification names
+
+let TWPlaybackStartedNotification = "TWPlaybackStartedNotification"
+let TWPlaybackStoppedNotification = "TWPlaybackStoppedNotification"
+let TWPlaybackPausedNotification = "TWPlaybackPausedNotification"
+let TWPlaybackResumedNotification = "TWPlaybackResumedNotification"
+
 class TWNowPlayingManager {
     
     let playbackSourcesDict = [TWFileType.EPUB: createEpubPlaybackSource, TWFileType.HTML: createHtmlPlaybackSource]
