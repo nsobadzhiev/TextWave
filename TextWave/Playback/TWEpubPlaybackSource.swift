@@ -26,10 +26,16 @@ class TWEpubPlaybackSource: TWPlaybackSource {
         self.title = epubManager?.titleWithError(nil)
     }
     
-    override func goToNextItem() {
+    override func goToNextItem() -> Bool {
         super.goToNextItem()
-        let nextItem = self.epubIterator?.nextObject() as DMePubItem
-        self.applyCurrentTextForItem(nextItem)
+        let nextItem = self.epubIterator?.nextObject() as DMePubItem?
+        if nextItem != nil {
+            self.applyCurrentTextForItem(nextItem)
+            return true
+        }
+        else {
+            return false
+        }
     }
     
     override func goToPreviousItem() {

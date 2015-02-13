@@ -80,9 +80,10 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     }
     
     func next() {
-        self.playbackSource?.goToNextItem()
-        if let speechText = self.playbackSource?.currentText? {
-            self.speakText(speechText)
+        if self.playbackSource?.goToNextItem() != false {
+            if let speechText = self.playbackSource?.currentText? {
+                self.speakText(speechText)
+            }
         }
     }
     

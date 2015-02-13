@@ -30,8 +30,9 @@ class TWPlaybackSource {
     
     }
     
-    func goToNextItem() {
+    func goToNextItem() -> Bool {
         self.currentItemIndex++
+        return false
     }
     
     func goToPreviousItem() {
