@@ -38,12 +38,21 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     }
     }
     
+    var playbackSubtitle: String? = "" {
+        didSet{
+            if playbackSubtitleLabel != nil {
+                playbackSubtitleLabel.text = self.playbackSubtitle
+            }
+        }
+    }
+    
     var playbackManager: TWPlaybackManager? = nil {
         didSet{
             self.playbackManager?.delegate = self
             if let title = self.playbackManager?.playbackSource?.title {
                 self.playbackTitle = title
             }
+            self.playbackSubtitle = self.playbackManager?.playbackSource?.subtitle
         }
     }
     var nowPlayingManager: TWNowPlayingManager? = TWNowPlayingManager.instance {
@@ -56,6 +65,7 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
         super.viewDidLoad()
         self.playbackManager = self.nowPlayingManager?.playbackManager
         playbackTitleLabel.text = self.playbackTitle
+        playbackSubtitleLabel.text = self.playbackSubtitle
         self.setupPreview()
         self.setupControls()
     }

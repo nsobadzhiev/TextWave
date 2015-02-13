@@ -41,6 +41,7 @@
                        error:(NSError**)error;
 - (NSData*)rootFileDataWithError:(NSError**)error;
 - (NSString*)titleWithError:(NSError**)error;
+- (NSString*)authorWithError:(NSError**)error;
 - (UIImage*)coverWithError:(NSError**)error;
 - (NSString*)mimeTypeForPath:(NSString*)path;
 - (DMePubItem*)epubItemForSpineElement:(DMSpineItem*)spineItem;

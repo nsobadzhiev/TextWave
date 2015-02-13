@@ -18,6 +18,7 @@ class TWPlaybackSource {
     var currentText: String? = nil
     var currentItemIndex = -1
     var title: String? = nil
+    var subtitle: String? = nil
     var delegate: TWPlaybackSourceDelegate? = nil
 
     init(url: NSURL?) {

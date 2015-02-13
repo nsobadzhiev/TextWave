@@ -24,6 +24,7 @@ class TWEpubPlaybackSource: TWPlaybackSource {
         self.epubManager = DMePubManager(epubPath: self.sourceURL?.absoluteString)
         self.epubIterator = DMePubItemIterator(epubManager: self.epubManager)
         self.title = epubManager?.titleWithError(nil)
+        self.subtitle = epubManager?.authorWithError(nil)
     }
     
     override func goToNextItem() -> Bool {

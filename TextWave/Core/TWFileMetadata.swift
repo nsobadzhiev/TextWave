@@ -30,4 +30,8 @@ class TWFileMetadata {
     func titleForFile() -> String? {
         return self.fileUrl?.lastPathComponent
     }
+    
+    func authorForFile() -> String? {
+        return nil
+    }
 }

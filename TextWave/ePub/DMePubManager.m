@@ -117,6 +117,12 @@
     return [contents epubTitle];
 }
 
+- (NSString*)authorWithError:(NSError**)error
+{
+    DMContainerFileParser* contents = [self contentsParser];
+    return [contents epubAuthor];
+}
+
 - (UIImage*)coverWithError:(NSError**)error
 {
     DMContainerFileParser* contents = [self contentsParser];

@@ -41,4 +41,8 @@ class TWWebPageMetadata : TWFileMetadata {
             return nil
         }
     }
+    
+    override func authorForFile() -> String? {
+        return self.fileUrl?.host
+    }
 }

@@ -39,4 +39,8 @@ class TWEpubMetadata : TWFileMetadata {
     override func titleForFile() -> String? {
         return epubManager?.titleWithError(nil)
     }
+    
+    override func authorForFile() -> String? {
+        return epubManager?.authorWithError(nil)
+    }
 }

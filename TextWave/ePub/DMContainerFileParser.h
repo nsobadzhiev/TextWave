@@ -21,6 +21,7 @@
 }
 
 @property (nonatomic, readonly) NSString* epubTitle;
+@property (nonatomic, readonly) NSString* epubAuthor;
 @property (nonatomic, readonly) NSString* epubCover;
 @property (nonatomic, readonly) NSString* epubVersion;
 @property (nonatomic, readonly) NSArray* epubItems;

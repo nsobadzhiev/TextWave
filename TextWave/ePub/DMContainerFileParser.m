@@ -17,6 +17,7 @@ static NSString* const k_manifestTagName = @"manifest";
 static NSString* const k_metaDataTagName = @"metadata";
 static NSString* const k_spineTagName = @"spine";
 static NSString* const k_titleTagName = @"dc:title";
+static NSString* const k_creatorTagName = @"dc:creator";
 static NSString* const k_coverImageTagName = @"cover-image";
 static NSString* const k_coverTagName = @"cover";
 static NSString* const k_versionAttrName = @"version";
@@ -91,6 +92,14 @@ static NSString* const k_itemIdRefAttrName = @"idref";
     DDXMLNode* titleNode = [metadataElement childForName:k_titleTagName];
     NSString* title = [titleNode stringValue];
     return title;
+}
+
+- (NSString*)epubAuthor
+{
+    DDXMLElement* metadataElement = [self metadataElement];
+    DDXMLNode* creatorNode = [metadataElement childForName:k_creatorTagName];
+    NSString* author = [creatorNode stringValue];
+    return author;
 }
 
 - (NSString*)epubCover

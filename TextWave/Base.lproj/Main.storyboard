@@ -536,7 +536,7 @@
                         <outlet property="pagesView" destination="aWg-uy-oNh" id="Ga9-rE-w57"/>
                         <outlet property="playButton" destination="1Zw-bW-h08" id="Vgx-y3-j7F"/>
                         <outlet property="playbackProgressSlider" destination="YVH-Hz-14D" id="y9l-dd-g54"/>
-                        <outlet property="playbackSubtitleLabel" destination="rEh-52-n8X" id="J9f-01-MEJ"/>
+                        <outlet property="playbackSubtitleLabel" destination="rEh-52-n8X" id="TVt-nK-hGn"/>
                         <outlet property="playbackTitleLabel" destination="cIM-Pd-eA6" id="QfP-4B-m61"/>
                         <outlet property="previewView" destination="7Ex-25-Bhm" id="BtB-R7-BM4"/>
                         <outlet property="previousButton" destination="un1-ey-htn" id="2X5-ds-qD0"/>
