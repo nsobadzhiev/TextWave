@@ -72,6 +72,15 @@
     }
 }
 
+- (void)setSelectedIndex:(NSUInteger)selectedIndex
+{
+    if (_selectedIndex != selectedIndex)
+    {
+        _selectedIndex = selectedIndex;
+        [self openItemAtIndex:_selectedIndex];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -183,12 +192,35 @@
 
 - (void)openItemAtPath:(NSString*)path
 {
+    NSInteger previousIndex = [itemIterator currentIndex];
     [itemIterator goToItemWithPath:path];
+    NSInteger nextIndex = [itemIterator currentIndex];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self openCurrentItemFromIndex:previousIndex toIndex:nextIndex];
+    });  
+}
+
+- (void)openItemAtIndex:(NSUInteger)epubIndex
+{
+    NSInteger previousIndex = [itemIterator currentIndex];
+    [itemIterator goToItemWithIndex:epubIndex];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self openCurrentItemFromIndex:previousIndex toIndex:epubIndex];
+    });  
+}
+
+- (void)openCurrentItemFromIndex:(NSInteger)previousIndex
+                         toIndex:(NSInteger)nextIndex
+{
+    UIPageViewControllerNavigationDirection direction = UIPageViewControllerNavigationDirectionReverse;
+    if (previousIndex < nextIndex)
+    {
+        direction = UIPageViewControllerNavigationDirectionForward;
+    }
     DMePubItemViewController* selectedItemController = [[DMePubItemViewController alloc] initWithEpubItem:[itemIterator currentItem]
                                                                                            andEpubManager:self.epubManager];
-    //[self saveBookmark:[itemIterator currentItem]];
     [self.pageViewController setViewControllers:@[selectedItemController]
-                                      direction:UIPageViewControllerNavigationDirectionForward 
+                                      direction:direction 
                                        animated:YES 
                                      completion:nil];
 }

@@ -49,6 +49,7 @@
     DMePubItem* epubItem = nil;
     while (epubItem = [self nextObject]) 
     {
+        currentSpineItemIndex++;
         if ([epubItem.href isEqualToString:path])
         {
             return YES;
@@ -92,6 +93,11 @@
     }
     DMSpineItem* currentSpineItem = [[epubManager spineItems] objectAtIndex:currentSpineItemIndex];
     return [epubManager epubItemForSpineElement:currentSpineItem];
+}
+
+- (NSInteger)currentIndex
+{
+    return currentSpineItemIndex;
 }
 
 @end

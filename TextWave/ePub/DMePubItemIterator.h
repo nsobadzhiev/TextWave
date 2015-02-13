@@ -25,5 +25,6 @@
 - (BOOL)goToItemWithIndex:(NSUInteger)index;
 - (DMePubItem*)previousItem;
 - (DMePubItem*)currentItem;
+- (NSInteger)currentIndex;
 
 @end

@@ -199,6 +199,9 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     
     func playbackManager(playback: TWPlaybackManager, didBeginItemAtIndex index: Int) {
         self.playbackProgressSlider.progress = 0.0
+        
+        // open the next item in the preview window
+        self.previewController?.goToSection(index)
     }
     
     func playbackManager(playback: TWPlaybackManager, didFinishItemAtIndex index: Int) {

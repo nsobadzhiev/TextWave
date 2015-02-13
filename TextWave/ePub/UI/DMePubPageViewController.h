@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIPageViewController* pageViewController;
 @property (nonatomic, strong) DMePubManager* epubManager;
 @property (nonatomic, strong) NSString* selectedItem;
+@property (nonatomic, assign) NSUInteger selectedIndex;
 
 - (instancetype)initWithEpubManager:(DMePubManager*)epubManager;
 
