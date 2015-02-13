@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class TWAppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +22,21 @@ class TWAppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = rootViewController as UIViewController
         window.makeKeyAndVisible()
         UIView.appearance().tintColor = UIColor(red: 240.0 / 255, green: 136.0 / 255, blue: 32 / 255, alpha: 1.0)
+        self.setupAudioSession()
+        
         return true
+    }
+    
+    func setupAudioSession() {
+        var audioSessionError:NSError? = nil
+        let session:AVAudioSession = AVAudioSession.sharedInstance()
+        session.setCategory(AVAudioSessionCategoryPlayback, withOptions:AVAudioSessionCategoryOptions.allZeros, error: &audioSessionError)
+        var activationError:NSError? = nil
+        session.setActive(true, withOptions: nil, error:&activationError)
+        if audioSessionError != nil || activationError != nil {
+            println("Audio session category error: \(audioSessionError)")
+            println("Audio session activation error: \(activationError)")
+        }
     }
     
     func applicationWillResignActive(application: UIApplication) {

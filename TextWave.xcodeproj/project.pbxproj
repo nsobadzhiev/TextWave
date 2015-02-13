@@ -185,6 +185,7 @@
 		23EC99C81A4A07D2001C8447 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EC99C71A4A07D2001C8447 /* AppIcon.png */; };
 		23F3C91119F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3C91019F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift */; };
 		23F3C91219F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3C91019F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift */; };
+		23F8AF131A8E727F009ECFD1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F8AF121A8E727F009ECFD1 /* AVFoundation.framework */; };
 		FDAE9AFA1A1EB77200E542F0 /* download_page@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */; };
 		FDAE9AFB1A1EB77200E542F0 /* download_page@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDAE9AF91A1EB77200E542F0 /* download_page@3x.png */; };
 		FDAE9B051A1EBD5F00E542F0 /* TWBrowseItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE9B041A1EBD5F00E542F0 /* TWBrowseItemViewController.swift */; };
@@ -391,6 +392,7 @@
 		23EC99C11A49DC98001C8447 /* TWWebPageMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageMetadata.swift; sourceTree = "<group>"; };
 		23EC99C71A4A07D2001C8447 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		23F3C91019F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPublicationPreviewViewControllerFactory.swift; sourceTree = "<group>"; };
+		23F8AF121A8E727F009ECFD1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download_page@2x.png"; sourceTree = "<group>"; };
 		FDAE9AF91A1EB77200E542F0 /* download_page@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download_page@3x.png"; sourceTree = "<group>"; };
 		FDAE9B041A1EBD5F00E542F0 /* TWBrowseItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBrowseItemViewController.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F8AF131A8E727F009ECFD1 /* AVFoundation.framework in Frameworks */,
 				236312A619156BD8006F1979 /* libz.dylib in Frameworks */,
 				236312A419156B98006F1979 /* libstdc++.dylib in Frameworks */,
 				236312A219156B89006F1979 /* libc.dylib in Frameworks */,
@@ -728,6 +731,7 @@
 		2363AE411913A95F003EFA4A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23F8AF121A8E727F009ECFD1 /* AVFoundation.framework */,
 				236312A519156BD8006F1979 /* libz.dylib */,
 				236312A319156B98006F1979 /* libstdc++.dylib */,
 				236312A119156B89006F1979 /* libc.dylib */,
