@@ -63,9 +63,11 @@
     NSArray* spineItems = [epubManager spineItems];
     if (index < spineItems.count)
     {
-        DMSpineItem* targetSpineItem = [spineItems objectAtIndex:index];
-        DMePubItem* targetEpubItem = [epubManager epubItemForSpineElement:targetSpineItem];
-        [self goToItemWithPath:targetEpubItem.href];
+        currentSpineItemIndex = index;
+        // TODO: see if that's OK
+//        DMSpineItem* targetSpineItem = [spineItems objectAtIndex:index];
+//        DMePubItem* targetEpubItem = [epubManager epubItemForSpineElement:targetSpineItem];
+//        [self goToItemWithPath:targetEpubItem.href];
         return YES;
     }
     else
@@ -98,6 +100,11 @@
 - (NSInteger)currentIndex
 {
     return currentSpineItemIndex;
+}
+
+- (NSUInteger)numberOfItems
+{
+    return [[epubManager spineItems] count];
 }
 
 @end

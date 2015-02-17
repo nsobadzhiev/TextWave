@@ -20,6 +20,12 @@ class TWPlaybackSource {
     var title: String? = nil
     var subtitle: String? = nil
     var delegate: TWPlaybackSourceDelegate? = nil
+    
+    var numberOfItems: Int {
+        get {
+            return 0
+        }
+    }
 
     init(url: NSURL?) {
         self.sourceURL = url

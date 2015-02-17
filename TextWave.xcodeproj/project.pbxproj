@@ -186,6 +186,7 @@
 		23F3C91119F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3C91019F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift */; };
 		23F3C91219F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3C91019F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift */; };
 		23F8AF131A8E727F009ECFD1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F8AF121A8E727F009ECFD1 /* AVFoundation.framework */; };
+		23F8AF151A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F8AF141A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift */; };
 		FDAE9AFA1A1EB77200E542F0 /* download_page@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */; };
 		FDAE9AFB1A1EB77200E542F0 /* download_page@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDAE9AF91A1EB77200E542F0 /* download_page@3x.png */; };
 		FDAE9B051A1EBD5F00E542F0 /* TWBrowseItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE9B041A1EBD5F00E542F0 /* TWBrowseItemViewController.swift */; };
@@ -393,6 +394,7 @@
 		23EC99C71A4A07D2001C8447 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		23F3C91019F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPublicationPreviewViewControllerFactory.swift; sourceTree = "<group>"; };
 		23F8AF121A8E727F009ECFD1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		23F8AF141A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWLockScreenNowPlayingInfo.swift; sourceTree = "<group>"; };
 		FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download_page@2x.png"; sourceTree = "<group>"; };
 		FDAE9AF91A1EB77200E542F0 /* download_page@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download_page@3x.png"; sourceTree = "<group>"; };
 		FDAE9B041A1EBD5F00E542F0 /* TWBrowseItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBrowseItemViewController.swift; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 				235F963A19CDADA2003BA87D /* TWTextPlaybackSource.swift */,
 				237C0F8E19D9DFDD003F575A /* TWEpubPlaybackSource.swift */,
 				23B159521A864DFD001B463D /* TWTextExtractor.swift */,
+				23F8AF141A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift */,
 			);
 			path = Playback;
 			sourceTree = "<group>";
@@ -1034,6 +1037,7 @@
 				23B159531A864DFD001B463D /* TWTextExtractor.swift in Sources */,
 				235F97CA19CDBDA9003BA87D /* DDXMLElement.m in Sources */,
 				235F966D19CDADA2003BA87D /* DMePubFileManager.m in Sources */,
+				23F8AF151A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift in Sources */,
 				235F965519CDADA2003BA87D /* TWDocumentsFileManager.m in Sources */,
 				235F965119CDADA2003BA87D /* DDXMLNode+ChildForName.m in Sources */,
 				235F969719CDADA2003BA87D /* TWTextPlaybackSource.swift in Sources */,

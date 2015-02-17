@@ -26,5 +26,6 @@
 - (DMePubItem*)previousItem;
 - (DMePubItem*)currentItem;
 - (NSInteger)currentIndex;
+- (NSUInteger)numberOfItems;
 
 @end

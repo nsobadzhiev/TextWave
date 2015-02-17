@@ -13,6 +13,18 @@ class TWEpubPlaybackSource: TWPlaybackSource {
     var epubManager: DMePubManager? = nil
     var epubIterator: DMePubItemIterator? = nil
     
+    override var numberOfItems:Int {
+        get {
+            let numItems = epubIterator?.numberOfItems()
+            if let numItems = numItems {
+                return Int(numItems)
+            }
+            else {
+                return 0
+            }
+        }
+    }
+    
     override init(url: NSURL?) {
         super.init(url: url)
         self.prepareResources()

@@ -10,13 +10,6 @@ import Foundation
 
 let sharedInstance = TWNowPlayingManager()
 
-// MARK: Notification names
-
-let TWPlaybackStartedNotification = "TWPlaybackStartedNotification"
-let TWPlaybackStoppedNotification = "TWPlaybackStoppedNotification"
-let TWPlaybackPausedNotification = "TWPlaybackPausedNotification"
-let TWPlaybackResumedNotification = "TWPlaybackResumedNotification"
-
 class TWNowPlayingManager {
     
     let playbackSourcesDict = [TWFileType.EPUB: createEpubPlaybackSource, TWFileType.HTML: createHtmlPlaybackSource]
@@ -25,8 +18,14 @@ class TWNowPlayingManager {
         return sharedInstance
     }
     
-    var playbackManager: TWPlaybackManager? = nil
+    let lockScreenInfo: TWLockScreenNowPlayingInfo = TWLockScreenNowPlayingInfo()
     var selectedItem: String? = nil
+    
+    var playbackManager: TWPlaybackManager? = nil {
+        didSet {
+            self.lockScreenInfo.playbackManager = self.playbackManager
+        }
+    }
     
     func startPlaybackWithUrl(url: NSURL?) {
         let source = self.playbackSourceForUrl(url)

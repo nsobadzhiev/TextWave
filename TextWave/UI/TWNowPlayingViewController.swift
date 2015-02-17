@@ -216,4 +216,37 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
             self.playbackProgressSlider.setProgress(progress, animated: true)
         }
     }
+    
+    // MARK: Remote control events
+    
+    override func remoteControlReceivedWithEvent(event: UIEvent) {
+        if event.type == UIEventType.RemoteControl {
+            switch event.subtype {
+            case .RemoteControlPlay:
+                self.onPlayTap(self)
+                break
+            case .RemoteControlPause:
+                self.onPlayTap(self)
+                break
+            case .RemoteControlNextTrack:
+                self.onNextTap(self)
+                break
+            case .RemoteControlPreviousTrack:
+                self.onPreviousTap(self)
+                break
+            case .RemoteControlTogglePlayPause:
+                self.onPlayTap(self)
+                break
+            case .RemoteControlEndSeekingBackward:
+                // TODO: figure out the new position
+                break;
+            case .RemoteControlEndSeekingForward:
+                // TODO: figure out the new position
+                break;
+            default:
+                // do nothing
+                break
+            }
+        }
+    }
 }

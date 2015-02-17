@@ -9,6 +9,12 @@
 import Foundation
 import AVFoundation
 
+// MARK: Notification names
+
+let TWPlaybackStartedNotification = "TWPlaybackStartedNotification"
+let TWPlaybackEndedNotification = "TWPlaynackEndedNotification"
+let TWPlaybackChangedNotification = "TWPlaybackChangedNotification"
+
 protocol TWPlaybackManagerDelegate {
     func playbackManager(playback: TWPlaybackManager, didBeginItemAtIndex index: Int)
     func playbackManager(playback: TWPlaybackManager, didFinishItemAtIndex index: Int)
@@ -83,13 +89,23 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         if self.playbackSource?.goToNextItem() != false {
             if let speechText = self.playbackSource?.currentText? {
                 self.speakText(speechText)
+                self.postChangedNotification()
+                if self.playbackSource?.currentItemIndex == 0 {
+                    // this means that this is the first time playback starts
+                    // post "started" notification
+                    self.postStartedNotification()
+                }
             }
+        }
+        else {
+            self.postEndedNotification()
         }
     }
     
     func skipForward() {
         if let textAfterSkip = self.textAfterSkippingCharacters(30) {
             self.speakText(textAfterSkip)
+            self.postChangedNotification()
         }
         else {
             self.next()
@@ -100,6 +116,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         let textAfterSkip = self.textAfterSkippingCharacters(-30)
         if (textAfterSkip?.isEmpty == false) {
             self.speakText(textAfterSkip!)
+            self.postChangedNotification()
         }
         else {
             self.previous()
@@ -117,6 +134,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
             let index = advance(text.startIndex, Int(indexAfterSkip))
             let textAfterSkip = self.playbackSource!.currentText!.substringFromIndex(index)
             self.speakText(textAfterSkip)
+            self.postChangedNotification()
         }
     }
     
@@ -126,6 +144,20 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         utterance.pitchMultiplier = self.speechPitch
         textToSpeech.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
         textToSpeech.speakUtterance(utterance)
+    }
+    
+    // MARK: Notifications
+    
+    func postChangedNotification() {
+        NSNotificationCenter.defaultCenter().postNotificationName(TWPlaybackChangedNotification, object: self)
+    }
+    
+    func postEndedNotification() {
+        NSNotificationCenter.defaultCenter().postNotificationName(TWPlaybackEndedNotification, object: self)
+    }
+    
+    func postStartedNotification() {
+        NSNotificationCenter.defaultCenter().postNotificationName(TWPlaybackStartedNotification, object: self)
     }
     
     /** 
