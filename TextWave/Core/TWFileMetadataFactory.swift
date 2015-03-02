@@ -18,7 +18,7 @@ class TWFileMetadataFactory {
         case .HTML:
             return TWWebPageMetadata(url: url)
         case .PDF, .Unknown:
-            return nil
+            return TWFileMetadata(url: url)
         }
     }
 }

@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import UIKit
+
+let defaultThumbnailImageName = "defaultCover.png"
 
 class TWFileMetadata {
     let fileUrl:NSURL? = nil
@@ -16,15 +19,17 @@ class TWFileMetadata {
     }
     
     func thumbnailForFile() -> UIImage? {
-        return nil
+        return UIImage(named: defaultThumbnailImageName)
     }
     
     func thumbnailForFileWithBlock(completionBlock:((thumbnailView:UIView?) -> Void)) {
-        completionBlock(thumbnailView: nil)
+        let defaultImage = UIImage(named: defaultThumbnailImageName)
+        let defaultImageView = UIImageView(image: defaultImage)
+        completionBlock(thumbnailView: defaultImageView)
     }
     
     func thumbnailSize() -> CGSize {
-        return CGSizeZero
+        return UIImage(named: defaultThumbnailImageName)!.size
     }
     
     func titleForFile() -> String? {

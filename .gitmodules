@@ -10,3 +10,6 @@
 [submodule "libs/hpple"]
 	path = libs/hpple
 	url = https://github.com/topfunky/hpple.git
+[submodule "libs/ASIHTTPRequest"]
+	path = libs/ASIHTTPRequest
+	url = https://github.com/pokeb/asi-http-request.git

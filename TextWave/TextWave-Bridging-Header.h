@@ -8,6 +8,8 @@
 #import "DMePubTableOfContentsTableViewController.h"
 #import "DMePubURLProtocol.h"
 #import "TTRArticleExtractor.h"
+#import "ASIWebPageRequest.h"
+#import "ASIDownloadCache.h"
 #import "TextExractor.h"
 #import "TFHpple.h"
 #import "GTMNSString+HTML.h"

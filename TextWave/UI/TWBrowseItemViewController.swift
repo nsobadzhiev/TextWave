@@ -8,10 +8,11 @@
 
 import UIKit
 
-class TWBrowseItemViewController: UIViewController, UITextFieldDelegate {
+class TWBrowseItemViewController: UIViewController, UITextFieldDelegate, TWWebPageDownloaderDelegate {
     
     @IBOutlet var webView: UIWebView! = nil
     @IBOutlet var searchField: UITextField! = nil
+    var webPageDownloader:TWWebPageDownloader? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +37,24 @@ class TWBrowseItemViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-// MARK: - Button Actions
+    // MARK: - Button Actions
     
     @IBAction func didSelectDownloadButton(buttonItem: UIBarButtonItem) {
-        // TODO: start downloading the page.
+        if self.webPageDownloader?.downloading == true {
+            return
+        }
+        if let address = self.searchField.text {
+            let addressUrl = NSURL(string: address)
+            if let addressUrl = addressUrl {
+                self.webPageDownloader?.delegate = nil
+                self.webPageDownloader = TWWebPageDownloader(url: addressUrl)
+                self.webPageDownloader?.delegate = self
+                self.webPageDownloader?.startDownload()
+            }
+        }
     }
     
-// MARK: - UITextFieldDelegate
+    // MARK: - UITextFieldDelegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -56,4 +68,22 @@ class TWBrowseItemViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
+    // MARK: - TWWebPageDownloaderDelegate
+    
+    func downloadFailed(downloader: TWWebPageDownloader) {
+        if downloader.webPageRequest?.error == nil {
+            return
+        }
+        let bundle:NSBundle? = nil
+        let alertTitle = NSLocalizedString("Download failed", comment: "Web page download failure alert")
+        let alertBody = downloader.webPageRequest?.error.localizedDescription
+        let cancelButtonTitle = NSLocalizedString("OK", comment: "")
+        var alert = UIAlertController(title: alertTitle, message: alertBody, preferredStyle: UIAlertControllerStyle.Alert)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func downloadComplete(downloader: TWWebPageDownloader) {
+        // TODO: should probably go to sources collection view
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }

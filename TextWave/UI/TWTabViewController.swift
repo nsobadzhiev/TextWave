@@ -47,4 +47,10 @@ class TWTabViewController : UIViewController {
         destinationController.didMoveToParentViewController(self)
         self.selectedTabButton = sender as? UIButton
     }
+    
+    // MARK: Remote control events
+    
+    override func remoteControlReceivedWithEvent(event: UIEvent) {
+        TWNowPlayingManager.instance.handleRemoteControlEvent(event)
+    }
 }
