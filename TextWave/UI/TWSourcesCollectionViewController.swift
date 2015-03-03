@@ -45,12 +45,59 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         }
     }
     
+    func filepathForIndex(indexPath:NSIndexPath) -> String? {
+        return fileManager.allDocumentPaths()[indexPath.row] as? String
+    }
+    
+    func handleItemSelection(#indexPath:NSIndexPath) {
+        var filePath = self.filepathForIndex(indexPath)
+        if let filePath = filePath {
+            let fileUrl = NSURL(string: filePath)
+            TWNowPlayingManager.instance.startPlaybackWithUrl(fileUrl, selectedItem: nil)
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nowPlayingController = mainStoryboard.instantiateViewControllerWithIdentifier("NowPlayingViewController") as TWNowPlayingViewController
+            nowPlayingController.nowPlayingManager = TWNowPlayingManager.instance
+            self.presentViewController(nowPlayingController, animated: true, completion: nil)
+        }
+    }
+    
+    func handleItemDeletion(#indexPath:NSIndexPath) {
+        var filePath = self.filepathForIndex(indexPath)
+        if let filePath = filePath {
+            let fileUrl = NSURL (string: filePath)
+            var deletionError:NSError? = nil
+            NSFileManager.defaultManager().removeItemAtURL(fileUrl!, error: &deletionError)
+            if deletionError != nil {
+                // TODO: show error message
+            }
+            else {
+                self.collectionView?.deleteItemsAtIndexPaths([indexPath])
+            }
+        }
+    }
+    
 // MARK: - Button Actions
     
     @IBAction func unwindToSegue(segue: UIStoryboardSegue) {
         // Leave it empty.
     }
     
+    @IBAction func enterEditingMode(sender: AnyObject!) {
+        let editButton = sender as? UIBarButtonItem
+        if self.editing {
+            editButton?.title = NSLocalizedString("Edit", comment: "Sources collection view bar button")
+        }
+        else {
+            editButton?.title = NSLocalizedString("Done", comment: "Sources collection view bar button")
+        }
+        self.editing = !self.editing
+        
+        let visibleCells = self.collectionView?.visibleCells()
+        for visibleCell in visibleCells! {
+            let sourceCell = visibleCell as TWSourcesCollectionViewCell
+            sourceCell.startShaking()
+        }
+    }
 // MARK: - Collection View Methods
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -93,14 +140,11 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        var filePath = fileManager.allDocumentPaths()[indexPath.row] as? String
-        if let filePath = filePath {
-            let fileUrl = NSURL(string: filePath)
-            TWNowPlayingManager.instance.startPlaybackWithUrl(fileUrl, selectedItem: nil)
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let nowPlayingController = mainStoryboard.instantiateViewControllerWithIdentifier("NowPlayingViewController") as TWNowPlayingViewController
-            nowPlayingController.nowPlayingManager = TWNowPlayingManager.instance
-            self.presentViewController(nowPlayingController, animated: true, completion: nil)
+        if self.editing {
+            self.handleItemDeletion(indexPath: indexPath)
+        }
+        else {
+            self.handleItemSelection(indexPath: indexPath)
         }
     }
     

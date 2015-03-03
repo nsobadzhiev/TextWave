@@ -352,6 +352,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Library" id="k8B-e0-okB">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="6ou-ZV-5H9">
+                            <connections>
+                                <action selector="enterEditingMode:" destination="HeW-KT-eOR" id="7gf-YQ-JCX"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="reA-RD-amn">
                             <connections>
                                 <segue destination="4hG-IQ-qiu" kind="modal" id="pwl-gp-li3"/>

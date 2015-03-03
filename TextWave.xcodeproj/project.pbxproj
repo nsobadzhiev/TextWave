@@ -48,7 +48,6 @@
 		2330E2511A509D1100963427 /* TWWebPageThumbnailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2330E2501A509D1100963427 /* TWWebPageThumbnailManager.swift */; };
 		2330E2531A5180E300963427 /* TWThumbnailFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2330E2521A5180E300963427 /* TWThumbnailFileManager.swift */; };
 		2330E2551A51CD2600963427 /* TWFileMetadataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2330E2541A51CD2600963427 /* TWFileMetadataFactory.swift */; };
-		2334546E1A953A0C004708E5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2334546D1A953A0C004708E5 /* Reachability.m */; };
 		235087E21A631740006346B1 /* DMePubTableOfContentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235087E11A631740006346B1 /* DMePubTableOfContentsTableViewController.m */; };
 		235F964F19CDADA2003BA87D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235F95F719CDADA1003BA87D /* Main.storyboard */; };
 		235F965019CDADA2003BA87D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235F95F719CDADA1003BA87D /* Main.storyboard */; };
@@ -317,8 +316,6 @@
 		2330E2501A509D1100963427 /* TWWebPageThumbnailManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageThumbnailManager.swift; sourceTree = "<group>"; };
 		2330E2521A5180E300963427 /* TWThumbnailFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWThumbnailFileManager.swift; sourceTree = "<group>"; };
 		2330E2541A51CD2600963427 /* TWFileMetadataFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWFileMetadataFactory.swift; sourceTree = "<group>"; };
-		2334546C1A953A0C004708E5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../text-wave/TextWave/Core/Reachability.h"; sourceTree = "<group>"; };
-		2334546D1A953A0C004708E5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../../../text-wave/TextWave/Core/Reachability.m"; sourceTree = "<group>"; };
 		235087E01A631740006346B1 /* DMePubTableOfContentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMePubTableOfContentsTableViewController.h; sourceTree = "<group>"; };
 		235087E11A631740006346B1 /* DMePubTableOfContentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMePubTableOfContentsTableViewController.m; sourceTree = "<group>"; };
 		235F95F819CDADA1003BA87D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -671,8 +668,6 @@
 		235F95FE19CDADA1003BA87D /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				2334546C1A953A0C004708E5 /* Reachability.h */,
-				2334546D1A953A0C004708E5 /* Reachability.m */,
 				235F95FF19CDADA1003BA87D /* TWDocumentsFileManager.h */,
 				235F960019CDADA1003BA87D /* TWDocumentsFileManager.m */,
 				235F960119CDADA1003BA87D /* TWFileSystemManager.h */,
@@ -1181,7 +1176,6 @@
 				235F973919CDB06D003BA87D /* DMHtmlPageViewController.m in Sources */,
 				2320FD9B1A9D14490004F742 /* ASICloudFilesContainerRequest.m in Sources */,
 				23D126DA1A017CDF0036DDAB /* TWWebPageViewController.swift in Sources */,
-				2334546E1A953A0C004708E5 /* Reachability.m in Sources */,
 				23D126DD1A02D0890036DDAB /* TWFileType.swift in Sources */,
 				2320FD911A9D14490004F742 /* ASIDataCompressor.m in Sources */,
 				235F973719CDB06D003BA87D /* DMePubPageViewController.m in Sources */,
