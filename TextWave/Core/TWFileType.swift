@@ -19,10 +19,16 @@ class TWFileTypeManager {
     
     class func fileType(#fileUrl:NSURL?) -> TWFileType {
         let fileTypesDict = ["epub": TWFileType.EPUB, "html": TWFileType.HTML, "htm": TWFileType.HTML, "pdf": TWFileType.PDF]
-        let fileExtension = fileUrl?.pathExtension
-        if let fileExtension = fileExtension {
-            let fileType = fileTypesDict[fileExtension]
-            if let fileType = fileType {
+//        let fileExtension = fileUrl?.pathExtension
+//        if let fileExtension = fileExtension {
+//            let fileType = fileTypesDict[fileExtension]
+//            if let fileType = fileType {
+//                return fileType
+//            }
+//        }
+        let filePath = fileUrl?.absoluteString
+        for (formatExtension, fileType) in fileTypesDict {
+            if (filePath?.hasSuffix(formatExtension) == true) {
                 return fileType
             }
         }

@@ -8,17 +8,11 @@
 
 import Foundation
 
-protocol TWWebPageDownloaderDelegate {
-    func downloadComplete(downloader:TWWebPageDownloader)
-    func downloadFailed(downloader:TWWebPageDownloader)
-}
-
-class TWWebPageDownloader : NSObject, ASIHTTPRequestDelegate {
-    var webPageUrl:NSURL? = nil
+class TWWebPageDownloader : TWWebPageDownloaderBase, ASIHTTPRequestDelegate {
     var webPageRequest:ASIWebPageRequest? = nil
-    var delegate:TWWebPageDownloaderDelegate? = nil
+    var webPageCache:ASIDownloadCache? = nil
     
-    var downloading:Bool {
+    override var downloading:Bool {
         get {
             if self.webPageRequest?.inProgress == true {
                 return true
@@ -27,50 +21,48 @@ class TWWebPageDownloader : NSObject, ASIHTTPRequestDelegate {
                 return false
             }
         }
+        set {
+            
+        }
     }
     
-    init(url:NSURL?) {
-        self.webPageUrl = url
+    override var downloadError:NSError? {
+        get {
+            return self.webPageRequest?.error
+        }
+        set {
+            
+        }
     }
     
-    func startDownload() {
+    override func startDownload() {
         self.webPageRequest = ASIWebPageRequest(URL: self.webPageUrl)
         //self.webPageRequest?.delegate = self
         let downloadPath = self.downloadPathForWebPage()
         if downloadPath != nil && NSFileManager.defaultManager().fileExistsAtPath(downloadPath!) {
             // TODO: show error message
-            return
+            let pathUrl = NSURL(string: downloadPath!)
+            var error:NSError? = nil
+            let result = NSFileManager.defaultManager().removeItemAtPath(downloadPath!, error: &error)
+            //return
         }
         self.webPageRequest?.downloadDestinationPath = self.downloadPathForWebPage()
         self.webPageRequest?.urlReplacementMode = ASIReplaceExternalResourcesWithLocalURLs
         self.webPageRequest?.cachePolicy = ASIDoNotReadFromCacheCachePolicy
         self.webPageRequest?.didFinishSelector = Selector("requestFinished")
         self.webPageRequest?.didFailSelector = Selector("requestFailed")
+        self.webPageRequest?.delegate = self
+        self.webPageRequest?.cachePolicy = ASIOnlyLoadIfNotCachedCachePolicy
         var cache = ASIDownloadCache()
         cache.defaultCachePolicy = ASIOnlyLoadIfNotCachedCachePolicy
         cache.storagePath = self.downloadPathForWebPage()
         self.webPageRequest?.downloadCache = cache
+        self.webPageCache = cache
         self.webPageRequest?.startAsynchronous()
     }
     
-    func stopDownload() {
+    override func stopDownload() {
         self.webPageRequest?.cancel()
-    }
-    
-    func downloadPathForWebPage() -> String? {
-        // form the directory name by concatenating host name and directory path
-        let urlHost = self.webPageUrl?.host
-        let urlDirPath = self.webPageUrl?.lastPathComponent
-        let docsDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-        var fullPath = urlHost
-        if var fullPath = fullPath {
-            if let urlDirPath = urlDirPath {
-                fullPath = fullPath + "-" + urlDirPath
-                fullPath = docsDir.stringByAppendingPathComponent(fullPath)
-                return fullPath
-            }
-        }
-        return nil
     }
     
     // MARK: ASIHTTPRequestDelegate

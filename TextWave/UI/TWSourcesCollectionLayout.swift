@@ -31,6 +31,7 @@ class TWSourcesCollectionLayout : UICollectionViewLayout {
         var leftColumnHeight:Float = 0
         var rightColumnHeight:Float = 0
         self.totalHeight = 0
+        self.layoutItems.removeAll(keepCapacity: true)
         
         if itemsCount == 0 {
             return
@@ -45,7 +46,9 @@ class TWSourcesCollectionLayout : UICollectionViewLayout {
                 var imageRatio = 0.5
                 if let originalImageHeight = itemImageSize?.height {
                     if let originalImageWidth = itemImageSize?.width {
-                        imageRatio = Double(originalImageHeight / originalImageWidth)
+                        if originalImageWidth != 0 {
+                            imageRatio = Double(originalImageHeight / originalImageWidth)
+                        }
                     }
                 }
                 let imageHeight = Double(self.itemWidth) * imageRatio

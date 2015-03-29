@@ -13,3 +13,4 @@
 #import "TextExractor.h"
 #import "TFHpple.h"
 #import "GTMNSString+HTML.h"
+#import "ASIWebPageRequest+Cache.h"

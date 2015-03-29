@@ -13,6 +13,9 @@
 		23111C281944E8AF00FBB466 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312A519156BD8006F1979 /* libz.dylib */; };
 		23111C291944E8B700FBB466 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312A319156B98006F1979 /* libstdc++.dylib */; };
 		23111C2A1944E8C300FBB466 /* libc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 236312A119156B89006F1979 /* libc.dylib */; };
+		23140D251ABE1737001D2A59 /* TWWebPageDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23140D241ABE1737001D2A59 /* TWWebPageDownloadManager.swift */; };
+		23140D2A1ABE20EC001D2A59 /* TWHtmlFileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23140D291ABE20EC001D2A59 /* TWHtmlFileDownloader.swift */; };
+		23140D2C1ABF2FB8001D2A59 /* TWWebPageDownloaderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23140D2B1ABF2FB8001D2A59 /* TWWebPageDownloaderBase.swift */; };
 		2320FD901A9D14490004F742 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FCF61A9D14490004F742 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2320FD911A9D14490004F742 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FCF91A9D14490004F742 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2320FD921A9D14490004F742 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FCFB1A9D14490004F742 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -201,6 +204,8 @@
 		23B159621A865263001B463D /* libpcreposix_universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B1595E1A865263001B463D /* libpcreposix_universal.a */; };
 		23B159661A865306001B463D /* English.txt in Resources */ = {isa = PBXBuildFile; fileRef = 23B159641A865306001B463D /* English.txt */; };
 		23B159671A865306001B463D /* Hungarian.txt in Resources */ = {isa = PBXBuildFile; fileRef = 23B159651A865306001B463D /* Hungarian.txt */; };
+		23C4E84E1AA64AE500726672 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C4E84D1AA64AE500726672 /* Reachability.m */; };
+		23CE8D131AAE2F1A00FA183C /* ASIWebPageRequest+Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CE8D121AAE2F1A00FA183C /* ASIWebPageRequest+Cache.m */; };
 		23D126DA1A017CDF0036DDAB /* TWWebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D126D91A017CDF0036DDAB /* TWWebPageViewController.swift */; };
 		23D126DD1A02D0890036DDAB /* TWFileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D126DC1A02D0890036DDAB /* TWFileType.swift */; };
 		23EC99BE1A49A687001C8447 /* TWFileMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC99BD1A49A687001C8447 /* TWFileMetadata.swift */; };
@@ -251,6 +256,9 @@
 /* Begin PBXFileReference section */
 		230155F11A598BC100FE2BBC /* TWTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWTabViewController.swift; sourceTree = "<group>"; };
 		230155F61A59954400FE2BBC /* TWTabBarSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWTabBarSegue.swift; sourceTree = "<group>"; };
+		23140D241ABE1737001D2A59 /* TWWebPageDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageDownloadManager.swift; sourceTree = "<group>"; };
+		23140D291ABE20EC001D2A59 /* TWHtmlFileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWHtmlFileDownloader.swift; sourceTree = "<group>"; };
+		23140D2B1ABF2FB8001D2A59 /* TWWebPageDownloaderBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageDownloaderBase.swift; sourceTree = "<group>"; };
 		2320FCF51A9D14490004F742 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		2320FCF61A9D14490004F742 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		2320FCF71A9D14490004F742 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -462,6 +470,10 @@
 		23B1595E1A865263001B463D /* libpcreposix_universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpcreposix_universal.a; sourceTree = "<group>"; };
 		23B159641A865306001B463D /* English.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = English.txt; sourceTree = "<group>"; };
 		23B159651A865306001B463D /* Hungarian.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Hungarian.txt; sourceTree = "<group>"; };
+		23C4E84C1AA64AE500726672 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		23C4E84D1AA64AE500726672 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		23CE8D111AAE2F1A00FA183C /* ASIWebPageRequest+Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASIWebPageRequest+Cache.h"; sourceTree = "<group>"; };
+		23CE8D121AAE2F1A00FA183C /* ASIWebPageRequest+Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASIWebPageRequest+Cache.m"; sourceTree = "<group>"; };
 		23D126D91A017CDF0036DDAB /* TWWebPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageViewController.swift; sourceTree = "<group>"; };
 		23D126DC1A02D0890036DDAB /* TWFileType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWFileType.swift; sourceTree = "<group>"; };
 		23EC99BD1A49A687001C8447 /* TWFileMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWFileMetadata.swift; sourceTree = "<group>"; };
@@ -668,6 +680,8 @@
 		235F95FE19CDADA1003BA87D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				23C4E84C1AA64AE500726672 /* Reachability.h */,
+				23C4E84D1AA64AE500726672 /* Reachability.m */,
 				235F95FF19CDADA1003BA87D /* TWDocumentsFileManager.h */,
 				235F960019CDADA1003BA87D /* TWDocumentsFileManager.m */,
 				235F960119CDADA1003BA87D /* TWFileSystemManager.h */,
@@ -679,6 +693,11 @@
 				2330E2521A5180E300963427 /* TWThumbnailFileManager.swift */,
 				2330E2541A51CD2600963427 /* TWFileMetadataFactory.swift */,
 				2320FDE91A9D18F70004F742 /* TWWebPageDownloader.swift */,
+				23CE8D111AAE2F1A00FA183C /* ASIWebPageRequest+Cache.h */,
+				23CE8D121AAE2F1A00FA183C /* ASIWebPageRequest+Cache.m */,
+				23140D241ABE1737001D2A59 /* TWWebPageDownloadManager.swift */,
+				23140D291ABE20EC001D2A59 /* TWHtmlFileDownloader.swift */,
+				23140D2B1ABF2FB8001D2A59 /* TWWebPageDownloaderBase.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1221,15 +1240,19 @@
 				236BD8941A23BF1900EA4EA4 /* DMTableOfContentsV3.m in Sources */,
 				2320FD9E1A9D14490004F742 /* ASICloudFilesObjectRequest.m in Sources */,
 				23B159531A864DFD001B463D /* TWTextExtractor.swift in Sources */,
+				23CE8D131AAE2F1A00FA183C /* ASIWebPageRequest+Cache.m in Sources */,
 				235F97CA19CDBDA9003BA87D /* DDXMLElement.m in Sources */,
 				235F966D19CDADA2003BA87D /* DMePubFileManager.m in Sources */,
 				23F8AF151A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift in Sources */,
 				235F965519CDADA2003BA87D /* TWDocumentsFileManager.m in Sources */,
+				23140D251ABE1737001D2A59 /* TWWebPageDownloadManager.swift in Sources */,
 				235F965119CDADA2003BA87D /* DDXMLNode+ChildForName.m in Sources */,
 				235F969719CDADA2003BA87D /* TWTextPlaybackSource.swift in Sources */,
 				2330E24B1A4A172900963427 /* XPathQuery.m in Sources */,
 				235F97CC19CDBDA9003BA87D /* DDXMLNode.m in Sources */,
 				232729DC1A4846C20093E189 /* TWSourcesCollectionLayout.swift in Sources */,
+				23140D2C1ABF2FB8001D2A59 /* TWWebPageDownloaderBase.swift in Sources */,
+				23C4E84E1AA64AE500726672 /* Reachability.m in Sources */,
 				235F965319CDADA2003BA87D /* NSError+Description.m in Sources */,
 				2320FD931A9D14490004F742 /* ASIDownloadCache.m in Sources */,
 				23EC99BE1A49A687001C8447 /* TWFileMetadata.swift in Sources */,
@@ -1251,6 +1274,7 @@
 				235F969D19CDADA2003BA87D /* TWBookViewController.swift in Sources */,
 				235F97C619CDBDA9003BA87D /* NSString+DDXML.m in Sources */,
 				FDAE9B051A1EBD5F00E542F0 /* TWBrowseItemViewController.swift in Sources */,
+				23140D2A1ABE20EC001D2A59 /* TWHtmlFileDownloader.swift in Sources */,
 				237C0FCB19DC8619003F575A /* TTR.m in Sources */,
 				237C0FD619DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift in Sources */,
 				235F968719CDADA2003BA87D /* TWHtmlPlaybackSource.swift in Sources */,
