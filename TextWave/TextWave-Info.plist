@@ -15,7 +15,7 @@
 			<string>Web Page</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>public.text</string>
+				<string>public.html</string>
 			</array>
 		</dict>
 		<dict>
@@ -72,19 +72,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UTImportedTypeDeclarations</key>
-	<array>
-		<dict>
-			<key>UTTypeDescription</key>
-			<string>A Web page</string>
-			<key>UTTypeIdentifier</key>
-			<string>public.text</string>
-			<key>UTTypeSize320IconFile</key>
-			<string>AppIcon</string>
-			<key>UTTypeSize64IconFile</key>
-			<string>AppIcon</string>
-		</dict>
 	</array>
 </dict>
 </plist>
