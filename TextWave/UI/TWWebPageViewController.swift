@@ -26,8 +26,15 @@ class TWWebPageViewController: TWPublicationPreviewViewControllerProtocol, UIWeb
     func loadRequest(requestUrl:NSURL?) {
         if let requestUrl = requestUrl {
             if let webContainer = self.webView {
-                let request = NSURLRequest(URL: requestUrl, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
-                self.webView.loadRequest(request)
+                if requestUrl.fileURL == true {
+                    let htmlString = NSString(contentsOfURL: pageUrl!, encoding: NSUTF8StringEncoding, error: nil)
+                    let baseUrl = TWWebPageDownloadManager.defaultDownloadManager.baseUrlForWebPage(pageUrl?.lastPathComponent)
+                    self.webView.loadHTMLString(htmlString, baseURL: baseUrl)
+                }
+                else {
+                    let request = NSURLRequest(URL: requestUrl, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
+                    self.webView.loadRequest(request)
+                }
             }
         }
     }

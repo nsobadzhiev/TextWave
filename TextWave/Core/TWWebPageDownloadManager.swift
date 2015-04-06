@@ -11,7 +11,7 @@ import Foundation
 let defaultManager = TWWebPageDownloadManager()
 
 class TWWebPageDownloadManager : TWWebPageDownloaderDelegate {
-    var catalogue: Dictionary<NSURL, NSURL> = Dictionary<NSURL, NSURL>()
+    var catalogue: Dictionary<String, NSURL> = Dictionary<String, NSURL>()
     let catalogueName = "WebPagesCatalogue"
     var pageCompletionCallbacksDict = Dictionary<NSURL, (pageUrl:NSURL) -> Void>()
     var pageFailureCallbacksDict = Dictionary<NSURL, (pageUrl:NSURL?, error:NSError?) -> Void>()
@@ -25,24 +25,33 @@ class TWWebPageDownloadManager : TWWebPageDownloaderDelegate {
     func downloadWebPage(pageUrl:NSURL?, loadResources:Bool, completionBlock:(pageUrl:NSURL) -> Void, failureBlock:((pageUrl:NSURL?, error:NSError?) -> Void)) {
         if let pageUrl = pageUrl {
             let downloader = self.downloaderForUrl(pageUrl, loadResources: loadResources)
-            downloader.delegate = self
-            self.pageCompletionCallbacksDict[pageUrl] = completionBlock
-            self.pageFailureCallbacksDict[pageUrl] = failureBlock
-            downloader.startDownload()
+            let downloadPath = downloader.downloadPathForWebPage()
+            if let downloadPath = downloadPath {
+                let downloadUrl = NSURL(fileURLWithPath: downloadPath)
+                if let downloadName = downloadUrl?.lastPathComponent {
+                    self.addCatalogueEntry(downloadName, baseUrl: pageUrl)
+                    downloader.delegate = self
+                    self.pageCompletionCallbacksDict[pageUrl] = completionBlock
+                    self.pageFailureCallbacksDict[pageUrl] = failureBlock
+                    downloader.startDownload()
+                    return
+                }
+            }
         }
+        failureBlock(pageUrl: pageUrl, error: nil)
     }
     
-    func addCatalogueEntry(pageLocation:NSURL, baseUrl:NSURL) {
-        self.catalogue[pageLocation] = baseUrl
+    func addCatalogueEntry(pageName:String, baseUrl:NSURL) {
+        self.catalogue[pageName] = baseUrl
     }
     
-    func removeCatalogueEntry(pageLocation:NSURL) {
-        self.catalogue[pageLocation] = nil
+    func removeCatalogueEntry(pageName:String) {
+        self.catalogue[pageName] = nil
     }
     
-    func baseUrlForWebPage(pageLocation:NSURL?) -> NSURL? {
-        if let pageLocation = pageLocation {
-            return self.catalogue[pageLocation]
+    func baseUrlForWebPage(pageName:String?) -> NSURL? {
+        if let pageName = pageName {
+            return self.catalogue[pageName]
         }
         else {
             return nil
@@ -72,7 +81,7 @@ class TWWebPageDownloadManager : TWWebPageDownloaderDelegate {
     }
     
     func loadCatalogue() -> Bool {
-        let loadedCatalogue:Dictionary<NSURL, NSURL>? = NSKeyedUnarchiver.unarchiveObjectWithFile(self.cataloguePath()) as? Dictionary
+        let loadedCatalogue:Dictionary<String, NSURL>? = NSKeyedUnarchiver.unarchiveObjectWithFile(self.cataloguePath()) as? Dictionary
         if let loadedCatalogue = loadedCatalogue {
             self.catalogue = loadedCatalogue
             return true
