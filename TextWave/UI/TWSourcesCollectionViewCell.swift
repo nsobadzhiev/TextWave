@@ -41,17 +41,20 @@ class TWSourcesCollectionViewCell : UICollectionViewCell {
         let animationOptions = UIViewKeyframeAnimationOptions.AllowUserInteraction |
             UIViewKeyframeAnimationOptions.Repeat
         let easeOptions = UIViewAnimationOptions.CurveEaseInOut | UIViewAnimationOptions.Repeat
-        UIView.animateWithDuration(0.6, delay: delay, options: easeOptions, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, delay: delay, options: easeOptions, animations: { () -> Void in
             UIView.animateKeyframesWithDuration(0.60, delay: delay, options: animationOptions, animations: { () -> Void in
                 var time = 0.0
                 let duration = 0.15
-                let radius:CGFloat = CGFloat(M_PI / 64.0);
+                let radius:CGFloat = CGFloat(M_PI / 200.0);
                 let originalFrame = self.frame
                 UIView.addKeyframeWithRelativeStartTime(time, relativeDuration: duration, animations: { () -> Void in
                     let transform = CGAffineTransformMakeRotation(-radius);
                     self.transform = transform;
                     var myFrame = self.frame
-                    myFrame.origin.y -= movement
+                    let movementX = -5.0 + CGFloat(arc4random_uniform(10))
+                    let movementY = -5.0 + CGFloat(arc4random_uniform(10))
+                    myFrame.origin.x += movementX
+                    myFrame.origin.y += movementY
                     self.frame = myFrame
                 })
                 time += duration
@@ -59,17 +62,21 @@ class TWSourcesCollectionViewCell : UICollectionViewCell {
                     let transform = CGAffineTransformMakeRotation(radius);
                     self.transform = transform;
                     var myFrame = self.frame
-                    myFrame.origin.y += movement
-                    myFrame.origin.x += movement
+                    let movementX = -5.0 + CGFloat(arc4random_uniform(10))
+                    let movementY = -5.0 + CGFloat(arc4random_uniform(10))
+                    myFrame.origin.x += movementX
+                    myFrame.origin.y += movementY
                     self.frame = myFrame
                 })
                 time += duration
                 UIView.addKeyframeWithRelativeStartTime(time, relativeDuration: duration, animations: { () -> Void in
-                    let transform = CGAffineTransformMakeRotation(radius);
+                    let transform = CGAffineTransformMakeRotation(-radius);
                     self.transform = transform;
                     var myFrame = self.frame
-                    myFrame.origin.y -=  movement
-                    myFrame.origin.x -= 2 * movement
+                    let movementX = -5.0 + CGFloat(arc4random_uniform(10))
+                    let movementY = -5.0 + CGFloat(arc4random_uniform(10))
+                    myFrame.origin.x += movementX
+                    myFrame.origin.y += movementY
                     self.frame = myFrame
                 })
                 time += duration
