@@ -95,7 +95,12 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         let visibleCells = self.collectionView?.visibleCells()
         for visibleCell in visibleCells! {
             let sourceCell = visibleCell as TWSourcesCollectionViewCell
-            sourceCell.startShaking()
+            if self.editing {
+                sourceCell.startShaking()
+            }
+            else {
+                sourceCell.stopShaking()
+            }
         }
     }
 // MARK: - Collection View Methods
@@ -122,6 +127,10 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
             fileMetadata?.thumbnailForFileWithBlock({(thumbnailView:UIView?) in
                 cell.imageView = thumbnailView
             })
+        }
+        
+        if self.editing == true {
+            cell.startShaking()
         }
         
         return cell;

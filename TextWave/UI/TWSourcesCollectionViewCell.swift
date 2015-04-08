@@ -83,4 +83,8 @@ class TWSourcesCollectionViewCell : UICollectionViewCell {
             }, 
             completion: nil)
     }
+    
+    func stopShaking() {
+        self.layer.removeAllAnimations()
+    }
 }
