@@ -41,7 +41,7 @@ class TWEpubPlaybackSource: TWPlaybackSource {
     
     override func goToNextItem() -> Bool {
         super.goToNextItem()
-        let nextItem = self.epubIterator?.nextObject() as DMePubItem?
+        let nextItem = self.epubIterator?.nextObject() as? DMePubItem
         if nextItem != nil {
             self.applyCurrentTextForItem(nextItem)
             return true
@@ -80,7 +80,7 @@ class TWEpubPlaybackSource: TWPlaybackSource {
             let formattedText = NSString(data:itemData, encoding:NSUTF8StringEncoding)
             // extract readable text from the HTML
             let textExtractor = TWTextExtractor()
-            self.currentText = textExtractor.extractArticle(htmlString: formattedText)
+            self.currentText = textExtractor.extractArticle(htmlString: formattedText as? String)
         }
     }
 }

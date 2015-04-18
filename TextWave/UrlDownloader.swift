@@ -48,7 +48,7 @@ class UrlDownloader : NSObject, NSURLConnectionDataDelegate {
     }
     
     func downloadResource() {
-        if let path = self.urlPath? {
+        if let path = self.urlPath {
             // creating an NSURL with a nil string throws an exception. Prevent that
             // and notify the delegate that the request failed
             self.notifyDelegateDownloadFailedWithError(nil)
@@ -60,20 +60,20 @@ class UrlDownloader : NSObject, NSURLConnectionDataDelegate {
     
     // NSURLConnection
     
-    func connection(connection: NSURLConnection!, didReceiveResponse response: NSURLResponse!) {
+    func connection(connection: NSURLConnection, didReceiveResponse response: NSURLResponse) {
         responseData = NSMutableData()
     }
     
-    func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
+    func connection(connection: NSURLConnection, didReceiveData data: NSData) {
         responseData?.appendData(data)
     }
     
-    func connectionDidFinishLoading(connection: NSURLConnection!) {
+    func connectionDidFinishLoading(connection: NSURLConnection) {
         self.loading = false
         self.notifyDelegateDownloadedData(responseData)
     }
     
-    func connection(connection: NSURLConnection!, didFailWithError error: NSError!) {
+    func connection(connection: NSURLConnection, didFailWithError error: NSError) {
         self.loading = false
         self.notifyDelegateDownloadFailedWithError(error)
     }

@@ -15,11 +15,11 @@ class TWAppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var fileManager: TWFileSystemManager = NSFileManager.defaultManager() as TWFileSystemManager
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let rootViewController = storyboard.instantiateInitialViewController() as UIViewController
+        let rootViewController = storyboard.instantiateInitialViewController() as? UIViewController
         let window:UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window.rootViewController = rootViewController as UIViewController
+        window.rootViewController = rootViewController as UIViewController?
         window.makeKeyAndVisible()
         UIView.appearance().tintColor = UIColor(red: 240.0 / 255, green: 136.0 / 255, blue: 32 / 255, alpha: 1.0)
         self.setupAudioSession()
@@ -61,7 +61,7 @@ class TWAppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         // TODO: Check whether the file can be handles by the app.
         let isValid = true
         if isValid {

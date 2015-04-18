@@ -39,7 +39,7 @@ class TWNowPlayingManager {
         if let source = source {
             self.playbackManager?.finish()
             self.playbackManager = TWPlaybackManager(dataSource: source)
-            self.selectedItem = selectedItem
+            self.selectedItem = selectedItem as? String
         }
     }
     

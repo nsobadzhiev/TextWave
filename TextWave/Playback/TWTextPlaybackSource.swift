@@ -18,7 +18,7 @@ class TWTextPlaybackSource : TWPlaybackSource {
     
     override init(url: NSURL?) {
         super.init(url: url)
-        if let suppliedUrl = url? {
+        if let suppliedUrl = url {
             self.currentText = String(contentsOfURL: url!, encoding: NSUTF8StringEncoding, error: nil)
 //            self.currentItemIndex = 0
         }

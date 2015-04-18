@@ -35,14 +35,14 @@ class TWWebPageDownloaderBase : NSObject {
         // form the directory name by concatenating host name and directory path
         let urlHost = self.webPageUrl?.host
         var urlDirPath = self.webPageUrl?.lastPathComponent
-        let docsDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let docsDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as? NSString
         var fullPath = urlHost
         if var fullPath = fullPath {
             if let urlDirPath = urlDirPath {
-                if urlDirPath.utf16Count == 0 {
+                if count(urlDirPath.utf16) == 0 {
                     fullPath = fullPath + "-" + urlDirPath
                 }
-                fullPath = docsDir.stringByAppendingPathComponent(fullPath)
+                fullPath = docsDir!.stringByAppendingPathComponent(fullPath)
                 if fullPath.hasSuffix(".html") == false &&
                     fullPath.hasSuffix(".htm") == false {
                         fullPath = fullPath + ".html";
@@ -51,8 +51,8 @@ class TWWebPageDownloaderBase : NSObject {
                 var createDirError:NSError? = nil
                 //NSFileManager.defaultManager().createDirectoryAtURL(fullUrl!, withIntermediateDirectories: true, attributes: nil, error: &createDirError)
                 //fullPath = fullPath.stringByAppendingPathExtension("html")!
-//                let range = Range<String.Index>(start: fullPath.startIndex, end: fullPath.endIndex)
-//                fullPath = fullPath.stringByReplacingOccurrencesOfString(".", withString: "_", options: NSStringCompareOptions.CaseInsensitiveSearch, range: range)
+                let range = Range<String.Index>(start: fullPath.startIndex, end: fullPath.endIndex)
+                fullPath = fullPath.stringByReplacingOccurrencesOfString(".", withString: "_", options: NSStringCompareOptions.CaseInsensitiveSearch, range: range)
                 return fullPath
             }
         }

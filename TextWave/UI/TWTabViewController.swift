@@ -37,15 +37,17 @@ class TWTabViewController : UIViewController {
             return
         }
         
-        let destinationController = segue.destinationViewController as UIViewController
+        let destinationController = segue.destinationViewController as? UIViewController
         for childController in self.childViewControllers {
             childController.removeFromParentViewController()
         }
-        self.addChildViewController(destinationController)
-        destinationController.view.frame = self.contentAreaView.bounds
-        self.contentAreaView.addSubview(destinationController.view)
-        destinationController.didMoveToParentViewController(self)
-        self.selectedTabButton = sender as? UIButton
+        if let destinationController = destinationController {
+            self.addChildViewController(destinationController)
+            destinationController.view.frame = self.contentAreaView.bounds
+            self.contentAreaView.addSubview(destinationController.view)
+            destinationController.didMoveToParentViewController(self)
+            self.selectedTabButton = sender as? UIButton
+        }
     }
     
     // MARK: Remote control events

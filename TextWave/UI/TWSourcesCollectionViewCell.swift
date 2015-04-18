@@ -26,7 +26,7 @@ class TWSourcesCollectionViewCell : UICollectionViewCell {
 
     var imageView: UIView? {
         didSet {
-            for subview in self.thumbnailView?.subviews as [UIView] {
+            for subview in self.thumbnailView?.subviews as! [UIView] {
                 subview.removeFromSuperview()
             }
             self.imageView?.frame = self.thumbnailView.bounds

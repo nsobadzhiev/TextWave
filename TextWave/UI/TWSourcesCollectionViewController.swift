@@ -11,12 +11,13 @@ import UIKit
 class TWSourcesCollectionViewController : UICollectionViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TWSourcesCollectionLayoutDataSource {
     
     @IBOutlet var collectionLayout: TWSourcesCollectionLayout!
-    let fileManager = TWDocumentsFileManager()
+    var fileManager = TWDocumentsFileManager()
+    var fileMetadatas:Array<TWFileMetadata> = []
     let defaultThumbnailImageName = "defaultCover"
     
     init(documentsFileManager: TWDocumentsFileManager) {
         super.init(nibName: nil, bundle: nil)
-        fileManager = documentsFileManager;
+        fileManager = documentsFileManager
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -35,14 +36,36 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
     
     func metadataForItem(#indexPath:NSIndexPath) -> TWFileMetadata? {
         var firstSourceFileName = fileManager.allDocumentPaths()[indexPath.row] as? String
+        let cachedMetadata = self.cachedMetadataForFile(firstSourceFileName)
         
-        if let firstSource = firstSourceFileName {
-            let fileUrl = NSURL(string: firstSource)
-            return TWFileMetadataFactory.metadataForFile(fileUrl)
+        if cachedMetadata != nil {
+            return cachedMetadata
         }
         else {
-            return nil
+            if let firstSource = firstSourceFileName {
+                let fileUrl = NSURL(string: firstSource)
+                let metadata = TWFileMetadataFactory.metadataForFile(fileUrl)
+                if let metadata = metadata {
+                    self.fileMetadatas.append(metadata)
+                }
+                return metadata
+            }
+            else {
+                return nil
+            }
         }
+    }
+    
+    func cachedMetadataForFile(filePath:String?) -> TWFileMetadata? {
+        if let filePath = filePath {
+            let fileUrl = NSURL(string: filePath)
+            for meta in self.fileMetadatas {
+                if meta.fileUrl == fileUrl {
+                    return meta
+                }
+            }
+        }
+        return nil
     }
     
     func filepathForIndex(indexPath:NSIndexPath) -> String? {
@@ -55,7 +78,7 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
             let fileUrl = NSURL(string: filePath)
             TWNowPlayingManager.instance.startPlaybackWithUrl(fileUrl, selectedItem: nil)
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let nowPlayingController = mainStoryboard.instantiateViewControllerWithIdentifier("NowPlayingViewController") as TWNowPlayingViewController
+            let nowPlayingController = mainStoryboard.instantiateViewControllerWithIdentifier("NowPlayingViewController") as! TWNowPlayingViewController
             nowPlayingController.nowPlayingManager = TWNowPlayingManager.instance
             self.presentViewController(nowPlayingController, animated: true, completion: nil)
         }
@@ -94,12 +117,12 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         
         let visibleCells = self.collectionView?.visibleCells()
         for visibleCell in visibleCells! {
-            let sourceCell = visibleCell as TWSourcesCollectionViewCell
+            let sourceCell = visibleCell as? TWSourcesCollectionViewCell
             if self.editing {
-                sourceCell.startShaking()
+                sourceCell?.startShaking()
             }
             else {
-                sourceCell.stopShaking()
+                sourceCell?.stopShaking()
             }
         }
     }
@@ -115,17 +138,19 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let reuseId = "SourcesCell"
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseId, forIndexPath: indexPath) as TWSourcesCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseId, forIndexPath: indexPath) as! TWSourcesCollectionViewCell
         
         var firstSourceFileName = fileManager.allDocumentPaths()[indexPath.row] as? String
         
         if let firstSource = firstSourceFileName {
             let fileUrl = NSURL(string: firstSource)
-            let fileMetadata = TWFileMetadataFactory.metadataForFile(fileUrl)
+            let fileMetadata = self.metadataForItem(indexPath: indexPath)
             cell.title = fileMetadata?.titleForFile()
             cell.imageView = UIImageView(image: UIImage(named: self.defaultThumbnailImageName))
             fileMetadata?.thumbnailForFileWithBlock({(thumbnailView:UIView?) in
-                cell.imageView = thumbnailView
+                if let thumbnailView = thumbnailView {
+                    cell.imageView = thumbnailView
+                }
             })
         }
         

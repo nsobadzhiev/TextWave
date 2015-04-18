@@ -128,7 +128,7 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     }
     
     @IBAction func onProgressSliderChangedValue(sender: AnyObject) {
-        let slider = sender as UISlider
+        let slider = sender as! UISlider
         let sliderValue = slider.value
         self.playbackManager?.setPlaybackProgress(sliderValue)
     }

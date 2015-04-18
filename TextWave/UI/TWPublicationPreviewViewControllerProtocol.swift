@@ -17,7 +17,7 @@ protocol TWPublicationPreviewViewControllerDelegate : class {
 class TWPublicationPreviewViewControllerProtocol: UIViewController {
     
     init(publicationUrl: NSURL?) {
-        super.init()
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init(coder aDecoder: NSCoder) {

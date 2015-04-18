@@ -42,7 +42,7 @@ class TWSourcesCollectionLayout : UICollectionViewLayout {
                 let indexPath = NSIndexPath(forItem: itemIndex, inSection: 0)
                 let itemImageSize = self.delegate?.sourcesCollectionLayout(self, imageSizeForItemAtIndexPath: indexPath)
                 let itemTitle = self.delegate?.sourcesCollectionLayout(self, titleForItemAtIndexPath: indexPath)
-                let titleHeight = self.heightForTitle(itemTitle)
+                let titleHeight = self.heightForTitle(itemTitle as? String)
                 var imageRatio = 0.5
                 if let originalImageHeight = itemImageSize?.height {
                     if let originalImageWidth = itemImageSize?.width {

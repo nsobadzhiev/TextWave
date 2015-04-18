@@ -104,8 +104,8 @@ class TWBookViewController : TWPublicationPreviewViewControllerProtocol {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ListenBookSegue" {
             TWNowPlayingManager.instance.startPlaybackWithUrl(self.bookUrl, selectedItem: self.epubPageController?.selectedItem)
-            let nowPlayingController = segue.destinationViewController as TWNowPlayingViewController
-            nowPlayingController.nowPlayingManager = TWNowPlayingManager.instance
+            let nowPlayingController = segue.destinationViewController as? TWNowPlayingViewController
+            nowPlayingController?.nowPlayingManager = TWNowPlayingManager.instance
         }
     }
 }

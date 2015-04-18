@@ -12,7 +12,7 @@ import UIKit
 let defaultThumbnailImageName = "defaultCover.png"
 
 class TWFileMetadata {
-    let fileUrl:NSURL? = nil
+    var fileUrl:NSURL? = nil
     
     init(url: NSURL?) {
         self.fileUrl = url

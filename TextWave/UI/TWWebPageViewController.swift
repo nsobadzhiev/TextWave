@@ -29,7 +29,7 @@ class TWWebPageViewController: TWPublicationPreviewViewControllerProtocol, UIWeb
                 if requestUrl.fileURL == true {
                     let htmlString = NSString(contentsOfURL: pageUrl!, encoding: NSUTF8StringEncoding, error: nil)
                     let baseUrl = TWWebPageDownloadManager.defaultDownloadManager.baseUrlForWebPage(pageUrl?.lastPathComponent)
-                    self.webView.loadHTMLString(htmlString, baseURL: baseUrl)
+                    self.webView.loadHTMLString(htmlString as? String, baseURL: baseUrl)
                 }
                 else {
                     let request = NSURLRequest(URL: requestUrl, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
@@ -42,8 +42,8 @@ class TWWebPageViewController: TWPublicationPreviewViewControllerProtocol, UIWeb
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ListenWebPageSegue" {
             TWNowPlayingManager.instance.startPlaybackWithUrl(self.pageUrl)
-            let nowPlayingController = segue.destinationViewController as TWNowPlayingViewController
-            nowPlayingController.nowPlayingManager = TWNowPlayingManager.instance
+            let nowPlayingController = segue.destinationViewController as? TWNowPlayingViewController
+            nowPlayingController?.nowPlayingManager = TWNowPlayingManager.instance
         }
     }
     

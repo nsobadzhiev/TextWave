@@ -10,7 +10,7 @@ import Foundation
 
 class TWEpubMetadata : TWFileMetadata {
     
-    let epubManager: DMePubManager? = nil
+    var epubManager: DMePubManager? = nil
     
     override init(url: NSURL?) {
         super.init(url: url)

@@ -24,18 +24,18 @@ class TWPublicationPreviewViewControllerFactory {
     
     class func instantiateViewControllerFromStoryboard(name:String) -> UIViewController {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        return mainStoryBoard.instantiateViewControllerWithIdentifier(name) as UIViewController
+        return mainStoryBoard.instantiateViewControllerWithIdentifier(name) as! UIViewController
     }
     
     class func createEpubViewController(epubUrl url:NSURL?, selectedItem: String?) -> TWPublicationPreviewViewControllerProtocol {
-        let previewController = self.instantiateViewControllerFromStoryboard("BookViewController") as TWBookViewController
+        let previewController = self.instantiateViewControllerFromStoryboard("BookViewController") as! TWBookViewController
         previewController.setBookAndPosition(url, selectedItem: selectedItem)
         //previewController.showListenButton = false
         return previewController
     }
     
     class func createWebPageViewController(webPageUrl url:NSURL?) -> TWPublicationPreviewViewControllerProtocol {
-        let previewController = self.instantiateViewControllerFromStoryboard("WebPageViewController") as TWWebPageViewController
+        let previewController = self.instantiateViewControllerFromStoryboard("WebPageViewController") as! TWWebPageViewController
         previewController.pageUrl = url
         return previewController
     }

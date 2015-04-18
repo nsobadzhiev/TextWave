@@ -14,6 +14,13 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
     let thumbnailsFileManager = TWThumbnailFileManager()
     var successBlock: ((thumbnailView:UIView) -> Void)! = nil
     var failureBlock: ((error:NSError) -> Void)! = nil
+    var webViews:Array<UIWebView> = []
+    
+    deinit {
+        for webView in self.webViews {
+            webView.delegate = nil
+        }
+    }
     
     func thumbnailForWebPage(pageUrl: NSURL?, successBlock:(thumbnailView:UIView) -> Void, failBlock:(error:NSError) -> Void) {
         let cachedThumbnail = self.thumbnailsFileManager.cachedThumbnailForUrl(pageUrl)
@@ -32,8 +39,11 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
             let webView = UIWebView(frame: CGRectMake(0, 0, self.thumbnailSize.width, self.thumbnailSize.height))
             webView.scalesPageToFit = true
             let thumbnailRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
-            //webView.delegate = self
+            webView.delegate = self
             webView.loadRequest(thumbnailRequest)
+            self.webViews.append(webView)
+            let thumbnail = self.screenshotOfView(webView)
+            //self.thumbnailsFileManager.saveThumbnail(thumbnail, forUrl: url)
             self.successBlock(thumbnailView: webView)
         }
     }

@@ -80,14 +80,14 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     
     func previous() {
         self.playbackSource!.goToPreviousItem()
-        if let speechText = self.playbackSource?.currentText? {
+        if let speechText = self.playbackSource?.currentText {
             self.speakText(speechText)
         }
     }
     
     func next() {
         if self.playbackSource?.goToNextItem() != false {
-            if let speechText = self.playbackSource?.currentText? {
+            if let speechText = self.playbackSource?.currentText {
                 self.speakText(speechText)
                 self.postChangedNotification()
                 if self.playbackSource?.currentItemIndex == 0 {
@@ -227,7 +227,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance!) {
         self.wordIndex += 1
         self.letterIndex = characterRange.location + characterRange.length
-        if let existingDelegate = self.delegate? {
+        if let existingDelegate = self.delegate {
             self.delegate!.playbackManager(self, didMoveToPosition: self.wordIndex)
         }
     }

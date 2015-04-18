@@ -68,9 +68,9 @@ class TWWebPageDownloadManager : TWWebPageDownloaderDelegate {
     }
     
     func cataloguePath() -> String {
-        let cachesPath = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0] as NSString
-        let cataloguePath = cachesPath.stringByAppendingPathComponent(catalogueName)
-        return cataloguePath
+        let cachesPath = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0] as? NSString
+        let cataloguePath = cachesPath?.stringByAppendingPathComponent(catalogueName)
+        return cataloguePath!
     }
     
     func saveCatalogue() -> Bool {

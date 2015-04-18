@@ -15,7 +15,7 @@ class TWThumbnailFileManager : NSObject, NSCoding {
     
     let userDefaults = NSUserDefaults.standardUserDefaults()
     
-    var thumbnailsCatalog: Dictionary<NSURL, NSURL>! = nil
+    var thumbnailsCatalog: Dictionary<String, String>! = nil
     
     override init() {
         super.init()
@@ -27,17 +27,17 @@ class TWThumbnailFileManager : NSObject, NSCoding {
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.thumbnailsCatalog = aDecoder.decodeObjectForKey(self.catalogEncodeKey) as Dictionary
+        self.thumbnailsCatalog = aDecoder.decodeObjectForKey(self.catalogEncodeKey) as? Dictionary
     }
     
     func cachedThumbnailForUrl(pageUrl:NSURL?) -> UIView? {
-        if let pageUrl = pageUrl {
-            let cachedViewUrl = self.thumbnailsCatalog[pageUrl]
-            return self.imageViewFromUrl(cachedViewUrl)
+        if let pagePath = pageUrl?.absoluteString {
+            let cachedViewPath = self.thumbnailsCatalog[pagePath]
+            if let cachePath = cachedViewPath {
+                return self.imageViewFromUrl(NSURL(fileURLWithPath: cachePath))
+            }
         }
-        else {
-            return nil
-        }
+        return nil
     }
     
     func saveThumbnail(thumbnail:UIImage?, forUrl itemPath:NSURL?) -> Bool {
@@ -48,10 +48,13 @@ class TWThumbnailFileManager : NSObject, NSCoding {
                 let thumbnailName  = itemPath.lastPathComponent
                 let thumbnailSaveUrl = thumbnailsDir?.URLByAppendingPathComponent(thumbnailName!, isDirectory: false)
                 if let thumbnailSaveUrl = thumbnailSaveUrl {
-                    thumbnailData.writeToURL(thumbnailSaveUrl, atomically: false)
-                    self.thumbnailsCatalog[itemPath] = thumbnailSaveUrl
-                    self.saveThumbnailsCatalog()
-                    return true
+                    if let itemPath = itemPath.absoluteString {
+                        var writeError:NSError? = nil
+                        thumbnailData.writeToURL(thumbnailSaveUrl, options: NSDataWritingOptions.allZeros, error: &writeError)
+                        self.thumbnailsCatalog[itemPath] = thumbnailSaveUrl.absoluteString
+                        self.saveThumbnailsCatalog()
+                        return true
+                    }
                 }
             }
         }
@@ -59,8 +62,11 @@ class TWThumbnailFileManager : NSObject, NSCoding {
     }
     
     func imageViewFromUrl(imageUrl:NSURL?) -> UIImageView? {
-        if let imageUrl = imageUrl {
-            let imageData = NSData(contentsOfURL: imageUrl)
+        if var imagePath = imageUrl?.path {
+            let range = Range<String.Index>(start: imagePath.startIndex, end: imagePath.endIndex)
+            imagePath = imagePath.stringByReplacingOccurrencesOfString("/file:", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch, range: range)
+            var readError:NSError? = nil
+            let imageData = NSData(contentsOfFile: imagePath)
             if let imageData = imageData {
                 let image = UIImage(data: imageData)
                 let imageView = UIImageView(image: image)
@@ -72,14 +78,15 @@ class TWThumbnailFileManager : NSObject, NSCoding {
     
     func thumbnailsDirectory() -> NSURL? {
         let cacheDirectory = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.CachesDirectory, inDomain: NSSearchPathDomainMask.AllDomainsMask, appropriateForURL: nil, create: true, error: nil)
-        let thumbnailsDirectory = cacheDirectory?.URLByAppendingPathComponent(self.thumbnailsFolderName)
+        let thumbnailsDirectory = cacheDirectory//?.URLByAppendingPathComponent(self.thumbnailsFolderName)
         if let thumbnailsDirectory = thumbnailsDirectory {
             if NSFileManager.defaultManager().fileExistsAtPath(thumbnailsDirectory.absoluteString!) == false {
-                let createError:NSError? = nil
+                var createError:NSError? = nil
                 var booleanLiteral = BooleanLiteralType()
                 booleanLiteral = false
                 let fileManager:NSFileManager = NSFileManager.defaultManager()
-                fileManager.createDirectoryAtPath(thumbnailsDirectory.absoluteString!, withIntermediateDirectories: false, attributes: nil, error: nil)
+                 NSFileManager.defaultManager().contentsOfDirectoryAtURL(thumbnailsDirectory, includingPropertiesForKeys: nil, options: nil, error: nil)
+                fileManager.createDirectoryAtPath(thumbnailsDirectory.absoluteString!, withIntermediateDirectories: true, attributes: nil, error: &createError)
             }
             return thumbnailsDirectory
         }
