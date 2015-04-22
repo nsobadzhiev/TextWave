@@ -89,21 +89,17 @@
                                                               navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                                             options:nil];
     self.pageViewController.dataSource = self;
-    //if ([self loadBookmarkPosition] == NO)
+    DMePubItem* nextItem = [itemIterator currentItem];
+    if ([itemIterator currentItem] == nil)
     {
-        DMePubItem* nextItem = [itemIterator currentItem];
-        if ([itemIterator currentItem] == nil)
-        {
-            nextItem = [itemIterator nextObject];
-        }
-        [self saveBookmark:nextItem];
-        UIViewController* firstPage = [[DMePubItemViewController alloc] initWithEpubItem:nextItem
-                                                                          andEpubManager:self.epubManager];
-        [self.pageViewController setViewControllers:@[firstPage]
-                                          direction:UIPageViewControllerNavigationDirectionForward 
-                                           animated:YES 
-                                         completion:nil];
+        nextItem = [itemIterator nextObject];
     }
+    UIViewController* firstPage = [[DMePubItemViewController alloc] initWithEpubItem:nextItem
+                                                                      andEpubManager:self.epubManager];
+    [self.pageViewController setViewControllers:@[firstPage]
+                                      direction:UIPageViewControllerNavigationDirectionForward 
+                                       animated:YES 
+                                     completion:nil];
     [self.view addSubview:self.pageViewController.view];
 }
 
@@ -185,7 +181,8 @@
     [bookmarkManager removeBookmarksForFile:self.epubManager.epubPath];
     DMBookmark* updatedBookmark = [[DMBookmark alloc] initWithFileName:[self.epubManager.epubPath lastPathComponent]
                                                                section:epubItem.href 
-                                                              position:nil];
+                                                              position:nil
+                                                                  type:DMBookmarkTypeUserDefined];
     [bookmarkManager addBookmark:updatedBookmark];
     [bookmarkManager saveBookmarks];
 }

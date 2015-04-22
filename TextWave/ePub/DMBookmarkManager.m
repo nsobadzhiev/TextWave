@@ -36,9 +36,20 @@ static NSString* const k_bookmarksUserDefaultsKey = @"Bookmarks";
     [bookmarks addObject:bookmark];
 }
 
+- (void)addSystemBookmark:(DMBookmark*)bookmark
+{
+    bookmark.type = DMBookmarkTypeSystem;
+    NSString* bookmarkedBook = bookmark.fileName;
+    [self removeSystemBookmarkForFile:bookmarkedBook];
+    [self addBookmark:bookmark];
+}
+
 - (void)removeBookmark:(DMBookmark*)bookmark
 {
-    [bookmarks removeObject:bookmark];
+    if (bookmark != nil)
+    {
+        [bookmarks removeObject:bookmark];
+    }
 }
 
 - (void)removeBookmarksForFile:(NSString*)fileName
@@ -48,6 +59,12 @@ static NSString* const k_bookmarksUserDefaultsKey = @"Bookmarks";
     {
         [bookmarks removeObject:bookmarkToRemove];
     }
+}
+
+- (void)removeSystemBookmarkForFile:(NSString*)fileName
+{
+    DMBookmark* systemBookmark = [self systemBookmarkForPath:fileName];
+    [self removeBookmark:systemBookmark];
 }
 
 - (void)removeBookmarks
@@ -60,6 +77,18 @@ static NSString* const k_bookmarksUserDefaultsKey = @"Bookmarks";
     for (DMBookmark* bookmark in bookmarks)
     {
         if ([bookmark.fileName isEqualToString:path])
+        {
+            return bookmark;
+        }
+    }
+    return nil;
+}
+
+- (DMBookmark*)systemBookmarkForPath:(NSString*)path
+{
+    for (DMBookmark* bookmark in bookmarks)
+    {
+        if (bookmark.type == DMBookmarkTypeSystem)
         {
             return bookmark;
         }
