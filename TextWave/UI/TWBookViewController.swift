@@ -11,17 +11,10 @@ import UIKit
 class TWBookViewController : TWPublicationPreviewViewControllerProtocol {
     
     @IBOutlet var previewView: UIView! = nil
-    @IBOutlet var listenButton: UIButton? = nil
     
     var bookUrl: NSURL? {
         didSet{
             self.setup()
-        }
-    }
-    
-    var showListenButton:Bool = true {
-        didSet {
-            listenButton?.hidden = !self.showListenButton
         }
     }
     
@@ -46,7 +39,6 @@ class TWBookViewController : TWPublicationPreviewViewControllerProtocol {
     func setup() {
         let epubManager = DMePubManager(epubPath: bookUrl?.absoluteString)
         epubPageController = DMePubPageViewController(epubManager: epubManager)
-        self.showListenButton = true
     }
     
     override func viewDidLoad() {
@@ -55,7 +47,7 @@ class TWBookViewController : TWPublicationPreviewViewControllerProtocol {
         epubPageController?.view.frame = CGRectMake(0.0, 0.0, self.previewView.frame.size.width, self.previewView.frame.size.height)
         self.previewView.addSubview(epubPageController!.view)
         epubPageController?.didMoveToParentViewController(self)
-        self.listenButton?.hidden = !self.showListenButton
+        epubPageController?.loadSystemBookmarkPosition()
     }
     
     override func goToPreviousSection() {

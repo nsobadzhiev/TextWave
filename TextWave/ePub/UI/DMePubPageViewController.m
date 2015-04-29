@@ -89,6 +89,7 @@
                                                               navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                                             options:nil];
     self.pageViewController.dataSource = self;
+    self.pageViewController.delegate = self;
     DMePubItem* nextItem = [itemIterator currentItem];
     if ([itemIterator currentItem] == nil)
     {
@@ -109,9 +110,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL)loadBookmarkPosition
+- (BOOL)loadSystemBookmarkPosition
 {
-    DMBookmark* bookmark = [bookmarkManager bookmarkForPath:[self.epubManager.epubPath lastPathComponent]];
+    DMBookmark* bookmark = [bookmarkManager systemBookmarkForPath:[self.epubManager.epubPath lastPathComponent]];
     if (bookmark)
     {
         [self openItemAtPath:bookmark.fileSection];
@@ -139,7 +140,6 @@
     UIViewController* previousController = nil;
     if (previousItem != nil)
     {
-        [self saveBookmark:previousItem];
         previousController = [[DMePubItemViewController alloc] initWithEpubItem:previousItem
                                                                  andEpubManager:self.epubManager];
     }
@@ -164,7 +164,6 @@
     DMePubItem* nextItem = [itemIterator nextObject];
     if (nextItem != nil)
     {
-        [self saveBookmark:nextItem];
         return [[DMePubItemViewController alloc] initWithEpubItem:nextItem
                                                    andEpubManager:self.epubManager];
     }
@@ -174,15 +173,25 @@
     }
 }
 
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
+{
+    if (completed)
+    {
+        // if the page turn completes, save the location as a bookmark
+        DMePubItem* currentItem = [(DMePubItemViewController*)[pageViewController.viewControllers firstObject] epubItem];
+        [self saveBookmark:currentItem];
+    }
+}
+
 #pragma mark - PrivateMethods
 
 - (void)saveBookmark:(DMePubItem*)epubItem
 {
-    [bookmarkManager removeBookmarksForFile:self.epubManager.epubPath];
+    [bookmarkManager removeSystemBookmarkForFile:[self.epubManager.epubPath lastPathComponent]];
     DMBookmark* updatedBookmark = [[DMBookmark alloc] initWithFileName:[self.epubManager.epubPath lastPathComponent]
                                                                section:epubItem.href 
                                                               position:nil
-                                                                  type:DMBookmarkTypeUserDefined];
+                                                                  type:DMBookmarkTypeSystem];
     [bookmarkManager addBookmark:updatedBookmark];
     [bookmarkManager saveBookmarks];
 }

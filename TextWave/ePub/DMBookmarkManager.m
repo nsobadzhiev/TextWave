@@ -88,7 +88,8 @@ static NSString* const k_bookmarksUserDefaultsKey = @"Bookmarks";
 {
     for (DMBookmark* bookmark in bookmarks)
     {
-        if (bookmark.type == DMBookmarkTypeSystem)
+        if (bookmark.type == DMBookmarkTypeSystem &&
+            [bookmark.fileName isEqualToString:path])
         {
             return bookmark;
         }

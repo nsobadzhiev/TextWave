@@ -30,7 +30,6 @@ class TWPublicationPreviewViewControllerFactory {
     class func createEpubViewController(epubUrl url:NSURL?, selectedItem: String?) -> TWPublicationPreviewViewControllerProtocol {
         let previewController = self.instantiateViewControllerFromStoryboard("BookViewController") as! TWBookViewController
         previewController.setBookAndPosition(url, selectedItem: selectedItem)
-        //previewController.showListenButton = false
         return previewController
     }
     

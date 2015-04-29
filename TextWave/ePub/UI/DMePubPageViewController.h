@@ -11,7 +11,7 @@
 #import "DMePubItemIterator.h"
 #import "DMBookmarkManager.h"
 
-@interface DMePubPageViewController : UIViewController <UIPageViewControllerDataSource>
+@interface DMePubPageViewController : UIViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 {
     DMePubItemIterator* itemIterator;
     DMBookmarkManager* bookmarkManager;
@@ -25,6 +25,6 @@
 
 - (instancetype)initWithEpubManager:(DMePubManager*)epubManager;
 
-- (BOOL)loadBookmarkPosition;
+- (BOOL)loadSystemBookmarkPosition;
 
 @end

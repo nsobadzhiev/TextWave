@@ -89,7 +89,7 @@
 
 - (DMePubItem*)currentItem
 {
-    if (currentSpineItemIndex < 0)
+    if (currentSpineItemIndex < 0 || currentSpineItemIndex >= [[epubManager spineItems] count])
     {
         return nil;
     }
