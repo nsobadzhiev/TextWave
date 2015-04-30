@@ -49,11 +49,11 @@
     DMePubItem* epubItem = nil;
     while (epubItem = [self nextObject]) 
     {
-        currentSpineItemIndex++;
         if ([epubItem.href isEqualToString:path])
         {
             return YES;
         }
+        currentSpineItemIndex++;
     }
     return NO;
 }
