@@ -22,7 +22,7 @@
 - (void)removeBookmarksForFile:(NSString*)fileName;
 - (void)removeSystemBookmarkForFile:(NSString*)fileName;
 - (void)removeBookmarks;
-- (DMBookmark*)bookmarkForPath:(NSString*)path;
+- (NSArray*)bookmarksForPath:(NSString*)path;
 - (DMBookmark*)systemBookmarkForPath:(NSString*)path;
 
 - (void)saveBookmarks;

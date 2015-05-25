@@ -249,4 +249,29 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
             }
         }
     }
+    
+    // MARK: Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "BookmarksTable" {
+            let bookmarksNavigationController = segue.destinationViewController as? UINavigationController
+            let bookmarksViewController = bookmarksNavigationController?.topViewController as? TWBookmarksViewController
+            let fileName = self.playbackManager?.playbackSource?.sourceURL?.lastPathComponent?.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+            bookmarksViewController?.filePath = fileName
+        }
+    }
+    
+    override func performSegueWithIdentifier(identifier: String?, sender: AnyObject?) {
+        
+    }
+    
+    override func canPerformUnwindSegueAction(action: Selector,
+        fromViewController: UIViewController,
+        withSender sender: AnyObject) -> Bool {
+            return true;
+    }
+    
+    func unwindToSegue(segue: UIStoryboardSegue) {
+        
+    }
 }

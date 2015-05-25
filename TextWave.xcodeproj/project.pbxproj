@@ -16,6 +16,7 @@
 		23140D251ABE1737001D2A59 /* TWWebPageDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23140D241ABE1737001D2A59 /* TWWebPageDownloadManager.swift */; };
 		23140D2A1ABE20EC001D2A59 /* TWHtmlFileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23140D291ABE20EC001D2A59 /* TWHtmlFileDownloader.swift */; };
 		23140D2C1ABF2FB8001D2A59 /* TWWebPageDownloaderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23140D2B1ABF2FB8001D2A59 /* TWWebPageDownloaderBase.swift */; };
+		231762F91AF2BD87001BAA0A /* TWBookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231762F81AF2BD87001BAA0A /* TWBookmarksViewController.swift */; };
 		2320FD901A9D14490004F742 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FCF61A9D14490004F742 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2320FD911A9D14490004F742 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FCF91A9D14490004F742 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2320FD921A9D14490004F742 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FCFB1A9D14490004F742 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -40,7 +41,6 @@
 		2320FDA51A9D14490004F742 /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD281A9D14490004F742 /* ASIS3ServiceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2320FDD11A9D14490004F742 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 2320FD7A1A9D14490004F742 /* LICENSE */; };
 		2320FDEA1A9D18F70004F742 /* TWWebPageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2320FDE91A9D18F70004F742 /* TWWebPageDownloader.swift */; };
-		232729D11A460D560093E189 /* defaultCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 232729CF1A460D560093E189 /* defaultCover@2x.png */; };
 		232729D41A46144C0093E189 /* defaultBookBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 232729D31A46144C0093E189 /* defaultBookBackground@2x.png */; };
 		232729D91A461C440093E189 /* defaultBookBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 232729D71A461C440093E189 /* defaultBookBackground.png */; };
 		232729DA1A461C440093E189 /* defaultCover.png in Resources */ = {isa = PBXBuildFile; fileRef = 232729D81A461C440093E189 /* defaultCover.png */; };
@@ -275,6 +275,8 @@
 		23F8AF131A8E727F009ECFD1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F8AF121A8E727F009ECFD1 /* AVFoundation.framework */; };
 		23F8AF151A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F8AF141A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift */; };
 		23F8AF201A93E3EC009ECFD1 /* TWNowPlayingManager+RemoteControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F8AF1F1A93E3EC009ECFD1 /* TWNowPlayingManager+RemoteControl.swift */; };
+		931AFE5A1B12780800A17AF8 /* defaultCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 931AFE591B12780800A17AF8 /* defaultCover@2x.png */; };
+		936506D91B13A86B002C5194 /* TWBookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936506D81B13A86B002C5194 /* TWBookmarkCell.swift */; };
 		FDAE9AFA1A1EB77200E542F0 /* download_page@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */; };
 		FDAE9AFB1A1EB77200E542F0 /* download_page@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDAE9AF91A1EB77200E542F0 /* download_page@3x.png */; };
 		FDAE9B051A1EBD5F00E542F0 /* TWBrowseItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE9B041A1EBD5F00E542F0 /* TWBrowseItemViewController.swift */; };
@@ -317,6 +319,7 @@
 		23140D241ABE1737001D2A59 /* TWWebPageDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageDownloadManager.swift; sourceTree = "<group>"; };
 		23140D291ABE20EC001D2A59 /* TWHtmlFileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWHtmlFileDownloader.swift; sourceTree = "<group>"; };
 		23140D2B1ABF2FB8001D2A59 /* TWWebPageDownloaderBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageDownloaderBase.swift; sourceTree = "<group>"; };
+		231762F81AF2BD87001BAA0A /* TWBookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBookmarksViewController.swift; sourceTree = "<group>"; };
 		2320FCF51A9D14490004F742 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		2320FCF61A9D14490004F742 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		2320FCF71A9D14490004F742 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -368,7 +371,6 @@
 		2320FD281A9D14490004F742 /* ASIS3ServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ServiceRequest.m; sourceTree = "<group>"; };
 		2320FD7A1A9D14490004F742 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		2320FDE91A9D18F70004F742 /* TWWebPageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageDownloader.swift; sourceTree = "<group>"; };
-		232729CF1A460D560093E189 /* defaultCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultCover@2x.png"; sourceTree = "<group>"; };
 		232729D31A46144C0093E189 /* defaultBookBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultBookBackground@2x.png"; sourceTree = "<group>"; };
 		232729D71A461C440093E189 /* defaultBookBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultBookBackground.png; path = x1/defaultBookBackground.png; sourceTree = "<group>"; };
 		232729D81A461C440093E189 /* defaultCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultCover.png; path = x1/defaultCover.png; sourceTree = "<group>"; };
@@ -600,6 +602,8 @@
 		23F8AF121A8E727F009ECFD1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		23F8AF141A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWLockScreenNowPlayingInfo.swift; sourceTree = "<group>"; };
 		23F8AF1F1A93E3EC009ECFD1 /* TWNowPlayingManager+RemoteControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TWNowPlayingManager+RemoteControl.swift"; sourceTree = "<group>"; };
+		931AFE591B12780800A17AF8 /* defaultCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultCover@2x.png"; sourceTree = "<group>"; };
+		936506D81B13A86B002C5194 /* TWBookmarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBookmarkCell.swift; sourceTree = "<group>"; };
 		FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download_page@2x.png"; sourceTree = "<group>"; };
 		FDAE9AF91A1EB77200E542F0 /* download_page@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download_page@3x.png"; sourceTree = "<group>"; };
 		FDAE9B041A1EBD5F00E542F0 /* TWBrowseItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBrowseItemViewController.swift; sourceTree = "<group>"; };
@@ -886,6 +890,8 @@
 				230155F11A598BC100FE2BBC /* TWTabViewController.swift */,
 				230155F61A59954400FE2BBC /* TWTabBarSegue.swift */,
 				23F8AF1F1A93E3EC009ECFD1 /* TWNowPlayingManager+RemoteControl.swift */,
+				231762F81AF2BD87001BAA0A /* TWBookmarksViewController.swift */,
+				936506D81B13A86B002C5194 /* TWBookmarkCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1196,8 +1202,8 @@
 		FDAE9AF61A1EB77200E542F0 /* x2 */ = {
 			isa = PBXGroup;
 			children = (
+				931AFE591B12780800A17AF8 /* defaultCover@2x.png */,
 				232729D31A46144C0093E189 /* defaultBookBackground@2x.png */,
-				232729CF1A460D560093E189 /* defaultCover@2x.png */,
 				FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */,
 			);
 			path = x2;
@@ -1260,6 +1266,7 @@
 				ORGANIZATIONNAME = "Nikola Sobadjiev";
 				TargetAttributes = {
 					2363AE3E1913A95F003EFA4A = {
+						DevelopmentTeam = LXK758P7S7;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1330,7 +1337,6 @@
 				234EAE781ACDC9CF00086C1D /* tabPlay.png in Resources */,
 				232729D41A46144C0093E189 /* defaultBookBackground@2x.png in Resources */,
 				234EAE761ACDC9CF00086C1D /* tabLibrarySelected.png in Resources */,
-				232729D11A460D560093E189 /* defaultCover@2x.png in Resources */,
 				234EAE6A1ACDC9CF00086C1D /* navbarSearch.png in Resources */,
 				232729D91A461C440093E189 /* defaultBookBackground.png in Resources */,
 				234EAE721ACDC9CF00086C1D /* playButtonBackground.png in Resources */,
@@ -1340,6 +1346,7 @@
 				234EAE771ACDC9CF00086C1D /* tabLibrarySelected@2x.png in Resources */,
 				234EAE6C1ACDC9CF00086C1D /* pagePreview.png in Resources */,
 				234EAE741ACDC9CF00086C1D /* tabLibrary.png in Resources */,
+				931AFE5A1B12780800A17AF8 /* defaultCover@2x.png in Resources */,
 				234EAE661ACDC9CF00086C1D /* navbarBookmark.png in Resources */,
 				234EAE5A1ACDC9CF00086C1D /* chapterNextPressed.png in Resources */,
 				234EAE5C1ACDC9CF00086C1D /* chapterPrev.png in Resources */,
@@ -1428,6 +1435,7 @@
 				2320FD9B1A9D14490004F742 /* ASICloudFilesContainerRequest.m in Sources */,
 				23D126DA1A017CDF0036DDAB /* TWWebPageViewController.swift in Sources */,
 				23D126DD1A02D0890036DDAB /* TWFileType.swift in Sources */,
+				936506D91B13A86B002C5194 /* TWBookmarkCell.swift in Sources */,
 				2320FD911A9D14490004F742 /* ASIDataCompressor.m in Sources */,
 				235F973719CDB06D003BA87D /* DMePubPageViewController.m in Sources */,
 				235F973D19CDB06D003BA87D /* DMTableOfContentsDataSource.m in Sources */,
@@ -1435,6 +1443,7 @@
 				2320FDA01A9D14490004F742 /* ASIS3Bucket.m in Sources */,
 				235F967719CDADA2003BA87D /* DMRootFileParser.m in Sources */,
 				237C0FC919DC8619003F575A /* TextToTagRatioSmoother.m in Sources */,
+				231762F91AF2BD87001BAA0A /* TWBookmarksViewController.swift in Sources */,
 				23F8AF201A93E3EC009ECFD1 /* TWNowPlayingManager+RemoteControl.swift in Sources */,
 				23EC99C21A49DC98001C8447 /* TWWebPageMetadata.swift in Sources */,
 				2320FD961A9D14490004F742 /* ASIInputStream.m in Sources */,
@@ -1726,6 +1735,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/**",
@@ -1748,6 +1759,7 @@
 					"$(PROJECT_DIR)/libs/pcre",
 				);
 				PRODUCT_NAME = TextWave;
+				PROVISIONING_PROFILE = "dd0243e6-6e36-40c1-950c-6db32efdb9ec";
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -1762,6 +1774,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/**",
@@ -1784,6 +1798,7 @@
 					"$(PROJECT_DIR)/libs/pcre",
 				);
 				PRODUCT_NAME = TextWave;
+				PROVISIONING_PROFILE = "dd0243e6-6e36-40c1-950c-6db32efdb9ec";
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;

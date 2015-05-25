@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Q5r-K0-LvI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Q5r-K0-LvI">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -428,9 +428,10 @@
                                         </state>
                                         <connections>
                                             <action selector="onBookmarksTap:" destination="CHK-cY-yPw" eventType="touchUpInside" id="hhz-92-4wT"/>
+                                            <segue destination="9fv-zX-0T8" kind="modal" identifier="BookmarksTable" id="zH0-fC-rcX"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIM-Pd-eA6">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIM-Pd-eA6">
                                         <rect key="frame" x="144" y="21" width="32.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -597,6 +598,64 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-241" y="30"/>
+        </scene>
+        <!--Bookmarks View Controller-->
+        <scene sceneID="aot-Gf-INN">
+            <objects>
+                <tableViewController storyboardIdentifier="BookmarksTable" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XrW-LQ-ubw" customClass="TWBookmarksViewController" customModule="TextWave" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="22" sectionFooterHeight="22" id="QIp-lm-nyb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookmarkCell" rowHeight="86" id="vue-TV-bGZ" customClass="TWBookmarkCell" customModule="TextWave" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vue-TV-bGZ" id="FYx-wc-CuM">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ls1-3m-sVO">
+                                            <rect key="frame" x="8" y="11" width="51" height="63"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </webView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlR-6T-nSS">
+                                            <rect key="frame" x="67" y="13" width="245" height="30"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0/0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1P-VS-sAA" userLabel="Page number">
+                                            <rect key="frame" x="234" y="53" width="78" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="pageNumberLabel" destination="N1P-VS-sAA" id="mYR-H3-MeQ"/>
+                                    <outlet property="thumbnail" destination="Ls1-3m-sVO" id="Fyn-Uh-W6G"/>
+                                    <outlet property="titleLabel" destination="TlR-6T-nSS" id="ilk-aw-GdV"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XrW-LQ-ubw" id="gQS-Lh-kjd"/>
+                            <outlet property="delegate" destination="XrW-LQ-ubw" id="B5T-zK-mhk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="wHm-h2-LOg">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="yY0-Q2-FUS">
+                            <connections>
+                                <segue destination="X0H-gG-bsE" kind="unwind" unwindAction="unwindToSegue:" id="EmJ-mV-oms"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="riv-f7-AUN"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Awv-x3-ICE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="X0H-gG-bsE" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="766" y="30"/>
         </scene>
         <!--Book 2-->
         <scene sceneID="9fA-tv-Ion">
@@ -794,6 +853,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAo-Lh-IXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-241" y="-341"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8FY-GS-9Uv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9fv-zX-0T8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdF-3t-8k7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XrW-LQ-ubw" kind="relationship" relationship="rootViewController" id="xYy-6K-LFC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eBg-kQ-cAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="234" y="30"/>
         </scene>
     </scenes>
     <resources>

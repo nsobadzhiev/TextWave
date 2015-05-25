@@ -6,6 +6,7 @@
 #import "DMePubManager.h"
 #import "TWDocumentsFileManager.h"
 #import "DMePubTableOfContentsTableViewController.h"
+#import "DMBookmarkManager.h"
 #import "DMePubURLProtocol.h"
 #import "TTRArticleExtractor.h"
 #import "ASIWebPageRequest.h"
