@@ -39,6 +39,7 @@
 
 - (NSData*)dataForFileAtPath:(NSString*)filePath
                        error:(NSError**)error;
+- (NSURL*)fullUrlForResource:(NSString*)resourcePath;
 - (NSData*)rootFileDataWithError:(NSError**)error;
 - (NSString*)titleWithError:(NSError**)error;
 - (NSString*)authorWithError:(NSError**)error;

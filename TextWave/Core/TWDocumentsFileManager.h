@@ -17,4 +17,6 @@
 - (NSArray*)allDocumentPaths;
 - (NSData*)contentsOfFile:(NSString*)filePath;
 
+- (NSString*)fullPathForFileWithName:(NSString*)fileName;
+
 @end

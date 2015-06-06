@@ -72,4 +72,18 @@
     return [self.fileSystemManager contentsAtPath:filePath];
 }
 
+- (NSString*)fullPathForFileWithName:(NSString*)fileName
+{
+    NSArray* documentsPath = [self allDocumentPaths];
+    for (NSString* document in documentsPath)
+    {
+        NSString* docName = document.lastPathComponent;
+        if ([fileName isEqualToString:docName])
+        {
+            return document;
+        }
+    }
+    return nil;
+}
+
 @end

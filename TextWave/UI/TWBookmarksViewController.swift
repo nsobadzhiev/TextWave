@@ -22,8 +22,13 @@ class TWBookmarksViewController : UITableViewController {
             cell = TWBookmarkCell()
         }
         let bookmark = self.bookmarksManager.bookmarksForPath(self.filePath)[indexPath.row] as? DMBookmark
-        cell?.title = bookmark?.fileSection
-        //cell?.loadThumbnailWithString(bookmark?.fileSection, baseUrl:bookmark?.fileName)
+        // this will provide a metadata object that can be used to obtain a human readable version
+        // of the title (not file name, a proper title)
+        let fullFilePath = TWDocumentsFileManager().fullPathForFileWithName(bookmark?.fileName)
+        let epubManager = DMePubManager(epubPath: fullFilePath)
+        let fullSectionUrl = epubManager.fullUrlForResource(bookmark?.fileSection)
+        cell?.title = TWFileMetadataFactory.metadataForFile(fullSectionUrl)?.titleForFile()
+        // TODO: add a thumbnail image
         return cell!
     }
 }

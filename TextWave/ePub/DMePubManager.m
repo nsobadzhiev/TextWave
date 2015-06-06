@@ -156,11 +156,21 @@
 - (NSData*)dataForFileAtPath:(NSString*)filePath
                        error:(NSError**)error
 {
-    NSString* rootFilePath = [self rootFilePath];
-    NSString* rootFileDir = [rootFilePath stringByDeletingLastPathComponent];
-    NSString* absoluteFilePath = [rootFileDir stringByAppendingPathComponent:filePath];
+    NSString* absoluteFilePath = [self relativePathToResources:filePath];
     return [epubFileManager contentXmlWithName:absoluteFilePath
                                          error:error];
+}
+
+- (NSURL*)fullUrlForResource:(NSString*)fileName
+{
+    // Don't append any intermediate direcotries that might
+    // exist inside the EPUB zip structure - the DMURLProtocol
+    // is going to take care of that
+    NSString* epubPath = self.epubPath;
+    NSString* absoluteFilePath = [epubPath stringByAppendingFormat:@"/%@", fileName];
+    NSString* absoluteEpubPath = [NSString stringWithFormat:@"epub:/%@", absoluteFilePath];
+    NSURL* epubFileURL = [NSURL URLWithString:absoluteEpubPath];
+    return epubFileURL;
 }
 
 #pragma mark PrivateMethods
@@ -213,6 +223,14 @@
         navigationParser = [[DMTableOfContents alloc] initWithData:contentsData];
     }
     return navigationParser;
+}
+
+- (NSString*)relativePathToResources:(NSString*)resourceFileName
+{
+    NSString* rootFilePath = [self rootFilePath];
+    NSString* rootFileDir = [rootFilePath stringByDeletingLastPathComponent];
+    NSString* relativeFilePath = [rootFileDir stringByAppendingPathComponent:resourceFileName];
+    return relativeFilePath;
 }
 
 @end
