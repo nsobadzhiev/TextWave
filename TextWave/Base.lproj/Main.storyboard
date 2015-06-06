@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Q5r-K0-LvI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Add Item-->
@@ -398,13 +400,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEe-jv-UDT">
-                                        <rect key="frame" x="58" y="35" width="42" height="21"/>
+                                        <rect key="frame" x="-14" y="-17" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOp-Vd-qkm">
-                                        <rect key="frame" x="8" y="28" width="22" height="28"/>
+                                        <rect key="frame" x="8" y="28" width="35.5" height="28"/>
                                         <state key="normal" image="arrowPrevPressed.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -413,7 +415,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1l-Ff-bKL">
-                                        <rect key="frame" x="38" y="31" width="19" height="22"/>
+                                        <rect key="frame" x="51.5" y="31" width="35.5" height="22"/>
                                         <state key="normal" image="navbarLibrary.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -422,7 +424,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QT9-IN-tk0">
-                                        <rect key="frame" x="293" y="34" width="19" height="22"/>
+                                        <rect key="frame" x="276.5" y="20.5" width="35.5" height="35.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="QT9-IN-tk0" secondAttribute="height" multiplier="1:1" id="jhZ-T7-aB4"/>
+                                        </constraints>
                                         <state key="normal" image="navbarBookmark.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -446,10 +451,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="YOp-Vd-qkm" firstAttribute="width" secondItem="QT9-IN-tk0" secondAttribute="width" id="Csx-tD-fuX"/>
                                     <constraint firstAttribute="centerX" secondItem="cIM-Pd-eA6" secondAttribute="centerX" constant="-0.5" id="DCB-Pu-sFk"/>
+                                    <constraint firstItem="X1l-Ff-bKL" firstAttribute="width" secondItem="YOp-Vd-qkm" secondAttribute="width" id="Dzu-ev-WFA"/>
                                     <constraint firstItem="rEh-52-n8X" firstAttribute="top" secondItem="cIM-Pd-eA6" secondAttribute="bottom" constant="-0.5" id="HTa-SD-ZgM"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="rEh-52-n8X" secondAttribute="bottom" id="HrW-is-REj"/>
                                     <constraint firstItem="X1l-Ff-bKL" firstAttribute="centerY" secondItem="YOp-Vd-qkm" secondAttribute="centerY" id="IRB-9f-d0z"/>
+                                    <constraint firstAttribute="height" secondItem="QT9-IN-tk0" secondAttribute="height" multiplier="1.8" id="RlN-tS-XtU"/>
                                     <constraint firstItem="YOp-Vd-qkm" firstAttribute="leading" secondItem="lm1-gK-PkW" secondAttribute="leadingMargin" id="WUX-An-cl4"/>
                                     <constraint firstAttribute="centerX" secondItem="rEh-52-n8X" secondAttribute="centerX" constant="-2" id="XBX-km-P57"/>
                                     <constraint firstAttribute="bottom" secondItem="YOp-Vd-qkm" secondAttribute="bottom" constant="8" id="aoy-NF-ORq"/>
@@ -496,7 +504,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yr-ad-KTv" userLabel="Next Button">
-                                        <rect key="frame" x="268.5" y="2" width="43.5" height="42"/>
+                                        <rect key="frame" x="268" y="2" width="43.5" height="42"/>
                                         <state key="normal" image="chapterNext.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -620,13 +628,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlR-6T-nSS">
                                             <rect key="frame" x="67" y="13" width="245" height="30"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0/0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1P-VS-sAA" userLabel="Page number">
                                             <rect key="frame" x="234" y="53" width="78" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
