@@ -15,6 +15,7 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
     var successBlock: ((thumbnailView:UIView) -> Void)! = nil
     var failureBlock: ((error:NSError) -> Void)! = nil
     var webViews:Array<UIWebView> = []
+    var urls:Array<NSURL> = []
     
     deinit {
         for webView in self.webViews {
@@ -37,14 +38,20 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
     func fetchThumbnail(url:NSURL?) {
         if let url = url {
             let webView = UIWebView(frame: CGRectMake(0, 0, self.thumbnailSize.width, self.thumbnailSize.height))
-            webView.scalesPageToFit = true
-            let thumbnailRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
-            webView.delegate = self
-            webView.loadRequest(thumbnailRequest)
-            self.webViews.append(webView)
-            let thumbnail = self.screenshotOfView(webView)
-            //self.thumbnailsFileManager.saveThumbnail(thumbnail, forUrl: url)
             self.successBlock(thumbnailView: webView)
+            webView.scalesPageToFit = true
+            webView.delegate = self
+            if url.fileURL == true {
+                let htmlString = NSString(contentsOfURL: url, encoding: NSUTF8StringEncoding, error: nil)
+                let baseUrl = TWWebPageDownloadManager.defaultDownloadManager.baseUrlForWebPage(url.lastPathComponent)
+                webView.loadHTMLString(htmlString as? String, baseURL: baseUrl)
+            }
+            else {
+                let request = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
+                webView.loadRequest(request)
+            }
+            self.webViews.append(webView)
+            self.urls.append(url)
         }
     }
     
@@ -73,7 +80,9 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
     
     func webViewDidFinishLoad(webView: UIWebView) {
         let thumbnail = self.screenshotOfView(webView)
-        self.thumbnailsFileManager.saveThumbnail(thumbnail, forUrl: webView.request?.URL)
+        let webViewIndex = find(self.webViews, webView)
+        let url = self.urls[webViewIndex!]
+        self.thumbnailsFileManager.saveThumbnail(thumbnail, forUrl: url)
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError) {

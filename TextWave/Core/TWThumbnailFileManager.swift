@@ -17,6 +17,13 @@ class TWThumbnailFileManager : NSObject, NSCoding {
     
     var thumbnailsCatalog: Dictionary<String, String>! = nil
     
+    var documentsDir:String {
+        get {
+            let docs = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomain: NSSearchPathDomainMask.AllDomainsMask, appropriateForURL: nil, create: true, error: nil)
+            return docs!.absoluteString!
+        }
+    }
+    
     override init() {
         super.init()
         self.loadThumbnailsCatalog()
@@ -31,9 +38,13 @@ class TWThumbnailFileManager : NSObject, NSCoding {
     }
     
     func cachedThumbnailForUrl(pageUrl:NSURL?) -> UIView? {
-        if let pagePath = pageUrl?.absoluteString {
-            let cachedViewPath = self.thumbnailsCatalog[pagePath]
-            if let cachePath = cachedViewPath {
+        if let pagePath = pageUrl?.lastPathComponent {
+            let cachedViewFileName = self.thumbnailsCatalog[pagePath]
+            let cacheDir:NSURL? = self.thumbnailsDirectory()
+            let cacheDirPath = cacheDir?.absoluteString
+            
+            if let cachedViewFileName = cachedViewFileName,
+                let cachePath = cacheDirPath?.stringByAppendingPathComponent(cachedViewFileName) {
                 return self.imageViewFromUrl(NSURL(fileURLWithPath: cachePath))
             }
         }
@@ -51,7 +62,7 @@ class TWThumbnailFileManager : NSObject, NSCoding {
                     if let itemPath = itemPath.absoluteString {
                         var writeError:NSError? = nil
                         thumbnailData.writeToURL(thumbnailSaveUrl, options: NSDataWritingOptions.allZeros, error: &writeError)
-                        self.thumbnailsCatalog[itemPath] = thumbnailSaveUrl.absoluteString
+                        self.thumbnailsCatalog[itemPath.lastPathComponent] = thumbnailSaveUrl.lastPathComponent
                         self.saveThumbnailsCatalog()
                         return true
                     }
