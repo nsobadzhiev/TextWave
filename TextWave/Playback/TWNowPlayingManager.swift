@@ -27,6 +27,12 @@ class TWNowPlayingManager {
         }
     }
     
+    var hasPlaybackItem:Bool {
+        get {
+            return (self.playbackManager != nil)
+        }
+    }
+    
     func startPlaybackWithUrl(url: NSURL?) {
         let source = self.playbackSourceForUrl(url)
         if let source = source {

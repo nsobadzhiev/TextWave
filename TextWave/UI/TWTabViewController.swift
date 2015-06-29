@@ -24,6 +24,11 @@ class TWTabViewController : UIViewController {
         self.selectedTabButton = libraryButton
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        nowPlayingButton.enabled = TWNowPlayingManager.instance.hasPlaybackItem
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // don't execute this it initialEmbedSegue is being prepared. It is
         // going to be handled automatically by the storyboard
