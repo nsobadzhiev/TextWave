@@ -59,16 +59,9 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
         if let view = view {
             let imageSize = self.thumbnailSize
             UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
-            let context = UIGraphicsGetCurrentContext()
-            CGContextSaveGState(context)
-            CGContextTranslateCTM(context, view.frame.size.width, view.frame.size.height)
-            CGContextConcatCTM(context, view.transform)
-            CGContextTranslateCTM(context, -view.frame.size.width * view.layer.anchorPoint.x, -view.frame.size.height * view.layer.anchorPoint.y)
-            view.layer.renderInContext(context)
-            CGContextRestoreGState(context)
+            view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
             let thumbnail = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            
             return thumbnail
         }
         else {
@@ -79,6 +72,10 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
     // MARK: WebView delegate
     
     func webViewDidFinishLoad(webView: UIWebView) {
+        let scrollView = webView.scrollView
+        let zoom = webView.bounds.size.width/scrollView.contentSize.width
+        scrollView.setZoomScale(zoom, animated: false)
+        
         let thumbnail = self.screenshotOfView(webView)
         let webViewIndex = find(self.webViews, webView)
         let url = self.urls[webViewIndex!]
