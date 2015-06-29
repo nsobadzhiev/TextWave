@@ -66,6 +66,7 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
         self.playbackManager = self.nowPlayingManager?.playbackManager
         playbackTitleLabel.text = self.playbackTitle
         playbackSubtitleLabel.text = self.playbackSubtitle
+        controlViewsXibAlpha = self.controlsView.alpha
         self.setupPreview()
         self.setupControls()
     }
@@ -91,7 +92,6 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
             previewController.view.frame = CGRectMake(0.0, 0.0, self.previewView.frame.size.width, self.previewView.frame.size.height)
             self.previewView.addSubview(previewController.view)
             previewController.didMoveToParentViewController(self)
-            controlViewsXibAlpha = self.controlsView.alpha
             self.previewController = previewController
         }
     }
