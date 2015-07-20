@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+let AppDelegateFileAddedNotification = "AppDelegateFileAddedNotification"
+
 @UIApplicationMain
 class TWAppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -66,6 +68,8 @@ class TWAppDelegate: UIResponder, UIApplicationDelegate {
         let isValid = true
         if isValid {
             println("Opened URL from application \(sourceApplication) \(url.absoluteString)")
+            // post a notification about a new document
+            NSNotificationCenter.defaultCenter().postNotificationName(AppDelegateFileAddedNotification, object: nil)
             return true
         }
         // Supress the warning :)

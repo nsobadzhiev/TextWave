@@ -24,9 +24,14 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         super.init(coder: aDecoder)
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionLayout.delegate = self
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("onNewFileAdded"), name: AppDelegateFileAddedNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -97,6 +102,10 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
                 self.collectionView?.deleteItemsAtIndexPaths([indexPath])
             }
         }
+    }
+    
+    func onNewFileAdded() {
+        self.collectionView?.reloadData()
     }
     
 // MARK: - Button Actions
