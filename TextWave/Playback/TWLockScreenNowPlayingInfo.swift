@@ -17,7 +17,7 @@ class TWLockScreenNowPlayingInfo {
     }
     
     func setupNowPlayingInfo() {
-        var nowPlayingInfo = Dictionary<NSObject, AnyObject>()
+        var nowPlayingInfo = Dictionary<String, AnyObject>()
         let fileMetadata = TWFileMetadataFactory.metadataForFile(self.playbackManager?.playbackSource?.sourceURL)
         let itemName = fileMetadata?.titleForFile()
         let itemArtwork = fileMetadata?.thumbnailForFile()
@@ -49,7 +49,7 @@ class TWLockScreenNowPlayingInfo {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         let mainQueue = NSOperationQueue.mainQueue()
         
-        var observer = notificationCenter.addObserverForName(UIApplicationWillResignActiveNotification, object: nil, queue: mainQueue) { _ in
+        notificationCenter.addObserverForName(UIApplicationWillResignActiveNotification, object: nil, queue: mainQueue) { _ in
             if self.playbackManager != nil && self.playbackManager?.isPlaying == true {
                 self.setupNowPlayingInfo()
             }

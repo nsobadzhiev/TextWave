@@ -41,9 +41,13 @@ class TWWebPageDownloader : TWWebPageDownloaderBase, ASIHTTPRequestDelegate {
         let downloadPath = self.downloadPathForWebPage()
         if downloadPath != nil && NSFileManager.defaultManager().fileExistsAtPath(downloadPath!) {
             // TODO: show error message
-            let pathUrl = NSURL(string: downloadPath!)
-            var error:NSError? = nil
-            let result = NSFileManager.defaultManager().removeItemAtPath(downloadPath!, error: &error)
+            //let pathUrl = NSURL(string: downloadPath!)
+            do {
+                try NSFileManager.defaultManager().removeItemAtPath(downloadPath!)
+            }
+            catch {
+                print("Unable to remove exisitng file before download: \(error)")
+            }
             //return
         }
         self.webPageRequest?.downloadDestinationPath = self.downloadPathForWebPage()
@@ -53,7 +57,7 @@ class TWWebPageDownloader : TWWebPageDownloaderBase, ASIHTTPRequestDelegate {
         self.webPageRequest?.didFailSelector = Selector("requestFailed")
         self.webPageRequest?.delegate = self
         self.webPageRequest?.cachePolicy = ASIOnlyLoadIfNotCachedCachePolicy
-        var cache = ASIDownloadCache()
+        let cache = ASIDownloadCache()
         cache.defaultCachePolicy = ASIOnlyLoadIfNotCachedCachePolicy
         cache.storagePath = self.downloadPathForWebPage()
         self.webPageRequest?.downloadCache = cache

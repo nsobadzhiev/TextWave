@@ -24,12 +24,12 @@ class TWBookmarkCell : UITableViewCell {
     
     var pageNumber:Int {
         get {
-            if let pageNum = pageNumberLabel.text?.toInt() {
-                return pageNum
+            if let pageNum = pageNumberLabel.text {
+                if let pageInt = Int(pageNum) {
+                    return pageInt
+                }
             }
-            else {
-                return 0
-            }
+            return 0
         }
         set {
             pageNumberLabel.text = String(stringInterpolation: "\(newValue)")
@@ -58,6 +58,8 @@ class TWBookmarkCell : UITableViewCell {
     }
     
     func loadThumbnailWithString(htmlString:String?, baseUrl:NSURL?) {
-        self.thumbnail.loadHTMLString(htmlString, baseURL: baseUrl)
+        if let htmlString = htmlString {
+            self.thumbnail.loadHTMLString(htmlString, baseURL: baseUrl)
+        }
     }
 }

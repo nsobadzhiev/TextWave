@@ -70,8 +70,7 @@ class TWBrowseItemViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
-        let url = NSURL(string: textField.text)
-        if let url = url {
+        if let text = textField.text, let url = NSURL(string: text) {
             let request = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
             self.webView.loadRequest(request)
         }
@@ -82,11 +81,10 @@ class TWBrowseItemViewController: UIViewController, UITextFieldDelegate {
     // MARK: - TWWebPageDownloaderDelegate
     
     func downloadFailed(downloadUrl: NSURL?, error:NSError?) {
-        let bundle:NSBundle? = nil
         let alertTitle = NSLocalizedString("Download failed", comment: "Web page download failure alert")
         let alertBody = error?.localizedDescription
         let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-        var alert = UIAlertController(title: alertTitle, message: alertBody, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: alertTitle, message: alertBody, preferredStyle: UIAlertControllerStyle.Alert)
         let cancelAction = UIAlertAction(title: cancelButtonTitle, style: UIAlertActionStyle.Cancel, handler: nil)
         alert.addAction(cancelAction)
         self.presentViewController(alert, animated: true, completion: nil)

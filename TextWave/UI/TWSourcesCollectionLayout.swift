@@ -72,20 +72,20 @@ class TWSourcesCollectionLayout : UICollectionViewLayout {
     
     // MARK: collection layout
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes! {
+    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         return self.layoutItems[indexPath.row]
     }
     
     override func collectionViewContentSize() -> CGSize {
         if let collectionView = self.collectionView {
-            return CGSize(width: Double(self.collectionView!.frame.size.width), height: Double(self.totalHeight))
+            return CGSize(width: Double(collectionView.frame.size.width), height: Double(self.totalHeight))
         }
         else {
             return CGSizeZero
         }
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
+    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var itemsForRect: Array<UICollectionViewLayoutAttributes> = []
         for item in self.layoutItems {
             if rect.intersects(item.frame) {

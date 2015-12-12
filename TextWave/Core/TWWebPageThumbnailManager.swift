@@ -42,9 +42,14 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
             webView.scalesPageToFit = true
             webView.delegate = self
             if url.fileURL == true {
-                let htmlString = NSString(contentsOfURL: url, encoding: NSUTF8StringEncoding, error: nil)
-                let baseUrl = TWWebPageDownloadManager.defaultDownloadManager.baseUrlForWebPage(url.lastPathComponent)
-                webView.loadHTMLString(htmlString as? String, baseURL: baseUrl)
+                do {
+                    let htmlString = try NSString(contentsOfURL: url, encoding: NSUTF8StringEncoding)
+                    let baseUrl = TWWebPageDownloadManager.defaultDownloadManager.baseUrlForWebPage(url.lastPathComponent)
+                    webView.loadHTMLString(htmlString as String, baseURL: baseUrl)
+                }
+                catch {
+                    // TODO
+                }
             }
             else {
                 let request = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
@@ -77,12 +82,12 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
         scrollView.setZoomScale(zoom, animated: false)
         
         let thumbnail = self.screenshotOfView(webView)
-        let webViewIndex = find(self.webViews, webView)
+        let webViewIndex = self.webViews.indexOf(webView)
         let url = self.urls[webViewIndex!]
         self.thumbnailsFileManager.saveThumbnail(thumbnail, forUrl: url)
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
-        self.failureBlock(error: error)
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+        self.failureBlock(error: error!)
     }
 }

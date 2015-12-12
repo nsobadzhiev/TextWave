@@ -17,7 +17,7 @@ enum TWFileType {
 
 class TWFileTypeManager {
     
-    class func fileType(#fileUrl:NSURL?) -> TWFileType {
+    class func fileType(fileUrl fileUrl:NSURL?) -> TWFileType {
         let fileTypesDict = ["epub": TWFileType.EPUB, "html": TWFileType.HTML, "htm": TWFileType.HTML, "pdf": TWFileType.PDF]
 //        let fileExtension = fileUrl?.pathExtension
 //        if let fileExtension = fileExtension {

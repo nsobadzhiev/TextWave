@@ -16,7 +16,7 @@ enum TWTextExtractionAlgorithm {
 class TWTextExtractor {
     var preferedAlgorithm:TWTextExtractionAlgorithm = TWTextExtractionAlgorithm.JusText
     
-    func extractArticle(#htmlString:String?) -> String {
+    func extractArticle(htmlString htmlString:String?) -> String {
         switch self.preferedAlgorithm {
         case TWTextExtractionAlgorithm.JusText:
             return self.extractArticleJusText(htmlString: htmlString)
@@ -25,7 +25,7 @@ class TWTextExtractor {
         }
     }
     
-    func extractArticleJusText(#htmlString:String?) -> String {
+    func extractArticleJusText(htmlString htmlString:String?) -> String {
         if let htmlString = htmlString {
             let stopWordsPath = self.jusTextStopWordsFilePath()
             let jusTextExtractor = TextExractor(html: htmlString, stopWordsFile: stopWordsPath)
@@ -38,7 +38,7 @@ class TWTextExtractor {
         }
     }
     
-    func extractArticleTTR(#htmlString:String?) -> String {
+    func extractArticleTTR(htmlString htmlString:String?) -> String {
         if let htmlString = htmlString {
             return TTRArticleExtractor.articleText(htmlString)
         }

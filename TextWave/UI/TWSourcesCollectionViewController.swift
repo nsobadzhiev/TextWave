@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TWSourcesCollectionViewController : UICollectionViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TWSourcesCollectionLayoutDataSource {
+class TWSourcesCollectionViewController : UICollectionViewController, UICollectionViewDelegateFlowLayout, TWSourcesCollectionLayoutDataSource {
     
     @IBOutlet var collectionLayout: TWSourcesCollectionLayout!
     var fileManager = TWDocumentsFileManager()
@@ -21,7 +21,7 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
     }
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     deinit {
@@ -39,8 +39,8 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         self.collectionView?.reloadData()
     }
     
-    func metadataForItem(#indexPath:NSIndexPath) -> TWFileMetadata? {
-        var firstSourceFileName = fileManager.allDocumentPaths()[indexPath.row] as? String
+    func metadataForItem(indexPath indexPath:NSIndexPath) -> TWFileMetadata? {
+        let firstSourceFileName = fileManager.allDocumentPaths()[indexPath.row] as? String
         let cachedMetadata = self.cachedMetadataForFile(firstSourceFileName)
         
         if cachedMetadata != nil {
@@ -77,8 +77,8 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         return fileManager.allDocumentPaths()[indexPath.row] as? String
     }
     
-    func handleItemSelection(#indexPath:NSIndexPath) {
-        var filePath = self.filepathForIndex(indexPath)
+    func handleItemSelection(indexPath indexPath:NSIndexPath) {
+        let filePath = self.filepathForIndex(indexPath)
         if let filePath = filePath {
             let fileUrl = NSURL(string: filePath)
             TWNowPlayingManager.instance.startPlaybackWithUrl(fileUrl, selectedItem: nil)
@@ -89,18 +89,17 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         }
     }
     
-    func handleItemDeletion(#indexPath:NSIndexPath) {
-        var filePath = self.filepathForIndex(indexPath)
+    func handleItemDeletion(indexPath indexPath:NSIndexPath) {
+        let filePath = self.filepathForIndex(indexPath)
         if let filePath = filePath {
             let fileUrl = NSURL (string: filePath)
-            var deletionError:NSError? = nil
-            NSFileManager.defaultManager().removeItemAtURL(fileUrl!, error: &deletionError)
-            if deletionError != nil {
+            do {
+                try NSFileManager.defaultManager().removeItemAtURL(fileUrl!)
+            }
+            catch {
                 // TODO: show error message
             }
-            else {
-                self.collectionView?.deleteItemsAtIndexPaths([indexPath])
-            }
+            self.collectionView?.deleteItemsAtIndexPaths([indexPath])
         }
     }
     
@@ -149,19 +148,14 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         let reuseId = "SourcesCell"
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseId, forIndexPath: indexPath) as! TWSourcesCollectionViewCell
         
-        var firstSourceFileName = fileManager.allDocumentPaths()[indexPath.row] as? String
-        
-        if let firstSource = firstSourceFileName {
-            let fileUrl = NSURL(string: firstSource)
-            let fileMetadata = self.metadataForItem(indexPath: indexPath)
-            cell.title = fileMetadata?.titleForFile()
-            cell.imageView = UIImageView(image: UIImage(named: self.defaultThumbnailImageName))
-            fileMetadata?.thumbnailForFileWithBlock({(thumbnailView:UIView?) in
-                if let thumbnailView = thumbnailView {
-                    cell.imageView = thumbnailView
-                }
-            })
-        }
+        let fileMetadata = self.metadataForItem(indexPath: indexPath)
+        cell.title = fileMetadata?.titleForFile()
+        cell.imageView = UIImageView(image: UIImage(named: self.defaultThumbnailImageName))
+        fileMetadata?.thumbnailForFileWithBlock({(thumbnailView:UIView?) in
+            if let thumbnailView = thumbnailView {
+                cell.imageView = thumbnailView
+            }
+        })
         
         if self.editing == true {
             cell.startShaking()

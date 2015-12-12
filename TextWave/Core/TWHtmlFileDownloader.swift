@@ -43,8 +43,12 @@ class TWHtmlFileDownloader : TWWebPageDownloaderBase, NSURLConnectionDelegate, N
         self.downloading = false
         if let savePath = self.downloadPathForWebPage() {
             let saveUrl = NSURL(fileURLWithPath: savePath)
-            var writeError:NSError? = nil
-            self.responseData.writeToURL(saveUrl!, options: NSDataWritingOptions.allZeros, error: &writeError)
+            do {
+                try self.responseData.writeToURL(saveUrl, options: NSDataWritingOptions())
+            }
+            catch {
+                print("Unable to save html")
+            }
             self.delegate?.downloadComplete(self)
         }
         else {

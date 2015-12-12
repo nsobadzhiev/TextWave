@@ -58,7 +58,7 @@ class TWNowPlayingManager {
         return nil
     }
     
-    func createEpubPlaybackSource(#sourceUrl:NSURL?) -> TWPlaybackSource {
+    func createEpubPlaybackSource(sourceUrl sourceUrl:NSURL?) -> TWPlaybackSource {
         let epubPlaybackSource = TWEpubPlaybackSource(url: sourceUrl)
         if self.selectedItem != nil {
             epubPlaybackSource.goToItemWithPath(self.selectedItem)
@@ -66,7 +66,7 @@ class TWNowPlayingManager {
         return epubPlaybackSource
     }
     
-    func createHtmlPlaybackSource(#sourceUrl:NSURL?) -> TWPlaybackSource {
+    func createHtmlPlaybackSource(sourceUrl sourceUrl:NSURL?) -> TWPlaybackSource {
         return TWHtmlPlaybackSource(url: sourceUrl)
     }
 }

@@ -19,7 +19,7 @@ class TWAppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let rootViewController = storyboard.instantiateInitialViewController() as? UIViewController
+        let rootViewController = storyboard.instantiateInitialViewController()
         let window:UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
         window.rootViewController = rootViewController as UIViewController?
         window.makeKeyAndVisible()
@@ -30,14 +30,15 @@ class TWAppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupAudioSession() {
-        var audioSessionError:NSError? = nil
         let session:AVAudioSession = AVAudioSession.sharedInstance()
-        session.setCategory(AVAudioSessionCategoryPlayback, withOptions:AVAudioSessionCategoryOptions.allZeros, error: &audioSessionError)
-        var activationError:NSError? = nil
-        session.setActive(true, withOptions: nil, error:&activationError)
-        if audioSessionError != nil || activationError != nil {
-            println("Audio session category error: \(audioSessionError)")
-            println("Audio session activation error: \(activationError)")
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayback, withOptions:AVAudioSessionCategoryOptions())
+            try session.setActive(true, withOptions: .NotifyOthersOnDeactivation)
+        }
+        catch {
+            // TODO: get reason from exception
+            print("Audio session category error")
+            print("Audio session activation error")
         }
     }
     
@@ -63,11 +64,11 @@ class TWAppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         // TODO: Check whether the file can be handles by the app.
         let isValid = true
         if isValid {
-            println("Opened URL from application \(sourceApplication) \(url.absoluteString)")
+            print("Opened URL from application \(sourceApplication) \(url.absoluteString)")
             // post a notification about a new document
             NSNotificationCenter.defaultCenter().postNotificationName(AppDelegateFileAddedNotification, object: nil)
             return true

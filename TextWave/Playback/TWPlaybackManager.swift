@@ -131,7 +131,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         if let currentTextLength: Int = self.playbackSource?.currentText?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) {
             let indexAfterSkip = Float(currentTextLength) * progressPercentage
             let text:String! = self.playbackSource?.currentText!
-            let index = advance(text.startIndex, Int(indexAfterSkip))
+            let index = text.startIndex.advancedBy(Int(indexAfterSkip))
             let textAfterSkip = self.playbackSource!.currentText!.substringFromIndex(index)
             self.speakText(textAfterSkip)
             self.postChangedNotification()
@@ -179,17 +179,17 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         if self.letterIndex + numCharacters < self.playbackSource!.currentText?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) && self.letterIndex as Int + numCharacters >= 0 {
             self.letterIndex += numCharacters
             let text: String = self.playbackSource!.currentText!
-            let index = advance(text.startIndex, Int(self.letterIndex))
+            let index = text.startIndex.advancedBy(Int(self.letterIndex))
             let textAfterSkip = self.playbackSource!.currentText!.substringFromIndex(index)
-            if (Array(text)[self.letterIndex - 1] == " " ||
-                Array(text)[self.letterIndex] == " ") {
+            if (Array(arrayLiteral: text)[self.letterIndex - 1] == " " ||
+                Array(arrayLiteral: text)[self.letterIndex] == " ") {
                     return textAfterSkip
                 }
                 else {
                 let firstSpaceRange = textAfterSkip.rangeOfString(" ")
                 let spaceRangeStart: String.Index! = firstSpaceRange?.startIndex
-                var indexInt: Int = distance(textAfterSkip.startIndex, spaceRangeStart)
-                let index = advance(textAfterSkip.startIndex, indexInt)
+                let indexInt: Int = textAfterSkip.startIndex.distanceTo(spaceRangeStart)
+                let index = textAfterSkip.startIndex.advancedBy(indexInt)
                     if firstSpaceRange != nil {
                         return textAfterSkip.substringFromIndex(index)
                     }
@@ -200,13 +200,13 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
 
 // AVSpeechSynthesizerDelegate
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, didStartSpeechUtterance utterance: AVSpeechUtterance!) {
+    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didStartSpeechUtterance utterance: AVSpeechUtterance) {
         if let beginIndex = self.playbackSource?.currentItemIndex {
             self.delegate?.playbackManager(self, didBeginItemAtIndex: beginIndex)
         }
     }
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, didFinishSpeechUtterance utterance: AVSpeechUtterance!) {
+    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance) {
         if let finishIndex = self.playbackSource?.currentItemIndex {
             self.delegate?.playbackManager(self, didFinishItemAtIndex: finishIndex)
         }
@@ -214,21 +214,21 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         self.next()
     }
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer!,
-        didPauseSpeechUtterance utterance: AVSpeechUtterance!) {
+    func speechSynthesizer(synthesizer: AVSpeechSynthesizer,
+        didPauseSpeechUtterance utterance: AVSpeechUtterance) {
             
     }
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer!,
-        didCancelSpeechUtterance utterance: AVSpeechUtterance!) {
+    func speechSynthesizer(synthesizer: AVSpeechSynthesizer,
+        didCancelSpeechUtterance utterance: AVSpeechUtterance) {
             
     }
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance!) {
+    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
         self.wordIndex += 1
         self.letterIndex = characterRange.location + characterRange.length
         if let existingDelegate = self.delegate {
-            self.delegate!.playbackManager(self, didMoveToPosition: self.wordIndex)
+            existingDelegate.playbackManager(self, didMoveToPosition: self.wordIndex)
         }
     }
 

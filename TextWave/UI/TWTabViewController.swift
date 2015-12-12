@@ -33,7 +33,7 @@ class TWTabViewController : UIViewController {
         // don't execute this it initialEmbedSegue is being prepared. It is
         // going to be handled automatically by the storyboard
         if let segueId = segue.identifier {
-            if contains(automaticSegueIdentifiers, segueId) {
+            if automaticSegueIdentifiers.contains(segueId) {
                 return
             }
         }
@@ -42,22 +42,22 @@ class TWTabViewController : UIViewController {
             return
         }
         
-        let destinationController = segue.destinationViewController as? UIViewController
+        let destinationController = segue.destinationViewController as UIViewController
         for childController in self.childViewControllers {
             childController.removeFromParentViewController()
         }
-        if let destinationController = destinationController {
-            self.addChildViewController(destinationController)
-            destinationController.view.frame = self.contentAreaView.bounds
-            self.contentAreaView.addSubview(destinationController.view)
-            destinationController.didMoveToParentViewController(self)
-            self.selectedTabButton = sender as? UIButton
-        }
+        self.addChildViewController(destinationController)
+        destinationController.view.frame = self.contentAreaView.bounds
+        self.contentAreaView.addSubview(destinationController.view)
+        destinationController.didMoveToParentViewController(self)
+        self.selectedTabButton = sender as? UIButton
     }
     
     // MARK: Remote control events
     
-    override func remoteControlReceivedWithEvent(event: UIEvent) {
-        TWNowPlayingManager.instance.handleRemoteControlEvent(event)
+    override func remoteControlReceivedWithEvent(event: UIEvent?) {
+        if let event = event {
+            TWNowPlayingManager.instance.handleRemoteControlEvent(event)
+        }
     }
 }

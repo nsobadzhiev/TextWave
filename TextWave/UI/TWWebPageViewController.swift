@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class TWWebPageViewController: TWPublicationPreviewViewControllerProtocol, UIWebViewDelegate {
     
@@ -25,16 +26,20 @@ class TWWebPageViewController: TWPublicationPreviewViewControllerProtocol, UIWeb
     
     func loadRequest(requestUrl:NSURL?) {
         if let requestUrl = requestUrl {
-            if let webContainer = self.webView {
-                if requestUrl.fileURL == true {
-                    let htmlString = NSString(contentsOfURL: pageUrl!, encoding: NSUTF8StringEncoding, error: nil)
+            if requestUrl.fileURL == true {
+                do {
+                    let htmlString = try NSString(contentsOfURL: pageUrl!, encoding: NSUTF8StringEncoding)
                     let baseUrl = TWWebPageDownloadManager.defaultDownloadManager.baseUrlForWebPage(pageUrl?.lastPathComponent)
-                    self.webView.loadHTMLString(htmlString as? String, baseURL: baseUrl)
+                    self.webView.loadHTMLString(htmlString as String, baseURL: baseUrl)
                 }
-                else {
-                    let request = NSURLRequest(URL: requestUrl, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
-                    self.webView.loadRequest(request)
+                catch {
+                    print("Unable to load html from \(pageUrl?.absoluteString)")
                 }
+                
+            }
+            else {
+                let request = NSURLRequest(URL: requestUrl, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
+                self.webView.loadRequest(request)
             }
         }
     }

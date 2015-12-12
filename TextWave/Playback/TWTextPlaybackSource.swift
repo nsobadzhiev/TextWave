@@ -19,7 +19,13 @@ class TWTextPlaybackSource : TWPlaybackSource {
     override init(url: NSURL?) {
         super.init(url: url)
         if let suppliedUrl = url {
-            self.currentText = String(contentsOfURL: url!, encoding: NSUTF8StringEncoding, error: nil)
+            do {
+                self.currentText = try String(contentsOfURL: suppliedUrl, encoding: NSUTF8StringEncoding)
+            }
+            catch {
+                print("Unable to read current text from \(suppliedUrl.absoluteString)")
+            }
+            
 //            self.currentItemIndex = 0
         }
     }

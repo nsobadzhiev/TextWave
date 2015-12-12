@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class TWEpubMetadata : TWFileMetadata {
     
@@ -17,11 +18,24 @@ class TWEpubMetadata : TWFileMetadata {
         epubManager = DMePubManager(epubPath: url?.absoluteString)
     }
     override func thumbnailForFile() -> UIImage? {
-        return epubManager?.coverWithError(nil)
+        var thumbnail:UIImage? = nil
+        do {
+            try thumbnail = epubManager?.cover();
+        }
+        catch {
+            
+        }
+        return thumbnail
     }
     
     override func thumbnailForFileWithBlock(completionBlock:((thumbnailView:UIView?) -> Void)) {
-        let thumbnail = epubManager?.coverWithError(nil)
+        var thumbnail:UIImage? = nil
+        do {
+            try thumbnail = epubManager?.cover();
+        }
+        catch {
+            
+        }
         let thumbnailView = UIImageView(image: thumbnail)
         completionBlock(thumbnailView: thumbnailView)
     }
@@ -37,10 +51,10 @@ class TWEpubMetadata : TWFileMetadata {
     }
     
     override func titleForFile() -> String? {
-        return epubManager?.titleWithError(nil)
+        return try? epubManager!.title()
     }
     
     override func authorForFile() -> String? {
-        return epubManager?.authorWithError(nil)
+        return try? epubManager!.author()
     }
 }

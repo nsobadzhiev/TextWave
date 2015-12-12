@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol TWPublicationPreviewViewControllerDelegate : class {
     func publicationViewController(previewController: TWPublicationPreviewViewControllerProtocol, shouldSelectSection index: Int) -> Bool
@@ -21,7 +22,7 @@ class TWPublicationPreviewViewControllerProtocol: UIViewController {
     }
 
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -40,7 +41,7 @@ class TWPublicationPreviewViewControllerProtocol: UIViewController {
         
     }
     
-    func goToSection(#sectionName: String) {
+    func goToSection(sectionName sectionName: String) {
         
     }
 

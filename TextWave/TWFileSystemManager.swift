@@ -10,7 +10,7 @@ import Foundation
 
 protocol TWFileSystemManager {
     
-    func contentsOfDirectoryAtPath(path: String, error: NSErrorPointer) -> [AnyObject]?
+    func contentsOfDirectoryAtPath(path: String) throws -> [String]
     func contentsAtPath(path: String) -> NSData?
-    func copyItemAtURL(srcURL: NSURL, toURL dstURL: NSURL, error: NSErrorPointer) -> Bool
+    func copyItemAtURL(srcURL: NSURL, toURL dstURL: NSURL) throws
 }

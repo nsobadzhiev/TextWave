@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class TWBookmarksViewController : UITableViewController {
     var filePath:String? = nil

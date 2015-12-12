@@ -26,21 +26,20 @@ class TWSourcesCollectionViewCell : UICollectionViewCell {
 
     var imageView: UIView? {
         didSet {
-            for subview in self.thumbnailView?.subviews as! [UIView] {
+            for subview in (self.thumbnailView?.subviews)! {
                 subview.removeFromSuperview()
             }
             self.imageView?.frame = self.thumbnailView.bounds
-            self.imageView?.autoresizingMask = UIViewAutoresizing.FlexibleWidth|UIViewAutoresizing.FlexibleHeight
+            self.imageView?.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
             self.thumbnailView?.addSubview(self.imageView!)
         }
     }
     
     func startShaking() {
         let delay = Double(Double(arc4random_uniform(10)) / 10.0)
-        let movement = CGFloat(arc4random_uniform(5))
-        let animationOptions = UIViewKeyframeAnimationOptions.AllowUserInteraction |
-            UIViewKeyframeAnimationOptions.Repeat
-        let easeOptions = UIViewAnimationOptions.CurveEaseInOut | UIViewAnimationOptions.Repeat
+        //let movement = CGFloat(arc4random_uniform(5))
+        let animationOptions:UIViewKeyframeAnimationOptions = [.AllowUserInteraction, .Repeat]
+        let easeOptions:UIViewAnimationOptions = [.CurveEaseInOut, .Repeat]
         UIView.animateWithDuration(0.5, delay: delay, options: easeOptions, animations: { () -> Void in
             UIView.animateKeyframesWithDuration(0.60, delay: delay, options: animationOptions, animations: { () -> Void in
                 var time = 0.0

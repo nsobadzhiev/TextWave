@@ -28,8 +28,13 @@ class TWHtmlPlaybackSource: TWTextPlaybackSource, TWResourceDownloaderDelegate {
     func handleSourceUrl() {
         if self.isLocalResource {
             if let fileUrl = self.sourceURL {
-                let rawText = NSString(contentsOfURL: fileUrl, encoding: NSUTF8StringEncoding, error: nil)
-                self.currentText = self.extractText(htmlString: rawText as? String)
+                do {
+                    let rawText = try NSString(contentsOfURL: fileUrl, encoding: NSUTF8StringEncoding)
+                    self.currentText = self.extractText(htmlString: rawText as String)
+                }
+                catch {
+                    print("Unable to read source from \(fileUrl.absoluteString)")
+                }
             }
         }
         else {
@@ -37,7 +42,7 @@ class TWHtmlPlaybackSource: TWTextPlaybackSource, TWResourceDownloaderDelegate {
         }
     }
     
-    func extractText(#htmlString:String?) -> String {
+    func extractText(htmlString htmlString:String?) -> String {
         let textExtractor = TWTextExtractor()
         return textExtractor.extractArticle(htmlString: htmlString)
     }

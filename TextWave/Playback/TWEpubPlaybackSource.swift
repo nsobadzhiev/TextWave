@@ -35,8 +35,13 @@ class TWEpubPlaybackSource: TWPlaybackSource {
     override func prepareResources() {
         self.epubManager = DMePubManager(epubPath: self.sourceURL?.absoluteString)
         self.epubIterator = DMePubItemIterator(epubManager: self.epubManager)
-        self.title = epubManager?.titleWithError(nil)
-        self.subtitle = epubManager?.authorWithError(nil)
+        do {
+            try self.title = epubManager?.title()
+            try self.subtitle = epubManager?.author()
+        }
+        catch {
+            print("Unable to fetch title and subtitle")
+        }
     }
     
     override func goToNextItem() -> Bool {
@@ -75,7 +80,14 @@ class TWEpubPlaybackSource: TWPlaybackSource {
     
     func applyCurrentTextForItem(epubItem: DMePubItem?) {
         let itemPath = epubItem?.href
-        let itemData = self.epubManager?.dataForFileAtPath(itemPath, error: nil)
+        var itemData:NSData? = nil
+        do {
+            itemData = try self.epubManager?.dataForFileAtPath(itemPath)
+        }
+        catch {
+            print("unable to read data from file: \(itemPath)")
+        }
+        
         if let itemData = itemData {
             let formattedText = NSString(data:itemData, encoding:NSUTF8StringEncoding)
             // extract readable text from the HTML

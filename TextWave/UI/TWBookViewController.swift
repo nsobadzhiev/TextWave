@@ -64,7 +64,7 @@ class TWBookViewController : TWPublicationPreviewViewControllerProtocol {
         }
     }
     
-    override func goToSection(#sectionName: String) {
+    override func goToSection(sectionName sectionName: String) {
         if let epubController = self.epubPageController {
             epubController.selectedItem = sectionName
         }

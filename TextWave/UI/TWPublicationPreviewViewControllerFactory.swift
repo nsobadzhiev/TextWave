@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class TWPublicationPreviewViewControllerFactory {
     
@@ -24,7 +25,7 @@ class TWPublicationPreviewViewControllerFactory {
     
     class func instantiateViewControllerFromStoryboard(name:String) -> UIViewController {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        return mainStoryBoard.instantiateViewControllerWithIdentifier(name) as! UIViewController
+        return mainStoryBoard.instantiateViewControllerWithIdentifier(name) 
     }
     
     class func createEpubViewController(epubUrl url:NSURL?, selectedItem: String?) -> TWPublicationPreviewViewControllerProtocol {

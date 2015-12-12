@@ -28,7 +28,7 @@ class TWWebPageDownloadManager : TWWebPageDownloaderDelegate {
             let downloadPath = downloader.downloadPathForWebPage()
             if let downloadPath = downloadPath {
                 let downloadUrl = NSURL(fileURLWithPath: downloadPath)
-                if let downloadName = downloadUrl?.lastPathComponent {
+                if let downloadName = downloadUrl.lastPathComponent {
                     self.addCatalogueEntry(downloadName, baseUrl: pageUrl)
                     downloader.delegate = self
                     self.pageCompletionCallbacksDict[pageUrl] = completionBlock
@@ -59,7 +59,7 @@ class TWWebPageDownloadManager : TWWebPageDownloaderDelegate {
     }
     
     func hasLocalCopyOfPage(pageUrl:NSURL?) -> Bool {
-        for (localLocation, remoteUrl) in self.catalogue {
+        for (_, remoteUrl) in self.catalogue {
             if remoteUrl.isEqual(pageUrl) {
                 return true
             }
@@ -68,9 +68,9 @@ class TWWebPageDownloadManager : TWWebPageDownloaderDelegate {
     }
     
     func cataloguePath() -> String {
-        let cachesPath = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0] as? NSString
-        let cataloguePath = cachesPath?.stringByAppendingPathComponent(catalogueName)
-        return cataloguePath!
+        let cachesPath = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0] as NSString
+        let cataloguePath = cachesPath.stringByAppendingPathComponent(catalogueName)
+        return cataloguePath
     }
     
     func saveCatalogue() -> Bool {

@@ -275,8 +275,10 @@
 		23F8AF131A8E727F009ECFD1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F8AF121A8E727F009ECFD1 /* AVFoundation.framework */; };
 		23F8AF151A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F8AF141A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift */; };
 		23F8AF201A93E3EC009ECFD1 /* TWNowPlayingManager+RemoteControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F8AF1F1A93E3EC009ECFD1 /* TWNowPlayingManager+RemoteControl.swift */; };
+		93019DB21B66D8D300A5DA93 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93019DB11B66D8D300A5DA93 /* QuartzCore.framework */; };
 		931AFE5A1B12780800A17AF8 /* defaultCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 931AFE591B12780800A17AF8 /* defaultCover@2x.png */; };
 		936506D91B13A86B002C5194 /* TWBookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936506D81B13A86B002C5194 /* TWBookmarkCell.swift */; };
+		93D0BD701C1CB60D00475A23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93D0BD6F1C1CB60D00475A23 /* LaunchScreen.storyboard */; };
 		FDAE9AFA1A1EB77200E542F0 /* download_page@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */; };
 		FDAE9AFB1A1EB77200E542F0 /* download_page@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDAE9AF91A1EB77200E542F0 /* download_page@3x.png */; };
 		FDAE9B051A1EBD5F00E542F0 /* TWBrowseItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE9B041A1EBD5F00E542F0 /* TWBrowseItemViewController.swift */; };
@@ -312,6 +314,19 @@
 			remoteInfo = TextWave;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		93019DCC1B6EB84500A5DA93 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		230155F11A598BC100FE2BBC /* TWTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWTabViewController.swift; sourceTree = "<group>"; };
@@ -602,8 +617,13 @@
 		23F8AF121A8E727F009ECFD1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		23F8AF141A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWLockScreenNowPlayingInfo.swift; sourceTree = "<group>"; };
 		23F8AF1F1A93E3EC009ECFD1 /* TWNowPlayingManager+RemoteControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TWNowPlayingManager+RemoteControl.swift"; sourceTree = "<group>"; };
+		93019DB11B66D8D300A5DA93 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		93019DBE1B6EB84500A5DA93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93019DBF1B6EB84500A5DA93 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		93019DC11B6EB84500A5DA93 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		931AFE591B12780800A17AF8 /* defaultCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultCover@2x.png"; sourceTree = "<group>"; };
 		936506D81B13A86B002C5194 /* TWBookmarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBookmarkCell.swift; sourceTree = "<group>"; };
+		93D0BD6F1C1CB60D00475A23 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download_page@2x.png"; sourceTree = "<group>"; };
 		FDAE9AF91A1EB77200E542F0 /* download_page@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download_page@3x.png"; sourceTree = "<group>"; };
 		FDAE9B041A1EBD5F00E542F0 /* TWBrowseItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBrowseItemViewController.swift; sourceTree = "<group>"; };
@@ -614,6 +634,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93019DB21B66D8D300A5DA93 /* QuartzCore.framework in Frameworks */,
 				23F8AF131A8E727F009ECFD1 /* AVFoundation.framework in Frameworks */,
 				236312A619156BD8006F1979 /* libz.dylib in Frameworks */,
 				236312A419156B98006F1979 /* libstdc++.dylib in Frameworks */,
@@ -782,6 +803,7 @@
 				235F963F19CDADA2003BA87D /* UI */,
 				235F964E19CDADA2003BA87D /* UrlDownloader.swift */,
 				FDAE9AF41A1EB77200E542F0 /* Resouces */,
+				93D0BD6F1C1CB60D00475A23 /* LaunchScreen.storyboard */,
 			);
 			path = TextWave;
 			sourceTree = "<group>";
@@ -1027,6 +1049,7 @@
 			children = (
 				235F95F619CDADA1003BA87D /* TextWave */,
 				235F974119CDB0F0003BA87D /* TextWaveTests */,
+				93019DBC1B6EB84500A5DA93 /* TextWaveExtension */,
 				2363AE411913A95F003EFA4A /* Frameworks */,
 				2363AE401913A95F003EFA4A /* Products */,
 				235F979B19CDBCF6003BA87D /* libs */,
@@ -1045,6 +1068,7 @@
 		2363AE411913A95F003EFA4A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93019DB11B66D8D300A5DA93 /* QuartzCore.framework */,
 				23F8AF121A8E727F009ECFD1 /* AVFoundation.framework */,
 				236312A519156BD8006F1979 /* libz.dylib */,
 				236312A319156B98006F1979 /* libstdc++.dylib */,
@@ -1120,6 +1144,24 @@
 				23B159651A865306001B463D /* Hungarian.txt */,
 			);
 			path = stoplists;
+			sourceTree = "<group>";
+		};
+		93019DBC1B6EB84500A5DA93 /* TextWaveExtension */ = {
+			isa = PBXGroup;
+			children = (
+				93019DBF1B6EB84500A5DA93 /* ActionViewController.swift */,
+				93019DC11B6EB84500A5DA93 /* MainInterface.storyboard */,
+				93019DBD1B6EB84500A5DA93 /* Supporting Files */,
+			);
+			path = TextWaveExtension;
+			sourceTree = "<group>";
+		};
+		93019DBD1B6EB84500A5DA93 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93019DBE1B6EB84500A5DA93 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		FDAE9AF41A1EB77200E542F0 /* Resouces */ = {
@@ -1227,6 +1269,7 @@
 				2363AE3B1913A95F003EFA4A /* Sources */,
 				2363AE3C1913A95F003EFA4A /* Frameworks */,
 				2363AE3D1913A95F003EFA4A /* Resources */,
+				93019DCC1B6EB84500A5DA93 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -1262,7 +1305,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DM;
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Nikola Sobadjiev";
 				TargetAttributes = {
 					2363AE3E1913A95F003EFA4A = {
@@ -1364,6 +1408,7 @@
 				234EAE571ACDC9CF00086C1D /* background@2x.png in Resources */,
 				234EAE831ACDC9CF00086C1D /* tabSettingsSelected@2x.png in Resources */,
 				234EAE7D1ACDC9CF00086C1D /* tabSearch@2x.png in Resources */,
+				93D0BD701C1CB60D00475A23 /* LaunchScreen.storyboard in Resources */,
 				234EAE581ACDC9CF00086C1D /* chapterNext.png in Resources */,
 				234EAE561ACDC9CF00086C1D /* background.png in Resources */,
 				234EAE4C1ACDC9CF00086C1D /* arrowNext.png in Resources */,
@@ -1676,6 +1721,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1737,6 +1783,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/**",
@@ -1758,8 +1805,10 @@
 					"$(PROJECT_DIR)/libs/JusText",
 					"$(PROJECT_DIR)/libs/pcre",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thinxnet.tanktaler;
 				PRODUCT_NAME = TextWave;
 				PROVISIONING_PROFILE = "dd0243e6-6e36-40c1-950c-6db32efdb9ec";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -1776,6 +1825,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/**",
@@ -1797,8 +1847,10 @@
 					"$(PROJECT_DIR)/libs/JusText",
 					"$(PROJECT_DIR)/libs/pcre",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thinxnet.tanktaler;
 				PRODUCT_NAME = TextWave;
 				PROVISIONING_PROFILE = "dd0243e6-6e36-40c1-950c-6db32efdb9ec";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
@@ -1836,6 +1888,7 @@
 					"/Users/nikolasobadjiev/Projects/SimpleEpubReader/zipzap/build/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWave-axyykujfqwdywjgxczezhbuyxvvl/Build/Products/Debug",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.devmonologue.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = TextWaveTests;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWaveTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1871,6 +1924,7 @@
 					"/Users/nikolasobadjiev/Projects/SimpleEpubReader/zipzap/build/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWave-axyykujfqwdywjgxczezhbuyxvvl/Build/Products/Debug",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.devmonologue.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = TextWaveTests;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWaveTests-Bridging-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
