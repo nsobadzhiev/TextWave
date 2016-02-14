@@ -64,7 +64,9 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         self.playbackManager = self.nowPlayingManager?.playbackManager
-        playbackTitleLabel.text = self.playbackTitle
+        // TODO: rethink getting metadata
+        let metaInfo = TWFileMetadataFactory.metadataForFile(self.playbackManager?.playbackSource?.sourceURL)
+        playbackTitleLabel.text = metaInfo?.titleForFile()
         playbackSubtitleLabel.text = self.playbackSubtitle
         controlViewsXibAlpha = self.controlsView.alpha
         self.setupPreview()

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Q5r-K0-LvI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Q5r-K0-LvI">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -19,11 +19,14 @@
                             <tableViewSection id="AfP-c5-7Lw">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ReA-ox-Fke" style="IBUITableViewCellStyleDefault" id="YoV-ps-RcI">
+                                        <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YoV-ps-RcI" id="KXr-yR-kGa">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Web page" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ReA-ox-Fke">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -36,11 +39,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="VdW-0l-e2l" style="IBUITableViewCellStyleDefault" id="PK1-Oa-QVR">
+                                        <rect key="frame" x="0.0" y="143" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PK1-Oa-QVR" id="f2I-yw-ehM">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="ePub" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VdW-0l-e2l">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -53,11 +59,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="4gJ-cd-mfi" style="IBUITableViewCellStyleDefault" id="erw-UH-9fx">
+                                        <rect key="frame" x="0.0" y="187" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="erw-UH-9fx" id="zVP-2V-Nfe">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4gJ-cd-mfi">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -305,12 +314,12 @@
                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewLayout key="collectionViewLayout" id="2LH-Oi-rUN" customClass="TWSourcesCollectionLayout" customModule="TextWave" customModuleProvider="target"/>
                         <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="ErW-li-gYU">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <rect key="frame" x="0.0" y="-64" width="320" height="568"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SourcesCell" id="qT3-k8-z2b" customClass="TWSourcesCollectionViewCell" customModule="TextWave" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="151" height="199"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="151" height="199"/>
@@ -406,7 +415,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOp-Vd-qkm">
-                                        <rect key="frame" x="8" y="28" width="35.5" height="28"/>
+                                        <rect key="frame" x="8" y="28" width="36" height="28"/>
                                         <state key="normal" image="arrowPrevPressed.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -415,7 +424,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1l-Ff-bKL">
-                                        <rect key="frame" x="51.5" y="31" width="35.5" height="22"/>
+                                        <rect key="frame" x="52" y="31" width="36" height="22"/>
                                         <state key="normal" image="navbarLibrary.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -424,7 +433,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QT9-IN-tk0">
-                                        <rect key="frame" x="276.5" y="20.5" width="35.5" height="35.5"/>
+                                        <rect key="frame" x="276" y="20" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="QT9-IN-tk0" secondAttribute="height" multiplier="1:1" id="jhZ-T7-aB4"/>
                                         </constraints>
@@ -437,13 +446,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIM-Pd-eA6">
-                                        <rect key="frame" x="144" y="21" width="32.5" height="20.5"/>
+                                        <rect key="frame" x="143" y="20" width="34" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEh-52-n8X">
-                                        <rect key="frame" x="140" y="41" width="43" height="14.5"/>
+                                        <rect key="frame" x="140" y="41" width="44" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -461,9 +470,13 @@
                                     <constraint firstItem="YOp-Vd-qkm" firstAttribute="leading" secondItem="lm1-gK-PkW" secondAttribute="leadingMargin" id="WUX-An-cl4"/>
                                     <constraint firstAttribute="centerX" secondItem="rEh-52-n8X" secondAttribute="centerX" constant="-2" id="XBX-km-P57"/>
                                     <constraint firstAttribute="bottom" secondItem="YOp-Vd-qkm" secondAttribute="bottom" constant="8" id="aoy-NF-ORq"/>
+                                    <constraint firstItem="cIM-Pd-eA6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="X1l-Ff-bKL" secondAttribute="trailing" constant="5" id="bfQ-sF-CVE"/>
+                                    <constraint firstItem="QT9-IN-tk0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rEh-52-n8X" secondAttribute="trailing" constant="5" id="bmd-gl-ja9"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="QT9-IN-tk0" secondAttribute="trailing" id="jH7-5z-K0y"/>
                                     <constraint firstItem="X1l-Ff-bKL" firstAttribute="leading" secondItem="YOp-Vd-qkm" secondAttribute="trailing" constant="8" id="q9m-uw-h8S"/>
                                     <constraint firstAttribute="bottom" secondItem="QT9-IN-tk0" secondAttribute="bottom" constant="8" id="qUV-d4-a7u"/>
+                                    <constraint firstItem="QT9-IN-tk0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cIM-Pd-eA6" secondAttribute="trailing" constant="5" id="to5-xV-9QS"/>
+                                    <constraint firstItem="rEh-52-n8X" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="X1l-Ff-bKL" secondAttribute="trailing" constant="5" id="uGs-wa-8xP"/>
                                     <constraint firstAttribute="height" constant="64" id="xNR-xx-9L5"/>
                                 </constraints>
                             </view>
@@ -486,7 +499,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="un1-ey-htn" userLabel="Previous Button">
-                                        <rect key="frame" x="8" y="7" width="43.5" height="28"/>
+                                        <rect key="frame" x="8" y="7" width="44" height="28"/>
                                         <state key="normal" image="chapterPrev.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -495,7 +508,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvT-LU-rlg" userLabel="Skip Back Button">
-                                        <rect key="frame" x="61" y="2" width="43.5" height="42"/>
+                                        <rect key="frame" x="62" y="2" width="43" height="42"/>
                                         <state key="normal" image="arrowPrev.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -504,7 +517,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yr-ad-KTv" userLabel="Next Button">
-                                        <rect key="frame" x="268" y="2" width="43.5" height="42"/>
+                                        <rect key="frame" x="269" y="2" width="43" height="42"/>
                                         <state key="normal" image="chapterNext.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -513,7 +526,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLH-RP-eSu" userLabel="Skip Forward Button">
-                                        <rect key="frame" x="215" y="2" width="43.5" height="42"/>
+                                        <rect key="frame" x="215" y="2" width="44" height="42"/>
                                         <state key="normal" image="arrowNext.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -617,8 +630,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookmarkCell" rowHeight="86" id="vue-TV-bGZ" customClass="TWBookmarkCell" customModule="TextWave" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="86" width="320" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vue-TV-bGZ" id="FYx-wc-CuM">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ls1-3m-sVO">
@@ -902,11 +917,6 @@
         <image name="tabSearch.png" width="39" height="34"/>
         <image name="tabSettings.png" width="40" height="34"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="IlX-dl-ldh"/>
         <segue reference="rgV-BH-lyq"/>
