@@ -53,7 +53,6 @@
         {
             return YES;
         }
-        currentSpineItemIndex++;
     }
     return NO;
 }
