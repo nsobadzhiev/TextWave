@@ -15,7 +15,7 @@ let TWPlaybackStartedNotification = "TWPlaybackStartedNotification"
 let TWPlaybackEndedNotification = "TWPlaynackEndedNotification"
 let TWPlaybackChangedNotification = "TWPlaybackChangedNotification"
 
-protocol TWPlaybackManagerDelegate {
+protocol TWPlaybackManagerDelegate : class {
     func playbackManager(playback: TWPlaybackManager, didBeginItemAtIndex index: Int)
     func playbackManager(playback: TWPlaybackManager, didFinishItemAtIndex index: Int)
     func playbackManager(playback: TWPlaybackManager, didMoveToPosition index: Int)
@@ -29,7 +29,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     var speechPitch: Float = 0.0
     var wordIndex = 0
     var letterIndex = 0
-    var delegate: TWPlaybackManagerDelegate? = nil
+    weak var delegate: TWPlaybackManagerDelegate? = nil
     
     var isPlaying: Bool {
         get {
