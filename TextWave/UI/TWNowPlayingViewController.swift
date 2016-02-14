@@ -138,18 +138,20 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     }
     
     func toggleControls() {
+        weak var weakSelf = self
         UIView.animateWithDuration(self.controlsFadeAnimationLength, animations: {() in 
-            self.controlsView.alpha = self.controlViewsXibAlpha - self.controlsView.alpha
-            self.titleView.alpha = self.controlViewsXibAlpha - self.titleView.alpha
-            self.pagesView.alpha = self.controlViewsXibAlpha - self.pagesView.alpha
+            weakSelf?.controlsView.alpha = self.controlViewsXibAlpha - self.controlsView.alpha
+            weakSelf?.titleView.alpha = self.controlViewsXibAlpha - self.titleView.alpha
+            weakSelf?.pagesView.alpha = self.controlViewsXibAlpha - self.pagesView.alpha
         })
     }
     
     func hideControls() {
+        weak var weakSelf = self
         UIView.animateWithDuration(self.controlsFadeAnimationLength, animations: {() in 
-            self.controlsView.alpha = 0
-            self.titleView.alpha = 0
-            self.pagesView.alpha = 0
+            weakSelf?.controlsView.alpha = 0
+            weakSelf?.titleView.alpha = 0
+            weakSelf?.pagesView.alpha = 0
         })
     }
     
