@@ -15,7 +15,9 @@ class TWWebPageViewController: TWPublicationPreviewViewControllerProtocol, UIWeb
     
     var pageUrl: NSURL? = nil {
         didSet {
-            self.loadRequest(self.pageUrl)
+            if (self.webView != nil) {
+                self.loadRequest(self.pageUrl)
+            }
         }
     }
     
