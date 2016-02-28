@@ -15,6 +15,7 @@
 @implementation DMePubItemViewController
 
 - (instancetype)initWithEpubItem:(DMePubItem*)epubItem
+                          anchor:(NSString*)anchor
                   andEpubManager:(DMePubManager*)epubManager
 {
     self = [super initWithData:[epubManager dataForFileAtPath:epubItem.href
@@ -24,6 +25,7 @@
         self.epubItem = epubItem;
         self.epubManager = epubManager;
         self.filePath = self.epubManager.epubPath;
+        self.anchor = anchor;
     }
     return self;
 }
@@ -31,6 +33,7 @@
 - (id)initWithData:(NSData *)htmlData
 {
     self = [self initWithEpubItem:nil
+                           anchor:nil
                    andEpubManager:nil];
     return self;
 }

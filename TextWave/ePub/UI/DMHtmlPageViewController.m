@@ -60,4 +60,9 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     return YES;
 }
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSString* jsScript = [NSString stringWithFormat:@"window.location.href = '%@';", self.anchor];
+    [webView stringByEvaluatingJavaScriptFromString:jsScript];
+}
+
 @end

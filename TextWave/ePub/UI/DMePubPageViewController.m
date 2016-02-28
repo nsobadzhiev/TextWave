@@ -96,6 +96,7 @@
         nextItem = [itemIterator nextObject];
     }
     UIViewController* firstPage = [[DMePubItemViewController alloc] initWithEpubItem:nextItem
+                                                                              anchor:nil
                                                                       andEpubManager:self.epubManager];
     [self.pageViewController setViewControllers:@[firstPage]
                                       direction:UIPageViewControllerNavigationDirectionForward 
@@ -141,6 +142,7 @@
     if (previousItem != nil)
     {
         previousController = [[DMePubItemViewController alloc] initWithEpubItem:previousItem
+                                                                         anchor:nil
                                                                  andEpubManager:self.epubManager];
     }
     return previousController;
@@ -165,6 +167,7 @@
     if (nextItem != nil)
     {
         return [[DMePubItemViewController alloc] initWithEpubItem:nextItem
+                                                           anchor:nil
                                                    andEpubManager:self.epubManager];
     }
     else
@@ -198,11 +201,22 @@
 
 - (void)openItemAtPath:(NSString*)path
 {
+    // the path might contain an anchor (hyperlink inside the document)
+    // strip that, set the correct item in the iterator and pass the archor value to
+    // the page
+    // TODO: extract anchor stripping out of here
+    NSRange hashRange = [path rangeOfString:@"#"];
+    NSString* anchor = nil;
+    NSString* targetItemPath = path;
+    if (hashRange.location != NSNotFound) {
+        anchor = [path substringFromIndex:hashRange.location];
+        targetItemPath = [path substringToIndex:hashRange.location];
+    }
     NSInteger previousIndex = [itemIterator currentIndex];
-    [itemIterator goToItemWithPath:path];
+    [itemIterator goToItemWithPath:targetItemPath];
     NSInteger nextIndex = [itemIterator currentIndex];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self openCurrentItemFromIndex:previousIndex toIndex:nextIndex];
+        [self openCurrentItemFromIndex:previousIndex toIndex:nextIndex anchor:anchor];
     });  
 }
 
@@ -211,12 +225,13 @@
     NSInteger previousIndex = [itemIterator currentIndex];
     [itemIterator goToItemWithIndex:epubIndex];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self openCurrentItemFromIndex:previousIndex toIndex:epubIndex];
+        [self openCurrentItemFromIndex:previousIndex toIndex:epubIndex anchor:nil];
     });  
 }
 
 - (void)openCurrentItemFromIndex:(NSInteger)previousIndex
                          toIndex:(NSInteger)nextIndex
+                          anchor:(NSString*)docSection
 {
     UIPageViewControllerNavigationDirection direction = UIPageViewControllerNavigationDirectionReverse;
     if (previousIndex < nextIndex)
@@ -224,6 +239,7 @@
         direction = UIPageViewControllerNavigationDirectionForward;
     }
     DMePubItemViewController* selectedItemController = [[DMePubItemViewController alloc] initWithEpubItem:[itemIterator currentItem]
+                                                                                                   anchor:docSection
                                                                                            andEpubManager:self.epubManager];
     [self.pageViewController setViewControllers:@[selectedItemController]
                                       direction:direction 

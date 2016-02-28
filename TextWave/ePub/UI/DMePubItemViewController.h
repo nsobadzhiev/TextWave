@@ -16,6 +16,7 @@
 @property (nonatomic, strong) DMePubManager* epubManager;
 
 - (instancetype)initWithEpubItem:(DMePubItem*)epubItem
+                          anchor:(NSString*)anchor
                   andEpubManager:(DMePubManager*)epubManager;
 
 @end

@@ -14,6 +14,7 @@
 }
 
 @property (nonatomic, strong) NSString* filePath;
+@property (nonatomic, strong) NSString* anchor;
 
 - (instancetype)initWithData:(NSData*)htmlData;
 
