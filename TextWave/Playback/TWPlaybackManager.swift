@@ -37,11 +37,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         }
     }
     
-    var currentText: String? {
-        get {
-            return self.playbackSource?.currentText
-        }
-    }
+    var currentText: String? = nil
 
     init(dataSource: TWPlaybackSource) {
         super.init()
@@ -128,17 +124,19 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
             return;
         }
         
-        if let currentTextLength: Int = self.playbackSource?.currentText?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) {
+        if let currentTextLength: Int = self.currentText?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) {
             let indexAfterSkip = Float(currentTextLength) * progressPercentage
-            let text:String! = self.playbackSource?.currentText!
+            // TODO: excessive use of !
+            let text:String! = self.currentText!
             let index = text.startIndex.advancedBy(Int(indexAfterSkip))
-            let textAfterSkip = self.playbackSource!.currentText!.substringFromIndex(index)
+            let textAfterSkip = self.currentText!.substringFromIndex(index)
             self.speakText(textAfterSkip)
             self.postChangedNotification()
         }
     }
     
     func speakText(text: String) {
+        self.currentText = text
         let utterance = AVSpeechUtterance(string: text)
         utterance.rate = self.speechRate
         utterance.pitchMultiplier = self.speechPitch
@@ -176,13 +174,17 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     }
     
     func textAfterSkippingCharacters(numCharacters: Int) -> String? {
-        if self.letterIndex + numCharacters < self.playbackSource!.currentText?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) && self.letterIndex as Int + numCharacters >= 0 {
+        if self.letterIndex + numCharacters < self.currentText?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) && self.letterIndex as Int + numCharacters >= 0 {
             self.letterIndex += numCharacters
-            let text: String = self.playbackSource!.currentText!
+            // TODO: excessive use of !
+            let text: String = self.currentText!
             let index = text.startIndex.advancedBy(Int(self.letterIndex))
-            let textAfterSkip = self.playbackSource!.currentText!.substringFromIndex(index)
+            let textAfterSkip = self.currentText!.substringFromIndex(index)
             let prevSymbol = text[text.startIndex.advancedBy(self.letterIndex - 1)];
             let firstSymbol = text[text.startIndex.advancedBy(self.letterIndex)];
+            self.letterIndex = 0    // restart the counting since the speach text has changed and the
+            // new index is zero (the new string is going to start at the)
+            // correct index
             if (prevSymbol == " " || firstSymbol == " ") {
                 return textAfterSkip
             }
