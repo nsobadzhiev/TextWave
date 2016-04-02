@@ -122,9 +122,11 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     @IBAction func onPlayTap(sender: AnyObject) {
         if self.playbackManager?.isPlaying == true {
             self.playbackManager?.pause()
+            self.playButton.setImage(UIImage.init(named: "play"), forState: .Normal)
         }
         else {
             self.playbackManager?.resume()
+            self.playButton.setImage(UIImage.init(named: "pause"), forState: .Normal)
         }
     }
     
