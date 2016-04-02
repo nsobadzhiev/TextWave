@@ -79,7 +79,7 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     }
     
     override func viewDidAppear(animated: Bool) {
-        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("hideControls"), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(hideControls), userInfo: nil, repeats: false)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -99,7 +99,14 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     }
     
     func setupControls() {
-        self.contentsButton.hidden = (TWPublicationPreviewViewControllerFactory.supportsTableOfContents(self.playbackManager?.playbackSource?.sourceURL) == false)
+        let isSinglePage = (self.playbackManager?.playbackSource?.numberOfItems <= 1)
+        self.contentsButton.hidden = isSinglePage
+        self.previousButton.hidden = isSinglePage
+        self.nextButton.hidden = isSinglePage
+        self.bookmarksButton.hidden = isSinglePage
+        if (isSinglePage) {
+            self.pagesView.removeFromSuperview()
+        }
     }
     
     // MARK: Controls view actions
@@ -176,7 +183,7 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
         let contentsController = TWPublicationPreviewViewControllerFactory.tableOfContentsControllerForUrl(self.playbackManager?.playbackSource?.sourceURL)
         if let contentsController = contentsController {
             contentsController.delegate = self
-            contentsController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "dismissTableOfContents")
+            contentsController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(dismissTableOfContents))
             let contentNavigationController = UINavigationController(rootViewController: contentsController)
             self.presentViewController(contentNavigationController, animated: true, completion: nil)
         }

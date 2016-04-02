@@ -30,6 +30,12 @@ class TWTextPlaybackSource : TWPlaybackSource {
         }
     }
     
+    override var numberOfItems:Int {
+        get {
+            return 1
+        }
+    }
+    
     override func goToNextItem() -> Bool {
         if self.currentItemIndex == -1 {
             self.currentItemIndex = 0

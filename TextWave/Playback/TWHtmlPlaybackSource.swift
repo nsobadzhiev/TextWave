@@ -25,6 +25,12 @@ class TWHtmlPlaybackSource: TWTextPlaybackSource, TWResourceDownloaderDelegate {
         self.handleSourceUrl()
     }
     
+    override var numberOfItems:Int {
+        get {
+            return 1
+        }
+    }
+    
     func handleSourceUrl() {
         if self.isLocalResource {
             if let fileUrl = self.sourceURL {

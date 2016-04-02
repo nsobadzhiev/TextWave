@@ -499,7 +499,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="un1-ey-htn" userLabel="Previous Button">
-                                        <rect key="frame" x="8" y="7" width="44" height="28"/>
+                                        <rect key="frame" x="8" y="7" width="43.5" height="28"/>
                                         <state key="normal" image="chapterPrev.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -508,7 +508,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvT-LU-rlg" userLabel="Skip Back Button">
-                                        <rect key="frame" x="62" y="2" width="43" height="42"/>
+                                        <rect key="frame" x="61.5" y="2" width="43.5" height="42"/>
                                         <state key="normal" image="arrowPrev.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -517,7 +517,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yr-ad-KTv" userLabel="Next Button">
-                                        <rect key="frame" x="269" y="2" width="43" height="42"/>
+                                        <rect key="frame" x="268.5" y="2" width="43.5" height="42"/>
                                         <state key="normal" image="chapterNext.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -526,7 +526,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLH-RP-eSu" userLabel="Skip Forward Button">
-                                        <rect key="frame" x="215" y="2" width="44" height="42"/>
+                                        <rect key="frame" x="215" y="2" width="43.5" height="42"/>
                                         <state key="normal" image="arrowNext.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -558,7 +558,6 @@
                                     <constraint firstItem="un1-ey-htn" firstAttribute="width" secondItem="VvT-LU-rlg" secondAttribute="width" id="sJa-ae-ITh"/>
                                     <constraint firstItem="9yr-ad-KTv" firstAttribute="top" secondItem="YVH-Hz-14D" secondAttribute="bottom" id="wk8-ZD-bhX"/>
                                     <constraint firstItem="FLH-RP-eSu" firstAttribute="top" secondItem="YVH-Hz-14D" secondAttribute="bottom" id="wlV-cc-hjB"/>
-                                    <constraint firstItem="VvT-LU-rlg" firstAttribute="leading" secondItem="un1-ey-htn" secondAttribute="trailing" constant="10" id="x4e-1g-Hlv"/>
                                     <constraint firstAttribute="height" constant="44" id="yfU-DG-I2r"/>
                                     <constraint firstItem="YVH-Hz-14D" firstAttribute="leading" secondItem="CWo-6a-Kai" secondAttribute="leading" id="zEv-Eh-e2V"/>
                                 </constraints>
@@ -579,8 +578,8 @@
                             <constraint firstItem="lm1-gK-PkW" firstAttribute="top" secondItem="Ssw-ow-1E6" secondAttribute="topMargin" id="34N-Dl-XyD"/>
                             <constraint firstItem="7Ex-25-Bhm" firstAttribute="width" secondItem="Ssw-ow-1E6" secondAttribute="width" id="5sf-G4-6f6"/>
                             <constraint firstItem="CWo-6a-Kai" firstAttribute="leading" secondItem="Ssw-ow-1E6" secondAttribute="leadingMargin" constant="-16" id="BUD-sb-oeY"/>
-                            <constraint firstItem="lm1-gK-PkW" firstAttribute="leading" secondItem="Ssw-ow-1E6" secondAttribute="leadingMargin" constant="-16" id="Ho2-FK-ngG"/>
-                            <constraint firstItem="aWg-uy-oNh" firstAttribute="leading" secondItem="Ssw-ow-1E6" secondAttribute="leadingMargin" constant="-16" id="I8s-6P-Y7C"/>
+                            <constraint firstItem="lm1-gK-PkW" firstAttribute="leading" secondItem="Ssw-ow-1E6" secondAttribute="leading" id="Ho2-FK-ngG"/>
+                            <constraint firstItem="aWg-uy-oNh" firstAttribute="leading" secondItem="Ssw-ow-1E6" secondAttribute="leading" id="I8s-6P-Y7C"/>
                             <constraint firstItem="aWg-uy-oNh" firstAttribute="top" secondItem="lm1-gK-PkW" secondAttribute="bottom" id="J5j-FC-PZh"/>
                             <constraint firstAttribute="width" secondItem="aWg-uy-oNh" secondAttribute="width" id="Ode-8T-3fD"/>
                             <constraint firstItem="7Ex-25-Bhm" firstAttribute="height" secondItem="Ssw-ow-1E6" secondAttribute="height" id="SLT-cS-bYA"/>
