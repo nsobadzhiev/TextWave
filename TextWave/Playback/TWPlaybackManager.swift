@@ -181,20 +181,21 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
             let text: String = self.playbackSource!.currentText!
             let index = text.startIndex.advancedBy(Int(self.letterIndex))
             let textAfterSkip = self.playbackSource!.currentText!.substringFromIndex(index)
-            if (Array(arrayLiteral: text)[self.letterIndex - 1] == " " ||
-                Array(arrayLiteral: text)[self.letterIndex] == " ") {
-                    return textAfterSkip
-                }
-                else {
+            let prevSymbol = text[text.startIndex.advancedBy(self.letterIndex - 1)];
+            let firstSymbol = text[text.startIndex.advancedBy(self.letterIndex)];
+            if (prevSymbol == " " || firstSymbol == " ") {
+                return textAfterSkip
+            }
+            else {
                 let firstSpaceRange = textAfterSkip.rangeOfString(" ")
                 let spaceRangeStart: String.Index! = firstSpaceRange?.startIndex
                 let indexInt: Int = textAfterSkip.startIndex.distanceTo(spaceRangeStart)
                 let index = textAfterSkip.startIndex.advancedBy(indexInt)
-                    if firstSpaceRange != nil {
-                        return textAfterSkip.substringFromIndex(index)
-                    }
+                if firstSpaceRange != nil {
+                    return textAfterSkip.substringFromIndex(index)
                 }
             }
+        }
         return nil
     }
 
