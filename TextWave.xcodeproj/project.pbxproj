@@ -1807,7 +1807,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.thinxnet.tanktaler;
 				PRODUCT_NAME = TextWave;
-				PROVISIONING_PROFILE = "dd0243e6-6e36-40c1-950c-6db32efdb9ec";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1849,7 +1849,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.thinxnet.tanktaler;
 				PRODUCT_NAME = TextWave;
-				PROVISIONING_PROFILE = "dd0243e6-6e36-40c1-950c-6db32efdb9ec";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
 				VALID_ARCHS = "armv7 armv7s arm64";
