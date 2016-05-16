@@ -26,6 +26,6 @@ class TWSettingsViewController: UIViewController {
     
     @IBAction func onPitchChange(sender:AnyObject?) {
         let newPitch = self.pitchSlider.value
-        TWPlaybackConfiguration.defaultConfiguration.speechRate = newPitch;
+        TWPlaybackConfiguration.defaultConfiguration.speechPitch = newPitch;
     }
 }
