@@ -39,7 +39,7 @@ class TWWebPageDownloaderBase : NSObject {
         let fullPath = urlHost
         if var fullPath = fullPath {
             if let urlDirPath = urlDirPath {
-                if urlDirPath.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 {
+                if urlDirPath.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
                     fullPath = fullPath + "-" + urlDirPath
                 }
                 fullPath = docsDir.stringByAppendingPathComponent(fullPath)
@@ -47,10 +47,7 @@ class TWWebPageDownloaderBase : NSObject {
                     fullPath.hasSuffix(".htm") == false {
                         fullPath = fullPath + ".html";
                 }
-                //let fullUrl = NSURL(fileURLWithPath: fullPath)
-                //NSFileManager.defaultManager().createDirectoryAtURL(fullUrl!, withIntermediateDirectories: true, attributes: nil, error: &createDirError)
-                //fullPath = fullPath.stringByAppendingPathExtension("html")!
-                let range = Range<String.Index>(start: fullPath.startIndex, end: fullPath.endIndex)
+                let range = (fullPath.startIndex ..< fullPath.endIndex)
                 fullPath = fullPath.stringByReplacingOccurrencesOfString(".", withString: "_", options: NSStringCompareOptions.CaseInsensitiveSearch, range: range)
                 return fullPath
             }

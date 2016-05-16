@@ -53,7 +53,7 @@ class TWWebPageDownloader : TWWebPageDownloaderBase, ASIHTTPRequestDelegate {
         self.webPageRequest?.downloadDestinationPath = self.downloadPathForWebPage()
         self.webPageRequest?.urlReplacementMode = ASIReplaceExternalResourcesWithLocalURLs
         self.webPageRequest?.cachePolicy = ASIDoNotReadFromCacheCachePolicy
-        self.webPageRequest?.didFinishSelector = Selector("requestFinished")
+        self.webPageRequest?.didFinishSelector = #selector(ASIHTTPRequest.requestFinished)
         self.webPageRequest?.didFailSelector = Selector("requestFailed")
         self.webPageRequest?.delegate = self
         self.webPageRequest?.cachePolicy = ASIOnlyLoadIfNotCachedCachePolicy
