@@ -75,7 +75,7 @@ class TWThumbnailFileManager : NSObject, NSCoding {
     
     func imageViewFromUrl(imageUrl:NSURL?) -> UIImageView? {
         if var imagePath = imageUrl?.path {
-            let range = Range<String.Index>(start: imagePath.startIndex, end: imagePath.endIndex)
+            let range = (imagePath.startIndex ..< imagePath.endIndex)
             imagePath = imagePath.stringByReplacingOccurrencesOfString("/file:", withString: "", options: NSStringCompareOptions.CaseInsensitiveSearch, range: range)
             let imageData = NSData(contentsOfFile: imagePath)
             if let imageData = imageData {

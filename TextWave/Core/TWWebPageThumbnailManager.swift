@@ -62,7 +62,7 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
     
     func screenshotOfView(view:UIView?) -> UIImage? {
         if let view = view {
-            let imageSize = self.thumbnailSize
+            let imageSize = view.bounds.size
             UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
             view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
             let thumbnail = UIGraphicsGetImageFromCurrentImageContext()
