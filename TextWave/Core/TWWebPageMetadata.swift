@@ -35,7 +35,7 @@ class TWWebPageMetadata : TWFileMetadata {
             let htmlParser = TFHpple(HTMLData: htmlData)
             let titleElement = htmlParser.peekAtSearchWithXPathQuery("/html/head/title")
             let titleString = titleElement.text()
-            return titleString
+            return self.trimWhiteSpaceFromTitle(titleString)
         }
         else {
             return nil
@@ -44,5 +44,9 @@ class TWWebPageMetadata : TWFileMetadata {
     
     override func authorForFile() -> String? {
         return self.fileUrl?.host
+    }
+    
+    func trimWhiteSpaceFromTitle(title:String?) -> String? {
+        return title?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
     }
 }
