@@ -276,6 +276,8 @@
 		23F8AF151A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F8AF141A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift */; };
 		23F8AF201A93E3EC009ECFD1 /* TWNowPlayingManager+RemoteControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F8AF1F1A93E3EC009ECFD1 /* TWNowPlayingManager+RemoteControl.swift */; };
 		93019DB21B66D8D300A5DA93 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93019DB11B66D8D300A5DA93 /* QuartzCore.framework */; };
+		930A17701CE5277300356D3B /* TWPlaybackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A176F1CE5277200356D3B /* TWPlaybackConfiguration.swift */; };
+		930A17751CE529A900356D3B /* TWSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A17741CE529A900356D3B /* TWSettingsViewController.swift */; };
 		931AFE5A1B12780800A17AF8 /* defaultCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 931AFE591B12780800A17AF8 /* defaultCover@2x.png */; };
 		936506D91B13A86B002C5194 /* TWBookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936506D81B13A86B002C5194 /* TWBookmarkCell.swift */; };
 		93D0BD701C1CB60D00475A23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93D0BD6F1C1CB60D00475A23 /* LaunchScreen.storyboard */; };
@@ -621,6 +623,8 @@
 		93019DBE1B6EB84500A5DA93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93019DBF1B6EB84500A5DA93 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		93019DC11B6EB84500A5DA93 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		930A176F1CE5277200356D3B /* TWPlaybackConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWPlaybackConfiguration.swift; sourceTree = "<group>"; };
+		930A17741CE529A900356D3B /* TWSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSettingsViewController.swift; sourceTree = "<group>"; };
 		931AFE591B12780800A17AF8 /* defaultCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultCover@2x.png"; sourceTree = "<group>"; };
 		936506D81B13A86B002C5194 /* TWBookmarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBookmarkCell.swift; sourceTree = "<group>"; };
 		93D0BD6F1C1CB60D00475A23 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -893,6 +897,7 @@
 				237C0F8E19D9DFDD003F575A /* TWEpubPlaybackSource.swift */,
 				23B159521A864DFD001B463D /* TWTextExtractor.swift */,
 				23F8AF141A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift */,
+				930A176F1CE5277200356D3B /* TWPlaybackConfiguration.swift */,
 			);
 			path = Playback;
 			sourceTree = "<group>";
@@ -914,6 +919,7 @@
 				23F8AF1F1A93E3EC009ECFD1 /* TWNowPlayingManager+RemoteControl.swift */,
 				231762F81AF2BD87001BAA0A /* TWBookmarksViewController.swift */,
 				936506D81B13A86B002C5194 /* TWBookmarkCell.swift */,
+				930A17741CE529A900356D3B /* TWSettingsViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1501,6 +1507,7 @@
 				235F967519CDADA2003BA87D /* DMePubURLProtocol.m in Sources */,
 				230155F71A59954400FE2BBC /* TWTabBarSegue.swift in Sources */,
 				2330E24A1A4A172900963427 /* TFHppleElement.m in Sources */,
+				930A17751CE529A900356D3B /* TWSettingsViewController.swift in Sources */,
 				237C0FC719DC8619003F575A /* TextToTagRatioCalculator.m in Sources */,
 				230155F21A598BC100FE2BBC /* TWTabViewController.swift in Sources */,
 				235F967119CDADA2003BA87D /* DMePubItemIterator.m in Sources */,
@@ -1532,6 +1539,7 @@
 				23F8AF151A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift in Sources */,
 				235F965519CDADA2003BA87D /* TWDocumentsFileManager.m in Sources */,
 				23140D251ABE1737001D2A59 /* TWWebPageDownloadManager.swift in Sources */,
+				930A17701CE5277300356D3B /* TWPlaybackConfiguration.swift in Sources */,
 				235F965119CDADA2003BA87D /* DDXMLNode+ChildForName.m in Sources */,
 				235F969719CDADA2003BA87D /* TWTextPlaybackSource.swift in Sources */,
 				2330E24B1A4A172900963427 /* XPathQuery.m in Sources */,
@@ -1807,7 +1815,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.thinxnet.tanktaler;
 				PRODUCT_NAME = TextWave;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "24f10136-cd0f-49ac-9f28-29bf23830984";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1849,7 +1857,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.thinxnet.tanktaler;
 				PRODUCT_NAME = TextWave;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "24f10136-cd0f-49ac-9f28-29bf23830984";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
 				VALID_ARCHS = "armv7 armv7s arm64";

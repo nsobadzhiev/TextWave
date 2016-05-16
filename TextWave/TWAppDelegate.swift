@@ -18,6 +18,12 @@ class TWAppDelegate: UIResponder, UIApplicationDelegate {
     var fileManager: TWFileSystemManager = NSFileManager.defaultManager() as TWFileSystemManager
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
+            let docsDir = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).first
+            print("Documents dir: \(docsDir)")
+        #endif
+        
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let rootViewController = storyboard.instantiateInitialViewController()
         let window:UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)

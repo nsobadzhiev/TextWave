@@ -25,8 +25,6 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     
     var textToSpeech = AVSpeechSynthesizer()
     var playbackSource: TWPlaybackSource? = nil
-    var speechRate: Float = 0.15
-    var speechPitch: Float = 0.0
     var wordIndex = 0
     var letterIndex = 0
     weak var delegate: TWPlaybackManagerDelegate? = nil
@@ -43,6 +41,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         super.init()
         self.playbackSource = dataSource
         textToSpeech.delegate = self
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(onPlaybackConfigurationChange), name: TWPlaybackConfigurationChangeNotification, object: nil)
     }
     
     deinit {
@@ -138,8 +137,8 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     func speakText(text: String) {
         self.currentText = text
         let utterance = AVSpeechUtterance(string: text)
-        utterance.rate = self.speechRate
-        utterance.pitchMultiplier = self.speechPitch
+        utterance.rate = TWPlaybackConfiguration.defaultConfiguration.speechRate
+        utterance.pitchMultiplier = TWPlaybackConfiguration.defaultConfiguration.speechPitch
         textToSpeech.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
         textToSpeech.speakUtterance(utterance)
     }
@@ -232,6 +231,15 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         self.letterIndex = characterRange.location + characterRange.length
         if let existingDelegate = self.delegate {
             existingDelegate.playbackManager(self, didMoveToPosition: self.wordIndex)
+        }
+    }
+    
+    // MARK: NSNotification
+    
+    func onPlaybackConfigurationChange () {
+        // restart the current text
+        if let text = self.currentText {
+            self.speakText(text)
         }
     }
 
