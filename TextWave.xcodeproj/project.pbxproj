@@ -280,6 +280,10 @@
 		930A17751CE529A900356D3B /* TWSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A17741CE529A900356D3B /* TWSettingsViewController.swift */; };
 		931AFE5A1B12780800A17AF8 /* defaultCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 931AFE591B12780800A17AF8 /* defaultCover@2x.png */; };
 		936506D91B13A86B002C5194 /* TWBookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936506D81B13A86B002C5194 /* TWBookmarkCell.swift */; };
+		93902BA11CF9F3810055B0A5 /* arrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 93902B9D1CF9F3810055B0A5 /* arrowDown.png */; };
+		93902BA21CF9F3810055B0A5 /* arrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93902B9E1CF9F3810055B0A5 /* arrowDown@2x.png */; };
+		93902BA31CF9F3810055B0A5 /* arrowDownPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 93902B9F1CF9F3810055B0A5 /* arrowDownPressed.png */; };
+		93902BA41CF9F3810055B0A5 /* arrowDownPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93902BA01CF9F3810055B0A5 /* arrowDownPressed@2x.png */; };
 		93D0BD701C1CB60D00475A23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93D0BD6F1C1CB60D00475A23 /* LaunchScreen.storyboard */; };
 		FDAE9AFA1A1EB77200E542F0 /* download_page@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */; };
 		FDAE9AFB1A1EB77200E542F0 /* download_page@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDAE9AF91A1EB77200E542F0 /* download_page@3x.png */; };
@@ -627,6 +631,10 @@
 		930A17741CE529A900356D3B /* TWSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSettingsViewController.swift; sourceTree = "<group>"; };
 		931AFE591B12780800A17AF8 /* defaultCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultCover@2x.png"; sourceTree = "<group>"; };
 		936506D81B13A86B002C5194 /* TWBookmarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBookmarkCell.swift; sourceTree = "<group>"; };
+		93902B9D1CF9F3810055B0A5 /* arrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowDown.png; sourceTree = "<group>"; };
+		93902B9E1CF9F3810055B0A5 /* arrowDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowDown@2x.png"; sourceTree = "<group>"; };
+		93902B9F1CF9F3810055B0A5 /* arrowDownPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowDownPressed.png; sourceTree = "<group>"; };
+		93902BA01CF9F3810055B0A5 /* arrowDownPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowDownPressed@2x.png"; sourceTree = "<group>"; };
 		93D0BD6F1C1CB60D00475A23 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDAE9AF71A1EB77200E542F0 /* download_page@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download_page@2x.png"; sourceTree = "<group>"; };
 		FDAE9AF91A1EB77200E542F0 /* download_page@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download_page@3x.png"; sourceTree = "<group>"; };
@@ -1181,6 +1189,10 @@
 		FDAE9AF51A1EB77200E542F0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				93902B9D1CF9F3810055B0A5 /* arrowDown.png */,
+				93902B9E1CF9F3810055B0A5 /* arrowDown@2x.png */,
+				93902B9F1CF9F3810055B0A5 /* arrowDownPressed.png */,
+				93902BA01CF9F3810055B0A5 /* arrowDownPressed@2x.png */,
 				234EAE101ACDC9CF00086C1D /* arrowLeft.png */,
 				234EAE111ACDC9CF00086C1D /* arrowLeft@2x.png */,
 				234EAE121ACDC9CF00086C1D /* arrowNext.png */,
@@ -1385,6 +1397,7 @@
 			files = (
 				234EAE531ACDC9CF00086C1D /* arrowPrevPressed@2x.png in Resources */,
 				234EAE781ACDC9CF00086C1D /* tabPlay.png in Resources */,
+				93902BA11CF9F3810055B0A5 /* arrowDown.png in Resources */,
 				232729D41A46144C0093E189 /* defaultBookBackground@2x.png in Resources */,
 				234EAE761ACDC9CF00086C1D /* tabLibrarySelected.png in Resources */,
 				234EAE6A1ACDC9CF00086C1D /* navbarSearch.png in Resources */,
@@ -1401,11 +1414,13 @@
 				234EAE5A1ACDC9CF00086C1D /* chapterNextPressed.png in Resources */,
 				234EAE5C1ACDC9CF00086C1D /* chapterPrev.png in Resources */,
 				234EAE621ACDC9CF00086C1D /* defaultCover.png in Resources */,
+				93902BA41CF9F3810055B0A5 /* arrowDownPressed@2x.png in Resources */,
 				234EAE5E1ACDC9CF00086C1D /* chapterPrevPressed.png in Resources */,
 				234EAE4E1ACDC9CF00086C1D /* arrowNextPressed.png in Resources */,
 				234EAE6E1ACDC9CF00086C1D /* pause.png in Resources */,
 				232729DA1A461C440093E189 /* defaultCover.png in Resources */,
 				234EAE6B1ACDC9CF00086C1D /* navbarSearch@2x.png in Resources */,
+				93902BA21CF9F3810055B0A5 /* arrowDown@2x.png in Resources */,
 				234EAE7F1ACDC9CF00086C1D /* tabSearchSelected@2x.png in Resources */,
 				235F967F19CDADA2003BA87D /* Images.xcassets in Resources */,
 				234EAE4B1ACDC9CF00086C1D /* arrowLeft@2x.png in Resources */,
@@ -1420,6 +1435,7 @@
 				234EAE4C1ACDC9CF00086C1D /* arrowNext.png in Resources */,
 				234EAE7E1ACDC9CF00086C1D /* tabSearchSelected.png in Resources */,
 				235F966319CDADA2003BA87D /* Main.strings in Resources */,
+				93902BA31CF9F3810055B0A5 /* arrowDownPressed.png in Resources */,
 				234EAE4A1ACDC9CF00086C1D /* arrowLeft.png in Resources */,
 				235F966119CDADA2003BA87D /* InfoPlist.strings in Resources */,
 				234EAE511ACDC9CF00086C1D /* arrowPrev@2x.png in Resources */,
@@ -1813,9 +1829,9 @@
 					"$(PROJECT_DIR)/libs/JusText",
 					"$(PROJECT_DIR)/libs/pcre",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.thinxnet.tanktaler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.textwave.app;
 				PRODUCT_NAME = TextWave;
-				PROVISIONING_PROFILE = "24f10136-cd0f-49ac-9f28-29bf23830984";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1855,9 +1871,9 @@
 					"$(PROJECT_DIR)/libs/JusText",
 					"$(PROJECT_DIR)/libs/pcre",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.thinxnet.tanktaler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.textwave.app;
 				PRODUCT_NAME = TextWave;
-				PROVISIONING_PROFILE = "24f10136-cd0f-49ac-9f28-29bf23830984";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
 				VALID_ARCHS = "armv7 armv7s arm64";
