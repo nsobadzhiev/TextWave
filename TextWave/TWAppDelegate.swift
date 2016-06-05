@@ -29,7 +29,7 @@ class TWAppDelegate: UIResponder, UIApplicationDelegate {
         let window:UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
         window.rootViewController = rootViewController as UIViewController?
         window.makeKeyAndVisible()
-        UIView.appearance().tintColor = UIColor(red: 240.0 / 255, green: 136.0 / 255, blue: 32 / 255, alpha: 1.0)
+        UIView.appearance().tintColor = UIColor(red: 150.0 / 255, green: 150.0 / 255, blue: 150.0 / 255, alpha: 1.0)
         self.setupAudioSession()
         
         return true
