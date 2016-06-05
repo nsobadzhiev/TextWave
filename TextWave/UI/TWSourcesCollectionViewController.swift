@@ -31,7 +31,7 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionLayout.delegate = self
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("onNewFileAdded"), name: AppDelegateFileAddedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TWSourcesCollectionViewController.onNewFileAdded), name: AppDelegateFileAddedNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {

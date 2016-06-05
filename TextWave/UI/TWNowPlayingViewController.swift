@@ -271,7 +271,7 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
         if segue.identifier == "BookmarksTable" {
             let bookmarksNavigationController = segue.destinationViewController as? UINavigationController
             let bookmarksViewController = bookmarksNavigationController?.topViewController as? TWBookmarksViewController
-            let fileName = self.playbackManager?.playbackSource?.sourceURL?.lastPathComponent?.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+            let fileName = self.playbackManager?.playbackSource?.sourceURL?.lastPathComponent?.stringByRemovingPercentEncoding
             bookmarksViewController?.filePath = fileName
         }
     }

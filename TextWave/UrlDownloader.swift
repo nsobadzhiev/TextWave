@@ -39,7 +39,7 @@ class UrlDownloader : NSObject, NSURLConnectionDataDelegate {
     // should not be called from external classes
     func createAndStartRequest() {
         let normalizedURL = self.urlPath?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        let escapedUrl:String? = normalizedURL?.stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        let escapedUrl:String? = normalizedURL?.stringByRemovingPercentEncoding
         let theURL = NSURL(string: escapedUrl!)
         let theRequest = NSMutableURLRequest(URL: theURL!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: NSTimeInterval(k_connectionTimeout))
         theRequest.HTTPMethod = "GET"
@@ -48,7 +48,7 @@ class UrlDownloader : NSObject, NSURLConnectionDataDelegate {
     }
     
     func downloadResource() {
-        if let path = self.urlPath {
+        if self.urlPath != nil {
             // creating an NSURL with a nil string throws an exception. Prevent that
             // and notify the delegate that the request failed
             self.notifyDelegateDownloadFailedWithError(nil)
