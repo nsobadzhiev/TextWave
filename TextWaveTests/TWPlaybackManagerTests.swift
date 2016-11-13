@@ -14,7 +14,7 @@ class TWPlaybackManagerTests: XCTestCase, TWPlaybackManagerDelegate {
     
     var delegatedIndex = -1
     
-    var source: TWMockPlaybackSource! = TWMockPlaybackSource(url: NSURL(string: "http://path/to/file"))
+    var source: TWMockPlaybackSource! = TWMockPlaybackSource(url: URL(string: "http://path/to/file"))
     var playback: TWMockPlaybackManager! = nil
     var textToSpeech: TWMockSpeechSynthesizer! = TWMockSpeechSynthesizer()
 
@@ -35,17 +35,17 @@ class TWPlaybackManagerTests: XCTestCase, TWPlaybackManagerDelegate {
     
     // MARK: TWPlaybackManagerDelegate methods
     
-    func playbackManager(playback: TWPlaybackManager, didBeginItemAtIndex index: Int) {
+    func playbackManager(_ playback: TWPlaybackManager, didBeginItemAtIndex index: Int) {
         wasNotifiedBeginItem = true
         delegatedIndex = index
     }
     
-    func playbackManager(playback: TWPlaybackManager, didFinishItemAtIndex index: Int) {
+    func playbackManager(_ playback: TWPlaybackManager, didFinishItemAtIndex index: Int) {
         wasNotifiedFinishItem = true
         delegatedIndex = index
     }
     
-    func playbackManager(playback: TWPlaybackManager, didMoveToPosition index: Int) {
+    func playbackManager(_ playback: TWPlaybackManager, didMoveToPosition index: Int) {
         wasNotifiedMovePosition = true
         delegatedIndex = index
     }
@@ -266,7 +266,7 @@ class TWPlaybackManagerTests: XCTestCase, TWPlaybackManagerDelegate {
         playback.next()
         playback.setPlaybackProgress(1.5)
         let utterance = textToSpeech.suppliedUtterance
-        let utteranceText = utterance?.speechString?
+        let utteranceText = utterance?.speechString
         XCTAssertTrue(utteranceText == nextSpeechString, "The uterrance text should remain the same if the progress is not between 0 and 1")
     }
 }

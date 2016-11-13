@@ -30,7 +30,7 @@ class TWSourcesCollectionViewCell : UICollectionViewCell {
                 subview.removeFromSuperview()
             }
             self.imageView?.frame = self.thumbnailView.bounds
-            self.imageView?.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+            self.imageView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             self.thumbnailView?.addSubview(self.imageView!)
         }
     }
@@ -38,16 +38,16 @@ class TWSourcesCollectionViewCell : UICollectionViewCell {
     func startShaking() {
         let delay = Double(Double(arc4random_uniform(10)) / 10.0)
         //let movement = CGFloat(arc4random_uniform(5))
-        let animationOptions:UIViewKeyframeAnimationOptions = [.AllowUserInteraction, .Repeat]
-        let easeOptions:UIViewAnimationOptions = [.CurveEaseInOut, .Repeat]
-        UIView.animateWithDuration(0.5, delay: delay, options: easeOptions, animations: { () -> Void in
-            UIView.animateKeyframesWithDuration(0.60, delay: delay, options: animationOptions, animations: { () -> Void in
+        let animationOptions:UIViewKeyframeAnimationOptions = [.allowUserInteraction, .repeat]
+        let easeOptions:UIViewAnimationOptions = .repeat
+        UIView.animate(withDuration: 0.5, delay: delay, options: easeOptions, animations: { () -> Void in
+            UIView.animateKeyframes(withDuration: 0.60, delay: delay, options: animationOptions, animations: { () -> Void in
                 var time = 0.0
                 let duration = 0.15
                 let radius:CGFloat = CGFloat(M_PI / 200.0);
                 let originalFrame = self.frame
-                UIView.addKeyframeWithRelativeStartTime(time, relativeDuration: duration, animations: { () -> Void in
-                    let transform = CGAffineTransformMakeRotation(-radius);
+                UIView.addKeyframe(withRelativeStartTime: time, relativeDuration: duration, animations: { () -> Void in
+                    let transform = CGAffineTransform(rotationAngle: -radius);
                     self.transform = transform;
                     var myFrame = self.frame
                     let movementX = -5.0 + CGFloat(arc4random_uniform(10))
@@ -57,8 +57,8 @@ class TWSourcesCollectionViewCell : UICollectionViewCell {
                     self.frame = myFrame
                 })
                 time += duration
-                UIView.addKeyframeWithRelativeStartTime(time, relativeDuration: duration, animations: { () -> Void in
-                    let transform = CGAffineTransformMakeRotation(radius);
+                UIView.addKeyframe(withRelativeStartTime: time, relativeDuration: duration, animations: { () -> Void in
+                    let transform = CGAffineTransform(rotationAngle: radius);
                     self.transform = transform;
                     var myFrame = self.frame
                     let movementX = -5.0 + CGFloat(arc4random_uniform(10))
@@ -68,8 +68,8 @@ class TWSourcesCollectionViewCell : UICollectionViewCell {
                     self.frame = myFrame
                 })
                 time += duration
-                UIView.addKeyframeWithRelativeStartTime(time, relativeDuration: duration, animations: { () -> Void in
-                    let transform = CGAffineTransformMakeRotation(-radius);
+                UIView.addKeyframe(withRelativeStartTime: time, relativeDuration: duration, animations: { () -> Void in
+                    let transform = CGAffineTransform(rotationAngle: -radius);
                     self.transform = transform;
                     var myFrame = self.frame
                     let movementX = -5.0 + CGFloat(arc4random_uniform(10))
@@ -79,8 +79,8 @@ class TWSourcesCollectionViewCell : UICollectionViewCell {
                     self.frame = myFrame
                 })
                 time += duration
-                UIView.addKeyframeWithRelativeStartTime(time, relativeDuration: duration, animations: { () -> Void in
-                    let transform = CGAffineTransformMakeRotation(0);
+                UIView.addKeyframe(withRelativeStartTime: time, relativeDuration: duration, animations: { () -> Void in
+                    let transform = CGAffineTransform(rotationAngle: 0);
                     self.transform = transform;
                     self.frame = originalFrame
                 })

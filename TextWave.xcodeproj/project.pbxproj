@@ -17,29 +17,6 @@
 		23140D2A1ABE20EC001D2A59 /* TWHtmlFileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23140D291ABE20EC001D2A59 /* TWHtmlFileDownloader.swift */; };
 		23140D2C1ABF2FB8001D2A59 /* TWWebPageDownloaderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23140D2B1ABF2FB8001D2A59 /* TWWebPageDownloaderBase.swift */; };
 		231762F91AF2BD87001BAA0A /* TWBookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231762F81AF2BD87001BAA0A /* TWBookmarksViewController.swift */; };
-		2320FD901A9D14490004F742 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FCF61A9D14490004F742 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD911A9D14490004F742 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FCF91A9D14490004F742 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD921A9D14490004F742 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FCFB1A9D14490004F742 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD931A9D14490004F742 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FCFD1A9D14490004F742 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD941A9D14490004F742 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FCFF1A9D14490004F742 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD951A9D14490004F742 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD011A9D14490004F742 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD961A9D14490004F742 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD051A9D14490004F742 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD971A9D14490004F742 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD071A9D14490004F742 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD981A9D14490004F742 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD0B1A9D14490004F742 /* ASIWebPageRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD991A9D14490004F742 /* ASICloudFilesCDNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD0E1A9D14490004F742 /* ASICloudFilesCDNRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD9A1A9D14490004F742 /* ASICloudFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD101A9D14490004F742 /* ASICloudFilesContainer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD9B1A9D14490004F742 /* ASICloudFilesContainerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD121A9D14490004F742 /* ASICloudFilesContainerRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD9C1A9D14490004F742 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD141A9D14490004F742 /* ASICloudFilesContainerXMLParserDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD9D1A9D14490004F742 /* ASICloudFilesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD161A9D14490004F742 /* ASICloudFilesObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD9E1A9D14490004F742 /* ASICloudFilesObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD181A9D14490004F742 /* ASICloudFilesObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FD9F1A9D14490004F742 /* ASICloudFilesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD1A1A9D14490004F742 /* ASICloudFilesRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FDA01A9D14490004F742 /* ASIS3Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD1E1A9D14490004F742 /* ASIS3Bucket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FDA11A9D14490004F742 /* ASIS3BucketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD201A9D14490004F742 /* ASIS3BucketObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FDA21A9D14490004F742 /* ASIS3BucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD221A9D14490004F742 /* ASIS3BucketRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FDA31A9D14490004F742 /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD241A9D14490004F742 /* ASIS3ObjectRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FDA41A9D14490004F742 /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD261A9D14490004F742 /* ASIS3Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FDA51A9D14490004F742 /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320FD281A9D14490004F742 /* ASIS3ServiceRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2320FDD11A9D14490004F742 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 2320FD7A1A9D14490004F742 /* LICENSE */; };
 		2320FDEA1A9D18F70004F742 /* TWWebPageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2320FDE91A9D18F70004F742 /* TWWebPageDownloader.swift */; };
 		232729D41A46144C0093E189 /* defaultBookBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 232729D31A46144C0093E189 /* defaultBookBackground@2x.png */; };
 		232729D91A461C440093E189 /* defaultBookBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 232729D71A461C440093E189 /* defaultBookBackground.png */; };
@@ -263,7 +240,6 @@
 		23B159661A865306001B463D /* English.txt in Resources */ = {isa = PBXBuildFile; fileRef = 23B159641A865306001B463D /* English.txt */; };
 		23B159671A865306001B463D /* Hungarian.txt in Resources */ = {isa = PBXBuildFile; fileRef = 23B159651A865306001B463D /* Hungarian.txt */; };
 		23C4E84E1AA64AE500726672 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C4E84D1AA64AE500726672 /* Reachability.m */; };
-		23CE8D131AAE2F1A00FA183C /* ASIWebPageRequest+Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CE8D121AAE2F1A00FA183C /* ASIWebPageRequest+Cache.m */; };
 		23D126DA1A017CDF0036DDAB /* TWWebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D126D91A017CDF0036DDAB /* TWWebPageViewController.swift */; };
 		23D126DD1A02D0890036DDAB /* TWFileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D126DC1A02D0890036DDAB /* TWFileType.swift */; };
 		23EC99BE1A49A687001C8447 /* TWFileMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC99BD1A49A687001C8447 /* TWFileMetadata.swift */; };
@@ -341,56 +317,6 @@
 		23140D291ABE20EC001D2A59 /* TWHtmlFileDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWHtmlFileDownloader.swift; sourceTree = "<group>"; };
 		23140D2B1ABF2FB8001D2A59 /* TWWebPageDownloaderBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageDownloaderBase.swift; sourceTree = "<group>"; };
 		231762F81AF2BD87001BAA0A /* TWBookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBookmarksViewController.swift; sourceTree = "<group>"; };
-		2320FCF51A9D14490004F742 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
-		2320FCF61A9D14490004F742 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
-		2320FCF71A9D14490004F742 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
-		2320FCF81A9D14490004F742 /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
-		2320FCF91A9D14490004F742 /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
-		2320FCFA1A9D14490004F742 /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataDecompressor.h; sourceTree = "<group>"; };
-		2320FCFB1A9D14490004F742 /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
-		2320FCFC1A9D14490004F742 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
-		2320FCFD1A9D14490004F742 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
-		2320FCFE1A9D14490004F742 /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
-		2320FCFF1A9D14490004F742 /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
-		2320FD001A9D14490004F742 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
-		2320FD011A9D14490004F742 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
-		2320FD021A9D14490004F742 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
-		2320FD031A9D14490004F742 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
-		2320FD041A9D14490004F742 /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
-		2320FD051A9D14490004F742 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
-		2320FD061A9D14490004F742 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
-		2320FD071A9D14490004F742 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
-		2320FD081A9D14490004F742 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
-		2320FD0A1A9D14490004F742 /* ASIWebPageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIWebPageRequest.h; sourceTree = "<group>"; };
-		2320FD0B1A9D14490004F742 /* ASIWebPageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIWebPageRequest.m; sourceTree = "<group>"; };
-		2320FD0D1A9D14490004F742 /* ASICloudFilesCDNRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesCDNRequest.h; sourceTree = "<group>"; };
-		2320FD0E1A9D14490004F742 /* ASICloudFilesCDNRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesCDNRequest.m; sourceTree = "<group>"; };
-		2320FD0F1A9D14490004F742 /* ASICloudFilesContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesContainer.h; sourceTree = "<group>"; };
-		2320FD101A9D14490004F742 /* ASICloudFilesContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesContainer.m; sourceTree = "<group>"; };
-		2320FD111A9D14490004F742 /* ASICloudFilesContainerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesContainerRequest.h; sourceTree = "<group>"; };
-		2320FD121A9D14490004F742 /* ASICloudFilesContainerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesContainerRequest.m; sourceTree = "<group>"; };
-		2320FD131A9D14490004F742 /* ASICloudFilesContainerXMLParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesContainerXMLParserDelegate.h; sourceTree = "<group>"; };
-		2320FD141A9D14490004F742 /* ASICloudFilesContainerXMLParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesContainerXMLParserDelegate.m; sourceTree = "<group>"; };
-		2320FD151A9D14490004F742 /* ASICloudFilesObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesObject.h; sourceTree = "<group>"; };
-		2320FD161A9D14490004F742 /* ASICloudFilesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesObject.m; sourceTree = "<group>"; };
-		2320FD171A9D14490004F742 /* ASICloudFilesObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesObjectRequest.h; sourceTree = "<group>"; };
-		2320FD181A9D14490004F742 /* ASICloudFilesObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesObjectRequest.m; sourceTree = "<group>"; };
-		2320FD191A9D14490004F742 /* ASICloudFilesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICloudFilesRequest.h; sourceTree = "<group>"; };
-		2320FD1A1A9D14490004F742 /* ASICloudFilesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASICloudFilesRequest.m; sourceTree = "<group>"; };
-		2320FD1C1A9D14490004F742 /* ASINSXMLParserCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINSXMLParserCompat.h; sourceTree = "<group>"; };
-		2320FD1D1A9D14490004F742 /* ASIS3Bucket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3Bucket.h; sourceTree = "<group>"; };
-		2320FD1E1A9D14490004F742 /* ASIS3Bucket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3Bucket.m; sourceTree = "<group>"; };
-		2320FD1F1A9D14490004F742 /* ASIS3BucketObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3BucketObject.h; sourceTree = "<group>"; };
-		2320FD201A9D14490004F742 /* ASIS3BucketObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3BucketObject.m; sourceTree = "<group>"; };
-		2320FD211A9D14490004F742 /* ASIS3BucketRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3BucketRequest.h; sourceTree = "<group>"; };
-		2320FD221A9D14490004F742 /* ASIS3BucketRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3BucketRequest.m; sourceTree = "<group>"; };
-		2320FD231A9D14490004F742 /* ASIS3ObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3ObjectRequest.h; sourceTree = "<group>"; };
-		2320FD241A9D14490004F742 /* ASIS3ObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ObjectRequest.m; sourceTree = "<group>"; };
-		2320FD251A9D14490004F742 /* ASIS3Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3Request.h; sourceTree = "<group>"; };
-		2320FD261A9D14490004F742 /* ASIS3Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3Request.m; sourceTree = "<group>"; };
-		2320FD271A9D14490004F742 /* ASIS3ServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIS3ServiceRequest.h; sourceTree = "<group>"; };
-		2320FD281A9D14490004F742 /* ASIS3ServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ServiceRequest.m; sourceTree = "<group>"; };
-		2320FD7A1A9D14490004F742 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		2320FDE91A9D18F70004F742 /* TWWebPageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageDownloader.swift; sourceTree = "<group>"; };
 		232729D31A46144C0093E189 /* defaultBookBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultBookBackground@2x.png"; sourceTree = "<group>"; };
 		232729D71A461C440093E189 /* defaultBookBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultBookBackground.png; path = x1/defaultBookBackground.png; sourceTree = "<group>"; };
@@ -611,8 +537,6 @@
 		23B159651A865306001B463D /* Hungarian.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Hungarian.txt; sourceTree = "<group>"; };
 		23C4E84C1AA64AE500726672 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		23C4E84D1AA64AE500726672 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		23CE8D111AAE2F1A00FA183C /* ASIWebPageRequest+Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASIWebPageRequest+Cache.h"; sourceTree = "<group>"; };
-		23CE8D121AAE2F1A00FA183C /* ASIWebPageRequest+Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASIWebPageRequest+Cache.m"; sourceTree = "<group>"; };
 		23D126D91A017CDF0036DDAB /* TWWebPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebPageViewController.swift; sourceTree = "<group>"; };
 		23D126DC1A02D0890036DDAB /* TWFileType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWFileType.swift; sourceTree = "<group>"; };
 		23EC99BD1A49A687001C8447 /* TWFileMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWFileMetadata.swift; sourceTree = "<group>"; };
@@ -681,96 +605,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2320FCED1A9D14490004F742 /* ASIHTTPRequest */ = {
-			isa = PBXGroup;
-			children = (
-				2320FCF41A9D14490004F742 /* Classes */,
-				2320FD7A1A9D14490004F742 /* LICENSE */,
-			);
-			name = ASIHTTPRequest;
-			path = libs/ASIHTTPRequest;
-			sourceTree = "<group>";
-		};
-		2320FCF41A9D14490004F742 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				2320FCF51A9D14490004F742 /* ASIAuthenticationDialog.h */,
-				2320FCF61A9D14490004F742 /* ASIAuthenticationDialog.m */,
-				2320FCF71A9D14490004F742 /* ASICacheDelegate.h */,
-				2320FCF81A9D14490004F742 /* ASIDataCompressor.h */,
-				2320FCF91A9D14490004F742 /* ASIDataCompressor.m */,
-				2320FCFA1A9D14490004F742 /* ASIDataDecompressor.h */,
-				2320FCFB1A9D14490004F742 /* ASIDataDecompressor.m */,
-				2320FCFC1A9D14490004F742 /* ASIDownloadCache.h */,
-				2320FCFD1A9D14490004F742 /* ASIDownloadCache.m */,
-				2320FCFE1A9D14490004F742 /* ASIFormDataRequest.h */,
-				2320FCFF1A9D14490004F742 /* ASIFormDataRequest.m */,
-				2320FD001A9D14490004F742 /* ASIHTTPRequest.h */,
-				2320FD011A9D14490004F742 /* ASIHTTPRequest.m */,
-				2320FD021A9D14490004F742 /* ASIHTTPRequestConfig.h */,
-				2320FD031A9D14490004F742 /* ASIHTTPRequestDelegate.h */,
-				2320FD041A9D14490004F742 /* ASIInputStream.h */,
-				2320FD051A9D14490004F742 /* ASIInputStream.m */,
-				2320FD061A9D14490004F742 /* ASINetworkQueue.h */,
-				2320FD071A9D14490004F742 /* ASINetworkQueue.m */,
-				2320FD081A9D14490004F742 /* ASIProgressDelegate.h */,
-				2320FD091A9D14490004F742 /* ASIWebPageRequest */,
-				2320FD0C1A9D14490004F742 /* CloudFiles */,
-				2320FD1B1A9D14490004F742 /* S3 */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		2320FD091A9D14490004F742 /* ASIWebPageRequest */ = {
-			isa = PBXGroup;
-			children = (
-				2320FD0A1A9D14490004F742 /* ASIWebPageRequest.h */,
-				2320FD0B1A9D14490004F742 /* ASIWebPageRequest.m */,
-			);
-			path = ASIWebPageRequest;
-			sourceTree = "<group>";
-		};
-		2320FD0C1A9D14490004F742 /* CloudFiles */ = {
-			isa = PBXGroup;
-			children = (
-				2320FD0D1A9D14490004F742 /* ASICloudFilesCDNRequest.h */,
-				2320FD0E1A9D14490004F742 /* ASICloudFilesCDNRequest.m */,
-				2320FD0F1A9D14490004F742 /* ASICloudFilesContainer.h */,
-				2320FD101A9D14490004F742 /* ASICloudFilesContainer.m */,
-				2320FD111A9D14490004F742 /* ASICloudFilesContainerRequest.h */,
-				2320FD121A9D14490004F742 /* ASICloudFilesContainerRequest.m */,
-				2320FD131A9D14490004F742 /* ASICloudFilesContainerXMLParserDelegate.h */,
-				2320FD141A9D14490004F742 /* ASICloudFilesContainerXMLParserDelegate.m */,
-				2320FD151A9D14490004F742 /* ASICloudFilesObject.h */,
-				2320FD161A9D14490004F742 /* ASICloudFilesObject.m */,
-				2320FD171A9D14490004F742 /* ASICloudFilesObjectRequest.h */,
-				2320FD181A9D14490004F742 /* ASICloudFilesObjectRequest.m */,
-				2320FD191A9D14490004F742 /* ASICloudFilesRequest.h */,
-				2320FD1A1A9D14490004F742 /* ASICloudFilesRequest.m */,
-			);
-			path = CloudFiles;
-			sourceTree = "<group>";
-		};
-		2320FD1B1A9D14490004F742 /* S3 */ = {
-			isa = PBXGroup;
-			children = (
-				2320FD1C1A9D14490004F742 /* ASINSXMLParserCompat.h */,
-				2320FD1D1A9D14490004F742 /* ASIS3Bucket.h */,
-				2320FD1E1A9D14490004F742 /* ASIS3Bucket.m */,
-				2320FD1F1A9D14490004F742 /* ASIS3BucketObject.h */,
-				2320FD201A9D14490004F742 /* ASIS3BucketObject.m */,
-				2320FD211A9D14490004F742 /* ASIS3BucketRequest.h */,
-				2320FD221A9D14490004F742 /* ASIS3BucketRequest.m */,
-				2320FD231A9D14490004F742 /* ASIS3ObjectRequest.h */,
-				2320FD241A9D14490004F742 /* ASIS3ObjectRequest.m */,
-				2320FD251A9D14490004F742 /* ASIS3Request.h */,
-				2320FD261A9D14490004F742 /* ASIS3Request.m */,
-				2320FD271A9D14490004F742 /* ASIS3ServiceRequest.h */,
-				2320FD281A9D14490004F742 /* ASIS3ServiceRequest.m */,
-			);
-			path = S3;
-			sourceTree = "<group>";
-		};
 		232729D21A4614280093E189 /* x1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -847,8 +681,6 @@
 				2330E2521A5180E300963427 /* TWThumbnailFileManager.swift */,
 				2330E2541A51CD2600963427 /* TWFileMetadataFactory.swift */,
 				2320FDE91A9D18F70004F742 /* TWWebPageDownloader.swift */,
-				23CE8D111AAE2F1A00FA183C /* ASIWebPageRequest+Cache.h */,
-				23CE8D121AAE2F1A00FA183C /* ASIWebPageRequest+Cache.m */,
 				23140D241ABE1737001D2A59 /* TWWebPageDownloadManager.swift */,
 				23140D291ABE20EC001D2A59 /* TWHtmlFileDownloader.swift */,
 				23140D2B1ABF2FB8001D2A59 /* TWWebPageDownloaderBase.swift */,
@@ -993,7 +825,6 @@
 		235F979B19CDBCF6003BA87D /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				2320FCED1A9D14490004F742 /* ASIHTTPRequest */,
 				23B159571A865263001B463D /* JusText */,
 				23B1595B1A865263001B463D /* pcre */,
 				2330E24F1A4A173900963427 /* hpple */,
@@ -1324,11 +1155,12 @@
 			attributes = {
 				CLASSPREFIX = DM;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Nikola Sobadjiev";
 				TargetAttributes = {
 					2363AE3E1913A95F003EFA4A = {
 						DevelopmentTeam = LXK758P7S7;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1336,6 +1168,7 @@
 						};
 					};
 					2363AE5F1913A95F003EFA4A = {
+						LastSwiftMigration = 0800;
 						TestTargetID = 2363AE3E1913A95F003EFA4A;
 					};
 				};
@@ -1449,7 +1282,6 @@
 				234EAE751ACDC9CF00086C1D /* tabLibrary@2x.png in Resources */,
 				234EAE801ACDC9CF00086C1D /* tabSettings.png in Resources */,
 				234EAE521ACDC9CF00086C1D /* arrowPrevPressed.png in Resources */,
-				2320FDD11A9D14490004F742 /* LICENSE in Resources */,
 				234EAE7B1ACDC9CF00086C1D /* tabPlaySelected@2x.png in Resources */,
 				FDAE9AFA1A1EB77200E542F0 /* download_page@2x.png in Resources */,
 				234EAE551ACDC9CF00086C1D /* arrowRight@2x.png in Resources */,
@@ -1499,27 +1331,21 @@
 				235F96AD19CDADA2003BA87D /* UrlDownloader.swift in Sources */,
 				235F967319CDADA2003BA87D /* DMePubManager.m in Sources */,
 				235F973919CDB06D003BA87D /* DMHtmlPageViewController.m in Sources */,
-				2320FD9B1A9D14490004F742 /* ASICloudFilesContainerRequest.m in Sources */,
 				23D126DA1A017CDF0036DDAB /* TWWebPageViewController.swift in Sources */,
 				23D126DD1A02D0890036DDAB /* TWFileType.swift in Sources */,
 				936506D91B13A86B002C5194 /* TWBookmarkCell.swift in Sources */,
-				2320FD911A9D14490004F742 /* ASIDataCompressor.m in Sources */,
 				235F973719CDB06D003BA87D /* DMePubPageViewController.m in Sources */,
 				235F973D19CDB06D003BA87D /* DMTableOfContentsDataSource.m in Sources */,
 				235F967B19CDADA2003BA87D /* DMTableOfContents.m in Sources */,
-				2320FDA01A9D14490004F742 /* ASIS3Bucket.m in Sources */,
 				235F967719CDADA2003BA87D /* DMRootFileParser.m in Sources */,
 				237C0FC919DC8619003F575A /* TextToTagRatioSmoother.m in Sources */,
 				231762F91AF2BD87001BAA0A /* TWBookmarksViewController.swift in Sources */,
 				23F8AF201A93E3EC009ECFD1 /* TWNowPlayingManager+RemoteControl.swift in Sources */,
 				23EC99C21A49DC98001C8447 /* TWWebPageMetadata.swift in Sources */,
-				2320FD961A9D14490004F742 /* ASIInputStream.m in Sources */,
 				235F973519CDB06D003BA87D /* DMePubItemViewController.m in Sources */,
 				235F969319CDADA2003BA87D /* TWPlaybackSource.swift in Sources */,
 				2320FDEA1A9D18F70004F742 /* TWWebPageDownloader.swift in Sources */,
-				2320FD991A9D14490004F742 /* ASICloudFilesCDNRequest.m in Sources */,
 				237C0FCD19DC8619003F575A /* TTRArticleExtractor.m in Sources */,
-				2320FD951A9D14490004F742 /* ASIHTTPRequest.m in Sources */,
 				235F967519CDADA2003BA87D /* DMePubURLProtocol.m in Sources */,
 				230155F71A59954400FE2BBC /* TWTabBarSegue.swift in Sources */,
 				2330E24A1A4A172900963427 /* TFHppleElement.m in Sources */,
@@ -1527,15 +1353,12 @@
 				237C0FC719DC8619003F575A /* TextToTagRatioCalculator.m in Sources */,
 				230155F21A598BC100FE2BBC /* TWTabViewController.swift in Sources */,
 				235F967119CDADA2003BA87D /* DMePubItemIterator.m in Sources */,
-				2320FD901A9D14490004F742 /* ASIAuthenticationDialog.m in Sources */,
 				235F97C819CDBDA9003BA87D /* DDXMLDocument.m in Sources */,
 				235F97C419CDBDA9003BA87D /* DDXMLElementAdditions.m in Sources */,
 				2330E2551A51CD2600963427 /* TWFileMetadataFactory.swift in Sources */,
-				2320FD9A1A9D14490004F742 /* ASICloudFilesContainer.m in Sources */,
 				235F966719CDADA2003BA87D /* DMBookmarkManager.m in Sources */,
 				23EC99C01A49A828001C8447 /* TWEpubMetadata.swift in Sources */,
 				2330E2511A509D1100963427 /* TWWebPageThumbnailManager.swift in Sources */,
-				2320FDA41A9D14490004F742 /* ASIS3Request.m in Sources */,
 				2330E2531A5180E300963427 /* TWThumbnailFileManager.swift in Sources */,
 				237C0F8F19D9DFDD003F575A /* TWEpubPlaybackSource.swift in Sources */,
 				235087E21A631740006346B1 /* DMePubTableOfContentsTableViewController.m in Sources */,
@@ -1544,12 +1367,8 @@
 				235F966519CDADA2003BA87D /* DMBookmark.m in Sources */,
 				235F966919CDADA2003BA87D /* DMContainerFileParser.m in Sources */,
 				235F967D19CDADA2003BA87D /* DMTableOfContentsItem.m in Sources */,
-				2320FDA51A9D14490004F742 /* ASIS3ServiceRequest.m in Sources */,
-				2320FD971A9D14490004F742 /* ASINetworkQueue.m in Sources */,
 				236BD8941A23BF1900EA4EA4 /* DMTableOfContentsV3.m in Sources */,
-				2320FD9E1A9D14490004F742 /* ASICloudFilesObjectRequest.m in Sources */,
 				23B159531A864DFD001B463D /* TWTextExtractor.swift in Sources */,
-				23CE8D131AAE2F1A00FA183C /* ASIWebPageRequest+Cache.m in Sources */,
 				235F97CA19CDBDA9003BA87D /* DDXMLElement.m in Sources */,
 				235F966D19CDADA2003BA87D /* DMePubFileManager.m in Sources */,
 				23F8AF151A8E7A2A009ECFD1 /* TWLockScreenNowPlayingInfo.swift in Sources */,
@@ -1564,20 +1383,14 @@
 				23140D2C1ABF2FB8001D2A59 /* TWWebPageDownloaderBase.swift in Sources */,
 				23C4E84E1AA64AE500726672 /* Reachability.m in Sources */,
 				235F965319CDADA2003BA87D /* NSError+Description.m in Sources */,
-				2320FD931A9D14490004F742 /* ASIDownloadCache.m in Sources */,
 				23EC99BE1A49A687001C8447 /* TWFileMetadata.swift in Sources */,
 				235F973F19CDB06D003BA87D /* DMTableOfContentsTableViewController.m in Sources */,
 				235F968F19CDADA2003BA87D /* TWPlaybackManager.swift in Sources */,
 				235F966B19CDADA2003BA87D /* DMContainerItem.m in Sources */,
 				237C0FC319DC8619003F575A /* RegexFactory.m in Sources */,
-				2320FD9F1A9D14490004F742 /* ASICloudFilesRequest.m in Sources */,
-				2320FD9D1A9D14490004F742 /* ASICloudFilesObject.m in Sources */,
-				2320FDA11A9D14490004F742 /* ASIS3BucketObject.m in Sources */,
 				235F968B19CDADA2003BA87D /* TWNowPlayingManager.swift in Sources */,
-				2320FD941A9D14490004F742 /* ASIFormDataRequest.m in Sources */,
 				237C0FC519DC8619003F575A /* TagsStripper.m in Sources */,
 				2330E2491A4A172900963427 /* TFHpple.m in Sources */,
-				2320FDA21A9D14490004F742 /* ASIS3BucketRequest.m in Sources */,
 				235F965919CDADA2003BA87D /* TWAppDelegate.swift in Sources */,
 				235F96A119CDADA2003BA87D /* TWNowPlayingViewController.swift in Sources */,
 				235F968319CDADA2003BA87D /* NSFileManager+TWFileSystemManager.swift in Sources */,
@@ -1589,18 +1402,14 @@
 				237C0FD619DC9F92003F575A /* TWPublicationPreviewViewControllerProtocol.swift in Sources */,
 				235F968719CDADA2003BA87D /* TWHtmlPlaybackSource.swift in Sources */,
 				236BD88E1A23BF0100EA4EA4 /* DMTableOfContentsV2.m in Sources */,
-				2320FDA31A9D14490004F742 /* ASIS3ObjectRequest.m in Sources */,
 				237C0FC119DC8619003F575A /* GTMNSString+HTML.m in Sources */,
 				235F967919CDADA2003BA87D /* DMSpineItem.m in Sources */,
 				235F965F19CDADA2003BA87D /* TWResourceDownloader.swift in Sources */,
 				235F96A519CDADA2003BA87D /* TWSourcesCollectionViewCell.swift in Sources */,
 				235F973319CDB06D003BA87D /* DMDocumentsViewController.m in Sources */,
 				235F96A919CDADA2003BA87D /* TWSourcesCollectionViewController.swift in Sources */,
-				2320FD921A9D14490004F742 /* ASIDataDecompressor.m in Sources */,
-				2320FD9C1A9D14490004F742 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				23F3C91119F3EF1700ABCE81 /* TWPublicationPreviewViewControllerFactory.swift in Sources */,
 				235F965B19CDADA2003BA87D /* TWFileSystemManager.swift in Sources */,
-				2320FD981A9D14490004F742 /* ASIWebPageRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1731,6 +1540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1740,14 +1550,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1760,7 +1575,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1770,6 +1585,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1779,21 +1595,27 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1835,6 +1657,7 @@
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1876,6 +1699,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWave-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1916,6 +1740,7 @@
 				PRODUCT_NAME = TextWaveTests;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWaveTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1951,6 +1776,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.devmonologue.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = TextWaveTests;
 				SWIFT_OBJC_BRIDGING_HEADER = "TextWave/TextWaveTests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

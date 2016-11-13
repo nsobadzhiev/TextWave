@@ -26,18 +26,18 @@ class TWBookViewControllerTests: XCTestCase, TWBookViewControllerDelegate {
         super.tearDown()
     }
     
-    func bookViewController(bookController: TWBookViewController, shouldSelectSection index: Int) -> Bool {
+    func bookViewController(_ bookController: TWBookViewController, shouldSelectSection index: Int) -> Bool {
         hasAskedDelegateShouldSelect = true;
         selectionIndex = index;
         return true;
     }
     
-    func bookViewController(bookController: TWBookViewController, willSelectSection index: Int) {
+    func bookViewController(_ bookController: TWBookViewController, willSelectSection index: Int) {
         hasCalledDelegateWillSelect = true;
         selectionIndex = index;
     }
     
-    func bookViewController(bookController: TWBookViewController, didSelectSection index: Int) {
+    func bookViewController(_ bookController: TWBookViewController, didSelectSection index: Int) {
         hasCalledDelegateDidSelect = true;
         selectionIndex = index;
     }

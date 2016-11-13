@@ -9,8 +9,8 @@
 import Foundation
 
 protocol TWSourcesCollectionLayoutDataSource {
-    func sourcesCollectionLayout(collectionLayout: TWSourcesCollectionLayout, imageSizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
-    func sourcesCollectionLayout(collectionLayout: TWSourcesCollectionLayout, titleForItemAtIndexPath indexPath: NSIndexPath) -> NSString?
+    func sourcesCollectionLayout(_ collectionLayout: TWSourcesCollectionLayout, imageSizeForItemAtIndexPath indexPath: IndexPath) -> CGSize
+    func sourcesCollectionLayout(_ collectionLayout: TWSourcesCollectionLayout, titleForItemAtIndexPath indexPath: IndexPath) -> NSString?
 }
 
 class TWSourcesCollectionLayout : UICollectionViewLayout {
@@ -25,13 +25,13 @@ class TWSourcesCollectionLayout : UICollectionViewLayout {
         }
     }
     
-    override func prepareLayout() {
-        assert((self.collectionView?.numberOfSections() == 1), "Milti section collection views not supported")
-        let itemsCount = self.collectionView?.numberOfItemsInSection(0)
+    override func prepare() {
+        assert((self.collectionView?.numberOfSections == 1), "Milti section collection views not supported")
+        let itemsCount = self.collectionView?.numberOfItems(inSection: 0)
         var leftColumnHeight:Float = 0
         var rightColumnHeight:Float = 0
         self.totalHeight = 0
-        self.layoutItems.removeAll(keepCapacity: true)
+        self.layoutItems.removeAll(keepingCapacity: true)
         
         if itemsCount == 0 {
             return
@@ -39,7 +39,7 @@ class TWSourcesCollectionLayout : UICollectionViewLayout {
         
         if let itemsCount = itemsCount {
             for itemIndex in 0...(itemsCount - 1) {
-                let indexPath = NSIndexPath(forItem: itemIndex, inSection: 0)
+                let indexPath = IndexPath(item: itemIndex, section: 0)
                 let itemImageSize = self.delegate?.sourcesCollectionLayout(self, imageSizeForItemAtIndexPath: indexPath)
                 let itemTitle = self.delegate?.sourcesCollectionLayout(self, titleForItemAtIndexPath: indexPath)
                 let titleHeight = self.heightForTitle(itemTitle as? String)
@@ -54,8 +54,8 @@ class TWSourcesCollectionLayout : UICollectionViewLayout {
                 let imageHeight = Double(self.itemWidth) * imageRatio
                 var itemHeight = titleHeight
                 itemHeight += Float(imageHeight)
-                let itemAttributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
-                if indexPath.row % 2 == 0 {
+                let itemAttributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+                if (indexPath as NSIndexPath).row % 2 == 0 {
                     itemAttributes.frame = CGRect(x: 5.0, y: Double(leftColumnHeight), width: Double(self.itemWidth), height: Double(itemHeight))
                     leftColumnHeight += itemHeight
                 }
@@ -72,20 +72,20 @@ class TWSourcesCollectionLayout : UICollectionViewLayout {
     
     // MARK: collection layout
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        return self.layoutItems[indexPath.row]
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        return self.layoutItems[(indexPath as NSIndexPath).row]
     }
     
-    override func collectionViewContentSize() -> CGSize {
+    override var collectionViewContentSize : CGSize {
         if let collectionView = self.collectionView {
             return CGSize(width: Double(collectionView.frame.size.width), height: Double(self.totalHeight))
         }
         else {
-            return CGSizeZero
+            return CGSize.zero
         }
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var itemsForRect: Array<UICollectionViewLayoutAttributes> = []
         for item in self.layoutItems {
             if rect.intersects(item.frame) {
@@ -97,7 +97,7 @@ class TWSourcesCollectionLayout : UICollectionViewLayout {
     
     // MARK: private methods
     
-    func heightForTitle(title: String?) -> Float {
+    func heightForTitle(_ title: String?) -> Float {
         return 40;  // TODO: calculate dynamic title height
     }
 }

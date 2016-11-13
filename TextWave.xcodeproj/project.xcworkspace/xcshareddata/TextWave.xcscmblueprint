@@ -1,0 +1,58 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F21236C9C957047DC6F117217933E6E2591A99FB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "82DF43EF5CA016D15C41E0AF1AF686E9973475B7" : 0,
+    "F21236C9C957047DC6F117217933E6E2591A99FB" : 0,
+    "70A8537565E8EBD1B9D364933832E742DD9D1D11" : 0,
+    "FAF40D7FD305BB7D5BE5F87AE969BD7D31922D57" : 0,
+    "C98F34640CDAF8C591AEB91EEF768A6198C4416E" : 0,
+    "4E22747A11AF04D4748851C104DB73EA4E8F1126" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9AE463B7-EF01-4C20-ACDE-D7FEFA040467",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "82DF43EF5CA016D15C41E0AF1AF686E9973475B7" : "TextWave\/libs\/zipzap\/",
+    "F21236C9C957047DC6F117217933E6E2591A99FB" : "TextWave\/",
+    "70A8537565E8EBD1B9D364933832E742DD9D1D11" : "TextWave\/libs\/kissXML\/",
+    "FAF40D7FD305BB7D5BE5F87AE969BD7D31922D57" : "TextWave\/libs\/ASIHTTPRequest\/",
+    "C98F34640CDAF8C591AEB91EEF768A6198C4416E" : "TextWave\/libs\/hpple\/",
+    "4E22747A11AF04D4748851C104DB73EA4E8F1126" : "TextWave\/libs\/ttr\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TextWave",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TextWave.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nsobadzhiev\/TTR.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4E22747A11AF04D4748851C104DB73EA4E8F1126"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/robbiehanson\/KissXML.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "70A8537565E8EBD1B9D364933832E742DD9D1D11"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/pixelglow\/zipzap.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "82DF43EF5CA016D15C41E0AF1AF686E9973475B7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/topfunky\/hpple.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C98F34640CDAF8C591AEB91EEF768A6198C4416E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/devmonologue.com\/home3\/devmonol\/projects\/TextWave\/.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F21236C9C957047DC6F117217933E6E2591A99FB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/pokeb\/asi-http-request.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FAF40D7FD305BB7D5BE5F87AE969BD7D31922D57"
+    }
+  ]
+}

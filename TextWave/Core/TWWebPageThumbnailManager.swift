@@ -10,12 +10,12 @@ import Foundation
 
 class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
     
-    var thumbnailSize:CGSize = CGSizeMake(140.0, 160.0)
+    var thumbnailSize:CGSize = CGSize(width: 140.0, height: 160.0)
     let thumbnailsFileManager = TWThumbnailFileManager()
-    var successBlock: ((thumbnailView:UIView) -> Void)! = nil
-    var failureBlock: ((error:NSError) -> Void)! = nil
+    var successBlock: ((_ thumbnailView:UIView) -> Void)! = nil
+    var failureBlock: ((_ error:Error) -> Void)! = nil
     var webViews:Array<UIWebView> = []
-    var urls:Array<NSURL> = []
+    var urls:Array<URL> = []
     
     deinit {
         for webView in self.webViews {
@@ -23,10 +23,10 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
         }
     }
     
-    func thumbnailForWebPage(pageUrl: NSURL?, successBlock:(thumbnailView:UIView) -> Void, failBlock:(error:NSError) -> Void) {
+    func thumbnailForWebPage(_ pageUrl: URL?, successBlock:@escaping (_ thumbnailView:UIView) -> Void, failBlock:@escaping (_ error:Error) -> Void) {
         let cachedThumbnail = self.thumbnailsFileManager.cachedThumbnailForUrl(pageUrl)
         if let cachedThumbnail = cachedThumbnail {
-            successBlock(thumbnailView: cachedThumbnail)
+            successBlock(cachedThumbnail)
         }
         else {
             self.successBlock = successBlock
@@ -35,15 +35,15 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
         }
     }
     
-    func fetchThumbnail(url:NSURL?) {
+    func fetchThumbnail(_ url:URL?) {
         if let url = url {
-            let webView = UIWebView(frame: CGRectMake(0, 0, self.thumbnailSize.width, self.thumbnailSize.height))
-            self.successBlock(thumbnailView: webView)
+            let webView = UIWebView(frame: CGRect(x: 0, y: 0, width: self.thumbnailSize.width, height: self.thumbnailSize.height))
+            self.successBlock(webView)
             webView.scalesPageToFit = true
             webView.delegate = self
-            if url.fileURL == true {
+            if url.isFileURL == true {
                 do {
-                    let htmlString = try NSString(contentsOfURL: url, encoding: NSUTF8StringEncoding)
+                    let htmlString = try NSString(contentsOf: url, encoding: String.Encoding.utf8.rawValue)
                     let baseUrl = TWWebPageDownloadManager.defaultDownloadManager.baseUrlForWebPage(url.lastPathComponent)
                     webView.loadHTMLString(htmlString as String, baseURL: baseUrl)
                 }
@@ -52,7 +52,7 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
                 }
             }
             else {
-                let request = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
+                let request = URLRequest(url: url, cachePolicy: NSURLRequest.CachePolicy.returnCacheDataElseLoad, timeoutInterval: 30)
                 webView.loadRequest(request)
             }
             self.webViews.append(webView)
@@ -60,11 +60,11 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
         }
     }
     
-    func screenshotOfView(view:UIView?) -> UIImage? {
+    func screenshotOfView(_ view:UIView?) -> UIImage? {
         if let view = view {
             let imageSize = view.bounds.size
             UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
-            view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
             let thumbnail = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             return thumbnail
@@ -76,18 +76,18 @@ class TWWebPageThumbnailManager : NSObject, UIWebViewDelegate {
     
     // MARK: WebView delegate
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         let scrollView = webView.scrollView
         let zoom = webView.bounds.size.width/scrollView.contentSize.width
         scrollView.setZoomScale(zoom, animated: false)
         
         let thumbnail = self.screenshotOfView(webView)
-        let webViewIndex = self.webViews.indexOf(webView)
+        let webViewIndex = self.webViews.index(of: webView)
         let url = self.urls[webViewIndex!]
-        self.thumbnailsFileManager.saveThumbnail(thumbnail, forUrl: url)
+        _ = self.thumbnailsFileManager.saveThumbnail(thumbnail, forUrl: url)
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        self.failureBlock(error: error!)
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        self.failureBlock(error)
     }
 }

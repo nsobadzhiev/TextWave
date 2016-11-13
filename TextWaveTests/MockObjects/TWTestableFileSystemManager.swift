@@ -11,22 +11,22 @@ import Foundation
 class TWTestableFileSystemManager : TWFileSystemManager {
     
     var directoryContents: Array<String>?
-    var fileContents: NSData?
+    var fileContents: Data?
     var requestedDirPath: String?
-    var copiedURL: NSURL?
-    var destinationURL: NSURL?
+    var copiedURL: URL?
+    var destinationURL: URL?
     
-    func contentsOfDirectoryAtPath(path: String!, error: NSErrorPointer) -> [AnyObject]! {
+    func contentsOfDirectoryAtPath(_ path: String!, error: NSErrorPointer) -> [AnyObject]! {
         self.requestedDirPath = path
-        return self.directoryContents
+        return self.directoryContents as [AnyObject]!
     }
     
-    func contentsAtPath(path: String!) -> NSData!
+    func contentsAtPath(_ path: String!) -> Data!
     {
         return self.fileContents
     }
     
-    func copyItemAtURL(srcURL: NSURL!, toURL dstURL: NSURL!, error: NSErrorPointer) -> Bool {
+    func copyItemAtURL(_ srcURL: URL!, toURL dstURL: URL!, error: NSErrorPointer) -> Bool {
         self.copiedURL = srcURL;
         self.destinationURL = dstURL
         return true

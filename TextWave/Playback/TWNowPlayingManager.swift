@@ -12,7 +12,7 @@ let sharedInstance = TWNowPlayingManager()
 
 class TWNowPlayingManager {
     
-    let playbackSourcesDict = [TWFileType.EPUB: createEpubPlaybackSource, TWFileType.HTML: createHtmlPlaybackSource]
+    let playbackSourcesDict = [TWFileType.epub: createEpubPlaybackSource, TWFileType.html: createHtmlPlaybackSource]
 
     class var instance: TWNowPlayingManager {
         return sharedInstance
@@ -33,14 +33,14 @@ class TWNowPlayingManager {
         }
     }
     
-    func startPlaybackWithUrl(url: NSURL?) {
+    func startPlaybackWithUrl(_ url: URL?) {
         let source = self.playbackSourceForUrl(url)
         if let source = source {
             self.playbackManager = TWPlaybackManager(dataSource: source)
         }
     }
     
-    func startPlaybackWithUrl(url: NSURL?, selectedItem: NSString?) {
+    func startPlaybackWithUrl(_ url: URL?, selectedItem: NSString?) {
         let source = self.playbackSourceForUrl(url)
         if let source = source {
             self.playbackManager?.finish()
@@ -49,16 +49,16 @@ class TWNowPlayingManager {
         }
     }
     
-    func playbackSourceForUrl(url:NSURL?) -> TWPlaybackSource? {
+    func playbackSourceForUrl(_ url:URL?) -> TWPlaybackSource? {
         let fileType = TWFileTypeManager.fileType(fileUrl: url)
         let playbackSourceGeneratorFunction = self.playbackSourcesDict[fileType]
         if let playbackSourceGeneratorFunction = playbackSourceGeneratorFunction {
-            return playbackSourceGeneratorFunction(self)(sourceUrl: url)
+            return playbackSourceGeneratorFunction(self)(url)
         }
         return nil
     }
     
-    func createEpubPlaybackSource(sourceUrl sourceUrl:NSURL?) -> TWPlaybackSource {
+    func createEpubPlaybackSource(sourceUrl:URL?) -> TWPlaybackSource {
         let epubPlaybackSource = TWEpubPlaybackSource(url: sourceUrl)
         if self.selectedItem != nil {
             epubPlaybackSource.goToItemWithPath(self.selectedItem)
@@ -66,7 +66,7 @@ class TWNowPlayingManager {
         return epubPlaybackSource
     }
     
-    func createHtmlPlaybackSource(sourceUrl sourceUrl:NSURL?) -> TWPlaybackSource {
+    func createHtmlPlaybackSource(sourceUrl:URL?) -> TWPlaybackSource {
         return TWHtmlPlaybackSource(url: sourceUrl)
     }
 }

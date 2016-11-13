@@ -8,7 +8,7 @@
 
 class TWHtmlPlaybackSourceTests: XCTestCase, TWPlaybackSourceDelegate {
     
-    let playbackSource = TWHtmlPlaybackSource(url: NSURL(string: "http://testPage.com"))
+    let playbackSource = TWHtmlPlaybackSource(url: URL(string: "http://testPage.com"))
     var wasNotifiedResourcesLoaded = false
     var wasNotifiedResourcesLoadFailed = false
     var resourceLoadError: NSError? = nil
@@ -23,17 +23,17 @@ class TWHtmlPlaybackSourceTests: XCTestCase, TWPlaybackSourceDelegate {
         super.tearDown()
     }
     
-    func playbackSourceDidLoadResources(playbackSource: TWPlaybackSource) {
+    func playbackSourceDidLoadResources(_ playbackSource: TWPlaybackSource) {
         wasNotifiedResourcesLoaded = true
     }
     
-    func playbackSource(playbackSource: TWPlaybackSource, didFailWithError error: NSError?) {
+    func playbackSource(_ playbackSource: TWPlaybackSource, didFailWithError error: NSError?) {
         wasNotifiedResourcesLoadFailed = true
         resourceLoadError = error
     }
 
     func testInitializingWithLocalResource() {
-        let htmlSource = TWHtmlPlaybackSource(url: NSURL(string: "file://path/to/file.html"))
+        let htmlSource = TWHtmlPlaybackSource(url: URL(string: "file://path/to/file.html"))
         XCTAssertTrue(htmlSource.isLocalResource, "TWHtmlPlaybackSource should be able to distinguish between local and remote URLs")
     }
 

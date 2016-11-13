@@ -13,7 +13,7 @@ class TWEpubMetadata : TWFileMetadata {
     
     var epubManager: DMePubManager? = nil
     
-    override init(url: NSURL?) {
+    override init(url: URL?) {
         super.init(url: url)
         epubManager = DMePubManager(epubPath: url?.absoluteString)
     }
@@ -28,7 +28,7 @@ class TWEpubMetadata : TWFileMetadata {
         return thumbnail
     }
     
-    override func thumbnailForFileWithBlock(completionBlock:((thumbnailView:UIView?) -> Void)) {
+    override func thumbnailForFileWithBlock(_ completionBlock:@escaping ((_ thumbnailView:UIView?) -> Void)) {
         var thumbnail:UIImage? = nil
         do {
             try thumbnail = epubManager?.cover();
@@ -37,16 +37,16 @@ class TWEpubMetadata : TWFileMetadata {
             
         }
         let thumbnailView = UIImageView(image: thumbnail)
-        completionBlock(thumbnailView: thumbnailView)
+        completionBlock(thumbnailView)
     }
     
     override func thumbnailSize() -> CGSize {
         let cover = self.thumbnailForFile()
         if let cover = cover {
-            return CGSizeMake(cover.size.width, cover.size.height)
+            return CGSize(width: cover.size.width, height: cover.size.height)
         }
         else {
-            return CGSizeZero
+            return CGSize.zero
         }
     }
     

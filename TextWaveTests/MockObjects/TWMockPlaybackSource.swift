@@ -15,7 +15,7 @@ class TWMockPlaybackSource : TWPlaybackSource {
     var previousSpeechString: String? = nil
     var nextSpeechString: String? = nil
     
-    override init(url: NSURL?) {
+    override init(url: URL?) {
         super.init(url: url)
     }
     

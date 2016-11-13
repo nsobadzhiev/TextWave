@@ -15,7 +15,7 @@ class TWMockSpeechSynthesizer : AVSpeechSynthesizer {
     var hasAskedToStopPlayback = false
     var suppliedUtterance: AVSpeechUtterance? = nil
     
-    override func pauseSpeakingAtBoundary(boundary: AVSpeechBoundary) -> Bool {
+    override func pauseSpeaking(at boundary: AVSpeechBoundary) -> Bool {
         self.hasAskedToPause = true
         return true
     }
@@ -25,11 +25,11 @@ class TWMockSpeechSynthesizer : AVSpeechSynthesizer {
         return true
     }
         
-    override func speakUtterance(utterance: AVSpeechUtterance!) {
+    override func speak(_ utterance: AVSpeechUtterance!) {
         self.suppliedUtterance = utterance;
     }
     
-    override func stopSpeakingAtBoundary(boundary: AVSpeechBoundary) -> Bool {
+    override func stopSpeaking(at boundary: AVSpeechBoundary) -> Bool {
         self.hasAskedToStopPlayback = true
         return true
     }

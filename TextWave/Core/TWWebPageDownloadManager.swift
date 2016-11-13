@@ -11,10 +11,10 @@ import Foundation
 let defaultManager = TWWebPageDownloadManager()
 
 class TWWebPageDownloadManager : TWWebPageDownloaderDelegate {
-    var catalogue: Dictionary<String, NSURL> = Dictionary<String, NSURL>()
+    var catalogue: Dictionary<String, URL> = Dictionary<String, URL>()
     let catalogueName = "WebPagesCatalogue"
-    var pageCompletionCallbacksDict = Dictionary<NSURL, (pageUrl:NSURL) -> Void>()
-    var pageFailureCallbacksDict = Dictionary<NSURL, (pageUrl:NSURL?, error:NSError?) -> Void>()
+    var pageCompletionCallbacksDict = Dictionary<URL, (_ pageUrl:URL) -> Void>()
+    var pageFailureCallbacksDict = Dictionary<URL, (_ pageUrl:URL?, _ error:NSError?) -> Void>()
     
     class var defaultDownloadManager:TWWebPageDownloadManager {
         get {
@@ -22,34 +22,33 @@ class TWWebPageDownloadManager : TWWebPageDownloaderDelegate {
         }
     }
     
-    func downloadWebPage(pageUrl:NSURL?, loadResources:Bool, completionBlock:(pageUrl:NSURL) -> Void, failureBlock:((pageUrl:NSURL?, error:NSError?) -> Void)) {
+    func downloadWebPage(_ pageUrl:URL?, loadResources:Bool, completionBlock:@escaping (_ pageUrl:URL) -> Void, failureBlock:@escaping ((_ pageUrl:URL?, _ error:NSError?) -> Void)) {
         if let pageUrl = pageUrl {
             let downloader = self.downloaderForUrl(pageUrl, loadResources: loadResources)
             let downloadPath = downloader.downloadPathForWebPage()
             if let downloadPath = downloadPath {
-                let downloadUrl = NSURL(fileURLWithPath: downloadPath)
-                if let downloadName = downloadUrl.lastPathComponent {
-                    self.addCatalogueEntry(downloadName, baseUrl: pageUrl)
-                    downloader.delegate = self
-                    self.pageCompletionCallbacksDict[pageUrl] = completionBlock
-                    self.pageFailureCallbacksDict[pageUrl] = failureBlock
-                    downloader.startDownload()
-                    return
-                }
+                let downloadUrl = URL(fileURLWithPath: downloadPath)
+                let downloadName = downloadUrl.lastPathComponent
+                self.addCatalogueEntry(downloadName, baseUrl: pageUrl)
+                downloader.delegate = self
+                self.pageCompletionCallbacksDict[pageUrl] = completionBlock
+                self.pageFailureCallbacksDict[pageUrl] = failureBlock
+                downloader.startDownload()
+                return
             }
         }
-        failureBlock(pageUrl: pageUrl, error: nil)
+        failureBlock(pageUrl, nil)
     }
     
-    func addCatalogueEntry(pageName:String, baseUrl:NSURL) {
+    func addCatalogueEntry(_ pageName:String, baseUrl:URL) {
         self.catalogue[pageName] = baseUrl
     }
     
-    func removeCatalogueEntry(pageName:String) {
+    func removeCatalogueEntry(_ pageName:String) {
         self.catalogue[pageName] = nil
     }
     
-    func baseUrlForWebPage(pageName:String?) -> NSURL? {
+    func baseUrlForWebPage(_ pageName:String?) -> URL? {
         if let pageName = pageName {
             return self.catalogue[pageName]
         }
@@ -58,9 +57,9 @@ class TWWebPageDownloadManager : TWWebPageDownloaderDelegate {
         }
     }
     
-    func hasLocalCopyOfPage(pageUrl:NSURL?) -> Bool {
+    func hasLocalCopyOfPage(_ pageUrl:URL?) -> Bool {
         for (_, remoteUrl) in self.catalogue {
-            if remoteUrl.isEqual(pageUrl) {
+            if remoteUrl == pageUrl {
                 return true
             }
         }
@@ -68,20 +67,20 @@ class TWWebPageDownloadManager : TWWebPageDownloaderDelegate {
     }
     
     func cataloguePath() -> String {
-        let cachesPath = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0] as NSString
-        let cataloguePath = cachesPath.stringByAppendingPathComponent(catalogueName)
+        let cachesPath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0] as NSString
+        let cataloguePath = cachesPath.appendingPathComponent(catalogueName)
         return cataloguePath
     }
     
     func saveCatalogue() -> Bool {
         let cataloguePath = self.cataloguePath()
-        let catalogueData = NSKeyedArchiver.archivedDataWithRootObject(self.catalogue)
-        catalogueData.writeToFile(cataloguePath, atomically: false)
+        let catalogueData = NSKeyedArchiver.archivedData(withRootObject: self.catalogue)
+        try? catalogueData.write(to: URL(fileURLWithPath: cataloguePath), options: [])
         return true
     }
     
     func loadCatalogue() -> Bool {
-        let loadedCatalogue:Dictionary<String, NSURL>? = NSKeyedUnarchiver.unarchiveObjectWithFile(self.cataloguePath()) as? Dictionary
+        let loadedCatalogue:Dictionary<String, URL>? = NSKeyedUnarchiver.unarchiveObject(withFile: self.cataloguePath()) as? Dictionary
         if let loadedCatalogue = loadedCatalogue {
             self.catalogue = loadedCatalogue
             return true
@@ -91,37 +90,33 @@ class TWWebPageDownloadManager : TWWebPageDownloaderDelegate {
         }
     }
     
-    func downloaderForUrl(pageUrl:NSURL?, loadResources shouldLoadResources:Bool) -> TWWebPageDownloaderBase {
-        if shouldLoadResources {
-            return TWWebPageDownloader(url: pageUrl)
-        }
-        else {
-            return TWHtmlFileDownloader(url: pageUrl)
-        }
+    func downloaderForUrl(_ pageUrl:URL?, loadResources shouldLoadResources:Bool) -> TWWebPageDownloaderBase {
+        assert(shouldLoadResources == false, "Loading whole web pages is not supported")
+        return TWHtmlFileDownloader(url: pageUrl)
     }
     
-    func failureCallbackForUrl(pageUrl:NSURL) -> ((pageUrl:NSURL?, error:NSError?) -> Void)? {
+    func failureCallbackForUrl(_ pageUrl:URL) -> ((_ pageUrl:URL?, _ error:NSError?) -> Void)? {
         return self.pageFailureCallbacksDict[pageUrl]
     }
     
-    func completionCallbackForUrl(pageUrl:NSURL) -> ((pageUrl:NSURL) -> Void)? {
+    func completionCallbackForUrl(_ pageUrl:URL) -> ((_ pageUrl:URL) -> Void)? {
         return self.pageCompletionCallbacksDict[pageUrl]
     }
     
     // MARK: TWWebPageDownloaderDelegate
     
-    func downloadComplete(downloader:TWWebPageDownloaderBase) {
+    func downloadComplete(_ downloader:TWWebPageDownloaderBase) {
         if let url = downloader.webPageUrl {
-            if let completionBlock = self.completionCallbackForUrl(url) {
-                completionBlock(pageUrl:url)
+            if let completionBlock = self.completionCallbackForUrl(url as URL) {
+                completionBlock(url as URL)
             }
         }
     }
     
-    func downloadFailed(downloader:TWWebPageDownloaderBase) {
+    func downloadFailed(_ downloader:TWWebPageDownloaderBase) {
         if let url = downloader.webPageUrl {
-            if let failureBlock = self.failureCallbackForUrl(url) {
-                failureBlock(pageUrl:downloader.webPageUrl, error:downloader.downloadError)
+            if let failureBlock = self.failureCallbackForUrl(url as URL) {
+                failureBlock(downloader.webPageUrl as URL?, downloader.downloadError)
             }
         }
     }

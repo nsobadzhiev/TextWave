@@ -25,7 +25,7 @@ class TWSourcesTableViewCellTests: XCTestCase, TWSourcesTableViewCellDelegate {
         super.tearDown()
     }
     
-    func sourcesCell(cell: TWSourcesTableViewCell, didSelectItemAtIndex index: Int) {
+    func sourcesCell(_ cell: TWSourcesTableViewCell, didSelectItemAtIndex index: Int) {
         selectedCellIndex = index;
     }
 

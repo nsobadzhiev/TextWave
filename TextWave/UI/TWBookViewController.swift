@@ -12,7 +12,7 @@ class TWBookViewController : TWPublicationPreviewViewControllerProtocol {
     
     @IBOutlet var previewView: UIView! = nil
     
-    var bookUrl: NSURL? {
+    var bookUrl: URL? {
         didSet{
             self.setup()
         }
@@ -21,7 +21,7 @@ class TWBookViewController : TWPublicationPreviewViewControllerProtocol {
     var epubPageController: DMePubPageViewController? = nil
     var delegate: TWPublicationPreviewViewControllerDelegate? = nil
     
-    required override init(publicationUrl bookUrl: NSURL?) {
+    required override init(publicationUrl bookUrl: URL?) {
         super.init(publicationUrl: bookUrl)
         self.setup()
     }
@@ -31,7 +31,7 @@ class TWBookViewController : TWPublicationPreviewViewControllerProtocol {
         self.setup()
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.setup()
     }
@@ -44,9 +44,9 @@ class TWBookViewController : TWPublicationPreviewViewControllerProtocol {
     override func viewDidLoad() {
         // add the epub page view controller as child
         self.addChildViewController(epubPageController!)
-        epubPageController?.view.frame = CGRectMake(0.0, 0.0, self.previewView.frame.size.width, self.previewView.frame.size.height)
+        epubPageController?.view.frame = CGRect(x: 0.0, y: 0.0, width: self.previewView.frame.size.width, height: self.previewView.frame.size.height)
         self.previewView.addSubview(epubPageController!.view)
-        epubPageController?.didMoveToParentViewController(self)
+        epubPageController?.didMove(toParentViewController: self)
         epubPageController?.loadSystemBookmarkPosition()
     }
     
@@ -58,19 +58,19 @@ class TWBookViewController : TWPublicationPreviewViewControllerProtocol {
         
     }
     
-    override func goToSection(index: Int) {
+    override func goToSection(_ index: Int) {
         if let epubController = self.epubPageController {
             epubController.selectedIndex = UInt(index)
         }
     }
     
-    override func goToSection(sectionName sectionName: String) {
+    override func goToSection(sectionName: String) {
         if let epubController = self.epubPageController {
             epubController.selectedItem = sectionName
         }
     }
     
-    func setBookAndPosition(bookUrl: NSURL?, selectedItem: String?) {
+    func setBookAndPosition(_ bookUrl: URL?, selectedItem: String?) {
         self.bookUrl = bookUrl
         if (selectedItem != nil) {
             if let epubController = self.epubPageController {
@@ -79,24 +79,24 @@ class TWBookViewController : TWPublicationPreviewViewControllerProtocol {
         }
     }
     
-    func notifyDelegateWillSelect(index: Int) {
+    func notifyDelegateWillSelect(_ index: Int) {
         self.delegate!.publicationViewController(self, willSelectSection: index)
     }
     
-    func notifyDelegateDidSelect(index: Int) {
+    func notifyDelegateDidSelect(_ index: Int) {
         self.delegate!.publicationViewController(self, didSelectSection: index)
     }
     
-    func askDelegateShouldSelectIndex(index: Int) -> Bool {
+    func askDelegateShouldSelectIndex(_ index: Int) -> Bool {
         var shouldAllow = true;
         shouldAllow = self.delegate!.publicationViewController(self, shouldSelectSection: index)
         return shouldAllow;
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ListenBookSegue" {
-            TWNowPlayingManager.instance.startPlaybackWithUrl(self.bookUrl, selectedItem: self.epubPageController?.selectedItem)
-            let nowPlayingController = segue.destinationViewController as? TWNowPlayingViewController
+            TWNowPlayingManager.instance.startPlaybackWithUrl(self.bookUrl, selectedItem: self.epubPageController?.selectedItem as NSString?)
+            let nowPlayingController = segue.destination as? TWNowPlayingViewController
             nowPlayingController?.nowPlayingManager = TWNowPlayingManager.instance
         }
     }

@@ -10,14 +10,14 @@ import Foundation
 
 class TWFileMetadataFactory {
     
-    class func metadataForFile(url: NSURL?) -> TWFileMetadata? {
+    class func metadataForFile(_ url: URL?) -> TWFileMetadata? {
         let fileType = TWFileTypeManager.fileType(fileUrl: url)
         switch fileType {
-        case .EPUB:
+        case .epub:
             return TWEpubMetadata(url: url)
-        case .HTML:
+        case .html:
             return TWWebPageMetadata(url: url)
-        case .PDF, .Unknown:
+        case .pdf, .unknown:
             return TWFileMetadata(url: url)
         }
     }

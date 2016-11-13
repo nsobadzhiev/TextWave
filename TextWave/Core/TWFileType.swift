@@ -9,16 +9,16 @@
 import Foundation
 
 enum TWFileType {
-    case Unknown
-    case EPUB
-    case HTML
-    case PDF
+    case unknown
+    case epub
+    case html
+    case pdf
 }
 
 class TWFileTypeManager {
     
-    class func fileType(fileUrl fileUrl:NSURL?) -> TWFileType {
-        let fileTypesDict = ["epub": TWFileType.EPUB, "html": TWFileType.HTML, "htm": TWFileType.HTML, "pdf": TWFileType.PDF]
+    class func fileType(fileUrl:URL?) -> TWFileType {
+        let fileTypesDict = ["epub": TWFileType.epub, "html": TWFileType.html, "htm": TWFileType.html, "pdf": TWFileType.pdf]
 //        let fileExtension = fileUrl?.pathExtension
 //        if let fileExtension = fileExtension {
 //            let fileType = fileTypesDict[fileExtension]
@@ -32,6 +32,6 @@ class TWFileTypeManager {
                 return fileType
             }
         }
-        return TWFileType.Unknown
+        return TWFileType.unknown
     }
 }

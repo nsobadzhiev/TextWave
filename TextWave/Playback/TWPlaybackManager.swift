@@ -8,6 +8,17 @@
 
 import Foundation
 import AVFoundation
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 // MARK: Notification names
 
@@ -16,9 +27,9 @@ let TWPlaybackEndedNotification = "TWPlaynackEndedNotification"
 let TWPlaybackChangedNotification = "TWPlaybackChangedNotification"
 
 protocol TWPlaybackManagerDelegate : class {
-    func playbackManager(playback: TWPlaybackManager, didBeginItemAtIndex index: Int)
-    func playbackManager(playback: TWPlaybackManager, didFinishItemAtIndex index: Int)
-    func playbackManager(playback: TWPlaybackManager, didMoveToPosition index: Int)
+    func playbackManager(_ playback: TWPlaybackManager, didBeginItemAtIndex index: Int)
+    func playbackManager(_ playback: TWPlaybackManager, didFinishItemAtIndex index: Int)
+    func playbackManager(_ playback: TWPlaybackManager, didMoveToPosition index: Int)
 }
 
 class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
@@ -31,7 +42,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     
     var isPlaying: Bool {
         get {
-            return textToSpeech.speaking && !textToSpeech.paused
+            return textToSpeech.isSpeaking && !textToSpeech.isPaused
         }
     }
     
@@ -41,7 +52,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         super.init()
         self.playbackSource = dataSource
         textToSpeech.delegate = self
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(onPlaybackConfigurationChange), name: TWPlaybackConfigurationChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onPlaybackConfigurationChange), name: NSNotification.Name(rawValue: TWPlaybackConfigurationChangeNotification), object: nil)
     }
     
     deinit {
@@ -49,7 +60,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     }
     
     func pause() {
-        textToSpeech.pauseSpeakingAtBoundary(AVSpeechBoundary.Word)
+        textToSpeech.pauseSpeaking(at: AVSpeechBoundary.word)
     }
     
     func resume() {
@@ -60,7 +71,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     }
     
     func stop() {
-        textToSpeech.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
+        textToSpeech.stopSpeaking(at: AVSpeechBoundary.immediate)
     }
     
     func start() {
@@ -70,7 +81,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     
     func finish() {
         textToSpeech.delegate = nil
-        textToSpeech.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
+        textToSpeech.stopSpeaking(at: AVSpeechBoundary.immediate)
     }
     
     func previous() {
@@ -118,43 +129,43 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         }
     }
     
-    func setPlaybackProgress(progressPercentage: Float) {
+    func setPlaybackProgress(_ progressPercentage: Float) {
         if (progressPercentage > 1.0 || progressPercentage < 0.0) {
             return;
         }
         
-        if let currentTextLength: Int = self.currentText?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) {
+        if let currentTextLength: Int = self.currentText?.lengthOfBytes(using: String.Encoding.utf8) {
             let indexAfterSkip = Float(currentTextLength) * progressPercentage
             // TODO: excessive use of !
             let text:String! = self.currentText!
-            let index = text.startIndex.advancedBy(Int(indexAfterSkip))
-            let textAfterSkip = self.currentText!.substringFromIndex(index)
+            let index = text.index(text.startIndex, offsetBy: Int(indexAfterSkip))
+            let textAfterSkip = self.currentText!.substring(from: index)
             self.speakText(textAfterSkip)
             self.postChangedNotification()
         }
     }
     
-    func speakText(text: String) {
+    func speakText(_ text: String) {
         self.currentText = text
         let utterance = AVSpeechUtterance(string: text)
         utterance.rate = TWPlaybackConfiguration.defaultConfiguration.speechRate
         utterance.pitchMultiplier = TWPlaybackConfiguration.defaultConfiguration.speechPitch
-        textToSpeech.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
-        textToSpeech.speakUtterance(utterance)
+        textToSpeech.stopSpeaking(at: AVSpeechBoundary.immediate)
+        textToSpeech.speak(utterance)
     }
     
     // MARK: Notifications
     
     func postChangedNotification() {
-        NSNotificationCenter.defaultCenter().postNotificationName(TWPlaybackChangedNotification, object: self)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: TWPlaybackChangedNotification), object: self)
     }
     
     func postEndedNotification() {
-        NSNotificationCenter.defaultCenter().postNotificationName(TWPlaybackEndedNotification, object: self)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: TWPlaybackEndedNotification), object: self)
     }
     
     func postStartedNotification() {
-        NSNotificationCenter.defaultCenter().postNotificationName(TWPlaybackStartedNotification, object: self)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: TWPlaybackStartedNotification), object: self)
     }
     
     /** 
@@ -163,7 +174,7 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
     * (0.5 to 2.0)
     */
     
-    func speechSynthesizerPitchForValue(normalizedValue: Float) -> Float {
+    func speechSynthesizerPitchForValue(_ normalizedValue: Float) -> Float {
         let pitchMultiplierMin: Float = 0.5
         let pitchMultiplierMax: Float = 2.0
         let pitchMultiplierRange: Float = pitchMultiplierMax - pitchMultiplierMin
@@ -172,15 +183,15 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         return normalizedSpeechPitch / pitchMultiplierRange
     }
     
-    func textAfterSkippingCharacters(numCharacters: Int) -> String? {
-        if self.letterIndex + numCharacters < self.currentText?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) && self.letterIndex as Int + numCharacters >= 0 {
+    func textAfterSkippingCharacters(_ numCharacters: Int) -> String? {
+        if self.letterIndex + numCharacters < self.currentText?.lengthOfBytes(using: String.Encoding.utf8) && self.letterIndex as Int + numCharacters >= 0 {
             self.letterIndex += numCharacters
             // TODO: excessive use of !
             let text: String = self.currentText!
-            let index = text.startIndex.advancedBy(Int(self.letterIndex))
-            let textAfterSkip = self.currentText!.substringFromIndex(index)
-            let prevSymbol = text[text.startIndex.advancedBy(self.letterIndex - 1)];
-            let firstSymbol = text[text.startIndex.advancedBy(self.letterIndex)];
+            let index = text.characters.index(text.startIndex, offsetBy: Int(self.letterIndex))
+            let textAfterSkip = self.currentText!.substring(from: index)
+            let prevSymbol = text[text.characters.index(text.startIndex, offsetBy: self.letterIndex - 1)];
+            let firstSymbol = text[text.characters.index(text.startIndex, offsetBy: self.letterIndex)];
             self.letterIndex = 0    // restart the counting since the speach text has changed and the
             // new index is zero (the new string is going to start at the)
             // correct index
@@ -188,12 +199,12 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
                 return textAfterSkip
             }
             else {
-                let firstSpaceRange = textAfterSkip.rangeOfString(" ")
-                let spaceRangeStart: String.Index! = firstSpaceRange?.startIndex
-                let indexInt: Int = textAfterSkip.startIndex.distanceTo(spaceRangeStart)
-                let index = textAfterSkip.startIndex.advancedBy(indexInt)
+                let firstSpaceRange = textAfterSkip.range(of: " ")
+                let spaceRangeStart: String.Index! = firstSpaceRange?.lowerBound
+                let indexInt: Int = textAfterSkip.characters.distance(from: textAfterSkip.startIndex, to: spaceRangeStart)
+                let index = textAfterSkip.characters.index(textAfterSkip.startIndex, offsetBy: indexInt)
                 if firstSpaceRange != nil {
-                    return textAfterSkip.substringFromIndex(index)
+                    return textAfterSkip.substring(from: index)
                 }
             }
         }
@@ -202,13 +213,13 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
 
 // AVSpeechSynthesizerDelegate
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didStartSpeechUtterance utterance: AVSpeechUtterance) {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
         if let beginIndex = self.playbackSource?.currentItemIndex {
             self.delegate?.playbackManager(self, didBeginItemAtIndex: beginIndex)
         }
     }
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance) {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         if let finishIndex = self.playbackSource?.currentItemIndex {
             self.delegate?.playbackManager(self, didFinishItemAtIndex: finishIndex)
         }
@@ -216,17 +227,17 @@ class TWPlaybackManager : NSObject, AVSpeechSynthesizerDelegate {
         self.next()
     }
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer,
-        didPauseSpeechUtterance utterance: AVSpeechUtterance) {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer,
+        didPause utterance: AVSpeechUtterance) {
             
     }
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer,
-        didCancelSpeechUtterance utterance: AVSpeechUtterance) {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer,
+        didCancel utterance: AVSpeechUtterance) {
             
     }
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
         self.wordIndex += 1
         self.letterIndex = characterRange.location + characterRange.length
         if let existingDelegate = self.delegate {

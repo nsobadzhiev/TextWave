@@ -14,8 +14,8 @@ import Foundation
 **/
 
 protocol UrlDownloaderDelegate {
-    func urlDownloader(downloader: UrlDownloader, didDownloadData data: NSData?)
-    func urlDownloader(downloader: UrlDownloader, didFailWithError error: NSError?)
+    func urlDownloader(_ downloader: UrlDownloader, didDownloadData data: Data?)
+    func urlDownloader(_ downloader: UrlDownloader, didFailWithError error: NSError?)
 }
 
 /*
@@ -38,12 +38,12 @@ class UrlDownloader : NSObject, NSURLConnectionDataDelegate {
     // can be overriden in subclasses to alter the request
     // should not be called from external classes
     func createAndStartRequest() {
-        let normalizedURL = self.urlPath?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        let escapedUrl:String? = normalizedURL?.stringByRemovingPercentEncoding
-        let theURL = NSURL(string: escapedUrl!)
-        let theRequest = NSMutableURLRequest(URL: theURL!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: NSTimeInterval(k_connectionTimeout))
-        theRequest.HTTPMethod = "GET"
-        let connection = NSURLConnection(request: theRequest, delegate: self)
+        let normalizedURL = self.urlPath?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) as NSString?
+        let escapedUrl:String? = normalizedURL?.removingPercentEncoding
+        let theURL = URL(string: escapedUrl!)
+        let theRequest = NSMutableURLRequest(url: theURL!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData, timeoutInterval: TimeInterval(k_connectionTimeout))
+        theRequest.httpMethod = "GET"
+        let connection = NSURLConnection(request: theRequest as URLRequest, delegate: self)
         connection?.start()
     }
     
@@ -60,31 +60,31 @@ class UrlDownloader : NSObject, NSURLConnectionDataDelegate {
     
     // NSURLConnection
     
-    func connection(connection: NSURLConnection, didReceiveResponse response: NSURLResponse) {
+    func connection(_ connection: NSURLConnection, didReceive response: URLResponse) {
         responseData = NSMutableData()
     }
     
-    func connection(connection: NSURLConnection, didReceiveData data: NSData) {
-        responseData?.appendData(data)
+    func connection(_ connection: NSURLConnection, didReceive data: Data) {
+        responseData?.append(data)
     }
     
-    func connectionDidFinishLoading(connection: NSURLConnection) {
+    func connectionDidFinishLoading(_ connection: NSURLConnection) {
         self.loading = false
-        self.notifyDelegateDownloadedData(responseData)
+        self.notifyDelegateDownloadedData(responseData as Data?)
     }
     
-    func connection(connection: NSURLConnection, didFailWithError error: NSError) {
+    func connection(_ connection: NSURLConnection, didFailWithError error: Error) {
         self.loading = false
-        self.notifyDelegateDownloadFailedWithError(error)
+        self.notifyDelegateDownloadFailedWithError(error as NSError?)
     }
     
     // PrivateMethods
     
-    func notifyDelegateDownloadedData(data: NSData?) {
+    func notifyDelegateDownloadedData(_ data: Data?) {
         self.delegate?.urlDownloader(self, didDownloadData: data)
     }
     
-    func notifyDelegateDownloadFailedWithError(error: NSError?) {
+    func notifyDelegateDownloadFailedWithError(_ error: NSError?) {
         self.delegate?.urlDownloader(self, didFailWithError: error)
     }
 }

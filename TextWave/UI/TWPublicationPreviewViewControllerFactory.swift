@@ -13,28 +13,28 @@ class TWPublicationPreviewViewControllerFactory {
     
     // MARK: Publication preview
     
-    class func previewViewControllerForUrl(url: NSURL?, selectedItem: String?) -> TWPublicationPreviewViewControllerProtocol? {
-        if TWFileTypeManager.fileType(fileUrl: url) == TWFileType.EPUB {
+    class func previewViewControllerForUrl(_ url: URL?, selectedItem: String?) -> TWPublicationPreviewViewControllerProtocol? {
+        if TWFileTypeManager.fileType(fileUrl: url) == TWFileType.epub {
             return self.createEpubViewController(epubUrl: url, selectedItem: selectedItem)
         }
-        else if TWFileTypeManager.fileType(fileUrl: url) == TWFileType.HTML {
+        else if TWFileTypeManager.fileType(fileUrl: url) == TWFileType.html {
             return self.createWebPageViewController(webPageUrl: url)
         }
         return nil
     }
     
-    class func instantiateViewControllerFromStoryboard(name:String) -> UIViewController {
+    class func instantiateViewControllerFromStoryboard(_ name:String) -> UIViewController {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        return mainStoryBoard.instantiateViewControllerWithIdentifier(name) 
+        return mainStoryBoard.instantiateViewController(withIdentifier: name) 
     }
     
-    class func createEpubViewController(epubUrl url:NSURL?, selectedItem: String?) -> TWPublicationPreviewViewControllerProtocol {
+    class func createEpubViewController(epubUrl url:URL?, selectedItem: String?) -> TWPublicationPreviewViewControllerProtocol {
         let previewController = self.instantiateViewControllerFromStoryboard("BookViewController") as! TWBookViewController
         previewController.setBookAndPosition(url, selectedItem: selectedItem)
         return previewController
     }
     
-    class func createWebPageViewController(webPageUrl url:NSURL?) -> TWPublicationPreviewViewControllerProtocol {
+    class func createWebPageViewController(webPageUrl url:URL?) -> TWPublicationPreviewViewControllerProtocol {
         let previewController = self.instantiateViewControllerFromStoryboard("WebPageViewController") as! TWWebPageViewController
         previewController.pageUrl = url
         return previewController
@@ -42,12 +42,12 @@ class TWPublicationPreviewViewControllerFactory {
     
     // MARK: Table of contents
     
-    class func supportsTableOfContents(url:NSURL?) -> Bool {
-        return (TWFileTypeManager.fileType(fileUrl: url) == TWFileType.EPUB)
+    class func supportsTableOfContents(_ url:URL?) -> Bool {
+        return (TWFileTypeManager.fileType(fileUrl: url) == TWFileType.epub)
     }
     
-    class func tableOfContentsControllerForUrl(url:NSURL?) -> DMTableOfContentsTableViewController? {
-        if TWFileTypeManager.fileType(fileUrl: url) == TWFileType.EPUB {
+    class func tableOfContentsControllerForUrl(_ url:URL?) -> DMTableOfContentsTableViewController? {
+        if TWFileTypeManager.fileType(fileUrl: url) == TWFileType.epub {
             if let url = url {
                 return DMePubTableOfContentsTableViewController(publicationPath: url.absoluteString)
             }

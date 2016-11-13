@@ -16,25 +16,25 @@ class TWWebPageMetadata : TWFileMetadata {
         return nil
     }
     
-    override func thumbnailForFileWithBlock(completionBlock:((thumbnailView:UIView?) -> Void)) {
+    override func thumbnailForFileWithBlock(_ completionBlock:@escaping((_ thumbnailView:UIView?) -> Void)) {
         thumbnailManager.thumbnailForWebPage(self.fileUrl, successBlock: {(thumbnailView:UIView) in
-            completionBlock(thumbnailView: thumbnailView)
-            }, failBlock: {(error:NSError?) in
-                completionBlock(thumbnailView: nil)
+            completionBlock(thumbnailView)
+            }, failBlock: {(error:Error) in
+                completionBlock(nil)
         })
     }
     
     override func thumbnailSize() -> CGSize {
         // TODO: remove diplicate in ThumbnailsManager
-        return CGSizeMake(140.0, 160.0)
+        return CGSize(width: 140.0, height: 160.0)
     }
     
     override func titleForFile() -> String? {
         if let url = self.fileUrl {
-            let htmlData = NSData(contentsOfURL: url)
-            let htmlParser = TFHpple(HTMLData: htmlData)
-            let titleElement = htmlParser.peekAtSearchWithXPathQuery("/html/head/title")
-            let titleString = titleElement.text()
+            let htmlData = try? Data(contentsOf: url as URL)
+            let htmlParser = TFHpple(htmlData: htmlData)
+            let titleElement = htmlParser?.peekAtSearch(withXPathQuery: "/html/head/title")
+            let titleString = titleElement?.text()
             return self.trimWhiteSpaceFromTitle(titleString)
         }
         else {
@@ -46,7 +46,7 @@ class TWWebPageMetadata : TWFileMetadata {
         return self.fileUrl?.host
     }
     
-    func trimWhiteSpaceFromTitle(title:String?) -> String? {
-        return title?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    func trimWhiteSpaceFromTitle(_ title:String?) -> String? {
+        return title?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 }

@@ -31,6 +31,6 @@ class TWPlaybackConfiguration {
     static let defaultConfiguration = TWPlaybackConfiguration()
     
     func postChangeNotification() {
-        NSNotificationCenter.defaultCenter().postNotificationName(TWPlaybackConfigurationChangeNotification, object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: TWPlaybackConfigurationChangeNotification), object: nil)
     }
 }

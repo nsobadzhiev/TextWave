@@ -25,31 +25,31 @@ class TWLockScreenNowPlayingInfo {
         let numberOfItems = self.playbackManager?.playbackSource?.numberOfItems
         let itemNumber = self.playbackManager?.playbackSource?.currentItemIndex
         if let itemName = itemName {
-            nowPlayingInfo[MPMediaItemPropertyTitle] = itemName
+            nowPlayingInfo[MPMediaItemPropertyTitle] = itemName as AnyObject?
         }
         if let artist = artist {
-            nowPlayingInfo[MPMediaItemPropertyArtist] = artist
+            nowPlayingInfo[MPMediaItemPropertyArtist] = artist as AnyObject?
         }
         if let itemArtwork = itemArtwork {
             let artworkMediaItem = MPMediaItemArtwork(image: itemArtwork)
             nowPlayingInfo[MPMediaItemPropertyArtwork] = artworkMediaItem
         }
-        nowPlayingInfo[MPMediaItemPropertyAlbumTrackCount] = numberOfItems
-        nowPlayingInfo[MPMediaItemPropertyAlbumTrackNumber] = itemNumber
-        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = nowPlayingInfo
-        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        nowPlayingInfo[MPMediaItemPropertyAlbumTrackCount] = numberOfItems as AnyObject?
+        nowPlayingInfo[MPMediaItemPropertyAlbumTrackNumber] = itemNumber as AnyObject?
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+        UIApplication.shared.beginReceivingRemoteControlEvents()
     }
     
     func removeNowPlayingInfo() {
-        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = nil
-        UIApplication.sharedApplication().endReceivingRemoteControlEvents()
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nil
+        UIApplication.shared.endReceivingRemoteControlEvents()
     }
     
     func setupNotifications() {
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        let mainQueue = NSOperationQueue.mainQueue()
+        let notificationCenter = NotificationCenter.default
+        let mainQueue = OperationQueue.main
         
-        notificationCenter.addObserverForName(UIApplicationWillResignActiveNotification, object: nil, queue: mainQueue) { _ in
+        notificationCenter.addObserver(forName: NSNotification.Name.UIApplicationWillResignActive, object: nil, queue: mainQueue) { _ in
             if self.playbackManager != nil && self.playbackManager?.isPlaying == true {
                 self.setupNowPlayingInfo()
             }

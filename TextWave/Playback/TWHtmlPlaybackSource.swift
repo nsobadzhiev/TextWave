@@ -13,14 +13,14 @@ class TWHtmlPlaybackSource: TWTextPlaybackSource, TWResourceDownloaderDelegate {
     var downloader: TWResourceDownloader? = nil
     var isLocalResource: Bool {
     get {
-        if let isFile = self.sourceURL?.fileURL {
+        if let isFile = self.sourceURL?.isFileURL {
             return isFile
         }
         return false
     }
     }
     
-    override init(url: NSURL?) {
+    override init(url: URL?) {
         super.init(url: url)
         self.handleSourceUrl()
     }
@@ -35,7 +35,7 @@ class TWHtmlPlaybackSource: TWTextPlaybackSource, TWResourceDownloaderDelegate {
         if self.isLocalResource {
             if let fileUrl = self.sourceURL {
                 do {
-                    let rawText = try NSString(contentsOfURL: fileUrl, encoding: NSUTF8StringEncoding)
+                    let rawText = try NSString(contentsOf: fileUrl as URL, encoding: String.Encoding.utf8.rawValue)
                     self.currentText = self.extractText(htmlString: rawText as String)
                 }
                 catch {
@@ -48,7 +48,7 @@ class TWHtmlPlaybackSource: TWTextPlaybackSource, TWResourceDownloaderDelegate {
         }
     }
     
-    func extractText(htmlString htmlString:String?) -> String {
+    func extractText(htmlString:String?) -> String {
         let textExtractor = TWTextExtractor()
         return textExtractor.extractArticle(htmlString: htmlString)
     }
@@ -58,11 +58,11 @@ class TWHtmlPlaybackSource: TWTextPlaybackSource, TWResourceDownloaderDelegate {
     }
     
     // TWResourceDownloader
-    func resourceDownloaderDidFinishDownoad(resourceDownloader: TWResourceDownloader) {
+    func resourceDownloaderDidFinishDownoad(_ resourceDownloader: TWResourceDownloader) {
         self.delegate?.playbackSourceDidLoadResources(self)
     }
     
-    func resourceDownloader(resourceDownloader: TWResourceDownloader, didFailWithError error: NSError?) {
+    func resourceDownloader(_ resourceDownloader: TWResourceDownloader, didFailWithError error: NSError?) {
         self.delegate?.playbackSource(self, didFailWithError: error)
     }
 }

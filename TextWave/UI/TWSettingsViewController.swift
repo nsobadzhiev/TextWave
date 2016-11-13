@@ -19,12 +19,12 @@ class TWSettingsViewController: UIViewController {
         self.pitchSlider.maximumValue = TWPlaybackConfiguration.defaultConfiguration.maxPitch
     }
     
-    @IBAction func onRateChange(sender:AnyObject?) {
+    @IBAction func onRateChange(_ sender:AnyObject?) {
         let newRate = self.rateSlider.value
         TWPlaybackConfiguration.defaultConfiguration.speechRate = newRate;
     }
     
-    @IBAction func onPitchChange(sender:AnyObject?) {
+    @IBAction func onPitchChange(_ sender:AnyObject?) {
         let newPitch = self.pitchSlider.value
         TWPlaybackConfiguration.defaultConfiguration.speechPitch = newPitch;
     }   

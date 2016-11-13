@@ -13,7 +13,7 @@ class TWWebPageViewController: TWPublicationPreviewViewControllerProtocol, UIWeb
     
     @IBOutlet var webView: UIWebView! = nil
     
-    var pageUrl: NSURL? = nil {
+    var pageUrl: URL? = nil {
         didSet {
             if (self.webView != nil) {
                 self.loadRequest(self.pageUrl)
@@ -26,11 +26,11 @@ class TWWebPageViewController: TWPublicationPreviewViewControllerProtocol, UIWeb
         self.webView.delegate = self
     }
     
-    func loadRequest(requestUrl:NSURL?) {
+    func loadRequest(_ requestUrl:URL?) {
         if let requestUrl = requestUrl {
-            if requestUrl.fileURL == true {
+            if requestUrl.isFileURL == true {
                 do {
-                    let htmlString = try NSString(contentsOfURL: pageUrl!, encoding: NSUTF8StringEncoding)
+                    let htmlString = try NSString(contentsOf: pageUrl!, encoding: String.Encoding.utf8.rawValue)
                     let baseUrl = TWWebPageDownloadManager.defaultDownloadManager.baseUrlForWebPage(pageUrl?.lastPathComponent)
                     self.webView.loadHTMLString(htmlString as String, baseURL: baseUrl)
                 }
@@ -40,23 +40,23 @@ class TWWebPageViewController: TWPublicationPreviewViewControllerProtocol, UIWeb
                 
             }
             else {
-                let request = NSURLRequest(URL: requestUrl, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
+                let request = URLRequest(url: requestUrl, cachePolicy: NSURLRequest.CachePolicy.returnCacheDataElseLoad, timeoutInterval: 30)
                 self.webView.loadRequest(request)
             }
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ListenWebPageSegue" {
             TWNowPlayingManager.instance.startPlaybackWithUrl(self.pageUrl)
-            let nowPlayingController = segue.destinationViewController as? TWNowPlayingViewController
+            let nowPlayingController = segue.destination as? TWNowPlayingViewController
             nowPlayingController?.nowPlayingManager = TWNowPlayingManager.instance
         }
     }
     
     // MARK: UIWebViewDelegate
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         
     }
 }

@@ -15,7 +15,7 @@ class TWHtmlFileDownloader : TWWebPageDownloaderBase, NSURLConnectionDelegate, N
     override func startDownload() {
         if let webPageUrl = self.webPageUrl {
             self.urlConnection?.cancel()
-            let request = NSURLRequest(URL: webPageUrl, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 30.0)
+            let request = URLRequest(url: webPageUrl as URL, cachePolicy: NSURLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 30.0)
             self.urlConnection = NSURLConnection(request: request, delegate: self, startImmediately: true)
             self.downloading = true
         }
@@ -29,22 +29,22 @@ class TWHtmlFileDownloader : TWWebPageDownloaderBase, NSURLConnectionDelegate, N
     
     // MARK: Connection delegate methods
     
-    func connection(connection: NSURLConnection, didReceiveData data: NSData) {
-        self.responseData.appendData(data)
+    func connection(_ connection: NSURLConnection, didReceive data: Data) {
+        self.responseData.append(data)
     }
     
-    func connection(connection: NSURLConnection, didFailWithError error: NSError) {
+    func connection(_ connection: NSURLConnection, didFailWithError error: Error) {
         self.downloading = false
-        self.downloadError = error
+        self.downloadError = error as NSError?
         self.delegate?.downloadFailed(self)
     }
     
-    func connectionDidFinishLoading(connection: NSURLConnection) {
+    func connectionDidFinishLoading(_ connection: NSURLConnection) {
         self.downloading = false
         if let savePath = self.downloadPathForWebPage() {
-            let saveUrl = NSURL(fileURLWithPath: savePath)
+            let saveUrl = URL(fileURLWithPath: savePath)
             do {
-                try self.responseData.writeToURL(saveUrl, options: NSDataWritingOptions())
+                try self.responseData.write(to: saveUrl, options: NSData.WritingOptions())
             }
             catch {
                 print("Unable to save html")

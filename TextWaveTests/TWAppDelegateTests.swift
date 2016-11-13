@@ -25,7 +25,7 @@ class TWAppDelegateTests: XCTestCase {
     func testAbilityToCopyOpenedFilesInTheSandbox() {
         var fileSystemManager = TWTestableFileSystemManager()
         appDelegate.fileManager = fileSystemManager as TWFileSystemManager;
-        let openedURL = NSURL(string: "file://path/to/resource");
+        let openedURL = URL(string: "file://path/to/resource");
         appDelegate.application(UIApplication.sharedApplication(), openURL: openedURL, sourceApplication: "test.app", annotation: nil)
         XCTAssertEqual(fileSystemManager.copiedURL!, openedURL, "The app delegate should ask the file manager to copy the file in the documents dir");
     }
@@ -33,10 +33,10 @@ class TWAppDelegateTests: XCTestCase {
     func testAbilityToCopyOpenedFilesInTheRightDestination() {
         var fileSystemManager = TWTestableFileSystemManager()
         appDelegate.fileManager = fileSystemManager as TWFileSystemManager;
-        let openedURL = NSURL(string: "file://path/to/resource.epub");
+        let openedURL = URL(string: "file://path/to/resource.epub");
         appDelegate.application(UIApplication.sharedApplication(), openURL: openedURL, sourceApplication: "test.app", annotation: nil)
         let documentsDirectoryRaw = NSHomeDirectory() + "Documents";
-        let documentsDirectory = documentsDirectoryRaw.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        let documentsDirectory = documentsDirectoryRaw.addingPercentEscapes(using: String.Encoding.utf8)
         let destinationPath = documentsDirectory.stringByAppendingPathComponent("resource.epub")
         XCTAssertEqual(fileSystemManager.destinationURL!.absoluteString, destinationPath, "The app delegate should ask the file manager to copy the file in the documents dir");
     }

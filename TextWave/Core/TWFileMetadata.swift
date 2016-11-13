@@ -12,9 +12,9 @@ import UIKit
 let defaultThumbnailImageName = "defaultCover.png"
 
 class TWFileMetadata {
-    var fileUrl:NSURL? = nil
+    var fileUrl:URL? = nil
     
-    init(url: NSURL?) {
+    init(url: URL?) {
         self.fileUrl = url
     }
     
@@ -22,10 +22,10 @@ class TWFileMetadata {
         return UIImage(named: defaultThumbnailImageName)
     }
     
-    func thumbnailForFileWithBlock(completionBlock:((thumbnailView:UIView?) -> Void)) {
+    func thumbnailForFileWithBlock(_ completionBlock:@escaping((_ thumbnailView:UIView?) -> Void)) {
         let defaultImage = UIImage(named: defaultThumbnailImageName)
         let defaultImageView = UIImageView(image: defaultImage)
-        completionBlock(thumbnailView: defaultImageView)
+        completionBlock(defaultImageView)
     }
     
     func thumbnailSize() -> CGSize {

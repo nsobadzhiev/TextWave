@@ -59,7 +59,7 @@ class TWMockPlaybackManager : TWPlaybackManager {
         self.wasAskedToSkipBackwards = true
     }
     
-    override func setPlaybackProgress(progressPercentage: Float) {
+    override func setPlaybackProgress(_ progressPercentage: Float) {
         super.setPlaybackProgress(progressPercentage)
         self.setPlaybackProgress = progressPercentage;
     }

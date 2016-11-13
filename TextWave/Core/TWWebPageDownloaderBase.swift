@@ -9,17 +9,17 @@
 import Foundation
 
 protocol TWWebPageDownloaderDelegate {
-    func downloadComplete(downloader:TWWebPageDownloaderBase)
-    func downloadFailed(downloader:TWWebPageDownloaderBase)
+    func downloadComplete(_ downloader:TWWebPageDownloaderBase)
+    func downloadFailed(_ downloader:TWWebPageDownloaderBase)
 }
 
 class TWWebPageDownloaderBase : NSObject {
-    var webPageUrl:NSURL? = nil
+    var webPageUrl:URL? = nil
     var delegate:TWWebPageDownloaderDelegate? = nil
     var downloading:Bool = false
     var downloadError:NSError? = nil
     
-    required init(url:NSURL?) {
+    required init(url:URL?) {
         webPageUrl = url
     }
     
@@ -35,20 +35,20 @@ class TWWebPageDownloaderBase : NSObject {
         // form the directory name by concatenating host name and directory path
         let urlHost = self.webPageUrl?.host
         let urlDirPath = self.webPageUrl?.lastPathComponent
-        let docsDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let docsDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
         let fullPath = urlHost
         if var fullPath = fullPath {
             if let urlDirPath = urlDirPath {
-                if urlDirPath.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
+                if urlDirPath.lengthOfBytes(using: String.Encoding.utf8) > 0 {
                     fullPath = fullPath + "-" + urlDirPath
                 }
-                fullPath = docsDir.stringByAppendingPathComponent(fullPath)
+                fullPath = docsDir.appendingPathComponent(fullPath)
                 if fullPath.hasSuffix(".html") == false &&
                     fullPath.hasSuffix(".htm") == false {
                         fullPath = fullPath + ".html";
                 }
-                let range = (fullPath.startIndex ..< fullPath.endIndex)
-                fullPath = fullPath.stringByReplacingOccurrencesOfString(".", withString: "_", options: NSStringCompareOptions.CaseInsensitiveSearch, range: range)
+                let range = Range(uncheckedBounds: (fullPath.startIndex, fullPath.endIndex))
+                fullPath = fullPath.replacingOccurrences(of: ".", with: "_", options: NSString.CompareOptions.caseInsensitive, range: range)
                 return fullPath
             }
         }

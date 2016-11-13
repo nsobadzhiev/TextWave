@@ -45,19 +45,19 @@ class TWBookmarkCell : UITableViewCell {
         }
     }
     
-    var thumbnailUrl:NSURL? {
+    var thumbnailUrl:URL? {
         get {
             return nil
         }
         set {
             if let url = newValue {
-                let request = NSURLRequest(URL: url)
+                let request = URLRequest(url: url)
                 self.thumbnail.loadRequest(request)
             }
         }
     }
     
-    func loadThumbnailWithString(htmlString:String?, baseUrl:NSURL?) {
+    func loadThumbnailWithString(_ htmlString:String?, baseUrl:URL?) {
         if let htmlString = htmlString {
             self.thumbnail.loadHTMLString(htmlString, baseURL: baseUrl)
         }

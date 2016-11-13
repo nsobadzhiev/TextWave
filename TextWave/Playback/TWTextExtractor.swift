@@ -9,36 +9,36 @@
 import Foundation
 
 enum TWTextExtractionAlgorithm {
-    case TextToTagRatio
-    case JusText
+    case textToTagRatio
+    case jusText
 }
 
 class TWTextExtractor {
-    var preferedAlgorithm:TWTextExtractionAlgorithm = TWTextExtractionAlgorithm.JusText
+    var preferedAlgorithm:TWTextExtractionAlgorithm = TWTextExtractionAlgorithm.jusText
     
-    func extractArticle(htmlString htmlString:String?) -> String {
+    func extractArticle(htmlString:String?) -> String {
         switch self.preferedAlgorithm {
-        case TWTextExtractionAlgorithm.JusText:
+        case TWTextExtractionAlgorithm.jusText:
             return self.extractArticleJusText(htmlString: htmlString)
-        case TWTextExtractionAlgorithm.TextToTagRatio:
+        case TWTextExtractionAlgorithm.textToTagRatio:
             return self.extractArticleTTR(htmlString: htmlString)
         }
     }
     
-    func extractArticleJusText(htmlString htmlString:String?) -> String {
+    func extractArticleJusText(htmlString:String?) -> String {
         if let htmlString = htmlString {
             let stopWordsPath = self.jusTextStopWordsFilePath()
             let jusTextExtractor = TextExractor(html: htmlString, stopWordsFile: stopWordsPath)
-            let extractedText = jusTextExtractor.extractedText
-            let nonEscapedText = extractedText.gtm_stringByUnescapingFromHTML()
-            return nonEscapedText
+            let extractedText = jusTextExtractor?.extractedText
+            let nonEscapedText = extractedText?.gtm_stringByUnescapingFromHTML()
+            return nonEscapedText!
         }
         else {
             return ""
         }
     }
     
-    func extractArticleTTR(htmlString htmlString:String?) -> String {
+    func extractArticleTTR(htmlString:String?) -> String {
         if let htmlString = htmlString {
             return TTRArticleExtractor.articleText(htmlString)
         }
@@ -51,7 +51,7 @@ class TWTextExtractor {
     
     func jusTextStopWordsFilePath() -> String? {
         // For now, only English stop words are supported
-        let filePath = NSBundle.mainBundle().pathForResource("English", ofType: "txt")
+        let filePath = Bundle.main.path(forResource: "English", ofType: "txt")
         return filePath
     }
 }

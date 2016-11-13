@@ -15,8 +15,8 @@ class TWNowPlayingViewControllerTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        self.nowPlayingController = mainStoryboard.instantiateViewControllerWithIdentifier("TWNowPlayingViewController") as TWNowPlayingViewController
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        self.nowPlayingController = mainStoryboard.instantiateViewController(withIdentifier: "TWNowPlayingViewController") as! TWNowPlayingViewController
         let newSource = TWPlaybackSource(url: nil)
         let newPlayback = TWMockPlaybackManager(dataSource: newSource)
         nowPlayingManager.playbackManager = newPlayback
@@ -42,31 +42,31 @@ class TWNowPlayingViewControllerTests: XCTestCase {
     
     func testStartingPlayback() {
         nowPlayingController.onPlayTap(self)
-        let playbackManager = nowPlayingController.playbackManager? as TWMockPlaybackManager
+        let playbackManager = nowPlayingController.playbackManager? as! TWMockPlaybackManager
         XCTAssertTrue(playbackManager.wasAskedToPlay, "Tapping on the play button should result in starting playback")
     }
     
     func testGoingToNextItem() {
         nowPlayingController.onNextTap(self)
-        let playbackManager = nowPlayingController.playbackManager? as TWMockPlaybackManager
+        let playbackManager = nowPlayingController.playbackManager? as! TWMockPlaybackManager
         XCTAssertTrue(playbackManager.wasAskedToPlayNext, "Tapping on the play button should result in starting playback for the next item")
     }
 
     func testGoingToPreviousItem() {
         nowPlayingController.onPreviousTap(self)
-        let playbackManager = nowPlayingController.playbackManager? as TWMockPlaybackManager
+        let playbackManager = nowPlayingController.playbackManager? as! TWMockPlaybackManager
         XCTAssertTrue(playbackManager.wasAskedToPlayPrevious, "Tapping on the play button should result in starting playback for the previous item")
     }
     
     func testSkippingForward() {
         nowPlayingController.onSkipForwardTap(self)
-        let playbackManager = nowPlayingController.playbackManager? as TWMockPlaybackManager
+        let playbackManager = nowPlayingController.playbackManager? as! TWMockPlaybackManager
         XCTAssertTrue(playbackManager.wasAskedToSkipForward, "Tapping on the play button should result in skipping forward")
     }
     
     func testSkippingBackwards() {
         nowPlayingController.onSkipBackwardsTap(self)
-        let playbackManager = nowPlayingController.playbackManager? as TWMockPlaybackManager
+        let playbackManager = nowPlayingController.playbackManager? as! TWMockPlaybackManager
         XCTAssertTrue(playbackManager.wasAskedToSkipBackwards, "Tapping on the play button should result in skipping backwards")
     }
     
@@ -74,7 +74,7 @@ class TWNowPlayingViewControllerTests: XCTestCase {
         let mockSlider = UISlider()
         mockSlider.value = 0.3
         nowPlayingController.onProgressSliderChangedValue(mockSlider)
-        let playbackManager = nowPlayingController.playbackManager? as TWMockPlaybackManager
+        let playbackManager = nowPlayingController.playbackManager? as! TWMockPlaybackManager
         XCTAssertEqual(playbackManager.setPlaybackProgress, mockSlider.value, "Should set the progress position based on the value of the preogress slider")
     }
 }

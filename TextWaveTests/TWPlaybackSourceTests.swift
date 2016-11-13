@@ -10,7 +10,7 @@ import XCTest
 
 class TWPlaybackSourceTests: XCTestCase {
     
-    var playbackURL: NSURL? = NSURL(string: "file://path/to/file")
+    var playbackURL: URL? = URL(string: "file://path/to/file")
     var playbackSource: TWPlaybackSource! = nil
 
     override func setUp() {

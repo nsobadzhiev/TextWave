@@ -8,6 +8,6 @@
 
 import Foundation
 
-extension NSFileManager : TWFileSystemManager {
+extension FileManager : TWFileSystemManager {
     
 }

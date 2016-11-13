@@ -11,12 +11,12 @@ import Foundation
 class TWMockResourceDownloader : TWResourceDownloader {
     var hasSavedFile: Bool = false
     
-    func setDownloader(downloader: UrlDownloader?) {
+    func setDownloader(_ downloader: UrlDownloader?) {
         urlDownloader = downloader
         urlDownloader!.delegate = self
     }
     
-    override func saveData(data: NSData?) {
+    override func saveData(_ data: Data?) {
         self.hasSavedFile = true
     }
 }

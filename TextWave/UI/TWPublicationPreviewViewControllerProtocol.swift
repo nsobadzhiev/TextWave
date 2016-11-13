@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 
 protocol TWPublicationPreviewViewControllerDelegate : class {
-    func publicationViewController(previewController: TWPublicationPreviewViewControllerProtocol, shouldSelectSection index: Int) -> Bool
-    func publicationViewController(previewController: TWPublicationPreviewViewControllerProtocol, willSelectSection index: Int)
-    func publicationViewController(previewController: TWPublicationPreviewViewControllerProtocol, didSelectSection index: Int)
+    func publicationViewController(_ previewController: TWPublicationPreviewViewControllerProtocol, shouldSelectSection index: Int) -> Bool
+    func publicationViewController(_ previewController: TWPublicationPreviewViewControllerProtocol, willSelectSection index: Int)
+    func publicationViewController(_ previewController: TWPublicationPreviewViewControllerProtocol, didSelectSection index: Int)
 }
 
 class TWPublicationPreviewViewControllerProtocol: UIViewController {
     
-    init(publicationUrl: NSURL?) {
+    init(publicationUrl: URL?) {
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,7 +25,7 @@ class TWPublicationPreviewViewControllerProtocol: UIViewController {
         super.init(coder: aDecoder)!
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -37,11 +37,11 @@ class TWPublicationPreviewViewControllerProtocol: UIViewController {
         
     }
     
-    func goToSection(index: Int) {
+    func goToSection(_ index: Int) {
         
     }
     
-    func goToSection(sectionName sectionName: String) {
+    func goToSection(sectionName: String) {
         
     }
 

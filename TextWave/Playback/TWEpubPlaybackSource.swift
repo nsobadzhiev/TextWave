@@ -25,7 +25,7 @@ class TWEpubPlaybackSource: TWPlaybackSource {
         }
     }
     
-    override init(url: NSURL?) {
+    override init(url: URL?) {
         super.init(url: url)
         self.prepareResources()
     }
@@ -45,7 +45,7 @@ class TWEpubPlaybackSource: TWPlaybackSource {
     }
     
     override func goToNextItem() -> Bool {
-        super.goToNextItem()
+        _ = super.goToNextItem()
         let nextItem = self.epubIterator?.nextObject() as? DMePubItem
         if nextItem != nil {
             self.applyCurrentTextForItem(nextItem)
@@ -64,32 +64,32 @@ class TWEpubPlaybackSource: TWPlaybackSource {
         }
     }
     
-    override func goToItemAtIndex(index: Int) {
+    override func goToItemAtIndex(_ index: Int) {
         super.goToItemAtIndex(index)
         let unsignedIndex: UInt = UInt(index)
-        self.epubIterator?.goToItemWithIndex(unsignedIndex)
+        self.epubIterator?.goToItem(with: unsignedIndex)
         let nextItem = self.epubIterator?.currentItem()
         self.applyCurrentTextForItem(nextItem)
     }
     
-    func goToItemWithPath(itemPath: String?) {
-        self.epubIterator?.goToItemWithPath(itemPath)
+    func goToItemWithPath(_ itemPath: String?) {
+        self.epubIterator?.goToItem(withPath: itemPath)
         let nextItem = self.epubIterator?.currentItem()
         self.applyCurrentTextForItem(nextItem)
     }
     
-    func applyCurrentTextForItem(epubItem: DMePubItem?) {
+    func applyCurrentTextForItem(_ epubItem: DMePubItem?) {
         let itemPath = epubItem?.href
-        var itemData:NSData? = nil
+        var itemData:Data? = nil
         do {
-            itemData = try self.epubManager?.dataForFileAtPath(itemPath)
+            itemData = try self.epubManager?.dataForFile(atPath: itemPath)
         }
         catch {
             print("unable to read data from file: \(itemPath)")
         }
         
         if let itemData = itemData {
-            let formattedText = NSString(data:itemData, encoding:NSUTF8StringEncoding)
+            let formattedText = NSString(data:itemData, encoding:String.Encoding.utf8.rawValue)
             // extract readable text from the HTML
             let textExtractor = TWTextExtractor()
             self.currentText = textExtractor.extractArticle(htmlString: formattedText as? String)

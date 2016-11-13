@@ -9,12 +9,12 @@
 import Foundation
 
 protocol TWPlaybackSourceDelegate {
-    func playbackSourceDidLoadResources(playbackSource: TWPlaybackSource)
-    func playbackSource(playbackSource: TWPlaybackSource, didFailWithError error: NSError?)
+    func playbackSourceDidLoadResources(_ playbackSource: TWPlaybackSource)
+    func playbackSource(_ playbackSource: TWPlaybackSource, didFailWithError error: NSError?)
 }
 
 class TWPlaybackSource {
-    var sourceURL: NSURL? = nil
+    var sourceURL: URL? = nil
     var currentText: String? = nil
     var currentItemIndex = -1
     var title: String? = nil
@@ -27,7 +27,7 @@ class TWPlaybackSource {
         }
     }
 
-    init(url: NSURL?) {
+    init(url: URL?) {
         self.sourceURL = url
     }
     
@@ -48,7 +48,7 @@ class TWPlaybackSource {
         }
     }
     
-    func goToItemAtIndex(index: Int) {
+    func goToItemAtIndex(_ index: Int) {
         
     }
 }

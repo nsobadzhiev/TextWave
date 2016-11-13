@@ -10,7 +10,7 @@ import XCTest
 
 class TWResourceDownloaderTests: XCTestCase, TWResourceDownloaderDelegate {
     
-    let resourceURL = NSURL.URLWithString("http://path/to/file")
+    let resourceURL = URL.URLWithString("http://path/to/file")
     var resourceDownloader: TWMockResourceDownloader! = nil
     var hasNotifiedRequestComplete = false
     var hasNotifiedRequestFailed = false
@@ -25,11 +25,11 @@ class TWResourceDownloaderTests: XCTestCase, TWResourceDownloaderDelegate {
         super.tearDown()
     }
     
-    func resourceDownloaderDidFinishDownoad(resourceDownloader: TWResourceDownloader) {
+    func resourceDownloaderDidFinishDownoad(_ resourceDownloader: TWResourceDownloader) {
         hasNotifiedRequestComplete = true
     }
     
-    func resourceDownloader(resourceDownloader: TWResourceDownloader, didFailWithError error: NSError?) {
+    func resourceDownloader(_ resourceDownloader: TWResourceDownloader, didFailWithError error: NSError?) {
         hasNotifiedRequestFailed = true
     }
 
@@ -42,18 +42,18 @@ class TWResourceDownloaderTests: XCTestCase, TWResourceDownloaderDelegate {
     }
 
     func testInitializingWithSavePath() {
-        let saveUrl = NSURL(string: "file://path/to/save/file/at")
+        let saveUrl = URL(string: "file://path/to/save/file/at")
         resourceDownloader = TWMockResourceDownloader(url: resourceURL, savePathURL: saveUrl)
         XCTAssertTrue(resourceDownloader.saveUrl === saveUrl, "Should be able to set the path to save the resource at")
     }
     
     func testInitializingWithLocalUrl() {
-        resourceDownloader = TWMockResourceDownloader(url: NSURL(string: "file://path/to/file"))
+        resourceDownloader = TWMockResourceDownloader(url: URL(string: "file://path/to/file"))
         XCTAssertNil(resourceDownloader.urlDownloader, "Should return nil if the provided url is from a file url")
     }
     
     func testInitializingWithRemoteSaveUrl() {
-        resourceDownloader = TWMockResourceDownloader(url: resourceURL, savePathURL: NSURL(string: "http://remote/path"))
+        resourceDownloader = TWMockResourceDownloader(url: resourceURL, savePathURL: URL(string: "http://remote/path"))
         XCTAssertNil(resourceDownloader.urlDownloader, "Should return nil if the provided save url is remote")
     }
     

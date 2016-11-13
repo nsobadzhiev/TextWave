@@ -16,11 +16,11 @@ class TWTextPlaybackSource : TWPlaybackSource {
 //        self.currentItemIndex = 0
     }
     
-    override init(url: NSURL?) {
+    override init(url: URL?) {
         super.init(url: url)
         if let suppliedUrl = url {
             do {
-                self.currentText = try String(contentsOfURL: suppliedUrl, encoding: NSUTF8StringEncoding)
+                self.currentText = try String(contentsOf: suppliedUrl, encoding: String.Encoding.utf8)
             }
             catch {
                 print("Unable to read current text from \(suppliedUrl.absoluteString)")
@@ -50,7 +50,7 @@ class TWTextPlaybackSource : TWPlaybackSource {
 
     }
     
-    override func goToItemAtIndex(index: Int) {
+    override func goToItemAtIndex(_ index: Int) {
         
     }
 }

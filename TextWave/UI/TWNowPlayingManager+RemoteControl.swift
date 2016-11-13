@@ -9,21 +9,21 @@
 import Foundation
 
 extension TWNowPlayingManager {
-    func handleRemoteControlEvent(event:UIEvent) {
-        if event.type == UIEventType.RemoteControl {
+    func handleRemoteControlEvent(_ event:UIEvent) {
+        if event.type == UIEventType.remoteControl {
             switch event.subtype {
-            case .RemoteControlPlay:
+            case .remoteControlPlay:
                 self.playbackManager?.resume()
-            case .RemoteControlPause:
+            case .remoteControlPause:
                 self.playbackManager?.pause()
                 break
-            case .RemoteControlNextTrack:
+            case .remoteControlNextTrack:
                 self.playbackManager?.next()
                 break
-            case .RemoteControlPreviousTrack:
+            case .remoteControlPreviousTrack:
                 self.playbackManager?.previous()
                 break
-            case .RemoteControlTogglePlayPause:
+            case .remoteControlTogglePlayPause:
                 if self.playbackManager?.isPlaying == true {
                     self.playbackManager?.pause()
                 }
@@ -31,10 +31,10 @@ extension TWNowPlayingManager {
                     self.playbackManager?.resume()
                 }
                 break
-            case .RemoteControlEndSeekingBackward:
+            case .remoteControlEndSeekingBackward:
                 // TODO: figure out the new position
                 break;
-            case .RemoteControlEndSeekingForward:
+            case .remoteControlEndSeekingForward:
                 // TODO: figure out the new position
                 break;
             default:

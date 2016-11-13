@@ -8,6 +8,26 @@
 
 import Foundation
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l <= r
+  default:
+    return !(rhs < lhs)
+  }
+}
+
 
 class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate, DMTableOfContentsTableViewControllerDelegate, TWPlaybackManagerDelegate {
     @IBOutlet var playbackTitleLabel: UILabel! = nil
@@ -73,16 +93,16 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
         self.setupControls()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(hideControls), userInfo: nil, repeats: false)
+    override func viewDidAppear(_ animated: Bool) {
+        Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(hideControls), userInfo: nil, repeats: false)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
@@ -91,19 +111,19 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
         let previewController = TWPublicationPreviewViewControllerFactory.previewViewControllerForUrl(self.playbackManager?.playbackSource?.sourceURL, selectedItem: self.nowPlayingManager?.selectedItem)
         if let previewController = previewController {
             self.addChildViewController(previewController)
-            previewController.view.frame = CGRectMake(0.0, 0.0, self.previewView.frame.size.width, self.previewView.frame.size.height)
+            previewController.view.frame = CGRect(x: 0.0, y: 0.0, width: self.previewView.frame.size.width, height: self.previewView.frame.size.height)
             self.previewView.addSubview(previewController.view)
-            previewController.didMoveToParentViewController(self)
+            previewController.didMove(toParentViewController: self)
             self.previewController = previewController
         }
     }
     
     func setupControls() {
         let isSinglePage = (self.playbackManager?.playbackSource?.numberOfItems <= 1)
-        self.contentsButton.hidden = isSinglePage
-        self.previousButton.hidden = isSinglePage
-        self.nextButton.hidden = isSinglePage
-        self.bookmarksButton.hidden = isSinglePage
+        self.contentsButton.isHidden = isSinglePage
+        self.previousButton.isHidden = isSinglePage
+        self.nextButton.isHidden = isSinglePage
+        self.bookmarksButton.isHidden = isSinglePage
         if (isSinglePage) {
             self.pagesView.removeFromSuperview()
         }
@@ -111,46 +131,46 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     
     // MARK: Controls view actions
     
-    @IBAction func onPreviousTap(sender: AnyObject) {
+    @IBAction func onPreviousTap(_ sender: AnyObject) {
         self.playbackManager?.previous()
     }
     
-    @IBAction func onSkipBackwardsTap(sender: AnyObject) {
+    @IBAction func onSkipBackwardsTap(_ sender: AnyObject) {
         self.playbackManager?.skipBackwards()
     }
     
-    @IBAction func onPlayTap(sender: AnyObject) {
+    @IBAction func onPlayTap(_ sender: AnyObject) {
         if self.playbackManager?.isPlaying == true {
             self.playbackManager?.pause()
-            self.playButton.setImage(UIImage.init(named: "play"), forState: .Normal)
+            self.playButton.setImage(UIImage.init(named: "play"), for: UIControlState())
         }
         else {
             self.playbackManager?.resume()
-            self.playButton.setImage(UIImage.init(named: "pause"), forState: .Normal)
+            self.playButton.setImage(UIImage.init(named: "pause"), for: UIControlState())
         }
     }
     
-    @IBAction func onSkipForwardTap(sender: AnyObject) {
+    @IBAction func onSkipForwardTap(_ sender: AnyObject) {
         self.playbackManager?.skipForward()
     }
     
-    @IBAction func onNextTap(sender: AnyObject) {
+    @IBAction func onNextTap(_ sender: AnyObject) {
         self.playbackManager?.next()
     }
     
-    @IBAction func onProgressSliderChangedValue(sender: AnyObject) {
+    @IBAction func onProgressSliderChangedValue(_ sender: AnyObject) {
         let slider = sender as! UISlider
         let sliderValue = slider.value
         self.playbackManager?.setPlaybackProgress(sliderValue)
     }
     
-    @IBAction func onBackgroundTap(sender: AnyObject) {
+    @IBAction func onBackgroundTap(_ sender: AnyObject) {
         self.toggleControls()
     }
     
     func toggleControls() {
         weak var weakSelf = self
-        UIView.animateWithDuration(self.controlsFadeAnimationLength, animations: {() in 
+        UIView.animate(withDuration: self.controlsFadeAnimationLength, animations: {() in 
             weakSelf?.controlsView.alpha = self.controlViewsXibAlpha - self.controlsView.alpha
             weakSelf?.titleView.alpha = self.controlViewsXibAlpha - self.titleView.alpha
             weakSelf?.pagesView.alpha = self.controlViewsXibAlpha - self.pagesView.alpha
@@ -159,7 +179,7 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     
     func hideControls() {
         weak var weakSelf = self
-        UIView.animateWithDuration(self.controlsFadeAnimationLength, animations: {() in 
+        UIView.animate(withDuration: self.controlsFadeAnimationLength, animations: {() in 
             weakSelf?.controlsView.alpha = 0
             weakSelf?.titleView.alpha = 0
             weakSelf?.pagesView.alpha = 0
@@ -167,64 +187,64 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     }
     
     func dismissTableOfContents() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: Title view actions
     
-    @IBAction func onBackTap(sender: AnyObject) {
+    @IBAction func onBackTap(_ sender: AnyObject) {
         if self.navigationController != nil {
-            self.navigationController?.popViewControllerAnimated(true)
+            _ = self.navigationController?.popViewController(animated: true)
         }
         else if self.presentingViewController != nil {
-            self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
         }
     }
     
-    @IBAction func onContentsTap(sender: AnyObject) {
+    @IBAction func onContentsTap(_ sender: AnyObject) {
         let contentsController = TWPublicationPreviewViewControllerFactory.tableOfContentsControllerForUrl(self.playbackManager?.playbackSource?.sourceURL)
         if let contentsController = contentsController {
             contentsController.delegate = self
-            contentsController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(dismissTableOfContents))
+            contentsController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(dismissTableOfContents))
             let contentNavigationController = UINavigationController(rootViewController: contentsController)
-            self.presentViewController(contentNavigationController, animated: true, completion: nil)
+            self.present(contentNavigationController, animated: true, completion: nil)
         }
     }
     
-    @IBAction func onBookmarksTap(sender: AnyObject) {
+    @IBAction func onBookmarksTap(_ sender: AnyObject) {
         // TODO: show bookmarks
     }
     
     // MARK: UIGestureRecognizerDelegate
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
     // MARK: DMTableOfContentsTableViewControllerDelegate
     
-    func tableOfContentsController(tocController: DMTableOfContentsTableViewController!, didSelectItemWithPath path: String!) {
+    func table(ofContentsController tocController: DMTableOfContentsTableViewController!, didSelectItemWithPath path: String!) {
         self.previewController?.goToSection(sectionName: path)
         self.dismissTableOfContents()
     }
     
     // MARK: TWPlaybackManager
     
-    func playbackManager(playback: TWPlaybackManager, didBeginItemAtIndex index: Int) {
+    func playbackManager(_ playback: TWPlaybackManager, didBeginItemAtIndex index: Int) {
         self.playbackProgressSlider.progress = 0.0
         
         // open the next item in the preview window
         self.previewController?.goToSection(index)
     }
     
-    func playbackManager(playback: TWPlaybackManager, didFinishItemAtIndex index: Int) {
+    func playbackManager(_ playback: TWPlaybackManager, didFinishItemAtIndex index: Int) {
         self.playbackProgressSlider.progress = 1.0
     }
     
-    func playbackManager(playback: TWPlaybackManager, didMoveToPosition index: Int) {
+    func playbackManager(_ playback: TWPlaybackManager, didMoveToPosition index: Int) {
         let wholeText = self.playbackManager?.currentText
         if let wholeText = wholeText {
-            let wholeTextLength:Float = Float(wholeText.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+            let wholeTextLength:Float = Float(wholeText.lengthOfBytes(using: String.Encoding.utf8))
             let progress = Float(playback.letterIndex) / wholeTextLength
             self.playbackProgressSlider.setProgress(progress, animated: true)
         }
@@ -232,29 +252,29 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     
     // MARK: Remote control events
     
-    override func remoteControlReceivedWithEvent(event: UIEvent?) {
+    override func remoteControlReceived(with event: UIEvent?) {
         if let event = event {
-            if event.type == UIEventType.RemoteControl {
+            if event.type == UIEventType.remoteControl {
                 switch event.subtype {
-                case .RemoteControlPlay:
+                case .remoteControlPlay:
                     self.onPlayTap(self)
                     break
-                case .RemoteControlPause:
+                case .remoteControlPause:
                     self.onPlayTap(self)
                     break
-                case .RemoteControlNextTrack:
+                case .remoteControlNextTrack:
                     self.onNextTap(self)
                     break
-                case .RemoteControlPreviousTrack:
+                case .remoteControlPreviousTrack:
                     self.onPreviousTap(self)
                     break
-                case .RemoteControlTogglePlayPause:
+                case .remoteControlTogglePlayPause:
                     self.onPlayTap(self)
                     break
-                case .RemoteControlEndSeekingBackward:
+                case .remoteControlEndSeekingBackward:
                     // TODO: figure out the new position
                     break;
-                case .RemoteControlEndSeekingForward:
+                case .remoteControlEndSeekingForward:
                     // TODO: figure out the new position
                     break;
                 default:
@@ -267,26 +287,27 @@ class TWNowPlayingViewController : UIViewController, UIGestureRecognizerDelegate
     
     // MARK: Segues
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "BookmarksTable" {
-            let bookmarksNavigationController = segue.destinationViewController as? UINavigationController
+            let bookmarksNavigationController = segue.destination as? UINavigationController
             let bookmarksViewController = bookmarksNavigationController?.topViewController as? TWBookmarksViewController
-            let fileName = self.playbackManager?.playbackSource?.sourceURL?.lastPathComponent?.stringByRemovingPercentEncoding
+            let encodedFileName = self.playbackManager?.playbackSource?.sourceURL?.lastPathComponent as NSString?
+            let fileName = encodedFileName?.removingPercentEncoding
             bookmarksViewController?.filePath = fileName
         }
     }
     
-    override func performSegueWithIdentifier(identifier: String?, sender: AnyObject?) {
+    override func performSegue(withIdentifier identifier: String?, sender: Any?) {
         
     }
     
-    override func canPerformUnwindSegueAction(action: Selector,
-        fromViewController: UIViewController,
-        withSender sender: AnyObject) -> Bool {
+    override func canPerformUnwindSegueAction(_ action: Selector,
+        from fromViewController: UIViewController,
+        withSender sender: Any) -> Bool {
             return true;
     }
     
-    func unwindToSegue(segue: UIStoryboardSegue) {
+    func unwindToSegue(_ segue: UIStoryboardSegue) {
         
     }
 }

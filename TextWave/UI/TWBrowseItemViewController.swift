@@ -12,7 +12,7 @@ class TWBrowseItemViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var webView: UIWebView! = nil
     @IBOutlet var searchField: UITextField! = nil
-    var webPageDownloader:TWWebPageDownloader? = nil
+//    var webPageDownloader:TWWebPageDownloader? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +20,13 @@ class TWBrowseItemViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.hidesBarsOnSwipe = true
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         self.navigationController?.hidesBarsOnSwipe = false
@@ -39,9 +39,9 @@ class TWBrowseItemViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Button Actions
     
-    @IBAction func didSelectDownloadButton(buttonItem: UIBarButtonItem) {
+    @IBAction func didSelectDownloadButton(_ buttonItem: UIBarButtonItem) {
         if let address = self.searchField.text {
-            let addressUrl = NSURL(string: address)
+            let addressUrl = URL(string: address)
             if let addressUrl = addressUrl {
                 if TWWebPageDownloadManager.defaultDownloadManager.hasLocalCopyOfPage(addressUrl) {
                     return
@@ -49,16 +49,16 @@ class TWBrowseItemViewController: UIViewController, UITextFieldDelegate {
                 TWWebPageDownloadManager.defaultDownloadManager.downloadWebPage(addressUrl, loadResources: false, 
                     completionBlock: {(pageUrl) -> Void in 
                         // TODO: should probably go to sources collection view
-                        self.navigationController?.popViewControllerAnimated(true)
+                        _ = self.navigationController?.popViewController(animated: true)
                         return
                     }, failureBlock: {(pageUrl, error) -> Void in
                         let alertTitle = NSLocalizedString("Download failed", comment: "Web page download failure alert")
                         let alertBody = error?.localizedDescription
                         let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-                        let alert = UIAlertController(title: alertTitle, message: alertBody, preferredStyle: UIAlertControllerStyle.Alert)
-                        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: UIAlertActionStyle.Cancel, handler: nil)
+                        let alert = UIAlertController(title: alertTitle, message: alertBody, preferredStyle: UIAlertControllerStyle.alert)
+                        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: UIAlertActionStyle.cancel, handler: nil)
                         alert.addAction(cancelAction)
-                        self.presentViewController(alert, animated: true, completion: nil)
+                        self.present(alert, animated: true, completion: nil)
                     })
             }
         }
@@ -66,11 +66,11 @@ class TWBrowseItemViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - UITextFieldDelegate
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
-        if let text = textField.text, let url = NSURL(string: text) {
-            let request = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 30)
+        if let text = textField.text, let url = URL(string: text) {
+            let request = URLRequest(url: url, cachePolicy: NSURLRequest.CachePolicy.returnCacheDataElseLoad, timeoutInterval: 30)
             self.webView.loadRequest(request)
         }
         
@@ -79,18 +79,18 @@ class TWBrowseItemViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - TWWebPageDownloaderDelegate
     
-    func downloadFailed(downloadUrl: NSURL?, error:NSError?) {
+    func downloadFailed(_ downloadUrl: URL?, error:NSError?) {
         let alertTitle = NSLocalizedString("Download failed", comment: "Web page download failure alert")
         let alertBody = error?.localizedDescription
         let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-        let alert = UIAlertController(title: alertTitle, message: alertBody, preferredStyle: UIAlertControllerStyle.Alert)
-        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: UIAlertActionStyle.Cancel, handler: nil)
+        let alert = UIAlertController(title: alertTitle, message: alertBody, preferredStyle: UIAlertControllerStyle.alert)
+        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: UIAlertActionStyle.cancel, handler: nil)
         alert.addAction(cancelAction)
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
-    func downloadComplete(downloadUrl: NSURL?) {
+    func downloadComplete(_ downloadUrl: URL?) {
         // TODO: should probably go to sources collection view
-        self.navigationController?.popViewControllerAnimated(true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }

@@ -24,12 +24,12 @@ class TWTabViewController : UIViewController {
         self.selectedTabButton = libraryButton
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        nowPlayingButton.enabled = TWNowPlayingManager.instance.hasPlaybackItem
+        nowPlayingButton.isEnabled = TWNowPlayingManager.instance.hasPlaybackItem
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // don't execute this it initialEmbedSegue is being prepared. It is
         // going to be handled automatically by the storyboard
         if let segueId = segue.identifier {
@@ -42,20 +42,20 @@ class TWTabViewController : UIViewController {
             return
         }
         
-        let destinationController = segue.destinationViewController as UIViewController
+        let destinationController = segue.destination as UIViewController
         for childController in self.childViewControllers {
             childController.removeFromParentViewController()
         }
         self.addChildViewController(destinationController)
         destinationController.view.frame = self.contentAreaView.bounds
         self.contentAreaView.addSubview(destinationController.view)
-        destinationController.didMoveToParentViewController(self)
+        destinationController.didMove(toParentViewController: self)
         self.selectedTabButton = sender as? UIButton
     }
     
     // MARK: Remote control events
     
-    override func remoteControlReceivedWithEvent(event: UIEvent?) {
+    override func remoteControlReceived(with event: UIEvent?) {
         if let event = event {
             TWNowPlayingManager.instance.handleRemoteControlEvent(event)
         }

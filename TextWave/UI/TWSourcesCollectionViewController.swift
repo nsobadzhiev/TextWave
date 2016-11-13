@@ -25,22 +25,22 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionLayout.delegate = self
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TWSourcesCollectionViewController.onNewFileAdded), name: AppDelegateFileAddedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TWSourcesCollectionViewController.onNewFileAdded), name: NSNotification.Name(rawValue: AppDelegateFileAddedNotification), object: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.collectionView?.reloadData()
     }
     
-    func metadataForItem(indexPath indexPath:NSIndexPath) -> TWFileMetadata? {
-        let firstSourceFileName = fileManager.allDocumentPaths()[indexPath.row] as? String
+    func metadataForItem(indexPathIndexPath indexPath:NSIndexPath) -> TWFileMetadata? {
+        let firstSourceFileName = fileManager.allDocumentPaths()[(indexPath as NSIndexPath).row] as? String
         let cachedMetadata = self.cachedMetadataForFile(firstSourceFileName)
         
         if cachedMetadata != nil {
@@ -48,7 +48,7 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         }
         else {
             if let firstSource = firstSourceFileName {
-                let fileUrl = NSURL(string: firstSource)
+                let fileUrl = URL(string: firstSource)
                 let metadata = TWFileMetadataFactory.metadataForFile(fileUrl)
                 if let metadata = metadata {
                     self.fileMetadatas.append(metadata)
@@ -61,9 +61,9 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         }
     }
     
-    func cachedMetadataForFile(filePath:String?) -> TWFileMetadata? {
+    func cachedMetadataForFile(_ filePath:String?) -> TWFileMetadata? {
         if let filePath = filePath {
-            let fileUrl = NSURL(string: filePath)
+            let fileUrl = URL(string: filePath)
             for meta in self.fileMetadatas {
                 if meta.fileUrl == fileUrl {
                     return meta
@@ -73,33 +73,33 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
         return nil
     }
     
-    func filepathForIndex(indexPath:NSIndexPath) -> String? {
-        return fileManager.allDocumentPaths()[indexPath.row] as? String
+    func filepathForIndex(_ indexPath:IndexPath) -> String? {
+        return fileManager.allDocumentPaths()[(indexPath as NSIndexPath).row] as? String
     }
     
-    func handleItemSelection(indexPath indexPath:NSIndexPath) {
+    func handleItemSelection(indexPath:IndexPath) {
         let filePath = self.filepathForIndex(indexPath)
         if let filePath = filePath {
-            let fileUrl = NSURL(string: filePath)
+            let fileUrl = URL(string: filePath)
             TWNowPlayingManager.instance.startPlaybackWithUrl(fileUrl, selectedItem: nil)
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let nowPlayingController = mainStoryboard.instantiateViewControllerWithIdentifier("NowPlayingViewController") as! TWNowPlayingViewController
+            let nowPlayingController = mainStoryboard.instantiateViewController(withIdentifier: "NowPlayingViewController") as! TWNowPlayingViewController
             nowPlayingController.nowPlayingManager = TWNowPlayingManager.instance
-            self.presentViewController(nowPlayingController, animated: true, completion: nil)
+            self.present(nowPlayingController, animated: true, completion: nil)
         }
     }
     
-    func handleItemDeletion(indexPath indexPath:NSIndexPath) {
+    func handleItemDeletion(indexPath:IndexPath) {
         let filePath = self.filepathForIndex(indexPath)
         if let filePath = filePath {
-            let fileUrl = NSURL (string: filePath)
+            let fileUrl = URL (string: filePath)
             do {
-                try NSFileManager.defaultManager().removeItemAtURL(fileUrl!)
+                try FileManager.default.removeItem(at: fileUrl!)
             }
             catch {
                 // TODO: show error message
             }
-            self.collectionView?.deleteItemsAtIndexPaths([indexPath])
+            self.collectionView?.deleteItems(at: [indexPath])
         }
     }
     
@@ -109,24 +109,24 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
     
 // MARK: - Button Actions
     
-    @IBAction func unwindToSegue(segue: UIStoryboardSegue) {
+    @IBAction func unwindToSegue(_ segue: UIStoryboardSegue) {
         // Leave it empty.
     }
     
-    @IBAction func enterEditingMode(sender: AnyObject!) {
+    @IBAction func enterEditingMode(_ sender: AnyObject!) {
         let editButton = sender as? UIBarButtonItem
-        if self.editing {
+        if self.isEditing {
             editButton?.title = NSLocalizedString("Edit", comment: "Sources collection view bar button")
         }
         else {
             editButton?.title = NSLocalizedString("Done", comment: "Sources collection view bar button")
         }
-        self.editing = !self.editing
+        self.isEditing = !self.isEditing
         
-        let visibleCells = self.collectionView?.visibleCells()
+        let visibleCells = self.collectionView?.visibleCells
         for visibleCell in visibleCells! {
             let sourceCell = visibleCell as? TWSourcesCollectionViewCell
-            if self.editing {
+            if self.isEditing {
                 sourceCell?.startShaking()
             }
             else {
@@ -136,19 +136,19 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
     }
 // MARK: - Collection View Methods
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fileManager.allDocuments().count
     }
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let reuseId = "SourcesCell"
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseId, forIndexPath: indexPath) as! TWSourcesCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as! TWSourcesCollectionViewCell
         
-        let fileMetadata = self.metadataForItem(indexPath: indexPath)
+        let fileMetadata = self.metadataForItem(indexPathIndexPath: indexPath as NSIndexPath)
         cell.title = fileMetadata?.titleForFile()
         cell.imageView = UIImageView(image: UIImage(named: self.defaultThumbnailImageName))
         fileMetadata?.thumbnailForFileWithBlock({(thumbnailView:UIView?) in
@@ -157,27 +157,27 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
             }
         })
         
-        if self.editing == true {
+        if self.isEditing == true {
             cell.startShaking()
         }
         
         return cell;
     }
     
-    func collectionView(collectionView: UICollectionView,
+    func collectionView(_ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        sizeForItemAt indexPath: IndexPath) -> CGSize {
             // TODO: remove hardcoded values
-            if (indexPath.row % 2 == 0) {
-                return CGSizeMake(150, 100)
+            if ((indexPath as NSIndexPath).row % 2 == 0) {
+                return CGSize(width: 150, height: 100)
             }
             else {
-                return CGSizeMake(150, 200)
+                return CGSize(width: 150, height: 200)
             }
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if self.editing {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if self.isEditing {
             self.handleItemDeletion(indexPath: indexPath)
         }
         else {
@@ -187,20 +187,20 @@ class TWSourcesCollectionViewController : UICollectionViewController, UICollecti
     
     // MARK: layout data source
     
-    func sourcesCollectionLayout(collectionLayout: TWSourcesCollectionLayout, imageSizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let metadata = self.metadataForItem(indexPath: indexPath)
+    func sourcesCollectionLayout(_ collectionLayout: TWSourcesCollectionLayout, imageSizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        let metadata = self.metadataForItem(indexPathIndexPath: indexPath as NSIndexPath)
         let size = metadata?.thumbnailSize()
         if let size = size {
             return size
         }
         else {
-            return CGSizeZero
+            return CGSize.zero
         }
     }
     
-    func sourcesCollectionLayout(collectionLayout: TWSourcesCollectionLayout, titleForItemAtIndexPath indexPath: NSIndexPath) -> NSString? {
-        let metadata = self.metadataForItem(indexPath: indexPath)
-        return metadata?.titleForFile()
+    func sourcesCollectionLayout(_ collectionLayout: TWSourcesCollectionLayout, titleForItemAtIndexPath indexPath: IndexPath) -> NSString? {
+        let metadata = self.metadataForItem(indexPathIndexPath: indexPath as NSIndexPath)
+        return metadata?.titleForFile() as NSString?
     }
 
 }
