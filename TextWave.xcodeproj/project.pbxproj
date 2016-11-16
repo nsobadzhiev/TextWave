@@ -1630,10 +1630,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks/**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TextWave/TextWave-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1644,10 +1641,9 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "TextWave/TextWave-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWave-gbeugfbgpleqticudhesnyyfkflx/Build/Products/Debug/",
 					"$(PROJECT_DIR)/libs/JusText",
 					"$(PROJECT_DIR)/libs/pcre",
 				);
@@ -1673,10 +1669,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks/**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TextWave/TextWave-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1687,10 +1680,9 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "TextWave/TextWave-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWave-gbeugfbgpleqticudhesnyyfkflx/Build/Products/Debug/",
 					"$(PROJECT_DIR)/libs/JusText",
 					"$(PROJECT_DIR)/libs/pcre",
 				);
@@ -1751,12 +1743,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TextWave.app/TextWave";
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TextWave/TextWave-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
