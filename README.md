@@ -4,6 +4,8 @@
 
 TextWave is an iOS application that reads for you. It will extract the text out of webpages and use the built-in text-to-speech capabilites of your iPhone to play it back.
 
+![TextWave Library](screenshotLibrary.png) ![TextWave Now Playing](screenshotNowPlaying.png)
+
 ## Supported formats
 
 ### HTML
@@ -51,5 +53,3 @@ JusText is a boilerplate removal algorithm that I ported over to iOS. The projec
 #### Text-to-Tag Ratio (TTR)
 
 Text-to-Tag Ratio is another algorithm for extraction, [described here](https://www3.nd.edu/~tweninge/pubs/WH_TIR08.pdf). I implemented a native Objective-C version of it [here](https://github.com/nsobadzhiev/TTR). The TextWave project uses that repository as a git submodule. Even though testing has show that JusText is overall better at extracting the useful text from webpages nowadays, TTR shows decent results.
-
-## Third party libraries
